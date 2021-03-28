@@ -1,0 +1,7 @@
+{
+  "name": "jpapp",
+  "integrations": {
+    "capacitor": {}
+  },
+  "type": "angular"
+}
