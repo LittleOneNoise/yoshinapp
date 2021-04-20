@@ -1,20 +1,32 @@
-<ion-header [translucent]="true">
-  <ion-toolbar>
-    <ion-title>
-      Blank
+<ion-header class="header">
+  <ion-toolbar class="top-toolbar">
+    <ion-title class="top-title">
+      Practice
     </ion-title>
   </ion-toolbar>
 </ion-header>
 
 <ion-content [fullscreen]="true">
-  <ion-header collapse="condense">
-    <ion-toolbar>
-      <ion-title size="large">Blank</ion-title>
-    </ion-toolbar>
-  </ion-header>
-
-  <div id="container">
-    <strong>Ready to create an app?</strong>
-    <p>Start with Ionic <a target="_blank" rel="noopener noreferrer" href="https://ionicframework.com/docs/components">UI Components</a></p>
+  <img src="../assets/logo_nihongokay.png" class="logo">
+  <div class="button-menu">
+  <ion-button>あ Hiragana</ion-button>
+  <ion-button>ア Katakana</ion-button>
+  <ion-button>? Kana</ion-button>
+  <ion-button>字 Kanji</ion-button>
   </div>
 </ion-content>
+  
+
+<ion-tabs>
+    <ion-tab-bar slot="bottom">
+      <ion-tab-button>
+        <ion-icon (click)="goToLearning()" src="../assets/icon/icon-learning.svg"></ion-icon>
+      </ion-tab-button>
+      <ion-tab-button>
+        <ion-icon (click)="goToPractice()" src="../assets/icon/icon-practice.svg"></ion-icon>
+      </ion-tab-button>
+      <ion-tab-button>
+        <ion-icon (click)="goToStats()" src="../assets/icon/icon-stats.svg"></ion-icon>
+      </ion-tab-button>
+    </ion-tab-bar>
+  </ion-tabs>
