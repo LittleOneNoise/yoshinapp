@@ -25,7 +25,6 @@ ion-tab-bar {
 }
 
 ion-tab-button {
-  --color: #D6D6D6;
   --color-selected: #C57185;
 }
 
@@ -54,5 +53,11 @@ ion-button {
   font-size: 20px;
   text-transform: none;
   letter-spacing: 1px;
-  --box-shadow: 100px;
+  // --box-shadow: 100px;
+  --color: #D6D6D6;
+}
+
+.icon-button {
+  margin: -5px 5px;
+  height: 50%;
 }
