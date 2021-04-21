@@ -9,15 +9,20 @@
 <ion-content [fullscreen]="true">
   <img src="../assets/logo_nihongokay.png" class="logo">
   <div class="button-menu">
-  <ion-button>あ Hiragana</ion-button>
-  <ion-button>ア Katakana</ion-button>
-  <ion-button><ion-icon src="../assets/icon/icon-kana.svg" class="icon-button"></ion-icon> Kana</ion-button>
-  <ion-button>字 Kanji</ion-button>
+    
+      <ion-button (click)="goToLearningHiragana()">あ Hiragana</ion-button>
+      <ion-button (click)="goToLearningKatakana()">ア Katakana</ion-button>
+      <ion-button (click)="goToLearningKana()"><ion-icon src="../assets/icon/icon-kana.svg" class="icon-button"></ion-icon> Kana</ion-button>
+      <ion-button (click)="goToLearningKanji()">字 Kanji</ion-button>
+   
   </div>
+
 </ion-content>
+
+
   
 
-<ion-tabs>
+
     <ion-tab-bar slot="bottom">
       <ion-tab-button>
         <ion-icon (click)="goToLearning()" src="../assets/icon/icon-learning.svg"></ion-icon>
@@ -29,4 +34,5 @@
         <ion-icon (click)="goToStats()" src="../assets/icon/icon-stats.svg"></ion-icon>
       </ion-tab-button>
     </ion-tab-bar>
-  </ion-tabs>
+
+
