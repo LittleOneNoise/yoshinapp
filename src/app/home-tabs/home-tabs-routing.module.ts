@@ -8,12 +8,22 @@ import { HomeTabsPage } from './home-tabs.page';
 
 const routes: Routes = [
   {
-    path: '',
+    path: 'tabs',
     component: HomeTabsPage,
     children: [
       {
         path: 'practicepath',
-        loadChildren: () => import('../practice-home/practice-home.module').then(m => m.PracticeHomePageModule)
+        children: [
+          {
+          path: '',
+          loadChildren: () => import('../practice-home/practice-home.module').then(m => m.PracticeHomePageModule)
+          },
+          {
+            path: 'practice-amount',
+            loadChildren: () => import('../practice-amount/practice-amount.module').then(m => m.PracticeAmountPageModule)
+          }
+        ]
+        // loadChildren: () => import('../practice-home/practice-home.module').then(m => m.PracticeHomePageModule)
       },
       {
         path: 'learningpath',
@@ -28,7 +38,7 @@ const routes: Routes = [
   },
   {
     path: '',
-    redirectTo: 'practicepath',
+    redirectTo: 'tabs/practicepath',
     pathMatch: 'full'
   }
   

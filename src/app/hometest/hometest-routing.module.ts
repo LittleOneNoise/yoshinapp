@@ -7,12 +7,12 @@ const routes: Routes = [
   {
     path: '',
     component: HometestPage,
-    children: [
-      {
-        path: 'tabs',
-        loadChildren: () => import('../home-tabs/home-tabs.module').then(m => m.HomeTabsPageModule)
-      },
-    ]
+    // children: [
+    //   {
+    //     path: 'tabs',
+    //     loadChildren: () => import('../home-tabs/home-tabs.module').then(m => m.HomeTabsPageModule)
+    //   },
+    // ]
   }
 ];
 
