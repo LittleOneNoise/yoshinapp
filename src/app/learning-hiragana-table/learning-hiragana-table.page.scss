@@ -1,0 +1,140 @@
+.header {
+  text-align: center;
+}
+
+.top-toolbar {
+  --background: #A18585;
+  --color: #262626;
+}
+
+.top-title {
+  // font-size: 25px;
+  font-size:3vh;
+  font-weight: 600;
+}
+
+ion-content {
+  --background: #433121;
+}
+
+ion-tab-bar {
+  --background: #262626;
+}
+
+ion-tab-button {
+  --color-selected: #C57185;
+}
+
+.logo {
+  height: 20%;
+  margin: 7% auto;
+  display: block;
+  
+}
+
+.button-menu {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+ion-button {
+  width: 200px;
+  max-width: 60%;
+  height: 40px;
+  margin: 3% 0;
+  --border-radius: 10px;
+  --background: #C57185;
+  --background-activated: #262626;
+  --background-hover: #262626;
+  font-size: 20px;
+  text-transform: none;
+  letter-spacing: 1px;
+  --box-shadow: 5px 5px 5px rgb(38, 38, 38, 0.2);
+  --color: #D6D6D6;
+}
+
+.icon-button {
+  margin: -5px 5px;
+  height: 50%;
+}
+
+table {
+  border-collapse: separate;
+  border-spacing: 10px;
+  margin: 20px auto;
+}
+
+td {
+  
+  text-align: center;
+  margin: 50px;
+}
+
+.light {
+  background-color: #A18585;
+  color: #262626;
+  font-size: 20px;
+  font-weight: bold;
+  box-shadow: 2px 2px 5px black;
+  border-radius: 5px;
+  padding: 0px 10px;
+}
+
+.dark_sub {
+  background-color: #262626;
+  color: #D6D6D6;
+  font-size: 12px;
+  font-weight: bold;
+  // box-shadow: 2px 2px 5px black;
+  border-radius: 5px;
+  padding: 2px;
+}
+
+.div_table {
+  // margin: 15px 15px;
+  margin: 5%;
+}
+
+.div_row {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+}
+
+.div_charac {
+  background-color: #A18585;
+  color: #262626;
+  // font-size: 25px;
+  font-size: min(8vw, 60px);
+  font-weight: bold;
+  display: flex;
+  justify-content: space-evenly;
+  border-radius: 5px;
+  padding: 0 10px;
+  box-shadow: 2px 2px 5px black;
+
+}
+
+.div_subrow {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  margin-bottom: 10px;
+}
+
+.div_label {
+  background-color: #262626;
+  color: #D6D6D6;
+  // font-size: 12px;
+  font-size: min(4vw, 30px);
+  font-weight: bold;
+  display: flex;
+  justify-content: space-evenly;
+  border-radius: 5px;
+  padding: 2px 0px;
+  width: 15%;
+  max-width: 82px;
+
+}
+

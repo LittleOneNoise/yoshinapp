@@ -1,0 +1,32 @@
+[
+    {
+        "id": 1,
+        "name": "a",
+        "character": "あ",
+        "family": "hiragana"
+    },
+    {
+        "id": 2,
+        "name": "i",
+        "character": "い",
+        "family": "hiragana"
+    },
+    {
+        "id": 3,
+        "name": "u",
+        "character": "う",
+        "family": "hiragana"
+    },
+    {
+        "id": 4,
+        "name": "e",
+        "character": "え",
+        "family": "hiragana"
+    },
+    {
+        "id": 5,
+        "name": "o",
+        "character": "お",
+        "family": "hiragana"
+    }
+]

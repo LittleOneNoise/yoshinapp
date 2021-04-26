@@ -12,7 +12,7 @@ const routes: Routes = [
     component: HomeTabsPage,
     children: [
       {
-        path: 'practicepath',
+        path: 'practicetab',
         children: [
           {
           path: '',
@@ -20,25 +20,59 @@ const routes: Routes = [
           },
           {
             path: 'practice-amount',
-            loadChildren: () => import('../practice-amount/practice-amount.module').then(m => m.PracticeAmountPageModule)
+            children: [
+              {
+                path: '',
+                loadChildren: () => import('../practice-amount/practice-amount.module').then(m => m.PracticeAmountPageModule)
+              },
+              {
+                path: 'quizzalpha',
+                loadChildren: () => import('../quizzalpha/quizzalpha.module').then(m => m.QuizzalphaPageModule)
+              }
+            ]
+            
           }
         ]
         // loadChildren: () => import('../practice-home/practice-home.module').then(m => m.PracticeHomePageModule)
       },
       {
-        path: 'learningpath',
-        loadChildren: () => import('../learning-home/learning-home.module').then(m => m.LearningHomePageModule)
+        path: 'learningtab',
+        children: [
+          {
+            path: '',
+            loadChildren: () => import('../learning-home/learning-home.module').then(m => m.LearningHomePageModule)
+          },
+          {
+            path: 'learning-hiragana',
+            children: [
+              {
+                path: '',
+                loadChildren: () => import('../learning-hiragana-menu/learning-hiragana-menu.module').then(m => m.LearningHiraganaMenuPageModule)
+              },
+              {
+                path: 'mnemonic',
+                loadChildren: () => import('../learning-hiragana-mnemonic/learning-hiragana-mnemonic.module').then(m => m.LearningHiraganaMnemonicPageModule)
+              },
+              {
+                path: 'table',
+                loadChildren: () => import('../learning-hiragana-table/learning-hiragana-table.module').then(m => m.LearningHiraganaTablePageModule)
+              }
+            ]
+          }
+        ]
+        
       },
       {
         path: '',
-        redirectTo: 'practicepath',
+        redirectTo: 'learningtab',
         pathMatch: 'full'
-      }
+      },
+      
     ]
   },
   {
     path: '',
-    redirectTo: 'tabs/practicepath',
+    redirectTo: 'tabs/practicetab',
     pathMatch: 'full'
   }
   

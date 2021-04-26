@@ -1,0 +1,59 @@
+.header {
+    text-align: center;
+  }
+  
+  .top-toolbar {
+    --background: #A18585;
+    --color: #262626;
+  }
+  
+  .top-title {
+    font-size: 30px;
+    font-weight: 600;
+  }
+  
+  ion-content {
+    --background: #433121;
+  }
+  
+  ion-tab-bar {
+    --background: #262626;
+  }
+  
+  ion-tab-button {
+    --color-selected: #C57185;
+  }
+  
+  .logo {
+    height: 20%;
+    margin: 7% auto;
+    display: block;
+    
+  }
+  
+  .button-menu {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+  
+  ion-button {
+    width: 200px;
+    max-width: 60%;
+    height: 40px;
+    margin: 3% 0;
+    --border-radius: 10px;
+    --background: #C57185;
+    --background-activated: #262626;
+    --background-hover: #262626;
+    font-size: 20px;
+    text-transform: none;
+    letter-spacing: 1px;
+    --box-shadow: 5px 5px 5px rgb(38, 38, 38, 0.2);
+    --color: #D6D6D6;
+  }
+  
+  .icon-button {
+    margin: -5px 5px;
+    height: 50%;
+  }
