@@ -12,11 +12,11 @@ export class QuizzalphaPage implements OnInit {
 
   constructor(private route: ActivatedRoute, private router: Router) {
    
-    // this.route.queryParams.subscribe(params => {
-    //   // if (this.router.getCurrentNavigation().extras.state) {
-    //     this.amount = this.router.getCurrentNavigation().extras.state.amountUrl;
-    //   // }
-    // });
+    this.route.queryParams.subscribe(params => {
+      if (this.router.getCurrentNavigation().extras.state) {
+        this.amount = this.router.getCurrentNavigation().extras.state.amountUrl;
+      }
+    });
 
   console.log(this.amount);
 

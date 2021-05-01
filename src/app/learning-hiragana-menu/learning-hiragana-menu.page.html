@@ -10,8 +10,19 @@
 
   <div class="button-menu">
     
-      <ion-button (click)="goToHiraMnemo()">Mnemonic</ion-button>
-      <ion-button (click)="goToHiraTable()">Table</ion-button>
+      <ion-button (click)="goToHiraMnemo()">
+        <div class="button-inner">
+          <ion-icon src="../assets/icon/mnemonic-icon.svg" class="icon-button"></ion-icon>
+          <ion-label>Mnemonic</ion-label>
+        </div>
+      </ion-button>
+      
+      <ion-button (click)="goToHiraTable()">
+        <div class="button-inner">
+          <ion-icon src="../assets/icon/table-icon.svg" class="icon-button"></ion-icon>
+          <ion-label>Table</ion-label>
+        </div>
+      </ion-button>
       
   </div>
 

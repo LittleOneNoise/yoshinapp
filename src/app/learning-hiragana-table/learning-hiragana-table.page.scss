@@ -9,8 +9,14 @@
 
 .top-title {
   // font-size: 25px;
-  font-size:3vh;
+  font-size:2.8vh;
   font-weight: 600;
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  text-align: center;
 }
 
 ion-content {
@@ -103,6 +109,21 @@ td {
 }
 
 .div_charac {
+  // background-color: #A18585;
+  background-color: #773434;
+  color: #CEA06A;
+  // font-size: 25px;
+  font-size: min(8vw, 60px);
+  font-weight: bold;
+  display: flex;
+  justify-content: space-evenly;
+  border-radius: 5px;
+  padding: 0 10px;
+  box-shadow: 2px 2px 5px black;
+
+}
+
+.div_charac2 {
   background-color: #A18585;
   color: #262626;
   // font-size: 25px;
@@ -137,4 +158,3 @@ td {
   max-width: 82px;
 
 }
-

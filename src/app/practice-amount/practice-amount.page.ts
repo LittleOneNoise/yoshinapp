@@ -13,10 +13,10 @@ export class PracticeAmountPage implements OnInit {
   goToQuizz(amount: number){
     let navigationExtras: NavigationExtras = {
       state: {
-        amountUrl: 50,
+        amountUrl: amount,
       }
     };
-    this.router.navigate(['tabs/practicetab/practice-amount/quizzalpha', navigationExtras]);
+    this.router.navigate(['tabs/practicetab/practice-amount/quizzalpha'], navigationExtras);
   }
 
   ngOnInit() {
