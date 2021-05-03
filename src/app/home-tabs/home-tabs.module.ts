@@ -1,3 +1,4 @@
+import { SuperTabsModule } from '@ionic-super-tabs/angular';
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
@@ -13,7 +14,7 @@ import { HomeTabsPage } from './home-tabs.page';
     CommonModule,
     FormsModule,
     IonicModule,
-    HomeTabsPageRoutingModule
+    HomeTabsPageRoutingModule,
   ],
   declarations: [HomeTabsPage]
 })

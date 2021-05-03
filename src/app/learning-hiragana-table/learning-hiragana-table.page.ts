@@ -1,7 +1,6 @@
-import { KanaList } from './../service/KanaList';
-import { JsonGrabberService } from './../service/json-grabber.service';
 import { Component, OnInit } from '@angular/core';
-import { Kana } from './../service/Kana';
+import { LearningHiraganaTable1Page } from '../learning-hiragana-table1/learning-hiragana-table1.page';
+import { SuperTabsConfig } from '@ionic-super-tabs/core'
 
 @Component({
   selector: 'app-learning-hiragana-table',
@@ -10,41 +9,19 @@ import { Kana } from './../service/Kana';
 })
 export class LearningHiraganaTablePage implements OnInit {
 
-  constructor(public jsonGrabber: JsonGrabberService) { }
+  basicPage = LearningHiraganaTable1Page;
 
-  listKanas: Kana[];
-  results: any;
+  constructor() { }
 
-  async ngOnInit() {
-    try {
-      let rep:KanaList = await this.jsonGrabber.getKana();
-      this.listKanas = rep.data;
-      
-    } catch (error) {
-      
-    }
 
-    fetch('./../assets/data/kana.json').then(res => res.json()).then(json => {
-      console.log('results::', json);
-      this.results = json;
-
-      for(let e in this.results){
-        console.log(e["name"]);
-      }
-      
-    })
-
-    for(let e in this.listKanas){
-      console.log(e);
-    }
-
-    for(let e in this.results){
-      console.log(e);
-    }
-
+  ngOnInit() {
   }
   
-  
+  config: SuperTabsConfig = {
+    // dragThreshold: 250,
+    allowElementScroll: true
+    
+  }
   
 
 }

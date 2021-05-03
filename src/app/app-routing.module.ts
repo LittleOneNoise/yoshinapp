@@ -14,6 +14,10 @@ const routes: Routes = [
   {
     path: '',
     loadChildren: () => import('./home-tabs/home-tabs.module').then(m => m.HomeTabsPageModule)
+  },
+  {
+    path: 'learning-hiragana-table1',
+    loadChildren: () => import('./learning-hiragana-table1/learning-hiragana-table1.module').then( m => m.LearningHiraganaTable1PageModule)
   }
 ];
 
