@@ -29,7 +29,11 @@ const routes: Routes = [
                 path: 'quizzalpha',
                 loadChildren: () => import('../quizzalpha/quizzalpha.module').then(m => m.QuizzalphaPageModule)
               }
-            ]
+            ],
+          },
+            {
+            path: 'final-result',
+            loadChildren: () => import('../final-score/final-score.module').then(m => m.FinalScorePageModule)
             
           }
         ]

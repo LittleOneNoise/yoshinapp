@@ -1,9 +1,46 @@
-<ion-header>
-  <ion-toolbar>
-    <ion-title>quizzalpha</ion-title>
+<ion-header class="header">
+  <ion-toolbar class="top-toolbar">
+    <ion-buttons slot="start">
+      <ion-back-button></ion-back-button>
+    </ion-buttons>
+    <ion-title class="top-title">
+      Practice {{writing}}
+    </ion-title>
   </ion-toolbar>
 </ion-header>
 
 <ion-content>
-<p *ngIf="amount">{{amount}} questions</p>
+<!-- <p *ngIf="amount">{{amount}} questions</p> -->
+
+<p class="progression">Progression : {{progression}}/{{amount}}</p>
+
+<div class="main_block">
+
+  <div class="direction">
+    <p>What's the roumaji for this hiragana ?</p>
+  </div>
+
+  <div class="block_charac">
+    <p class="content_block_charac">{{current_charac}}</p>
+  </div>
+
+  <div class="input_block" *ngIf="inputShown">
+    <ion-input placeholder="Type your answer..." autofocus="true" (keyup.enter)="validateInput()" [(ngModel)]="input_value"></ion-input>
+    <ion-button class="check_container">
+      <img src="../assets/icon/check.png" class="img_check"/>
+    </ion-button>
+  </div>
+
+  <div class="next">
+    <ion-button (click)="goNext()" *ngIf="mistake">Next</ion-button>
+  </div>
+
+</div>
+
+<div *ngIf="mistake" class="mistake_block">
+  <p class="mistake_title">Wrong answer</p>
+  <div class="mistake_content">{{input_value}} => {{current_name}}</div>
+
+</div>
+
 </ion-content>

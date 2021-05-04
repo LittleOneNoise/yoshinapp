@@ -28,20 +28,8 @@ export class LearningHiraganaTable1Page implements OnInit {
       console.log('results::', json);
       this.results = json;
 
-      for(let e in this.results){
-        console.log(e["name"]);
-      }
-      
-    })
+  })
 
-    for(let e in this.listKanas){
-      console.log(e);
-    }
-
-    for(let e in this.results){
-      console.log(e);
-    }
-
-  }
+}
 
 }

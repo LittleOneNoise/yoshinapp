@@ -10,10 +10,11 @@ export class PracticeAmountPage implements OnInit {
 
   constructor(private router: Router) { }
 
-  goToQuizz(amount: number){
+  goToQuizz(amount: number, writing: string){
     let navigationExtras: NavigationExtras = {
       state: {
         amountUrl: amount,
+        writingSystem: writing,
       }
     };
     this.router.navigate(['tabs/practicetab/practice-amount/quizzalpha'], navigationExtras);

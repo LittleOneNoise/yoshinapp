@@ -66,15 +66,17 @@ ion-button {
 }
 
 :host {  
-  --super-tabs-toolbar-background: #262626;
-  --st-indicator-color: #C57185;
-  --st-base-color-inactive: #8F8F8F;
-  --st-base-color-active: #C57185;
-  // --allowElementScroll: true;
+  --super-tabs-toolbar-background: #A18585;
+  --st-indicator-color: #262626;
+  // --st-indicator-height: 8%;
+  --st-base-color-inactive: #262626;
+  --st-base-color-active: #262626;
   --super-tab-height: 100%;
   
 }
 
-:root {
-  --super-tab-height: 100%;
+ion-label {
+  font-weight: 600;
+  // text-transform: none;
+  font-size: 3vw;
 }
