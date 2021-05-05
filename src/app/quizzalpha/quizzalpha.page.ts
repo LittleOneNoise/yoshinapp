@@ -65,6 +65,7 @@ export class QuizzalphaPage implements OnInit {
         state: {
           score: this.final_score,
           writingSystem: this.writing,
+          amt: this.amount,
         }
       };
       this.router.navigate(['tabs/practicetab/final-result'], navigationExtras);

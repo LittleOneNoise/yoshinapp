@@ -1,0 +1,126 @@
+.header {
+    text-align: center;
+  }
+  
+  .top-toolbar {
+    --background: #A18585;
+    --color: #262626;
+  }
+  
+  .top-title {
+    // font-size: 25px;
+    font-size:2.8vh;
+    font-weight: 600;
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    text-align: center;
+  }
+
+  ion-content {
+    --background: #433121;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+  
+  ion-tab-bar {
+    --background: #262626;
+  }
+  
+  ion-tab-button {
+    --color-selected: #C57185;
+  }
+
+  .main_block {
+      display: flex;
+      flex-direction: column;
+      align-content: space-around;
+      height: 70%;
+    //   margin-top: 25%;
+  }
+
+  .emote_score {
+      display: flex;
+      justify-content: center;
+    height: 40%;
+    margin-top: 5%;
+    margin-bottom: 2%;
+  }
+
+  .direction {
+      display: flex;
+      text-align: center;
+      color: #D6D6D6;
+      font-size: 5vw;
+      margin: 0 auto;
+  }
+
+  .note {
+      display: flex;
+      font-size: 15vw;
+      color: #D6D6D6;
+      text-align: center;
+      font-weight: 600;
+      letter-spacing: 1px;
+      margin: 0 auto;
+  }
+
+  .nav_button {
+      display: flex;
+      justify-content: center;
+      margin: 2% auto;
+  }
+
+  .block_charac {
+    width: 20vh;
+    height: 20vh;
+    margin-bottom: 10%;
+    border-radius: 20px;
+    background: #C57185;
+    // font-size: 20vh;
+    text-transform: none;
+    letter-spacing: 1px;
+    box-shadow: 5px 5px 5px rgb(38, 38, 38, 0.2);
+    color: #D6D6D6;
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+  .content_block_charac {
+      text-align: center;
+      font-weight: 600;
+      font-size: 15vh;
+      margin: auto;
+  }
+
+  ion-input {
+      --background: #D6D6D6;
+      --color: #262626;
+      height: 100%;
+      border-radius: 5px;
+    //   margin-right: 5%;
+  }
+
+  ion-button {
+      --background: #A18585;
+      --color: #d6d6d6;
+      margin: 5%;
+  }
+
+  .check_container {
+    margin-left: 5%;
+    height: 100%;
+    margin-top: auto;
+  }
+
+  .img_check {
+    // width:auto;
+    height: 60%;
+}
+
+.next {
+    margin: auto;
+}

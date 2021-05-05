@@ -1,10 +1,29 @@
-<ion-header>
-  <ion-toolbar>
-    <ion-title>FinalScore</ion-title>
+<ion-header class="header">
+  <ion-toolbar class="top-toolbar">
+    <ion-title class="top-title">
+      Practice Result
+    </ion-title>
   </ion-toolbar>
 </ion-header>
 
 <ion-content>
-  Tu as atteind {{score}} points pour le test {{writing}}
+  
+  <div class="main_block">
+
+    <div class="emote_score">
+        <img src="../../assets/img/emote_ok.png">
+    </div>
+  
+    <div class="direction">Your score is</div>
+
+    <div class="note">{{score}}/{{amount}}</div>
+
+    <div class="nav_button">
+      <ion-button (click)="goHome()">Home</ion-button>
+      <ion-button (click)="goToQuizz(10,'Hiragana')">Try again</ion-button>
+    </div>
+
+
+  </div>
 
 </ion-content>
