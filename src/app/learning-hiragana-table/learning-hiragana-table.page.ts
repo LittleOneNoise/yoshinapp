@@ -1,3 +1,4 @@
+import { LearningHiraganaTable2Page } from './../learning-hiragana-table2/learning-hiragana-table2.page';
 import { Component, OnInit } from '@angular/core';
 import { LearningHiraganaTable1Page } from '../learning-hiragana-table1/learning-hiragana-table1.page';
 import { SuperTabsConfig } from '@ionic-super-tabs/core'
@@ -9,7 +10,8 @@ import { SuperTabsConfig } from '@ionic-super-tabs/core'
 })
 export class LearningHiraganaTablePage implements OnInit {
 
-  basicPage = LearningHiraganaTable1Page;
+  table1 = LearningHiraganaTable1Page;
+  table2 = LearningHiraganaTable2Page;
 
   constructor() { }
 

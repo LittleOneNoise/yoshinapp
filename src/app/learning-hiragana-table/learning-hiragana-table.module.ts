@@ -9,6 +9,7 @@ import { IonicModule } from '@ionic/angular';
 import { LearningHiraganaTablePageRoutingModule } from './learning-hiragana-table-routing.module';
 
 import { LearningHiraganaTablePage } from './learning-hiragana-table.page';
+import { LearningHiraganaTable2PageModule } from '../learning-hiragana-table2/learning-hiragana-table2.module';
 
 @NgModule({
   imports: [
@@ -17,7 +18,8 @@ import { LearningHiraganaTablePage } from './learning-hiragana-table.page';
     IonicModule,
     LearningHiraganaTablePageRoutingModule,
     SuperTabsModule,
-    LearningHiraganaTable1PageModule
+    LearningHiraganaTable1PageModule,
+    LearningHiraganaTable2PageModule
   ],
   declarations: [LearningHiraganaTablePage]
 })
