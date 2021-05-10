@@ -1,4 +1,4 @@
-## Nihong'okay
+## Yoshinapp
 Nihong'okay is a cross-platform mobile application that aims to provide a way to learn the Japanese language. It has been developed to offer a clean and pleasant interface to boost learning efficiency.
 
 ## Why develop an app that already exists in millions of forms ?
