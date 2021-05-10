@@ -1,5 +1,5 @@
 ## Yoshinapp
-Nihong'okay is a cross-platform mobile application that aims to provide a way to learn the Japanese language. It has been developed to offer a clean and pleasant interface to boost learning efficiency.
+Yoshinapp is a cross-platform mobile application that aims to provide a way to learn the Japanese language. It has been developed to offer a clean and pleasant interface to boost learning efficiency.
 
 ## Why develop an app that already exists in millions of forms ?
 This project is for me the opportunity to develop my skills in mobile programming while working on a subject that means a lot to me: the Japanese language.
