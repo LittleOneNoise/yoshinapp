@@ -8,29 +8,54 @@
 
 <ion-content [fullscreen]="true">
   <img src="../assets/logo_nihongokay.png" class="logo">
-  <div class="button-menu">
+  
+  <div class="menu_block">
     
-      <ion-button (click)="goToLearningHiragana()" routerLink="/tabs/practicetab/practice-amount" routerDirection="forward">あ Hiragana</ion-button>
-      <ion-button (click)="goToLearningKatakana()">ア Katakana</ion-button>
-      <ion-button (click)="goToLearningKana()"><ion-icon src="../assets/icon/icon-kana.svg" class="icon-button"></ion-icon> Kana</ion-button>
-      <ion-button (click)="goToLearningKanji()">字 Kanji</ion-button>
-   
+    <div class="row_block">
+     
+      <ion-button (click)="goToQuizz('hiragana','phonetic')">
+        <div class="button_content">
+          <p class="button_label">Alphabet</p>
+          <img src="../../assets/icon/practice_button_icon_hira_alphabet.png" class="button_img">
+          <p class="button_label">Hiragana</p>
+        </div>
+      </ion-button>
+
+      <ion-button (click)="goToQuizz('hiragana','words')">
+        <div class="button_content">
+          <p class="button_label">Words</p>
+          <img src="../../assets/icon/practice_button_icon_hira_word.png" class="button_img">
+          <p class="button_label">Hiragana</p>
+        </div>
+      </ion-button>
+
+    </div>
+
+    <div class="row_block">
+     
+      <ion-button (click)="goToQuizz('katakana','phonetic')">
+        <div class="button_content">
+          <p class="button_label">Alphabet</p>
+          <img src="../../assets/icon/practice_button_icon_kata_alphabet.png" class="button_img">
+          <p class="button_label">Katakana</p>
+        </div>
+      </ion-button>
+
+      <ion-button (click)="goToQuizz('katakana','words')">
+        <div class="button_content">
+          <p class="button_label">Words</p>
+          <img src="../../assets/icon/practice_button_icon_kata_word.png" class="button_img">
+          <p class="button_label">Katakana</p>
+        </div>
+      </ion-button>
+
+    </div>
+
   </div>
+
 
 </ion-content>
 
 
   
 
-
-    <!-- <ion-tab-bar slot="bottom">
-      <ion-tab-button tab="learning">
-        <ion-icon (click)="goToLearning()" src="../assets/icon/icon-learning.svg"></ion-icon>
-      </ion-tab-button>
-      <ion-tab-button tab="practice">
-        <ion-icon (click)="goToPractice()" src="../assets/icon/icon-practice.svg"></ion-icon>
-      </ion-tab-button>
-      <ion-tab-button tab="stats">
-        <ion-icon (click)="goToStats()" src="../assets/icon/icon-stats.svg"></ion-icon>
-      </ion-tab-button>
-    </ion-tab-bar> -->

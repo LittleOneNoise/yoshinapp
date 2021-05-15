@@ -1,6 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { Router } from '@angular/router';
-import { NativeAudio } from '@ionic-native/native-audio/ngx';
+import { NavigationExtras, Router } from '@angular/router';
 
 @Component({
   selector: 'app-practice-home',
@@ -9,16 +8,19 @@ import { NativeAudio } from '@ionic-native/native-audio/ngx';
 })
 export class PracticeHomePage implements OnInit {
 
-  constructor(private router: Router, private nativeAudio: NativeAudio) {
-    this.nativeAudio.preloadSimple('pop-nav', '../assets/sounds/pop_nav.mp3');
-  }
+  constructor(private router: Router) {
+}
 
   
 
-  goToLearningHiragana(){
-    // this.router.navigateByUrl('/hometest');
-    
-    this.nativeAudio.play('pop-nav');
+  goToQuizz(writingSystem: string, quizzType: string){
+    let navigationExtras: NavigationExtras = {
+      state: {
+        type: quizzType,
+        writing: writingSystem,
+      }
+    };
+    this.router.navigate(['tabs/practicetab/quizz'], navigationExtras);
   }
 
   ngOnInit() {

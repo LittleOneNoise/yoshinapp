@@ -93,6 +93,44 @@
   //   }
   // }
 
+  .switcher {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+  }
+
+  .button1 {
+    background: #C57185;
+    color: #262626;
+    font-size: 2.5vh;
+    border-radius: 1vh 0 0 0;
+    padding: 0.5vh 2vh;
+  }
+
+  .button1v2 {
+    background: #A18585;
+    color: #262626;
+    font-size: 2.5vh;
+    border-radius: 1vh 0 0 0;
+    padding: 0.5vh 2vh;
+  }
+
+  .button2 {
+    background: #A18585;
+    color: #262626;
+    font-size: 2.5vh;
+    border-radius: 0 1vh 0 0;
+    padding: 0.5vh 2vh;
+  }
+
+  .button2v2 {
+    background: #C57185;
+    color: #262626;
+    font-size: 2.5vh;
+    border-radius: 0 1vh 0 0;
+    padding: 0.5vh 2vh;
+  }
+
   .info {
       font-size: 15px;
       color: #262626;

@@ -14,11 +14,11 @@ export class LearningHiraganaMenuPage implements OnInit {
   }
 
   goToHiraTable(){
-    this.router.navigateByUrl('tabs/learningtab/learning-hiragana/table');
+    this.router.navigateByUrl('tabs/learningtab/learning-hiragana-table');
   }
 
   goToHiraMnemo(){
-    this.router.navigateByUrl('tabs/learningtab/learning-hiragana/mnemonic');
+    this.router.navigateByUrl('tabs/learningtab/learning-hiragana-mnemonic');
   }
 
 }

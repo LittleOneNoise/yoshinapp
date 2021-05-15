@@ -38,22 +38,52 @@
   }
   
   ion-button {
-    width: 200px;
-    max-width: 60%;
-    height: 40px;
-    margin: 3% 0;
-    --border-radius: 10px;
+    width: 15vh;
+    height: 15vh;
+    margin: 0 auto 20% auto;
+    --border-radius: 3.5vh;
     --background: #C57185;
-    --background-activated: #262626;
+    --background-activated: #965462;
     --background-hover: #262626;
-    font-size: 20px;
+    // font-size: 5vh;
     text-transform: none;
     letter-spacing: 1px;
-    --box-shadow: 5px 5px 5px rgb(38, 38, 38, 0.2);
+    // --box-shadow: 100px;
     --color: #D6D6D6;
+    display: flex;
+    flex-direction: column;
   }
   
-  .icon-button {
-    margin: -5px 5px;
-    height: 50%;
+  .menu_block {
+    display: flex;
+    flex-direction: column;
+    margin: 5% auto;
+    width: 85%;
+  }
+
+  .row_block {
+    display: flex;
+    flex-direction: row;
+    width: 90%;
+    margin: auto auto -4vh auto;
+  }
+
+  .button_img {
+    width: 8vh;
+  }
+
+  .button_icon {
+    font-size: 6.5vh;
+    // padding-top: 1.5vh;
+    margin: 1vh 1vh 0.5vh 1vh;
+    opacity: 0.73;
+  }
+
+  .button_label {
+    font-size: 2vh;
+    // font-weight: 600;
+    margin: 0;
+    color: #D6D6D6;
+    // font-family: 'Roboto', normal;
+    // margin: auto auto 0 auto;
   }

@@ -3,30 +3,110 @@
         "id": 1,
         "name": "a",
         "character": "あ",
-        "family": "hiragana"
+        "pronunciation": "[a]",
+        "audio": "../../assets/sounds/hiragana_a.mp3",
+        "mnemonicImage": "../../assets/mnemo_hira_a.png",
+        "mnemonicWord": "Apple",
+        "family": "hiragana",
+        "type": "phonetic"
     },
     {
         "id": 2,
         "name": "i",
         "character": "い",
-        "family": "hiragana"
+        "pronunciation": "[i]",
+        "audio": "../../assets/sounds/hiragana_i.mp3",
+        "mnemonicImage": "../../assets/mnemo_hira_i.png",
+        "mnemonicWord": "?",
+        "family": "hiragana",
+        "type": "phonetic"
     },
     {
         "id": 3,
         "name": "u",
         "character": "う",
-        "family": "hiragana"
+        "pronunciation": "[ɯ]",
+        "audio": "../../assets/sounds/hiragana_u.mp3",
+        "mnemonicImage": "../../assets/mnemo_hira_u.png",
+        "mnemonicWord": "?",
+        "family": "hiragana",
+        "type": "phonetic"
     },
     {
         "id": 4,
         "name": "e",
         "character": "え",
-        "family": "hiragana"
+        "pronunciation": "[e]",
+        "audio": "../../assets/sounds/hiragana_e.mp3",
+        "mnemonicImage": "../../assets/mnemo_hira_e.png",
+        "mnemonicWord": "?",
+        "family": "hiragana",
+        "type": "phonetic"
     },
     {
         "id": 5,
         "name": "o",
         "character": "お",
-        "family": "hiragana"
+        "pronunciation": "[o]",
+        "audio": "../../assets/sounds/hiragana_o.mp3",
+        "mnemonicImage": "../../assets/mnemo_hira_o.png",
+        "mnemonicWord": "?",
+        "family": "hiragana",
+        "type": "phonetic"
+    },
+    {
+        "id": 1,
+        "name": "ka",
+        "character": "か",
+        "pronunciation": "[ka]",
+        "audio": "../../assets/sounds/hiragana_ka.mp3",
+        "mnemonicImage": "../../assets/mnemo_hira_ka.png",
+        "mnemonicWord": "Apple",
+        "family": "hiragana",
+        "type": "phonetic"
+    },
+    {
+        "id": 2,
+        "name": "ki",
+        "character": "き",
+        "pronunciation": "[kʲi]",
+        "audio": "../../assets/sounds/hiragana_ki.mp3",
+        "mnemonicImage": "../../assets/mnemo_hira_ki.png",
+        "mnemonicWord": "?",
+        "family": "hiragana",
+        "type": "phonetic"
+    },
+    {
+        "id": 3,
+        "name": "ku",
+        "character": "く",
+        "pronunciation": "[kɯ]",
+        "audio": "../../assets/sounds/hiragana_ku.mp3",
+        "mnemonicImage": "../../assets/mnemo_hira_ku.png",
+        "mnemonicWord": "?",
+        "family": "hiragana",
+        "type": "phonetic"
+    },
+    {
+        "id": 4,
+        "name": "ke",
+        "character": "け",
+        "pronunciation": "[ke]",
+        "audio": "../../assets/sounds/hiragana_ke.mp3",
+        "mnemonicImage": "../../assets/mnemo_hira_ke.png",
+        "mnemonicWord": "?",
+        "family": "hiragana",
+        "type": "phonetic"
+    },
+    {
+        "id": 5,
+        "name": "ko",
+        "character": "こ",
+        "pronunciation": "[ko]",
+        "audio": "../../assets/sounds/hiragana_ko.mp3",
+        "mnemonicImage": "../../assets/mnemo_hira_ko.png",
+        "mnemonicWord": "?",
+        "family": "hiragana",
+        "type": "phonetic"
     }
 ]

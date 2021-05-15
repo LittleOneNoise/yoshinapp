@@ -1,0 +1,145 @@
+.header {
+    text-align: center;
+  }
+  
+  .top-toolbar {
+    --background: #A18585;
+    --color: #262626;
+  }
+  
+  .top-title {
+    // font-size: 25px;
+    font-size:2.8vh;
+    font-weight: 600;
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    text-align: center;
+  }
+
+  ion-content {
+    --background: #433121;
+  }
+  
+  ion-tab-bar {
+    --background: #262626;
+  }
+  
+  ion-tab-button {
+    --color-selected: #C57185;
+  }
+
+  .main_block {
+      display: flex;
+      flex-direction: column;
+  }
+
+  .direction {
+      text-align: center;
+      color: #D6D6D6;
+      font-size: 5vw;
+      max-width: 70%;
+      margin: auto;
+  }
+
+  .progression {
+      text-align: center;
+      font-weight: 600;
+      color: #D6D6D6;
+      font-size: 5vw;
+  }
+
+  .block_charac {
+    width: 20vh;
+    height: 20vh;
+    margin-bottom: 10%;
+    border-radius: 20px;
+    background: #C57185;
+    // font-size: 20vh;
+    text-transform: none;
+    letter-spacing: 1px;
+    box-shadow: 5px 5px 5px rgb(38, 38, 38, 0.2);
+    color: #D6D6D6;
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+  .content_block_charac {
+      text-align: center;
+      font-weight: 600;
+      font-size: 15vh;
+      margin: auto;
+  }
+
+  .input_block {
+      display: flex;
+      flex-direction: row;
+      justify-content: center;
+      height: 5vh;
+      width: 50vw;
+      margin: auto;
+      
+  }
+
+  ion-input {
+      --background: #D6D6D6;
+      --color: #262626;
+      height: 100%;
+      border-radius: 5px;
+    //   margin-right: 5%;
+  }
+
+  ion-button {
+      --background: #A18585;
+  }
+
+  .check_container {
+    margin-left: 5%;
+    height: 100%;
+    margin-top: auto;
+  }
+
+  .img_check {
+    // width:auto;
+    height: 60%;
+}
+
+.mistake_block {
+    width: 25vh;
+    height: 18vh;
+    margin-bottom: 10%;
+    border-radius: 10px;
+    background-color: #773434;
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 10%;
+}
+
+.mistake_title {
+    text-align: center;
+    font-weight: 600;
+    color: #D6D6D6;
+    font-size: 5vw;
+    padding-top: 10%;
+}
+
+.mistake_content {
+    text-align: center;
+    color: #D6D6D6;
+    background: #262626;
+    font-size: 5vw;
+    padding: 0 10%;
+    font-weight: 600;
+    display: flex;
+    flex-direction: row;
+    height: 40%;
+    width: 80%;
+    margin: auto;
+    border-radius: 10px;
+}
+
+.next {
+    margin: auto;
+}

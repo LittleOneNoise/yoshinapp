@@ -12,4 +12,12 @@ export class LearningHiraganaTable2Page implements OnInit {
   ngOnInit() {
   }
 
+  showInfo: boolean = true;
+  showInfo2: boolean = false;
+
+  toggleDisplayDiv(){
+    this.showInfo = !this.showInfo;
+    this.showInfo2 = !this.showInfo2;
+  }
+
 }

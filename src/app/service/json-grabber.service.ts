@@ -17,18 +17,17 @@ export class JsonGrabberService {
 
   public getKana():Promise<KanaList>{
     console.log(`${this.TAG}`);
-    const url: string = './../assets/data/kana.json';
+    const url: string = '../../assets/data/kana.json';
     console.log(`${this.TAG} url: ${url}`);
     return new Promise(resolve => {
       this.http.get(url).subscribe(data => {
       let json: KanaList = data as KanaList;
       resolve(json);
-      console.log(json)
+      // console.log(json)
       }, err => {
       console.log(err);
       });
     });
-    
   }
   
 }

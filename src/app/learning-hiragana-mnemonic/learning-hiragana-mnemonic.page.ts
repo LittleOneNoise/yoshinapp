@@ -9,7 +9,18 @@ export class LearningHiraganaMnemonicPage implements OnInit {
 
   constructor() { }
 
+  audio: HTMLAudioElement;
+
   ngOnInit() {
+    this.audio = new Audio();
+    this.audio.src = "../../assets/sounds/pop_nav.mp3";
+    this.audio.load();
+  }
+
+  testaudio(){
+    console.log("click");
+    
+    this.audio.play();
   }
 
 }

@@ -2,19 +2,14 @@ import { NgModule } from '@angular/core';
 import { PreloadAllModules, RouterModule, Routes } from '@angular/router';
 
 const routes: Routes = [
-  // {
-  //     path: 'tabs',
-  //     loadChildren: () => import('./home-tabs/home-tabs.module').then(m => m.HomeTabsPageModule)
-  //   },
-  // {
-  //   path: '',
-  //   redirectTo: 'tabs',
-  //   pathMatch: 'full'
-  // },
   {
     path: '',
     loadChildren: () => import('./home-tabs/home-tabs.module').then(m => m.HomeTabsPageModule)
   },
+  {
+    path: 'easter-egg',
+    loadChildren: () => import('./easter-egg/easter-egg.module').then( m => m.EasterEggPageModule)
+  }
 ];
 
 @NgModule({

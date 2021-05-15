@@ -12,7 +12,15 @@
 <ion-content [fullscreen]="true">
   <ion-slides pager="true">
     <ion-slide>
-      <h1>Slide 1</h1>
+      <div class="slide_content">
+      <div class="div_header">
+        <p class="pronunciation">[a]</p>
+        <p class="sound">a</p>
+        <ion-icon src="../../assets/icon/speaker.svg" class="audio" (click)="testaudio()">Play</ion-icon>
+      </div>
+      <div class="big"><img src="../../assets/mnemo_hira_a.png"></div>
+      <div class="word">Apple</div>
+    </div>
     </ion-slide>
     <ion-slide>
       <h1>Slide 2</h1>
