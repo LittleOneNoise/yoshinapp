@@ -34,6 +34,10 @@ export class QuizzPage implements OnInit {
   inputShown: boolean = true;
   final_score: number;
   hiraganaList: Kana[];
+  mistakeList: string[];
+  mistakeIndex: number = 0;
+  normal_session: boolean = true;
+  retake_session: boolean = false;
 
    async ngOnInit() {
 
@@ -43,7 +47,7 @@ export class QuizzPage implements OnInit {
     console.log("writingSystem : " + this.writingSystem)
 
     if(this.quizzType == null || this.writingSystem == null){
-      alert('Error, couldn\'t get quizz data');
+      // alert('Error, couldn\'t get quizz data');
     }
     else if(this.writingSystem == "hiragana" && this.quizzType == "phonetic"){
       await fetch('./../assets/data/kana.json').then(res => res.json()).then(json => {
@@ -64,6 +68,9 @@ export class QuizzPage implements OnInit {
     this.final_score = 0;
     this.inputShown = true;
     this.mistake = false;
+    this.mistakeList = [];
+    // this.inputShown = false;
+    // this.mistake = true;
     this.getCharacter();
 
 }
@@ -96,7 +103,15 @@ export class QuizzPage implements OnInit {
   // };
 
   getCharacter() {
+    if(this.results!=null){
     this.current_charac = this.results[this.progression].character;
+    } else {
+      this.router.navigateByUrl('tabs/practicetab');
+    }
+  }
+
+  getMistake(index: number) {
+    this.current_charac = this.mistakeList[index];
   }
 
   getCurrentName() {
@@ -108,11 +123,12 @@ export class QuizzPage implements OnInit {
   }
 
   goNext(){
-    this.getCharacter();
+      
       this.mistake = false;
       this.inputShown = true;
       this.input_value = "";
       this.progression++;
+      this.getCharacter();
   }
 
   goToResult(){
@@ -128,15 +144,41 @@ export class QuizzPage implements OnInit {
 
   validateInput(){
     console.log("validé");
+
+    this.progression++;
+
     if(this.checkAnswer(this.input_value.toLowerCase())){
       console.log("correct");
-      this.input_value = "";
-      this.final_score++;
-      this.progression++;
-      this.getCharacter();
 
-      if(this.progression > 20){
+      // this.progression++;
+      if(this.progression == 6){
+        this.final_score++;
+      }
+      
+      if(this.progression <= 5){
+        this.input_value = "";
+        this.final_score++;
+        console.log('final score : '+this.final_score);
+        // this.progression++;
+        console.log("la progression passe à "+this.progression);
+        this.getCharacter();
+        console.log("la progression devrait être la même : "+this.progression);
+      }
+
+      else if(this.progression > 5 ){
+        if(this.mistakeList.length != 0 && this.mistakeIndex < this.mistakeList.length){
+          this.getMistake(this.mistakeIndex);
+          this.normal_session = false;
+          this.retake_session = true;
+          console.log("la progression passe à "+this.progression);
+          this.mistakeIndex++;
+          this.input_value = "";
+          console.log('index mistake : '+this.mistakeIndex);
+          console.log('taille liste mistake : '+this.mistakeList.length);
+        }
+        else {
         this.goToResult();
+        }
       }
     }
     else {
@@ -144,10 +186,26 @@ export class QuizzPage implements OnInit {
       this.getCurrentName();
       this.inputShown = false;
       this.mistake = true;
+      this.mistakeList.push(this.current_charac);
 
-      if(this.progression > 20){
-        this.goToResult();
+      if(this.progression > 5 ){
+        if(this.mistakeList.length != 0 && this.mistakeIndex < this.mistakeList.length){
+          this.getMistake(this.mistakeIndex);
+          this.normal_session = false;
+          this.retake_session = true;
+          console.log("la progression passe à "+this.progression);
+          this.mistakeIndex++;
+          this.input_value = "";
+          console.log('index mistake : '+this.mistakeIndex);
+          console.log('taille liste mistake : '+this.mistakeList.length);
+        } else {
+          this.goToResult();
+        }
       }
+      // this.progression++;
+      // this.getCharacter();
+
+    
     }
     
   }

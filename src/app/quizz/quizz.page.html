@@ -12,9 +12,12 @@
 <ion-content>
 
 
-<p class="progression">Progression : {{progression}}/20</p>
+
 
 <div class="main_block">
+
+  <p class="progression" *ngIf="normal_session">Progression : {{progression}}/5</p>
+  <p class="progression" *ngIf="retake_session">Retake Session</p>
 
   <div class="direction">
     <p>What's the roumaji for this {{writingSystem}} ?</p>
@@ -26,20 +29,20 @@
 
   <div class="input_block" *ngIf="inputShown">
     <ion-input placeholder="Type your answer..." autofocus="true" (keyup.enter)="validateInput()" [(ngModel)]="input_value"></ion-input>
-    <ion-button class="check_container">
+    <!-- <input placeholder="Type your answer..." autofocus="true" (keyup.enter)="validateInput()" [(ngModel)]="input_value"> -->
+    <ion-button class="check_container" (click)="validateInput()">
       <img src="../assets/icon/check.png" class="img_check"/>
     </ion-button>
   </div>
 
-  <div class="next">
-    <ion-button (click)="goNext()" *ngIf="mistake">Next</ion-button>
-  </div>
 
-</div>
 
 <div *ngIf="mistake" class="mistake_block">
-  <p class="mistake_title">Wrong answer</p>
-  <div class="mistake_content">{{input_value}} => {{current_name}}</div>
+  
+  <div class="mistake_content">{{input_value}} → {{current_name}}</div>
+    <ion-button (click)="goNext()" *ngIf="mistake" class="next">Next</ion-button>
+
+</div>
 
 </div>
 
