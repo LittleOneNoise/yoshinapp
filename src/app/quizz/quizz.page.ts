@@ -35,9 +35,12 @@ export class QuizzPage implements OnInit {
   final_score: number;
   hiraganaList: Kana[];
   mistakeList: string[];
-  mistakeIndex: number = 0;
+  mistakeIndex: number = -1;
+  mistakeIndexHtml: number;
   normal_session: boolean = true;
   retake_session: boolean = false;
+  readonly questions_amount = 5;
+  mistakeListSize: number;
 
    async ngOnInit() {
 
@@ -103,11 +106,7 @@ export class QuizzPage implements OnInit {
   // };
 
   getCharacter() {
-    if(this.results!=null){
     this.current_charac = this.results[this.progression].character;
-    } else {
-      this.router.navigateByUrl('tabs/practicetab');
-    }
   }
 
   getMistake(index: number) {
@@ -122,13 +121,38 @@ export class QuizzPage implements OnInit {
     return answer == this.results.find(a => a.character === this.current_charac).name;
   }
 
+  updateMistakeListSize(){
+    this.mistakeListSize = this.mistakeList.length;
+    this.mistakeIndexHtml = this.mistakeIndex+1;
+  }
+
   goNext(){
       
       this.mistake = false;
       this.inputShown = true;
       this.input_value = "";
-      this.progression++;
-      this.getCharacter();
+      if(this.progression < this.questions_amount){
+        this.progression++;
+        this.getCharacter();
+      }
+      else if(this.progression == this.questions_amount){
+        if(this.mistakeList.length != 0){
+          this.normal_session = false;
+          this.retake_session = true;
+          this.progression++;
+          this.mistakeIndex++;
+          this.getMistake(this.mistakeIndex);
+          this.updateMistakeListSize();
+        }
+        else {
+        this.goToResult();
+        }
+      }
+      else if(this.progression > this.questions_amount){
+          this.mistakeIndex++;
+          this.getMistake(this.mistakeIndex);
+          this.updateMistakeListSize();
+      }
   }
 
   goToResult(){
@@ -142,72 +166,70 @@ export class QuizzPage implements OnInit {
     
   }
 
+  //When pressing the validate button or the enter key
   validateInput(){
-    console.log("validé");
-
-    this.progression++;
-
-    if(this.checkAnswer(this.input_value.toLowerCase())){
-      console.log("correct");
-
-      // this.progression++;
-      if(this.progression == 6){
+    if(this.progression < this.questions_amount){
+      if(this.checkAnswer(this.input_value.toLowerCase())){
         this.final_score++;
-      }
-      
-      if(this.progression <= 5){
         this.input_value = "";
-        this.final_score++;
-        console.log('final score : '+this.final_score);
-        // this.progression++;
-        console.log("la progression passe à "+this.progression);
+        this.progression++;
         this.getCharacter();
-        console.log("la progression devrait être la même : "+this.progression);
       }
-
-      else if(this.progression > 5 ){
-        if(this.mistakeList.length != 0 && this.mistakeIndex < this.mistakeList.length){
-          this.getMistake(this.mistakeIndex);
+      else {
+        this.getCurrentName();
+        this.inputShown = false;
+        this.mistake = true;
+        this.mistakeList.push(this.current_charac);
+      }
+    }
+    else if(this.progression == this.questions_amount){
+      if(this.checkAnswer(this.input_value.toLowerCase())){
+        this.final_score++;
+        this.progression++;
+        this.input_value = "";
+        if(this.mistakeList.length != 0){
           this.normal_session = false;
           this.retake_session = true;
-          console.log("la progression passe à "+this.progression);
-          this.mistakeIndex++;
           this.input_value = "";
-          console.log('index mistake : '+this.mistakeIndex);
-          console.log('taille liste mistake : '+this.mistakeList.length);
+          this.mistakeIndex++;
+          this.getMistake(this.mistakeIndex);
+          this.updateMistakeListSize();
         }
         else {
         this.goToResult();
         }
       }
+      else {
+        this.getCurrentName();
+        this.inputShown = false;
+        this.mistake = true;
+        this.mistakeList.push(this.current_charac);
+      }
     }
-    else {
-      console.log("incorrect");
-      this.getCurrentName();
-      this.inputShown = false;
-      this.mistake = true;
-      this.mistakeList.push(this.current_charac);
-
-      if(this.progression > 5 ){
-        if(this.mistakeList.length != 0 && this.mistakeIndex < this.mistakeList.length){
-          this.getMistake(this.mistakeIndex);
+    else if(this.progression > this.questions_amount){
+      if(this.checkAnswer(this.input_value.toLowerCase())){
+        if(this.mistakeIndex < this.mistakeList.length-1){
+          this.input_value = "";
           this.normal_session = false;
           this.retake_session = true;
-          console.log("la progression passe à "+this.progression);
           this.mistakeIndex++;
-          this.input_value = "";
-          console.log('index mistake : '+this.mistakeIndex);
-          console.log('taille liste mistake : '+this.mistakeList.length);
-        } else {
-          this.goToResult();
+          this.getMistake(this.mistakeIndex);
+          this.updateMistakeListSize();
+        }
+        else {
+        this.goToResult();
         }
       }
-      // this.progression++;
-      // this.getCharacter();
-
-    
+      else {
+        this.getCurrentName();
+        this.inputShown = false;
+        this.mistake = true;
+        this.mistakeList.push(this.current_charac);
+      }
     }
-    
+    else {
+      console.log("Something wrong happened :(");
+    }
   }
 
 }

@@ -3,7 +3,7 @@
   }
   
   .top-toolbar {
-    --background: #A18585;
+    --background: #9D694C;
     --color: #262626;
   }
   
@@ -20,7 +20,7 @@
   }
   
   ion-content {
-    --background: #433121;
+    --background: #D1AC89;
   }
   
   ion-tab-bar {
@@ -62,7 +62,7 @@
     align-items: center;
     margin-bottom: 8vh;
     margin-top: 8vh;
-    background: #C57185;
+    background: #9D694C;
     // height: 5vh;
     border-radius: 5vh;
   }
@@ -85,7 +85,10 @@
     font-size: 4vh;
   }
 
- 
+ .big {
+   background: #9D694C;
+   border-radius: 12vh;
+ }
 
   .big > img {
     width: 80vw;
@@ -93,7 +96,7 @@
 
   .word {
     font-size: 5vh;
-    color: #d6d6d6;
+    color: #262626;
     margin: auto;
   }
 

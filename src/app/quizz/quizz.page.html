@@ -16,8 +16,8 @@
 
 <div class="main_block">
 
-  <p class="progression" *ngIf="normal_session">Progression : {{progression}}/5</p>
-  <p class="progression" *ngIf="retake_session">Retake Session</p>
+  <p class="progression" *ngIf="normal_session">Progression : {{progression}}/{{questions_amount}}</p>
+  <p class="progression" *ngIf="retake_session">Retake Session {{mistakeIndexHtml}}/{{mistakeListSize}}</p>
 
   <div class="direction">
     <p>What's the roumaji for this {{writingSystem}} ?</p>

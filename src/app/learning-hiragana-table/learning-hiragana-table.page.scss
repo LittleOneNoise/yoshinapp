@@ -3,7 +3,7 @@
 }
 
 .top-toolbar {
-  --background: #A18585;
+  --background: #9D694C;
   --color: #262626;
 }
 
@@ -19,9 +19,9 @@
   text-align: center;
 }
 
-ion-content {
-  --background: #433121;
-}
+// ion-content {
+//   --background: #D1AC89;
+// }
 
 ion-tab-bar {
   --background: #262626;
@@ -66,7 +66,7 @@ ion-button {
 }
 
 :host {  
-  --super-tabs-toolbar-background: #A18585;
+  --super-tabs-toolbar-background: #9D694C;
   --st-indicator-color: #262626;
   // --st-indicator-height: 8%;
   --st-base-color-inactive: #262626;
