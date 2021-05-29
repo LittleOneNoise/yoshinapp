@@ -9,7 +9,7 @@ const routes: Routes = [
     component: HomeTabsPage,
     children: [
       {
-        path: 'practicetab',
+        path: 'practice',
         children: [
           {
             path: '',
@@ -28,7 +28,7 @@ const routes: Routes = [
         // loadChildren: () => import('../practice-home/practice-home.module').then(m => m.PracticeHomePageModule)
       },
       {
-        path: 'learningtab',
+        path: 'learning',
         children: [
           {
             path: '',
@@ -49,12 +49,16 @@ const routes: Routes = [
               
         ]
       },
+      {
+        path: 'statistics',
+        loadChildren: () => import('../statistics/statistics.module').then(m => m.StatisticsPageModule)
+      },
     
         
   
   {
     path: '',
-    redirectTo: 'learningtab',
+    redirectTo: 'learning',
     pathMatch: 'full'
   },
       
@@ -62,7 +66,7 @@ const routes: Routes = [
   },
   {
     path: '',
-    redirectTo: 'tabs/learningtab',
+    redirectTo: 'tabs/learning',
     pathMatch: 'full'
   }
   

@@ -1,0 +1,72 @@
+<ion-header class="header">
+  <ion-toolbar class="top-toolbar">
+    <ion-title class="top-title">
+      Statistics
+    </ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content [fullscreen]="true">
+
+  <ion-button (click)="addJohn()">Add John</ion-button>
+  <ion-button (click)="removeAll()">Clear All</ion-button>
+
+  <div class="main_block">
+    <p class="title">Global Statistics</p>
+    <div class="graph"></div>
+    <div class="figures_block">
+      <div class="figures_subblock">
+        <p class="text">You took</p>
+        <p class="figure">54</p>
+        <p class="text">tests</p>
+      </div>
+      <div class="figures_subblock">
+        <p class="text">Average score of</p>
+        <p class="figure">16.3/20</p>
+        <p class="text">for all the tests</p>
+      </div>
+    </div>
+      <p class="title">Wall of shame</p>
+      <div class="charac_block">
+        <div class="block_row">
+          <div class="charac_subblock">
+            <p class="text">Hiragana phonetic</p>
+            <p class="charac">け</p>
+          </div>
+          <div class="counter">
+            <p class="figure">x4</p>
+          </div>
+        </div>
+        <div class="block_row">
+          <div class="charac_subblock">
+            <p class="text">Hiragana word</p>
+            <p class="charac">にゃん</p>
+          </div>
+          <div class="counter">
+            <p class="figure">x1</p>
+          </div>
+        </div>
+        <div class="block_row">
+          <div class="charac_subblock">
+            <p class="text">Hiragana phonetic</p>
+            <p class="charac">け</p>
+          </div>
+          <div class="counter">
+            <p class="figure">x4</p>
+          </div>
+        </div>
+        <div class="block_row">
+          <div class="charac_subblock">
+            <p class="text">Hiragana word</p>
+            <p class="charac">にゃん</p>
+          </div>
+          <div class="counter">
+            <p class="figure">x1</p>
+          </div>
+        </div>
+      </div>
+  </div>
+  
+
+
+</ion-content>

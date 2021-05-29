@@ -5,10 +5,6 @@ const routes: Routes = [
   {
     path: '',
     loadChildren: () => import('./home-tabs/home-tabs.module').then(m => m.HomeTabsPageModule)
-  },
-  {
-    path: 'easter-egg',
-    loadChildren: () => import('./easter-egg/easter-egg.module').then( m => m.EasterEggPageModule)
   }
 ];
 

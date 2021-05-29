@@ -34,11 +34,11 @@ export class FinalScorePage implements OnInit {
         writingSystem: writing,
       }
     };
-    this.router.navigate(['tabs/practicetab/practice-amount/quizzalpha'], navigationExtras);
+    this.router.navigate(['tabs/practice/practice-amount/quizzalpha'], navigationExtras);
   }
 
   goHome(){
-  this.router.navigateByUrl("tabs/practicetab");
+  this.router.navigateByUrl("tabs/practice");
   }
 
 }

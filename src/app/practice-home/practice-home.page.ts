@@ -20,7 +20,7 @@ export class PracticeHomePage implements OnInit {
         writing: writingSystem,
       }
     };
-    this.router.navigate(['tabs/practicetab/quizz'], navigationExtras);
+    this.router.navigate(['tabs/practice/quizz'], navigationExtras);
   }
 
   ngOnInit() {

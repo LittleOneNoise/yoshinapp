@@ -45,9 +45,6 @@ export class QuizzPage implements OnInit {
    async ngOnInit() {
 
    
-    console.log('ngOnInit...')
-    console.log("quizzType : " + this.quizzType)
-    console.log("writingSystem : " + this.writingSystem)
 
     if(this.quizzType == null || this.writingSystem == null){
       // alert('Error, couldn\'t get quizz data');
@@ -56,12 +53,17 @@ export class QuizzPage implements OnInit {
       await fetch('./../assets/data/kana.json').then(res => res.json()).then(json => {
       this.results = json;
       });
-      console.log("filtered list : ");
-      console.log(this.results);
       this.results = this.results.filter(kana => (kana.type == "phonetic"));
-      console.log("filtered list : ");
+      this.shuffleList(this.results);
+
+    }
+    else if(this.writingSystem == "hiragana" && this.quizzType == "words"){
+      await fetch('./../assets/data/kana.json').then(res => res.json()).then(json => {
+      this.results = json;
       console.log(this.results);
-      console.log("shuffled list : ");
+      });
+      this.results = this.results.filter(kana => (kana.type == "word"));
+      console.log(this.results);
       this.shuffleList(this.results);
       console.log(this.results);
 
@@ -106,7 +108,8 @@ export class QuizzPage implements OnInit {
   // };
 
   getCharacter() {
-    this.current_charac = this.results[this.progression].character;
+    this.current_charac = this.results[this.progression-1].character;
+    this.updateFontSize();
   }
 
   getMistake(index: number) {
@@ -124,6 +127,19 @@ export class QuizzPage implements OnInit {
   updateMistakeListSize(){
     this.mistakeListSize = this.mistakeList.length;
     this.mistakeIndexHtml = this.mistakeIndex+1;
+  }
+
+  updateFontSize(){
+    let cssPointer = document.getElementsByClassName('content_block_charac') as HTMLCollectionOf<HTMLElement>;
+    let amountLetters = this.current_charac.length;
+    if (cssPointer.length != 0) {
+      if(amountLetters<=2){
+        cssPointer[0].style.fontSize = "20vw";
+      }
+      else{
+      cssPointer[0].style.fontSize = 0.119*amountLetters**2-3.381*amountLetters+29.786 + "vw";
+      }
+}
   }
 
   goNext(){
@@ -162,7 +178,7 @@ export class QuizzPage implements OnInit {
           writingSystem: this.writingSystem,
         }
       };
-      this.router.navigate(['tabs/practicetab/final-result'], navigationExtras);
+      this.router.navigate(['tabs/practice/final-result'], navigationExtras);
     
   }
 

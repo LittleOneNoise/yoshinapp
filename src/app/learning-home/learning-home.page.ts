@@ -13,15 +13,15 @@ export class LearningHomePage implements OnInit {
   constructor(private router: Router) { }
 
   goToLearningHiraganaTable(){
-    this.router.navigateByUrl('tabs/learningtab/learning-hiragana-table');
+    this.router.navigateByUrl('tabs/learning/learning-hiragana-table');
   }
 
   goToLearningHiraganaMnemonic(){
-    this.router.navigateByUrl('tabs/learningtab/learning-hiragana-mnemonic');
+    this.router.navigateByUrl('tabs/learning/learning-hiragana-mnemonic');
   }
 
   goToLearningKatakanaMnemonic(){
-    this.router.navigateByUrl('tabs/learningtab/learning-katakana-mnemonic');
+    this.router.navigateByUrl('tabs/learning/learning-katakana-mnemonic');
   }
 
   ngOnInit() {
