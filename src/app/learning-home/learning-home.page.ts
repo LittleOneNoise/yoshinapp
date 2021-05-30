@@ -1,5 +1,6 @@
 import { Router } from '@angular/router';
 import { Component, OnInit} from '@angular/core';
+import { NavController } from '@ionic/angular';
 
 
 
@@ -10,7 +11,7 @@ import { Component, OnInit} from '@angular/core';
 })
 export class LearningHomePage implements OnInit {
 
-  constructor(private router: Router) { }
+  constructor(private router: Router, public navCtrl: NavController) { }
 
   goToLearningHiraganaTable(){
     this.router.navigateByUrl('tabs/learning/learning-hiragana-table');

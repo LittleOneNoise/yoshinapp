@@ -1,15 +1,16 @@
+import { MistakeBank } from './MistakeBank';
 import { Injectable } from '@angular/core';
 import { Storage } from '@ionic/storage-angular';
 import * as CordovaSQLiteDriver from 'localforage-cordovasqlitedriver';
-
-const STORAGE_KEY = 'favoriteFilms';
 
 @Injectable({
   providedIn: 'root'
 })
 export class StatsService {
   
-  private _storage: Storage | null = null;
+  // private _storage: Storage | null = null;
+  private _storage: Storage;
+  tempMistakeArray: MistakeBank[] = [];
 
   constructor(public storage: Storage) { 
     this.init();
@@ -22,46 +23,50 @@ export class StatsService {
     this._storage = storage;
   }
 
+  async keyExistence(key: string){
+    if(await this.get(key) == null){
+      return false;
+    }
+    else{
+      return true;
+    }
+  }
+
+  async setArrayMistake(keyArray: string, keyElement: string){
+    this.tempMistakeArray = await this.get(keyArray);
+    console.log(this.tempMistakeArray);
+    if(this.tempMistakeArray == null){
+      if(keyArray == "phoneticHiraganaMistakes"){
+        let phoneticHiraganaMistakes: MistakeBank[] = [{name: keyElement, failAmount: 1}];
+        await this.set(keyArray, phoneticHiraganaMistakes);
+      }
+    }
+    else{
+      let indexElement = this.tempMistakeArray.findIndex(x => x.name === keyElement);
+      if(indexElement > -1){
+        this.tempMistakeArray[indexElement].failAmount++;
+        this.set(keyArray, this.tempMistakeArray);
+      }
+      else {
+        this.tempMistakeArray.push({name: keyElement, failAmount: 1})
+        this.set(keyArray, this.tempMistakeArray);
+      }
+    }
+  }
+
   // Create and expose methods that users of this service can
   // call, for example:
-  public set(key: string, value: any) {
-    this._storage?.set(key, value);
+  async set(key: string, value: any) {
+    await this._storage.set(key, value);
   }
 
-  public clearAll() {
-    this._storage.clear();
+  async clearAll() {
+    await this._storage.clear();
   }
 
-
-  // isFavorite(filmId) {
-  //   return this.getAllFavoriteFilms().then(result => {
-  //     return result && result.indexOf(filmId) !== -1;
-  //   });
-  // }
-
-  // favoriteFilm(filmId) {
-  //   return this.getAllFavoriteFilms().then(result => {
-  //     if (result) {
-  //       result.push(filmId);
-  //       return this.storage.set(STORAGE_KEY, result);
-  //     } else {
-  //       return this.storage.set(STORAGE_KEY, [filmId]);
-  //     }
-  //   });
-  // }
-
-  // unfavoriteFilm(filmId) {
-  //   return this.getAllFavoriteFilms().then(result => {
-  //     if (result) {
-  //       var index = result.indexOf(filmId);
-  //       result.splice(index, 1);
-  //       return this.storage.set(STORAGE_KEY, result);
-  //     }
-  //   });
-  // }
-
-  // getAllFavoriteFilms() {
-  //   return this.storage.get(STORAGE_KEY);
-  // }
+  async get(key: string) {
+    return await this._storage.get(key);
+  }
 
 }
+

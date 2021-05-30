@@ -8,9 +8,11 @@ import { Component, OnInit } from '@angular/core';
 })
 export class StatisticsPage implements OnInit {
 
+  testsAmount: any = 0;
+  testsAverage: any ="-";
+  testsInitialized: boolean = false;
 
-  constructor(public statsService: StatsService) { 
-  }
+  constructor(public statsService: StatsService) {}
 
   addJohn(){
     this.statsService.set("1", "john");
@@ -20,37 +22,42 @@ export class StatisticsPage implements OnInit {
     this.statsService.clearAll();
   }
 
+  async getJohn(){
+    console.log(await this.statsService.get("1"));
+  }
+
   
 
   async ngOnInit() {
-    // await this.storageService.set('user_name', 'Shadman').then(result => {
-    //   console.log('Data is saved');
-    //   }).catch(e => {
-    //   console.log("error: " + e);
-    //   });
-
-    //   await this.storageService.get('user_name').then(result => {
-    //     if (result != null) {
-    //     console.log('Username: '+ result);
-    //     }
-    //     }).catch(e => {
-    //     console.log('error: '+ e);
-    //     // Handle errors here
-    //     });
-
-    //     await this.storageService.setObject('person', {name : 'Shadman', age : 26});
-
-    //     await this.storageService.getObject('person').then(result => {
-    //       if (result != null) {
-    //       console.log('Person: '+ result);
-    //       }
-    //       }).catch(e => {
-    //       console.log('error: ', e);
-    //       });
-
-
-
-
+      // await this.statsService.set("testSetngOnInit", "blabla");
+      // console.log("testSet initialized from the ngOnInit");
+      // console.log(await this.statsService.get("testSetngOnInit"));
   }
+
+  async ionViewWillEnter(){
+    await this.statsService.set("testSetionViewWillEnter", "blabla");
+      console.log("testSet initialized from the ionViewWillEnter");
+    console.log(await this.statsService.get("testSetionViewWillEnter"));
+
+    if(await this.statsService.keyExistence("testsAmount")){
+      this.testsAmount = await this.statsService.get("testsAmount");
+      this.testsInitialized = true;
+    }
+    else {
+      this.testsAmount = 0;
+      this.testsInitialized = false;
+    }
+
+    if(await this.statsService.keyExistence("testsAverage")){
+      this.testsAverage = await this.statsService.get("testsAverage");
+      this.testsAverage = this.testsAverage.toFixed(1);
+
+    }
+    else {
+      this.testsAverage = "-";
+    }
+  }
+
+  
 
 }

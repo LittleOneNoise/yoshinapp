@@ -1,3 +1,4 @@
+import { StatsService } from './../service/stats.service';
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, NavigationExtras, Router } from '@angular/router';
 import { Kana } from '../service/Kana';
@@ -9,7 +10,7 @@ import { Kana } from '../service/Kana';
 })
 export class QuizzPage implements OnInit {
 
-  constructor(private route: ActivatedRoute, private router: Router) {
+  constructor(private route: ActivatedRoute, private router: Router, public statsService: StatsService) {
    
     this.route.queryParams.subscribe(params => {
       if (this.router.getCurrentNavigation().extras.state) {
@@ -171,14 +172,53 @@ export class QuizzPage implements OnInit {
       }
   }
 
-  goToResult(){
-      let navigationExtras: NavigationExtras = {
-        state: {
-          score: this.final_score,
-          writingSystem: this.writingSystem,
-        }
-      };
-      this.router.navigate(['tabs/practice/final-result'], navigationExtras);
+  async goToResult(){
+    console.log("value key before entering the if else : " + await this.statsService.get("testsAmount"));
+
+    //Updating the amount of tests in the database
+    if(!await this.statsService.keyExistence("testsAmount")){
+      console.log("no key 'testsAmount' in db");
+      this.statsService.set("testsAmount", 1);
+      console.log("key 'testsAmount' created and set to 1");
+    }
+    else {
+      console.log("key 'testsAmount' alr exists");
+      let currentTestsAmount = await this.statsService.get("testsAmount");
+      console.log("Amount was" + currentTestsAmount);
+      this.statsService.set("testsAmount", await currentTestsAmount + 1);
+      console.log("db updated");
+    }
+
+    //Updating the average of tests in the database
+    if(!await this.statsService.keyExistence("testsAverage")){
+      console.log("no key 'testsAverage' in db");
+      this.statsService.set("testsAverage", this.final_score);
+      console.log("key 'testsAverage' created and set to "+this.final_score);
+    }
+    else {
+      console.log("key 'testsAverage' alr exists");
+      let currentTestsAverage = await this.statsService.get("testsAverage");
+      console.log("Average was" + currentTestsAverage);
+      let currentTestsAmount = await this.statsService.get("testsAmount");
+      let newAverage = ((currentTestsAmount-1)*currentTestsAverage+this.final_score)/currentTestsAmount;
+      this.statsService.set("testsAverage", newAverage);
+      console.log("db updated");
+    }
+
+    //Updating the wall of shame
+    if(this.mistakeList != []){
+      for(let e of this.mistakeList){
+        await this.statsService.setArrayMistake("phoneticHiraganaMistakes", e);
+      }
+    }
+    
+    let navigationExtras: NavigationExtras = {
+      state: {
+        score: this.final_score,
+         writingSystem: this.writingSystem,
+      }
+    };
+    this.router.navigate(['tabs/practice/final-result'], navigationExtras);
     
   }
 
@@ -233,7 +273,7 @@ export class QuizzPage implements OnInit {
           this.updateMistakeListSize();
         }
         else {
-        this.goToResult();
+          this.goToResult();
         }
       }
       else {
