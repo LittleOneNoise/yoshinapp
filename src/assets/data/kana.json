@@ -728,6 +728,76 @@
         "character": "なまえ",
         "family": "hiragana",
         "type": "word"
+    },
+    {
+        "id": 1,
+        "name": "ramen",
+        "character": "ラーメン",
+        "family": "katakana",
+        "type": "word"
+    },
+    {
+        "id": 2,
+        "name": "ramen",
+        "character": "ラーメン",
+        "family": "katakana",
+        "type": "word"
+    },
+    {
+        "id": 3,
+        "name": "ramen",
+        "character": "ラーメン",
+        "family": "katakana",
+        "type": "word"
+    },
+    {
+        "id": 4,
+        "name": "ramen",
+        "character": "ラーメン",
+        "family": "katakana",
+        "type": "word"
+    },
+    {
+        "id": 5,
+        "name": "ramen",
+        "character": "ラーメン",
+        "family": "katakana",
+        "type": "word"
+    },
+    {
+        "id": 1,
+        "name": "ra",
+        "character": "ラ",
+        "family": "katakana",
+        "type": "phonetic"
+    },
+    {
+        "id": 2,
+        "name": "ra",
+        "character": "ラ",
+        "family": "katakana",
+        "type": "phonetic"
+    },
+    {
+        "id": 3,
+        "name": "ra",
+        "character": "ラ",
+        "family": "katakana",
+        "type": "phonetic"
+    },
+    {
+        "id": 4,
+        "name": "ra",
+        "character": "ラ",
+        "family": "katakana",
+        "type": "phonetic"
+    },
+    {
+        "id": 5,
+        "name": "ra",
+        "character": "ラ",
+        "family": "katakana",
+        "type": "phonetic"
     }
 
 ]

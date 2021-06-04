@@ -54,19 +54,42 @@ export class QuizzPage implements OnInit {
       await fetch('./../assets/data/kana.json').then(res => res.json()).then(json => {
       this.results = json;
       });
-      this.results = this.results.filter(kana => (kana.type == "phonetic"));
+      this.results = this.results.filter(kana => (kana.type == "phonetic" && kana.family == "hiragana"));
       this.shuffleList(this.results);
 
     }
-    else if(this.writingSystem == "hiragana" && this.quizzType == "words"){
+    else if(this.writingSystem == "hiragana" && this.quizzType == "word"){
       await fetch('./../assets/data/kana.json').then(res => res.json()).then(json => {
       this.results = json;
       console.log(this.results);
       });
-      this.results = this.results.filter(kana => (kana.type == "word"));
+      this.results = this.results.filter(kana => (kana.type == "word" && kana.family == "hiragana"));
       console.log(this.results);
       this.shuffleList(this.results);
       console.log(this.results);
+
+    }
+    else if(this.writingSystem == "katakana" && this.quizzType == "phonetic"){
+      await fetch('./../assets/data/kana.json').then(res => res.json()).then(json => {
+      this.results = json;
+      console.log(this.results);
+      });
+      this.results = this.results.filter(kana => (kana.type == "phonetic" && kana.family == "katakana"));
+      console.log(this.results);
+      this.shuffleList(this.results);
+      console.log(this.results);
+
+    }
+    else if(this.writingSystem == "katakana" && this.quizzType == "word"){
+      await fetch('./../assets/data/kana.json').then(res => res.json()).then(json => {
+      this.results = json;
+      console.log(this.results);
+      });
+      this.results = this.results.filter(kana => (kana.type == "word" && kana.family == "katakana"));
+      console.log(this.results);
+      this.shuffleList(this.results);
+      console.log(this.results);
+      console.log("listes des mots katakana récupérée !");
 
     }
 
@@ -207,8 +230,29 @@ export class QuizzPage implements OnInit {
 
     //Updating the wall of shame
     if(this.mistakeList != []){
-      for(let e of this.mistakeList){
-        await this.statsService.setArrayMistake("phoneticHiraganaMistakes", e);
+      if(this.writingSystem == "hiragana"){
+        if(this.quizzType == "phonetic"){
+          for(let e of this.mistakeList){
+            await this.statsService.setArrayMistake("phoneticHiraganaMistakes", e);
+          }
+        }
+        if(this.quizzType == "word"){
+          for(let e of this.mistakeList){
+            await this.statsService.setArrayMistake("wordHiraganaMistakes", e);
+          }
+        }
+      }
+      if(this.writingSystem == "katakana"){
+        if(this.quizzType == "phonetic"){
+          for(let e of this.mistakeList){
+            await this.statsService.setArrayMistake("phoneticKatakanaMistakes", e);
+          }
+        }
+        if(this.quizzType == "word"){
+          for(let e of this.mistakeList){
+            await this.statsService.setArrayMistake("wordKatakanaMistakes", e);
+          }
+        }
       }
     }
     
@@ -224,18 +268,22 @@ export class QuizzPage implements OnInit {
 
   //When pressing the validate button or the enter key
   validateInput(){
+    console.log("tableau des mistakes");
+    console.log(this.mistakeList);
     if(this.progression < this.questions_amount){
       if(this.checkAnswer(this.input_value.toLowerCase())){
         this.final_score++;
         this.input_value = "";
         this.progression++;
         this.getCharacter();
+        console.log("réponse bonne et tu n'as pa encore atteind le bout");
       }
       else {
         this.getCurrentName();
         this.inputShown = false;
         this.mistake = true;
         this.mistakeList.push(this.current_charac);
+        console.log("c'est faux !! et tu n'as pas encore atteind le bout");
       }
     }
     else if(this.progression == this.questions_amount){
@@ -243,6 +291,7 @@ export class QuizzPage implements OnInit {
         this.final_score++;
         this.progression++;
         this.input_value = "";
+        console.log("c'est bon et ça sent la fin");
         if(this.mistakeList.length != 0){
           this.normal_session = false;
           this.retake_session = true;
@@ -250,9 +299,11 @@ export class QuizzPage implements OnInit {
           this.mistakeIndex++;
           this.getMistake(this.mistakeIndex);
           this.updateMistakeListSize();
+          console.log("ton tableau d'erreur n'est pas vide!");
         }
         else {
-        this.goToResult();
+          console.log("ton tableau d'erreur est vide, bg");
+          this.goToResult();
         }
       }
       else {
@@ -260,6 +311,7 @@ export class QuizzPage implements OnInit {
         this.inputShown = false;
         this.mistake = true;
         this.mistakeList.push(this.current_charac);
+        console.log("c'est faux et ça sent la fin");
       }
     }
     else if(this.progression > this.questions_amount){
@@ -271,8 +323,10 @@ export class QuizzPage implements OnInit {
           this.mistakeIndex++;
           this.getMistake(this.mistakeIndex);
           this.updateMistakeListSize();
+          console.log("c'est bon et tu es dans la partie rattrappage");
         }
         else {
+          console.log("c'est bon est tu vas quitter la partie rattrappage");
           this.goToResult();
         }
       }
@@ -281,6 +335,7 @@ export class QuizzPage implements OnInit {
         this.inputShown = false;
         this.mistake = true;
         this.mistakeList.push(this.current_charac);
+        console.log("t'es au rattrapage et tu fais encore des fautes!!");
       }
     }
     else {

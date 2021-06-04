@@ -11,6 +11,15 @@ export class StatisticsPage implements OnInit {
   testsAmount: any = 0;
   testsAverage: any ="-";
   testsInitialized: boolean = false;
+  phoneticHiraganaMistakesTable: boolean;
+  wordHiraganaMistakesTable: boolean;
+  phoneticKatakanaMistakesTable: boolean;
+  wordKatakanaMistakesTable: boolean;
+  phoneticHiraganaMistakesAmount: number;
+  wordHiraganaMistakesAmount: number;
+  phoneticKatakanaMistakesAmount: number;
+  wordKatakanaMistakesAmount: number;
+  shameIsOn: boolean;
 
   constructor(public statsService: StatsService) {}
 
@@ -26,17 +35,16 @@ export class StatisticsPage implements OnInit {
     console.log(await this.statsService.get("1"));
   }
 
-  
-
   async ngOnInit() {
       // await this.statsService.set("testSetngOnInit", "blabla");
       // console.log("testSet initialized from the ngOnInit");
       // console.log(await this.statsService.get("testSetngOnInit"));
+      await this.statsService.init();
   }
 
   async ionViewWillEnter(){
     await this.statsService.set("testSetionViewWillEnter", "blabla");
-      console.log("testSet initialized from the ionViewWillEnter");
+    console.log("testSet initialized from the ionViewWillEnter");
     console.log(await this.statsService.get("testSetionViewWillEnter"));
 
     if(await this.statsService.keyExistence("testsAmount")){
@@ -56,8 +64,41 @@ export class StatisticsPage implements OnInit {
     else {
       this.testsAverage = "-";
     }
+
+    if(await this.statsService.keyExistence("phoneticHiraganaMistakes")){
+      this.phoneticHiraganaMistakesTable = true;
+      this.shameIsOn = true;
+      let tempTable = await this.statsService.getArrayMistakeValue("phoneticHiraganaMistakes");
+      this.phoneticHiraganaMistakesTable = tempTable[0];
+      this.phoneticHiraganaMistakesAmount = tempTable[1];
+  }
+
+    if(await this.statsService.keyExistence("wordHiraganaMistakes")){
+      this.wordHiraganaMistakesTable = true;
+      this.shameIsOn = true;
+      let tempTable = await this.statsService.getArrayMistakeValue("wordHiraganaMistakes");
+      this.wordHiraganaMistakesTable = tempTable[0];
+      this.wordHiraganaMistakesAmount = tempTable[1];
+  }
+
+    if(await this.statsService.keyExistence("phoneticKatakanaMistakes")){
+      this.phoneticKatakanaMistakesTable = true;
+      this.shameIsOn = true;
+      let tempTable = await this.statsService.getArrayMistakeValue("phoneticKatakanaMistakes");
+      this.phoneticKatakanaMistakesTable = tempTable[0];
+      this.phoneticKatakanaMistakesAmount = tempTable[1];
+  }
+
+    if(await this.statsService.keyExistence("wordKatakanaMistakes")){
+      this.wordKatakanaMistakesTable = true;
+      this.shameIsOn = true;
+      let tempTable = await this.statsService.getArrayMistakeValue("wordKatakanaMistakes");
+      this.wordKatakanaMistakesTable = tempTable[0];
+      this.wordKatakanaMistakesAmount = tempTable[1];
   }
 
   
+
+}
 
 }

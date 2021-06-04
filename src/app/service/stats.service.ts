@@ -40,6 +40,18 @@ export class StatsService {
         let phoneticHiraganaMistakes: MistakeBank[] = [{name: keyElement, failAmount: 1}];
         await this.set(keyArray, phoneticHiraganaMistakes);
       }
+      else if(keyArray == "wordHiraganaMistakes"){
+        let wordHiraganaMistakes: MistakeBank[] = [{name: keyElement, failAmount: 1}];
+        await this.set(keyArray, wordHiraganaMistakes);
+      }
+      else if(keyArray == "phoneticKatakanaMistakes"){
+        let phoneticKatakanaMistakes: MistakeBank[] = [{name: keyElement, failAmount: 1}];
+        await this.set(keyArray, phoneticKatakanaMistakes);
+      }
+      else if(keyArray == "wordKatakanaMistakes"){
+        let wordKatakanaMistakes: MistakeBank[] = [{name: keyElement, failAmount: 1}];
+        await this.set(keyArray, wordKatakanaMistakes);
+      }
     }
     else{
       let indexElement = this.tempMistakeArray.findIndex(x => x.name === keyElement);
@@ -51,6 +63,21 @@ export class StatsService {
         this.tempMistakeArray.push({name: keyElement, failAmount: 1})
         this.set(keyArray, this.tempMistakeArray);
       }
+    }
+  }
+
+  async getArrayMistakeValue(keyArray: string):Promise<any[]>{
+    this.tempMistakeArray = await this.get(keyArray);
+    if(this.tempMistakeArray != null){
+      let maxMistakes = 0;
+      let valueMistake;
+      for(let e of this.tempMistakeArray){
+        if(e.failAmount > maxMistakes){
+          maxMistakes = e.failAmount;
+          valueMistake = e.name;
+        }
+      }
+      return [valueMistake, maxMistakes];
     }
   }
 

@@ -32,45 +32,45 @@
       </div>
     </div>
       <p class="title">Wall of shame</p>
-      <div class="charac_block_container">
+      <div class="charac_block_container" *ngIf="shameIsOn">
         <div class="pepepoint_div_left">
           <img src="../../assets/img/pepePoint.png">
         </div>
         <div class="charac_block">
-          <div class="block_row">
+          <div class="block_row" *ngIf="phoneticHiraganaMistakesTable">
             <div class="charac_subblock">
               <p class="text">Hiragana phonetic</p>
-              <p class="charac">け</p>
+              <p class="charac">{{phoneticHiraganaMistakesTable}}</p>
             </div>
             <div class="counter">
-              <p class="figure">x4</p>
+              <p class="figure">x{{phoneticHiraganaMistakesAmount}}</p>
             </div>
           </div>
-          <div class="block_row">
+          <div class="block_row" *ngIf="wordHiraganaMistakesTable">
             <div class="charac_subblock">
               <p class="text">Hiragana word</p>
-              <p class="charac">にゃん</p>
+              <p class="charac">{{wordHiraganaMistakesTable}}</p>
             </div>
             <div class="counter">
-              <p class="figure">x1</p>
+              <p class="figure">x{{wordHiraganaMistakesAmount}}</p>
             </div>
           </div>
-          <div class="block_row">
+          <div class="block_row" *ngIf="phoneticKatakanaMistakesTable">
             <div class="charac_subblock">
               <p class="text">Hiragana phonetic</p>
-              <p class="charac">け</p>
+              <p class="charac">{{phoneticKatakanaMistakesTable}}</p>
             </div>
             <div class="counter">
-              <p class="figure">x4</p>
+              <p class="figure">x{{phoneticKatakanaMistakesAmount}}</p>
             </div>
           </div>
-          <div class="block_row">
+          <div class="block_row" *ngIf="wordKatakanaMistakesTable">
             <div class="charac_subblock">
               <p class="text">Hiragana word</p>
-              <p class="charac">にゃん</p>
+              <p class="charac">{{wordKatakanaMistakesTable}}</p>
             </div>
             <div class="counter">
-              <p class="figure">x1</p>
+              <p class="figure">x{{wordKatakanaMistakesAmount}}</p>
             </div>
         </div>
       </div>
@@ -78,11 +78,23 @@
         <img src="../../assets/img/pepePoint.png">
       </div>
     </div>
+
+    <div class="charac_block_container" *ngIf="!shameIsOn">
+      <div class="charac_block">
+        <div class="block_row">
+          <div class="charac_subblock">
+            <p class="charac">No shame yet...</p>
+          </div>
+          
+        </div>
+      </div>
+    </div>
+
+    <ion-button (click)="removeAll()">Clear All</ion-button>
+
   </div>
 
-  <ion-button (click)="addJohn()">Add John</ion-button>
-  <ion-button (click)="removeAll()">Clear All</ion-button>
-  <ion-button (click)="getJohn()">Get John</ion-button>
+  
   
 
 
