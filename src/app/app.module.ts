@@ -27,7 +27,7 @@ import { Drivers } from '@ionic/storage';
     IonicStorageModule.forRoot({
       name: 'statsDB',
       driverOrder: [CordovaSQLiteDriver._driver, Drivers.IndexedDB]
-    })],
+    }),],
   providers: [
     { provide: RouteReuseStrategy, useClass: IonicRouteStrategy },
     {provide: NativeAudio, useClass: NativeAudio},
