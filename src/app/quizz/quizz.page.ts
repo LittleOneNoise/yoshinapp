@@ -2,6 +2,7 @@ import { StatsService } from './../service/stats.service';
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, NavigationExtras, Router } from '@angular/router';
 import { Kana } from '../service/Kana';
+import { ToastController } from '@ionic/angular';
 
 @Component({
   selector: 'app-quizz',
@@ -10,7 +11,7 @@ import { Kana } from '../service/Kana';
 })
 export class QuizzPage implements OnInit {
 
-  constructor(private route: ActivatedRoute, private router: Router, public statsService: StatsService) {
+  constructor(private route: ActivatedRoute, private router: Router, public statsService: StatsService, public toastController: ToastController) {
    
     this.route.queryParams.subscribe(params => {
       if (this.router.getCurrentNavigation().extras.state) {
@@ -102,6 +103,15 @@ export class QuizzPage implements OnInit {
     // this.mistake = true;
     this.getCharacter();
 
+}
+
+async emptyFieldToast() {
+  const toast = await this.toastController.create({
+    message: 'Empty field',
+    duration: 1000,
+    cssClass:'toast-bg'
+  });
+  toast.present();
 }
 
   shuffleList(array: any):Kana[]{
@@ -268,6 +278,7 @@ export class QuizzPage implements OnInit {
 
   //When pressing the validate button or the enter key
   validateInput(){
+    if(this.input_value != null && this.input_value != ""){
     console.log("tableau des mistakes");
     console.log(this.mistakeList);
     if(this.progression < this.questions_amount){
@@ -342,5 +353,10 @@ export class QuizzPage implements OnInit {
       console.log("Something wrong happened :(");
     }
   }
+  else {
+    this.emptyFieldToast();
+  }
+}
+
 
 }

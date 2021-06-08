@@ -1,5 +1,6 @@
 import { StatsService } from './../service/stats.service';
 import { Component, OnInit } from '@angular/core';
+import { AlertController } from '@ionic/angular';
 
 @Component({
   selector: 'app-statistics',
@@ -21,18 +22,38 @@ export class StatisticsPage implements OnInit {
   wordKatakanaMistakesAmount: number;
   shameIsOn: boolean;
 
-  constructor(public statsService: StatsService) {}
+  constructor(public statsService: StatsService, public alertController: AlertController) {}
 
-  addJohn(){
-    this.statsService.set("1", "john");
+  async clearStatsAlertConfirm() {
+    const alert = await this.alertController.create({
+      cssClass: 'my-custom-class',
+      header: 'Warning',
+      message: 'Are you sure you want to delete all your stats? You won\'t be able to cancel once you do.',
+      buttons: [
+        {
+          text: 'Cancel',
+          role: 'cancel',
+          cssClass: 'secondary',
+          handler: () => {
+            console.log('Cancel stats deletion');
+          }
+        }, {
+          text: 'Confirm',
+          handler: () => {
+            console.log('Deleting stats...');
+            this.removeAll();
+            this.shameIsOn = false;
+            this.ionViewWillEnter();
+          }
+        }
+      ]
+    });
+
+    await alert.present();
   }
 
   removeAll(){
     this.statsService.clearAll();
-  }
-
-  async getJohn(){
-    console.log(await this.statsService.get("1"));
   }
 
   async ngOnInit() {

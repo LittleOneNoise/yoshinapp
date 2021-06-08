@@ -38,17 +38,19 @@
   }
   
   ion-button {
-    width: 15vh;
-    height: 15vh;
+    // width: 18vh;
+    // height: 18vh;
+    width: 32vw;
+    height: 32vw;
     margin: 0 auto 20% auto;
-    --border-radius: 3.5vh;
+    --border-radius: 8vw;
     --background: #9D694C;
     --background-activated: #965462;
     --background-hover: #262626;
     // font-size: 5vh;
     text-transform: none;
     letter-spacing: 1px;
-    // --box-shadow: 100px;
+    --box-shadow: 1px 1px 5px rgb(58, 58, 58);
     --color: #D6D6D6;
     display: flex;
     flex-direction: column;
@@ -58,7 +60,7 @@
     display: flex;
     flex-direction: column;
     margin: 5% auto;
-    width: 85%;
+    width: 90%;
   }
 
   .row_block {
@@ -69,7 +71,7 @@
   }
 
   .button_img {
-    width: 8vh;
+    width: 9vh;
   }
 
   .button_icon {
@@ -80,7 +82,8 @@
   }
 
   .button_label {
-    font-size: 2vh;
+    // font-size: 2.5vh;
+    font-size: 4vw;
     // font-weight: 600;
     margin: 0;
     color: #D6D6D6;

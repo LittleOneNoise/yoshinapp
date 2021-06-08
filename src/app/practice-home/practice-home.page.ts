@@ -11,7 +11,6 @@ export class PracticeHomePage implements OnInit {
   constructor(private router: Router) {
 }
 
-  
 
   goToQuizz(writingSystem: string, quizzType: string){
     let navigationExtras: NavigationExtras = {
