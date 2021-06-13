@@ -34,7 +34,7 @@ export class FinalScorePage implements OnInit {
         writingSystem: writing,
       }
     };
-    this.router.navigate(['tabs/practice/practice-amount/quizzalpha'], navigationExtras);
+    this.router.navigate(['tabs/practice/quizz'], navigationExtras);
   }
 
   goHome(){

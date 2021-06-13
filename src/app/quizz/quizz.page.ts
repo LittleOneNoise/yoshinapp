@@ -46,8 +46,6 @@ export class QuizzPage implements OnInit {
 
    async ngOnInit() {
 
-   
-
     if(this.quizzType == null || this.writingSystem == null){
       // alert('Error, couldn\'t get quizz data');
     }
@@ -57,7 +55,8 @@ export class QuizzPage implements OnInit {
       });
       this.results = this.results.filter(kana => (kana.type == "phonetic" && kana.family == "hiragana"));
       this.shuffleList(this.results);
-
+      console.log("j'ai chopé la liste d'hiragana");
+  
     }
     else if(this.writingSystem == "hiragana" && this.quizzType == "word"){
       await fetch('./../assets/data/kana.json').then(res => res.json()).then(json => {
@@ -68,7 +67,7 @@ export class QuizzPage implements OnInit {
       console.log(this.results);
       this.shuffleList(this.results);
       console.log(this.results);
-
+  
     }
     else if(this.writingSystem == "katakana" && this.quizzType == "phonetic"){
       await fetch('./../assets/data/kana.json').then(res => res.json()).then(json => {
@@ -79,7 +78,7 @@ export class QuizzPage implements OnInit {
       console.log(this.results);
       this.shuffleList(this.results);
       console.log(this.results);
-
+  
     }
     else if(this.writingSystem == "katakana" && this.quizzType == "word"){
       await fetch('./../assets/data/kana.json').then(res => res.json()).then(json => {
@@ -91,17 +90,73 @@ export class QuizzPage implements OnInit {
       this.shuffleList(this.results);
       console.log(this.results);
       console.log("listes des mots katakana récupérée !");
-
+  
     }
-
+  
     this.progression = 1;
     this.final_score = 0;
     this.inputShown = true;
     this.mistake = false;
     this.mistakeList = [];
-    // this.inputShown = false;
-    // this.mistake = true;
     this.getCharacter();
+    
+}
+
+async ionViewWillLeave(){
+  
+  if(this.quizzType == null || this.writingSystem == null){
+    // alert('Error, couldn\'t get quizz data');
+  }
+  else if(this.writingSystem == "hiragana" && this.quizzType == "phonetic"){
+    await fetch('./../assets/data/kana.json').then(res => res.json()).then(json => {
+    this.results = json;
+    });
+    this.results = this.results.filter(kana => (kana.type == "phonetic" && kana.family == "hiragana"));
+    this.shuffleList(this.results);
+    console.log("j'ai chopé la liste d'hiragana");
+
+  }
+  else if(this.writingSystem == "hiragana" && this.quizzType == "word"){
+    await fetch('./../assets/data/kana.json').then(res => res.json()).then(json => {
+    this.results = json;
+    console.log(this.results);
+    });
+    this.results = this.results.filter(kana => (kana.type == "word" && kana.family == "hiragana"));
+    console.log(this.results);
+    this.shuffleList(this.results);
+    console.log(this.results);
+
+  }
+  else if(this.writingSystem == "katakana" && this.quizzType == "phonetic"){
+    await fetch('./../assets/data/kana.json').then(res => res.json()).then(json => {
+    this.results = json;
+    console.log(this.results);
+    });
+    this.results = this.results.filter(kana => (kana.type == "phonetic" && kana.family == "katakana"));
+    console.log(this.results);
+    this.shuffleList(this.results);
+    console.log(this.results);
+
+  }
+  else if(this.writingSystem == "katakana" && this.quizzType == "word"){
+    await fetch('./../assets/data/kana.json').then(res => res.json()).then(json => {
+    this.results = json;
+    console.log(this.results);
+    });
+    this.results = this.results.filter(kana => (kana.type == "word" && kana.family == "katakana"));
+    console.log(this.results);
+    this.shuffleList(this.results);
+    console.log(this.results);
+    console.log("listes des mots katakana récupérée !");
+
+  }
+
+  this.progression = 1;
+  this.final_score = 0;
+  this.inputShown = true;
+  this.mistake = false;
+  this.mistakeList = [];
+  this.getCharacter();
 
 }
 
@@ -109,7 +164,8 @@ async emptyFieldToast() {
   const toast = await this.toastController.create({
     message: 'Empty field',
     duration: 1000,
-    cssClass:'toast-bg'
+    cssClass:'toast-bg',
+    position:'middle'
   });
   toast.present();
 }
