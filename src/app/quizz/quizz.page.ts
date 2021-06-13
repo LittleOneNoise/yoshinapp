@@ -55,7 +55,7 @@ export class QuizzPage implements OnInit {
       });
       this.results = this.results.filter(kana => (kana.type == "phonetic" && kana.family == "hiragana"));
       this.shuffleList(this.results);
-      console.log("j'ai chopé la liste d'hiragana");
+      console.log("j'ai vriament chopé la liste d'hiragana");
   
     }
     else if(this.writingSystem == "hiragana" && this.quizzType == "word"){
