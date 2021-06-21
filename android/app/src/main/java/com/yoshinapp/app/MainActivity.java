@@ -1,4 +1,4 @@
-package io.ionic.starter;
+package com.yoshinapp.app;
 
 import android.os.Bundle;
 

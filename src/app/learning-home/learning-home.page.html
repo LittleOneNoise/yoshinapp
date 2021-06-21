@@ -1,102 +1,79 @@
-<ion-header class="header">
-  <ion-toolbar class="top-toolbar">
+<ion-header class="header" class="ion-no-border">
+  <ion-toolbar class="top-toolbar" mode="ios">
     <ion-title class="top-title">
       Learning
     </ion-title>
+    <ion-buttons slot="end">
+      <ion-button>
+        <!-- <ion-icon src="../assets/icon/settings-icon.svg" class="icon_settings_topbar"></ion-icon> -->
+        <img src="../assets/icon/settings-icon.svg" class="icon_settings_topbar"/>
+      </ion-button>
+    </ion-buttons>
   </ion-toolbar>
 </ion-header>
 
 <ion-content [fullscreen]="true">
+
+  <div class="buttons_menu_block">
+     
+    <ion-button (click)="goToLearningHiraganaTable()" class="button_menu_pink">
+      <div class="button_menu_content">
+        <div class="button_menu_label_content">
+          <p class="button_label">Hiragana</p>
+          <p class="button_sublabel">Table</p>
+        </div>
+        <div class="button_menu_icon_content">
+          <img src="../assets/icon/table_method_icon.svg" class="button_img">
+        </div>
+      </div>
+    </ion-button>
+
+    <ion-button (click)="goToLearningHiraganaMnemonic()" class="button_menu_brown">
+      <div class="button_menu_content">
+        <div class="button_menu_label_content">
+          <p class="button_label">Hiragana</p>
+          <p class="button_sublabel">Mnemonic</p>
+        </div>
+        <div class="button_menu_icon_content">
+          <img src="../../assets/icon/word_hira_button.svg" class="button_img_rotated">
+        </div>
+      </div>
+    </ion-button>
+
   
-  <img src="../assets/logo_nihongokay.png" class="logo" id="logo">
-
-  <div class="menu_block">
-    
-    <div class="row_block">
-     
-      <ion-button (click)="goToLearningHiraganaTable()">
-        <div class="button_content">
-          <p class="button_label">Table</p>
-          <ion-icon src="../assets/icon/table_method_icon.svg" class="button_icon"></ion-icon>
-          <p class="button_label">Hiragana</p>
-        </div>
-      </ion-button>
-
-      <ion-button (click)="goToLearningHiraganaMnemonic()">
-        <div class="button_content">
-          <p class="button_label">Mnemonic</p>
-          <img src="../../assets/img/mnemo_button_hira_1.png" class="button_img">
-          <p class="button_label">Hiragana</p>
-        </div>
-      </ion-button>
-
-    </div>
-
-    <div class="row_block">
-     
-      <ion-button (click)="goToLearningKatakanaTable()">
-        <div class="button_content">
-          <p class="button_label">Table</p>
-          <ion-icon src="../assets/icon/table_method_icon_2.svg" class="button_icon"></ion-icon>
-          <p class="button_label">Katakana</p>
-        </div>
-      </ion-button>
-
-      <ion-button (click)="goToLearningKatakanaMnemonic()">
-        <div class="button_content">
-          <p class="button_label">Mnemonic</p>
-          <img src="../../assets/img/mnemo_button_kata_1.png" class="button_img">
-          <p class="button_label">Katakana</p>
-        </div>
-      </ion-button>
-
-    </div>
-
-  </div>
-
-      <!-- <ion-button (click)="goToLearningHiraganaMnemonic()">
-        <div class="button_content">
-          <ion-icon src="../assets/icon/table-icon.svg" class="button_icon"></ion-icon>
-          <p class="button_label">Hiragana</p>
-        </div>
-      </ion-button>
    
-    </div>
-    
-    <div class="method_block">
-
-      <ion-button>
-        <div class="button_content">
-          <ion-icon src="../assets/icon/table-icon.svg" class="button_icon"></ion-icon>
+    <ion-button (click)="goToLearningKatakanaTable()" class="button_menu_pink">
+      <div class="button_menu_content">
+        <div class="button_menu_label_content">
           <p class="button_label">Katakana</p>
+          <p class="button_sublabel">Table</p>
         </div>
-      </ion-button>
-
-      <ion-button>
-        <div class="button_content">
-          <ion-icon src="../assets/icon/table-icon.svg" class="button_icon"></ion-icon>
-          <p class="button_label">Katakana</p>
+        <div class="button_menu_icon_content">
+          <img src="../../assets/icon/table_method_icon_2.svg" class="button_img">
         </div>
-      </ion-button>
-
-
-    </div>
-  </div> -->
-
-  <!-- <div class="other_block">
-    <ion-button>
-      <div class="button_content">
-        <ion-icon src="../assets/icon/table-icon.svg" class="button_icon"></ion-icon>
-        <p class="button_label">Vocabulary</p>
       </div>
     </ion-button>
-    <ion-button>
-      <div class="button_content">
-        <ion-icon src="../assets/icon/table-icon.svg" class="button_icon"></ion-icon>
-        <p class="button_label">Kanji</p>
+
+    <ion-button (click)="goToLearningKatakanaMnemonic()" class="button_menu_brown">
+      <div class="button_menu_content">
+        <div class="button_menu_label_content">
+          <p class="button_label">Katakana</p>
+          <p class="button_sublabel">Mnemonic</p>
+        </div>
+        <div class="button_menu_icon_content">
+          <img src="../../assets/icon/word_kata_button.svg" class="button_img_rotated">
+        </div>
       </div>
     </ion-button>
-  </div> -->
+</div>
+
+  <ion-button (click)="goToLearningHiraganaTable()">
+    <div class="button_content">
+      <p class="button_label">Table</p>
+      <ion-icon src="../assets/icon/table_method_icon.svg" class="button_icon"></ion-icon>
+      <p class="button_label">Hiragana</p>
+    </div>
+  </ion-button>
 
 
 

@@ -1,58 +1,71 @@
-<ion-header class="header">
-  <ion-toolbar class="top-toolbar">
+<ion-header class="header" class="ion-no-border">
+  <ion-toolbar class="top-toolbar" mode="ios">
     <ion-title class="top-title">
       Practice
     </ion-title>
+    <ion-buttons slot="end">
+      <ion-button (click)="settingsPopup()">
+        <!-- <ion-icon src="../assets/icon/settings-icon.svg" class="icon_settings_topbar"></ion-icon> -->
+        <img src="../assets/icon/settings-icon.svg" class="icon_settings_topbar"/>
+      </ion-button>
+    </ion-buttons>
   </ion-toolbar>
 </ion-header>
 
 <ion-content [fullscreen]="true">
-  <img src="../assets/logo_nihongokay.png" class="logo">
   
-  <div class="menu_block">
+  <div class="buttons_menu_block">
+     
+      <ion-button (click)="goToQuizz('hiragana','character')" class="button_menu_pink">
+        <div class="button_menu_content">
+          <div class="button_menu_label_content">
+            <p class="button_label">Hiragana</p>
+            <p class="button_sublabel">Characters</p>
+          </div>
+          <div class="button_menu_icon_content">
+            <img src="../../assets/icon/character_hira_a_button.svg" class="button_img">
+          </div>
+        </div>
+      </ion-button>
+
+      <ion-button (click)="goToQuizz('hiragana','word')" class="button_menu_brown">
+        <div class="button_menu_content">
+          <div class="button_menu_label_content">
+            <p class="button_label">Hiragana</p>
+            <p class="button_sublabel">Words</p>
+          </div>
+          <div class="button_menu_icon_content">
+            <img src="../../assets/icon/word_hira_button.svg" class="button_img_rotated">
+          </div>
+        </div>
+      </ion-button>
+
     
-    <div class="row_block">
      
-      <ion-button (click)="goToQuizz('hiragana','phonetic')">
-        <div class="button_content">
-          <p class="button_label">Phonetic</p>
-          <img src="../../assets/icon/practice_button_icon_hira_alphabet.png" class="button_img">
-          <p class="button_label">Hiragana</p>
+      <ion-button (click)="goToQuizz('katakana','character')" class="button_menu_pink">
+        <div class="button_menu_content">
+          <div class="button_menu_label_content">
+            <p class="button_label">Katakana</p>
+            <p class="button_sublabel">Characters</p>
+          </div>
+          <div class="button_menu_icon_content">
+            <img src="../../assets/icon/character_kata_a_button.svg" class="button_img">
+          </div>
         </div>
       </ion-button>
 
-      <ion-button (click)="goToQuizz('hiragana','word')">
-        <div class="button_content">
-          <p class="button_label">Words</p>
-          <img src="../../assets/icon/practice_button_icon_hira_word.png" class="button_img">
-          <p class="button_label">Hiragana</p>
+      <ion-button (click)="goToQuizz('katakana','word')" class="button_menu_brown">
+        <div class="button_menu_content">
+          <div class="button_menu_label_content">
+            <p class="button_label">Katakana</p>
+            <p class="button_sublabel">Words</p>
+          </div>
+          <div class="button_menu_icon_content">
+            <img src="../../assets/icon/word_kata_button.svg" class="button_img_rotated">
+          </div>
         </div>
       </ion-button>
-
-    </div>
-
-    <div class="row_block">
-     
-      <ion-button (click)="goToQuizz('katakana','phonetic')">
-        <div class="button_content">
-          <p class="button_label">Phonetic</p>
-          <img src="../../assets/icon/practice_button_icon_kata_alphabet.png" class="button_img">
-          <p class="button_label">Katakana</p>
-        </div>
-      </ion-button>
-
-      <ion-button (click)="goToQuizz('katakana','word')">
-        <div class="button_content">
-          <p class="button_label">Words</p>
-          <img src="../../assets/icon/practice_button_icon_kata_word.png" class="button_img">
-          <p class="button_label">Katakana</p>
-        </div>
-      </ion-button>
-
-    </div>
-
   </div>
-
 
 </ion-content>
 

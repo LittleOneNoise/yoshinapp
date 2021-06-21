@@ -1,10 +1,4 @@
-<!-- <ion-header>
-  <ion-toolbar>
-    <ion-title>Tabs Header</ion-title>
-  </ion-toolbar>
-</ion-header> -->
-
-<ion-content>
+<!-- <ion-content>
 <ion-tabs>
 <ion-tab-bar slot="bottom">
   <ion-tab-button tab="practice">
@@ -18,4 +12,38 @@
   </ion-tab-button>
 </ion-tab-bar>
 </ion-tabs>
-</ion-content>
+</ion-content> -->
+
+<super-tabs>
+  <super-tabs-toolbar slot="bottom">
+    <super-tab-button>
+      <ion-icon src="../../assets/icon/littleone-icon-paintbrush-first.svg"></ion-icon>
+      <ion-label>Practice</ion-label>    
+    </super-tab-button>
+    <super-tab-button>
+      <ion-icon src="../assets/icon/icon-learning.svg"></ion-icon>
+      <ion-label>Learning</ion-label>    
+    </super-tab-button>
+    <super-tab-button>
+      <ion-icon src="../assets/icon/icon-stats.svg"></ion-icon>
+      <ion-label>Stats</ion-label>
+    </super-tab-button>
+  </super-tabs-toolbar>
+  <super-tabs-container>
+    <super-tab>
+      <ion-content>
+        <ion-nav [root]="practice"></ion-nav>
+      </ion-content>
+    </super-tab>
+    <super-tab>
+      <ion-content>
+        <ion-nav [root]="learning"></ion-nav>
+      </ion-content>
+    </super-tab>
+    <super-tab>
+      <ion-content>
+        <ion-nav [root]="stats"></ion-nav>
+      </ion-content>
+    </super-tab>
+  </super-tabs-container>
+</super-tabs>

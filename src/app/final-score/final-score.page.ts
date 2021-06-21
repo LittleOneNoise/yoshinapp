@@ -13,25 +13,26 @@ export class FinalScorePage implements OnInit {
     this.route.queryParams.subscribe(params => {
       if (this.router.getCurrentNavigation().extras.state) {
         this.score = this.router.getCurrentNavigation().extras.state.score;
+        this.quizzType = this.router.getCurrentNavigation().extras.state.type;
         this.writing = this.router.getCurrentNavigation().extras.state.writingSystem;
-        this.amount = this.router.getCurrentNavigation().extras.state.amt;
       }
     });
    
   }
 
   score: number;
+  quizzType: string;
   writing: string;
-  amount: number;
 
   ngOnInit() {
+    console.log(this.score,this.writing, this.quizzType);
   }
 
-  goToQuizz(amount: number, writing: string){
+  goToQuizz(){
     let navigationExtras: NavigationExtras = {
       state: {
-        amountUrl: amount,
-        writingSystem: writing,
+        type: this.quizzType,
+        writing: this.writing,
       }
     };
     this.router.navigate(['tabs/practice/quizz'], navigationExtras);

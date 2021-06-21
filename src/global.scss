@@ -26,15 +26,60 @@
 @import "~@ionic/angular/css/flex-utils.css";
 
 
-ion-back-button {
-    color: #262626;
-  }
+ion-content {
+  --background: #534943;
+}
 
-  .scroll-content
-  {
-    padding-bottom: 0 !important;
-  }
+.top-toolbar {
+  --background: #534943;
+  --color: #EDEDED;
+}
+
+// title inside the top bar
+.top-title {
+  font-size: 30px;
+}
+
+.icon_settings_topbar {
+  height: 100%;
+}
+
+.header {
+  text-align: center;
+}
+
+ion-back-button {
+  color: #262626;
+}
+
+super-tabs {  
+  --super-tabs-toolbar-background: #3C3430;
+  --st-indicator-color: #EDEDED;
+  --st-base-color-inactive: #929292;
+  --st-base-color-active: #EDEDED;
+}
+
+super-tabs-toolbar, super-tab-button {
+  height: 8vh;
+}
+
+super-tabs { ion-label {
+  text-transform: none;
+}}
+
+.settingsStyle {
+  --background: #534943;
+  --border-radius: 200px !important;
+}
+
+.scroll-content {
+  padding-bottom: 0 !important;
+}
   
-  .toast-bg {
-    --background: #9D694C;
-  }
+.toast-bg {
+  --background: #9D694C;
+}
+
+  
+
+  
