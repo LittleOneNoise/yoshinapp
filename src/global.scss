@@ -72,6 +72,98 @@ super-tabs { ion-label {
   --border-radius: 200px !important;
 }
 
+.modalCss .modal-wrapper { 
+  width: 70%;
+  height: 55%;
+  border-radius: 5vh;
+}
+
+.settings_toolbar {
+  --background: #534943;
+  --color: #EDEDED;
+}
+
+.popupContent {
+  display: flex;
+  flex-direction: column;
+}
+
+.sound_button_on {
+  --background: #DB7890;
+  --border-radius: 1.5vh;
+  height: auto;
+}
+
+.delete_button {
+  --background: #C85252;
+  --border-radius: 1.5vh;
+  height: auto;
+  width: fit-content;
+  margin: 1vh auto;
+}
+
+.img_sound_on {
+  height: 6.5vh;
+}
+
+.img_delete {
+  height: 6.5vh;
+}
+
+.settings_sublabel {
+  text-align: center;
+  font-size: 5vw;
+  margin: 2vh auto 1vh auto;
+  color: #EDEDED;
+}
+
+.popupContentTop {
+  display: flex;
+  flex-direction: row;
+  height: 100%;
+  width: 100%;
+  justify-content: space-evenly;
+}
+
+.seperator {
+  border-top: 1px solid #9D694C;
+  width: 80%;
+}
+
+.popupContentBottom {
+  display: flex;
+  flex-direction: row;
+  height: 100%;
+  width: 80%;
+  justify-content: space-evenly;
+  margin: auto;
+}
+
+.settings_description {
+  font-size: 3vw;
+  text-align: center;
+  color: #EDEDED;
+}
+
+.github_button {
+  --background: #9D694C;
+  --border-radius: 1.5vh;
+  height: auto;
+  width: fit-content;
+  margin: 1vh auto;
+}
+
+.img_github {
+  height: 6.5vh;
+  padding: 1vh;
+}
+
+.settings_brand {
+  font-size: 4.5vw;
+  text-align: center;
+  color: #EDEDED;
+}
+
 .scroll-content {
   padding-bottom: 0 !important;
 }

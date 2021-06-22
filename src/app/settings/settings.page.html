@@ -1,0 +1,40 @@
+<ion-header>
+  <ion-toolbar class="settings_toolbar">
+    <ion-title>Settings</ion-title>
+    <ion-buttons slot="end">
+      <ion-button (click)="closeModal()">
+        <ion-icon slot="icon-only" name="close"></ion-icon>
+      </ion-button>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <div class="popupContent">
+    <div class="popupContentTop">
+      <div style="display:flex; flex-direction:column;">
+        <p class="settings_sublabel">Sound</p>
+        <ion-button class="sound_button_on">
+          <img src='../assets/icon/sound_on_icon.svg' class="img_sound_on" />
+        </ion-button>
+      </div>
+      <div style="display:flex; flex-direction:column;">
+        <p class="settings_sublabel">Reset data</p>
+        <ion-button class="delete_button">
+          <img src='../assets/icon/delete_icon.svg' class="img_delete" />
+        </ion-button>
+      </div>
+    </div>
+    <hr class="seperator">
+    <div class="popupContentBottom">
+      <div style="display:flex; flex-direction:column;">
+        <p class="settings_description">Yoshinapp is an open-source application, join us in the development and make Yoshinapp a better app !</p>
+        <ion-button class="github_button">
+          <img src='../assets/icon/github_icon.svg' class="img_github" />
+        </ion-button>
+        <p class="settings_brand">Yoshinapp © 2021</p>
+      </div>
+    </div>
+  </div>
+
+</ion-content>
