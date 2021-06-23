@@ -37,7 +37,13 @@ ion-content {
 
 // title inside the top bar
 .top-title {
-  font-size: 30px;
+  font-size: 6vw;
+  position: absolute;
+  left: 0;
+  right: 0;
+  top: 0;
+  bottom: 0;
+  text-align: center;
 }
 
 .icon_settings_topbar {
@@ -49,7 +55,7 @@ ion-content {
 }
 
 ion-back-button {
-  color: #262626;
+  color: #EDEDED;
 }
 
 super-tabs {  
@@ -83,6 +89,22 @@ super-tabs { ion-label {
   --color: #EDEDED;
 }
 
+.close_window_button {
+  --background: #9D694C;
+  color: #EDEDED;
+  position: absolute;
+  right: 3vw;
+  top: 1vh;
+  --border-radius: 3vw;
+  width: 8vw;
+  height: 8vw;
+}
+
+.close_icon {
+  width: 5vw;
+  max-width: fit-content;
+}
+
 .popupContent {
   display: flex;
   flex-direction: column;
@@ -91,7 +113,8 @@ super-tabs { ion-label {
 .sound_button_on {
   --background: #DB7890;
   --border-radius: 1.5vh;
-  height: auto;
+  height: 6.5vh;
+  width: 11vh;
 }
 
 .delete_button {
@@ -99,7 +122,9 @@ super-tabs { ion-label {
   --border-radius: 1.5vh;
   height: auto;
   width: fit-content;
-  margin: 1vh auto;
+  margin: auto;
+  height: 6.5vh;
+  width: 11vh;
 }
 
 .img_sound_on {
@@ -162,6 +187,55 @@ super-tabs { ion-label {
   font-size: 4.5vw;
   text-align: center;
   color: #EDEDED;
+}
+
+.popoverContent {
+  display: flex;
+  flex-direction: column;
+  margin-top: 2vh;
+}
+
+.popoverText {
+  font-size: 5vw;
+  margin: 0.5vh auto 0.5vh 4vw;
+  color: #EDEDED;
+}
+
+.seperatorv2 {
+  border-top: 1px solid #9D694C;
+  width: 92%;
+}
+
+.kana_example {
+  display: flex;
+  flex-direction: row;
+  margin: 0.5vh auto 0.5vh 4vw;
+  align-items: center;
+  font-size: 5vw;
+}
+
+.artificial_space {
+  width: 1.5vw;
+}
+
+.popoverExampleTextNotPink {
+  margin: 0;
+  color: #EDEDED;
+}
+
+.popoverExampleTextPink {
+  margin: 0;
+  color: #DB7890;
+}
+
+.popoverCss { 
+  .popover-wrapper {
+    .popover-content {
+  
+  width: 90%;
+  // height: 55%;
+  border-radius: 5vh;
+    }}
 }
 
 .scroll-content {

@@ -14,7 +14,7 @@ export class LearningHomePage implements OnInit {
   constructor(private router: Router, public navCtrl: NavController) { }
 
   goToLearningHiraganaTable(){
-    this.router.navigateByUrl('tabs/learning/learning-hiragana-table');
+    this.router.navigateByUrl('learning-hiragana-table');
   }
 
   goToLearningHiraganaMnemonic(){

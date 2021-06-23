@@ -1,47 +1,54 @@
 <ion-content>
   <div id="ombra" class="container off-bottom">
-  <div class="div_table">
-    
-    <div class="info">The rows group the same consonants and the columns group the same vowels</div>
-    
-    <div class="div_row">
+    <div class="div_table">
 
-      <div class="div_charac">あ</div>
-      <div class="div_charac">い</div>
-      <div class="div_charac">う</div>
-      <div class="div_charac">え</div>
-      <div class="div_charac">お</div>
-
-    </div>
-
-    <div class="div_subrow">
-
-      <div class="div_label">a</div>
-      <div class="div_label">i</div>
-      <div class="div_label">u</div>
-      <div class="div_label">e</div>
-      <div class="div_label">o</div>
-
-    </div>
-
-    <div class="div_row">
-
-        <div class="div_charac2">か</div>
-        <div class="div_charac2">き</div>
-        <div class="div_charac2">く</div>
-        <div class="div_charac2">け</div>
-        <div class="div_charac2">こ</div>
-    
+      <div class="info_container">
+        
+        
+        <!-- <div class="info_icon"></div> -->
+        
+        <div class="info_img"><img src="../../assets/icon/info_iconv2.svg" /></div>
+        <div class="info">Click on a kana to show more options</div>
       </div>
-    
+
+      <div class="div_row">
+
+        <div class="div_charac" (click)="presentPopover($event)">あ</div>
+        <div class="div_charac">い</div>
+        <div class="div_charac" (click)="presentPopover($event)">う</div>
+        <div class="div_charac">え</div>
+        <div class="div_charac">お</div>
+
+      </div>
+
       <div class="div_subrow">
-    
+
+        <div class="div_label">a</div>
+        <div class="div_label">i</div>
+        <div class="div_label">u</div>
+        <div class="div_label">e</div>
+        <div class="div_label">o</div>
+
+      </div>
+
+      <div class="div_row">
+
+        <div class="div_charac" (click)="presentPopover($event)">か</div>
+        <div class="div_charac">き</div>
+        <div class="div_charac">く</div>
+        <div class="div_charac">け</div>
+        <div class="div_charac">こ</div>
+
+      </div>
+
+      <div class="div_subrow">
+
         <div class="div_label">ka</div>
         <div class="div_label">ki</div>
         <div class="div_label">ku</div>
         <div class="div_label">ke</div>
         <div class="div_label">ko</div>
-    
+
       </div>
 
       <div class="div_row">
@@ -51,146 +58,146 @@
         <div class="div_charac">す</div>
         <div class="div_charac">せ</div>
         <div class="div_charac">そ</div>
-        
+
       </div>
-        
+
       <div class="div_subrow">
-        
+
         <div class="div_label">sa</div>
         <div class="div_label">shi</div>
         <div class="div_label">su</div>
         <div class="div_label">se</div>
         <div class="div_label">so</div>
-        
+
       </div>
 
       <div class="div_row">
 
-        <div class="div_charac2">た</div>
-        <div class="div_charac2">ち</div>
-        <div class="div_charac2">つ</div>
-        <div class="div_charac2">て</div>
-        <div class="div_charac2">と</div>
-            
+        <div class="div_charac">た</div>
+        <div class="div_charac">ち</div>
+        <div class="div_charac">つ</div>
+        <div class="div_charac">て</div>
+        <div class="div_charac">と</div>
+
       </div>
-            
+
       <div class="div_subrow">
-            
+
         <div class="div_label">ta</div>
         <div class="div_label">chi</div>
         <div class="div_label">tsu</div>
         <div class="div_label">te</div>
         <div class="div_label">to</div>
-            
+
       </div>
 
       <div class="div_row">
 
-        <div class="div_charac">な</div>
+        <div class="div_charac" (click)="presentPopover($event)">な</div>
         <div class="div_charac">に</div>
         <div class="div_charac">ぬ</div>
         <div class="div_charac">ね</div>
         <div class="div_charac">の</div>
-                
+
       </div>
-                
-                      <div class="div_subrow">
-                
-                      <div class="div_label">na</div>
-                      <div class="div_label">ni</div>
-                      <div class="div_label">nu</div>
-                      <div class="div_label">ne</div>
-                      <div class="div_label">no</div>
-                
-                        </div>
 
-                        <div class="div_row">
+      <div class="div_subrow">
 
-                          <div class="div_charac2">ま</div>
-                          <div class="div_charac2">み</div>
-                          <div class="div_charac2">む</div>
-                          <div class="div_charac2">め</div>
-                          <div class="div_charac2">も</div>
-                    
-                          </div>
-                    
-                          <div class="div_subrow">
-                    
-                          <div class="div_label">ma</div>
-                          <div class="div_label">mi</div>
-                          <div class="div_label">mu</div>
-                          <div class="div_label">me</div>
-                          <div class="div_label">mo</div>
-                    
-                            </div>
+        <div class="div_label">na</div>
+        <div class="div_label">ni</div>
+        <div class="div_label">nu</div>
+        <div class="div_label">ne</div>
+        <div class="div_label">no</div>
 
-                            <div class="div_row">
+      </div>
 
-                              <div class="div_charac">や</div>
-                              <div></div>
-                              <div class="div_charac">ゆ</div>
-                              <div></div>
-                              <div class="div_charac">よ</div>
-                        
-                              </div>
-                        
-                              <div class="div_subrow">
-                        
-                              <div class="div_label">ya</div>
-                              <div></div>
-                              <div class="div_label">yu</div>
-                              <div></div>
-                              <div class="div_label">yo</div>
-                        
-                                </div>
+      <div class="div_row">
 
-                                <div class="div_row">
+        <div class="div_charac">ま</div>
+        <div class="div_charac">み</div>
+        <div class="div_charac">む</div>
+        <div class="div_charac">め</div>
+        <div class="div_charac">も</div>
 
-                                  <div class="div_charac2">ら</div>
-                                  <div class="div_charac2">り</div>
-                                  <div class="div_charac2">る</div>
-                                  <div class="div_charac2">れ</div>
-                                  <div class="div_charac2">ろ</div>
-                            
-                                  </div>
-                            
-                                  <div class="div_subrow">
-                            
-                                  <div class="div_label">ra</div>
-                                  <div class="div_label">ri</div>
-                                  <div class="div_label">ru</div>
-                                  <div class="div_label">re</div>
-                                  <div class="div_label">ro</div>
-                            
-                                    </div>
+      </div>
 
-                                    <div class="div_row">
+      <div class="div_subrow">
 
-                                      <div class="div_charac">わ</div>
-                                      <div></div>
-                                      <div class="div_charac">ん</div>
-                                      <div></div>
-                                      <div class="div_charac">を</div>
-                                
-                                      </div>
-                                
-                                      <div class="div_subrow">
-                                
-                                      <div class="div_label">wa</div>
-                                      <div></div>
-                                      <div class="div_label">n</div>
-                                      <div></div>
-                                      <div class="div_label">wo</div>
-                                
-                                        </div>
+        <div class="div_label">ma</div>
+        <div class="div_label">mi</div>
+        <div class="div_label">mu</div>
+        <div class="div_label">me</div>
+        <div class="div_label">mo</div>
 
-    
+      </div>
+
+      <div class="div_row">
+
+        <div class="div_charac">や</div>
+        <div></div>
+        <div class="div_charac">ゆ</div>
+        <div></div>
+        <div class="div_charac">よ</div>
+
+      </div>
+
+      <div class="div_subrow">
+
+        <div class="div_label">ya</div>
+        <div></div>
+        <div class="div_label">yu</div>
+        <div></div>
+        <div class="div_label">yo</div>
+
+      </div>
+
+      <div class="div_row">
+
+        <div class="div_charac">ら</div>
+        <div class="div_charac">り</div>
+        <div class="div_charac">る</div>
+        <div class="div_charac">れ</div>
+        <div class="div_charac">ろ</div>
+
+      </div>
+
+      <div class="div_subrow">
+
+        <div class="div_label">ra</div>
+        <div class="div_label">ri</div>
+        <div class="div_label">ru</div>
+        <div class="div_label">re</div>
+        <div class="div_label">ro</div>
+
+      </div>
+
+      <div class="div_row">
+
+        <div class="div_charac">わ</div>
+        <div></div>
+        <div class="div_charac">ん</div>
+        <div></div>
+        <div class="div_charac">を</div>
+
+      </div>
+
+      <div class="div_subrow">
+
+        <div class="div_label">wa</div>
+        <div></div>
+        <div class="div_label">n</div>
+        <div></div>
+        <div class="div_label">wo</div>
+
+      </div>
+
+
 
     </div>
 
     <div class="shadow shadow-top" aria-hidden="true"></div>
     <div class="shadow shadow-bottom" aria-hidden="true"></div>
 
-    </div>
+  </div>
 
-  </ion-content>
+</ion-content>

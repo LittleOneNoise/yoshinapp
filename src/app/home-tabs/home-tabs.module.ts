@@ -1,3 +1,5 @@
+import { LearningHomePageModule } from './../learning-home/learning-home.module';
+import { PracticeHomePageModule } from './../practice-home/practice-home.module';
 import { SuperTabsModule } from '@ionic-super-tabs/angular';
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
@@ -15,6 +17,7 @@ import { HomeTabsPage } from './home-tabs.page';
     FormsModule,
     IonicModule,
     HomeTabsPageRoutingModule,
+    SuperTabsModule,
   ],
   declarations: [HomeTabsPage]
 })
