@@ -3,51 +3,63 @@
     <div class="div_table">
 
       <div class="info_container">
-        
-        
+
+
         <!-- <div class="info_icon"></div> -->
-        
+
         <div class="info_img"><img src="../../assets/icon/info_iconv2.svg" /></div>
         <div class="info">Click on a kana to show more options</div>
       </div>
 
       <div class="div_row">
-
-        <div class="div_charac" (click)="presentPopover($event)">あ</div>
-        <div class="div_charac">い</div>
-        <div class="div_charac" (click)="presentPopover($event)">う</div>
-        <div class="div_charac">え</div>
-        <div class="div_charac">お</div>
-
-      </div>
-
-      <div class="div_subrow">
-
-        <div class="div_label">a</div>
-        <div class="div_label">i</div>
-        <div class="div_label">u</div>
-        <div class="div_label">e</div>
-        <div class="div_label">o</div>
-
+        <div class="kana_card" (click)="presentPopover($event)">
+          <div class="div_charac">あ</div>
+          <div class="div_label">a</div>
+        </div>
+        <div class="kana_card" (click)="presentPopoverParam($event, 69, 'い')">
+          <div class="div_charac">い</div>
+          <div class="div_label">i</div>
+        </div>
+        <div class="kana_card" (click)="presentPopover($event)">
+          <div class="div_charac">う</div>
+          <div class="div_label">u</div>
+        </div>
+        <div class="kana_card" (click)="presentPopover($event)">
+          <div class="div_charac">え</div>
+          <div class="div_label">e</div>
+        </div>
+        <div class="kana_card" (click)="presentPopover($event)">
+          <div class="div_charac">お</div>
+          <div class="div_label">o</div>
+        </div>
       </div>
 
       <div class="div_row">
-
-        <div class="div_charac" (click)="presentPopover($event)">か</div>
-        <div class="div_charac">き</div>
-        <div class="div_charac">く</div>
-        <div class="div_charac">け</div>
-        <div class="div_charac">こ</div>
-
+        <div class="kana_card" (click)="presentPopover($event)">
+          <div class="div_charac">か</div>
+          <div class="div_label">ka</div>
+        </div>
+        <div class="kana_card" (click)="presentPopover($event)">
+          <div class="div_charac">き</div>
+          <div class="div_label">ki</div>
+        </div>
+        <div class="kana_card" (click)="presentPopover($event)">
+          <div class="div_charac">く</div>
+          <div class="div_label">ku</div>
+        </div>
+        <div class="kana_card" (click)="presentPopover($event)">
+          <div class="div_charac">け</div>
+          <div class="div_label">ke</div>
+        </div>
+        <div class="kana_card" (click)="presentPopover($event)">
+          <div class="div_charac">こ</div>
+          <div class="div_label">ko</div>
+        </div>
       </div>
-
+      
+      
       <div class="div_subrow">
 
-        <div class="div_label">ka</div>
-        <div class="div_label">ki</div>
-        <div class="div_label">ku</div>
-        <div class="div_label">ke</div>
-        <div class="div_label">ko</div>
 
       </div>
 

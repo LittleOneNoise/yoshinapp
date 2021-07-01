@@ -24,8 +24,9 @@ export class LearningHiraganaTablePage implements OnInit {
   }
   
   config: SuperTabsConfig = {
-    // dragThreshold: 250,
-    allowElementScroll: true
+    allowElementScroll: true,
+    // shortSwipeDuration: 180,
+	  // dragThreshold: 40,
     
   }
   

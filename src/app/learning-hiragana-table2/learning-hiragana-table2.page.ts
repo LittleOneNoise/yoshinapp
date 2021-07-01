@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { ViewChild } from '@angular/core';
+import { IonSlides } from '@ionic/angular';
 
 @Component({
   selector: 'app-learning-hiragana-table2',
@@ -6,6 +8,8 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./learning-hiragana-table2.page.scss'],
 })
 export class LearningHiraganaTable2Page implements OnInit {
+
+  @ViewChild('slidesInfo') slides: IonSlides;
 
   constructor() { }
 
@@ -18,6 +22,18 @@ export class LearningHiraganaTable2Page implements OnInit {
   toggleDisplayDiv(){
     this.showInfo = !this.showInfo;
     this.showInfo2 = !this.showInfo2;
+  }
+
+  goToPrev() {
+    this.slides.slidePrev();
+  }
+
+  goToNext() {
+    this.slides.slideNext();
+  }
+
+  slideOpts = {
+    allowTouchMove: false
   }
 
 }

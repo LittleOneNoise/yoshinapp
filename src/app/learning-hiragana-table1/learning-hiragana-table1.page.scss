@@ -54,7 +54,7 @@
 
   .info {
     font-size: 15px;
-    color: #EDEDED;
+    color: #3C3430;
     background: #DB7890;
     border-radius: 9vw;
     padding: 10px;
@@ -77,6 +77,21 @@
     display: flex;
     flex-direction: row;
     justify-content: space-between;
+  }
+
+  .kana_card {
+    // background-color: #9C694C;
+    // color: #EDEDED;
+    // display: flex;
+    // justify-content: space-evenly;
+    // border-radius: 2vh 2vh 0 0;
+    margin: auto;
+    margin-bottom: 1.5vh;
+    // box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.25);
+    // width: 14vw;
+    // height: 12vw;
+    // font-size: 8.5vw;
+  
   }
   
   .div_charac {

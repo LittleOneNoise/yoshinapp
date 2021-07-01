@@ -30,6 +30,8 @@ ion-content {
   --background: #534943;
 }
 
+//-------------start HEADER SECTION-----------------//
+
 .top-toolbar {
   --background: #534943;
   --color: #EDEDED;
@@ -58,6 +60,10 @@ ion-back-button {
   color: #EDEDED;
 }
 
+//-------------end HEADER SECTION-----------------//
+
+//-------------start SUPER TAB SECTION-----------------//
+
 super-tabs {  
   --super-tabs-toolbar-background: #3C3430;
   --st-indicator-color: #EDEDED;
@@ -72,6 +78,10 @@ super-tabs-toolbar, super-tab-button {
 super-tabs { ion-label {
   text-transform: none;
 }}
+
+//-------------end HEADER SECTION-----------------//
+
+//-------------start MODAL SECTION-----------------//
 
 .settingsStyle {
   --background: #534943;
@@ -189,6 +199,10 @@ super-tabs { ion-label {
   color: #EDEDED;
 }
 
+//-------------end MODAL SECTION-----------------//
+
+//-------------start POPOVER SECTION-----------------//
+
 .popoverContent {
   display: flex;
   flex-direction: column;
@@ -237,6 +251,8 @@ super-tabs { ion-label {
   border-radius: 5vh;
     }}
 }
+
+//-------------end POPOVER SECTION-----------------//
 
 .scroll-content {
   padding-bottom: 0 !important;

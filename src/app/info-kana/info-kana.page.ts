@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { NavParams } from '@ionic/angular';
 
 @Component({
   selector: 'app-info-kana',
@@ -7,9 +8,15 @@ import { Component, OnInit } from '@angular/core';
 })
 export class InfoKanaPage implements OnInit {
 
-  constructor() { }
+  modalTitle: string;
+  modelId: number;
+
+  constructor(private navParams: NavParams) { }
 
   ngOnInit() {
+    console.table(this.navParams);
+    this.modelId = this.navParams.data.paramID;
+    this.modalTitle = this.navParams.data.paramTitle;
   }
 
 }

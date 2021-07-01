@@ -3,7 +3,7 @@ import { KanaList } from './../service/KanaList';
 import { JsonGrabberService } from './../service/json-grabber.service';
 import { Component, OnInit } from '@angular/core';
 import { Kana } from './../service/Kana';
-import { PopoverController } from '@ionic/angular';
+import { NavParams, PopoverController } from '@ionic/angular';
 
 @Component({
   selector: 'app-learning-hiragana-table1',
@@ -21,6 +21,23 @@ export class LearningHiraganaTable1Page implements OnInit {
 async presentPopover(ev: any) {
   const popover = await this.popoverController.create({
     component: InfoKanaPage,
+    cssClass: 'popoverCss',
+    event: ev,
+    translucent: true
+  });
+  await popover.present();
+
+  const { role } = await popover.onDidDismiss();
+  console.log('onDidDismiss resolved with role', role);
+}
+
+async presentPopoverParam(ev: any, id: number, title: string) {
+  const popover = await this.popoverController.create({
+    component: InfoKanaPage,
+    componentProps: {
+      "paramID": id,
+      "paramTitle": title
+    },
     cssClass: 'popoverCss',
     event: ev,
     translucent: true
