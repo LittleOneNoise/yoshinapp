@@ -30,7 +30,7 @@
     <p>What's the roumaji for this {{writingSystem}} ?</p>
   </div> -->
 
-  <div class="block_charac">
+  <div class="block_charac" (click)="flipTheFuck2()" id="block_charac">
     <p class="content_block_charac">{{current_charac}}</p>
   </div>
 
@@ -41,6 +41,22 @@
       <img src="../assets/icon/check.png" class="img_check"/>
     </ion-button>
   </div>
+
+  <div class="flip-container" id="flip-block" (click)="flipTheFuck()">
+
+    <div class="flipper">
+
+        <div class="front">
+            front
+        </div>
+
+        <div class="back">
+            <!-- back -->
+        </div>
+
+    </div>
+
+</div>
 
 
 

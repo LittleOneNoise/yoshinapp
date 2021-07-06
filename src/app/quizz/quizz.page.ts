@@ -3,6 +3,7 @@ import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, NavigationExtras, Router } from '@angular/router';
 import { Kana } from '../service/Kana';
 import { ToastController } from '@ionic/angular';
+import { Input } from '@angular/core';
 
 @Component({
   selector: 'app-quizz',
@@ -10,6 +11,51 @@ import { ToastController } from '@ionic/angular';
   styleUrls: ['./quizz.page.scss'],
 })
 export class QuizzPage implements OnInit {
+
+  delay(ms: number) {
+    return new Promise( resolve => setTimeout(resolve, ms) );
+}
+
+  @Input('isFlipped') flipCard: boolean;
+
+  flipTheFuck(){
+    document.getElementById('flip-block').classList.toggle('flip');
+  }
+
+  flipTheFuck2(){
+    console.log('clicked on flipthefuck2');
+    document.getElementById('block_charac').classList.toggle('flip');
+    console.log("Rotate value matrix: ");
+    var matrix_angle = getComputedStyle(document.querySelector('.flipper')).transform;
+    console.log(matrix_angle);
+    //-------
+    var values = matrix_angle.split('(')[1];
+    console.log(values);
+    var values2 = values.split(')')[0];
+    console.log(values2);
+    var values3 = values.split(',');
+    console.log(values3);
+    console.log(values3[0]);
+    console.log(values3[1]);
+
+        var a = values3[0];
+        var b = values3[1];
+        var c = values3[2];
+        var d = values3[3];
+
+        var e = a as any;
+        var f = b as any;
+        var scale = Math.sqrt(e*e + f*f);
+        // var sin = f/scale;
+        var angle = Math.round(Math.atan2(f, e) * (180/Math.PI));
+        console.log("Rotate value degree: ")
+        console.log(angle);
+
+        //----------
+
+    document.querySelector('.flipper').setAttribute('transform', 'rotateY('+angle+180+')');
+      
+  }
 
   constructor(private route: ActivatedRoute, private router: Router, public statsService: StatsService, public toastController: ToastController) {
    
@@ -283,16 +329,20 @@ async emptyFieldToast() {
   }
 
   //When pressing the validate button or the enter key
-  validateInput(){
+  async validateInput(){
     if(this.input_value != null && this.input_value != ""){
     console.log("tableau des mistakes");
     console.log(this.mistakeList);
     if(this.progression < this.questions_amount){
       if(this.checkAnswer(this.input_value.toLowerCase())){
+        let element_block_charac = document.getElementsByClassName('block_charac') as HTMLCollectionOf<HTMLElement>;
         this.final_score++;
         this.input_value = "";
+        element_block_charac[0].style.background = "#638C3A";
+        await this.delay(400);
         this.progression++;
         this.getCharacter();
+        element_block_charac[0].style.background = "#9C694C";
         console.log("réponse bonne et tu n'as pa encore atteind le bout");
       }
       else {
