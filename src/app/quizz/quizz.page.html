@@ -1,4 +1,4 @@
-<ion-header class="header">
+<ion-header class="header" class="ion-no-border">
   <ion-toolbar class="top-toolbar">
     <ion-buttons slot="start">
       <ion-back-button></ion-back-button>
@@ -6,6 +6,11 @@
     <ion-title class="top-title">
       Practice {{writingSystem}}
     </ion-title>
+    <ion-buttons slot="end">
+      <ion-button>
+        <img src="../assets/icon/settings-icon.svg" class="icon_settings_topbar"/>
+      </ion-button>
+    </ion-buttons>
   </ion-toolbar>
 </ion-header>
 
@@ -16,12 +21,14 @@
 
 <div class="main_block">
 
+  <ion-progress-bar class="progress_bar" value="0.60"></ion-progress-bar>
+
   <p class="progression" *ngIf="normal_session">Progression : {{progression}}/{{questions_amount}}</p>
   <p class="progression" *ngIf="retake_session">Retake Session {{mistakeIndexHtml}}/{{mistakeListSize}}</p>
 
-  <div class="direction">
+  <!-- <div class="direction">
     <p>What's the roumaji for this {{writingSystem}} ?</p>
-  </div>
+  </div> -->
 
   <div class="block_charac">
     <p class="content_block_charac">{{current_charac}}</p>

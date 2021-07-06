@@ -16,7 +16,9 @@ export class QuizzPage implements OnInit {
     this.route.queryParams.subscribe(params => {
       if (this.router.getCurrentNavigation().extras.state) {
         this.quizzType = this.router.getCurrentNavigation().extras.state.type;
+        console.log("quizzType: " + this.router.getCurrentNavigation().extras.state.type);
         this.writingSystem = this.router.getCurrentNavigation().extras.state.writing;
+        console.log("writingSystem: " + this.router.getCurrentNavigation().extras.state.writing);
       }
     });
 
@@ -45,69 +47,66 @@ export class QuizzPage implements OnInit {
   mistakeListSize: number;
 
    async ngOnInit() {
-    
+    if(this.quizzType == null || this.writingSystem == null){
+      // alert('Error, couldn\'t get quizz data');
+    }
+    else if(this.writingSystem == "hiragana" && this.quizzType == "character"){
+      await fetch('./../assets/data/kana.json').then(res => res.json()).then(json => {
+      this.results = json;
+      });
+      this.results = this.results.filter(kana => (kana.type == "phonetic" && kana.family == "hiragana"));
+      this.shuffleList(this.results);
+      console.log("j'ai chopé la liste d'hiragana");
+  
+    }
+    else if(this.writingSystem == "hiragana" && this.quizzType == "word"){
+      await fetch('./../assets/data/kana.json').then(res => res.json()).then(json => {
+      this.results = json;
+      console.log(this.results);
+      });
+      this.results = this.results.filter(kana => (kana.type == "word" && kana.family == "hiragana"));
+      console.log(this.results);
+      this.shuffleList(this.results);
+      console.log(this.results);
+  
+    }
+    else if(this.writingSystem == "katakana" && this.quizzType == "character"){
+      await fetch('./../assets/data/kana.json').then(res => res.json()).then(json => {
+      this.results = json;
+      console.log(this.results);
+      });
+      this.results = this.results.filter(kana => (kana.type == "phonetic" && kana.family == "katakana"));
+      console.log(this.results);
+      this.shuffleList(this.results);
+      console.log(this.results);
+  
+    }
+    else if(this.writingSystem == "katakana" && this.quizzType == "word"){
+      await fetch('./../assets/data/kana.json').then(res => res.json()).then(json => {
+      this.results = json;
+      console.log(this.results);
+      });
+      this.results = this.results.filter(kana => (kana.type == "word" && kana.family == "katakana"));
+      console.log(this.results);
+      this.shuffleList(this.results);
+      console.log(this.results);
+      console.log("listes des mots katakana récupérée !");
+  
+    }
+  
+    this.progression = 1;
+    this.final_score = 0;
+    this.input_value = [];
+    this.inputShown = true;
+    this.mistake = false;
+    this.mistakeList = [];
+    this.mistakeIndex = -1;
+    this.normal_session = true;
+    this.retake_session = false;
+    this.getCharacter();
 }
 
 async ionViewWillEnter(){
-  
-  if(this.quizzType == null || this.writingSystem == null){
-    // alert('Error, couldn\'t get quizz data');
-  }
-  else if(this.writingSystem == "hiragana" && this.quizzType == "phonetic"){
-    await fetch('./../assets/data/kana.json').then(res => res.json()).then(json => {
-    this.results = json;
-    });
-    this.results = this.results.filter(kana => (kana.type == "phonetic" && kana.family == "hiragana"));
-    this.shuffleList(this.results);
-    console.log("j'ai chopé la liste d'hiragana");
-
-  }
-  else if(this.writingSystem == "hiragana" && this.quizzType == "word"){
-    await fetch('./../assets/data/kana.json').then(res => res.json()).then(json => {
-    this.results = json;
-    console.log(this.results);
-    });
-    this.results = this.results.filter(kana => (kana.type == "word" && kana.family == "hiragana"));
-    console.log(this.results);
-    this.shuffleList(this.results);
-    console.log(this.results);
-
-  }
-  else if(this.writingSystem == "katakana" && this.quizzType == "phonetic"){
-    await fetch('./../assets/data/kana.json').then(res => res.json()).then(json => {
-    this.results = json;
-    console.log(this.results);
-    });
-    this.results = this.results.filter(kana => (kana.type == "phonetic" && kana.family == "katakana"));
-    console.log(this.results);
-    this.shuffleList(this.results);
-    console.log(this.results);
-
-  }
-  else if(this.writingSystem == "katakana" && this.quizzType == "word"){
-    await fetch('./../assets/data/kana.json').then(res => res.json()).then(json => {
-    this.results = json;
-    console.log(this.results);
-    });
-    this.results = this.results.filter(kana => (kana.type == "word" && kana.family == "katakana"));
-    console.log(this.results);
-    this.shuffleList(this.results);
-    console.log(this.results);
-    console.log("listes des mots katakana récupérée !");
-
-  }
-
-  this.progression = 1;
-  this.final_score = 0;
-  this.input_value = [];
-  this.inputShown = true;
-  this.mistake = false;
-  this.mistakeList = [];
-  this.mistakeIndex = -1;
-  this.normal_session = true;
-  this.retake_session = false;
-  this.getCharacter();
-
 }
 
 async emptyFieldToast() {

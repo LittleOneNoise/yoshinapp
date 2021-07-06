@@ -33,7 +33,8 @@ export class LearningHiraganaTable2Page implements OnInit {
   }
 
   slideOpts = {
-    allowTouchMove: false
+    allowTouchMove: false,
+    loop: true
   }
 
 }

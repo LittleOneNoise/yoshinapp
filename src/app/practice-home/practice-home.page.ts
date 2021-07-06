@@ -44,7 +44,7 @@ async settingsPopupv2(){
         writing: writingSystem,
       }
     };
-    this.router.navigate(['tabs/practice/quizz'], navigationExtras);
+    this.router.navigate(['quizz'], navigationExtras);
   }
 
   ngOnInit() {

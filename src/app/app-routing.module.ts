@@ -16,9 +16,18 @@ const routes: Routes = [
     loadChildren: () => import('./learning-hiragana-table/learning-hiragana-table.module').then(m => m.LearningHiraganaTablePageModule)
   },
   {
+    path: 'learning-hiragana-mnemonic',
+    loadChildren: () => import('./learning-hiragana-mnemonic/learning-hiragana-mnemonic.module').then(m => m.LearningHiraganaMnemonicPageModule)
+  },
+  {
+    path: 'quizz',
+    loadChildren: () => import('./quizz/quizz.module').then(m => m.QuizzPageModule)
+  },
+  {
     path: 'settings',
     loadChildren: () => import('./settings/settings.module').then(m => m.SettingsPageModule)
-  },  {
+  },
+  {
     path: 'info-kana',
     loadChildren: () => import('./info-kana/info-kana.module').then( m => m.InfoKanaPageModule)
   }

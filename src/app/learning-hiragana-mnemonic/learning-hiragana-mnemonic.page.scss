@@ -1,42 +1,4 @@
-.header {
-    text-align: center;
-  }
-  
-  .top-toolbar {
-    --background: #9D694C;
-    --color: #262626;
-  }
-  
-  .top-title {
-    // font-size: 25px;
-    font-size:2.8vh;
-    font-weight: 600;
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    text-align: center;
-  }
-  
-  ion-content {
-    --background: #D1AC89;
-  }
-  
-  ion-tab-bar {
-    --background: #262626;
-  }
-  
-  ion-tab-button {
-    --color-selected: #C57185;
-  }
-  
-  .logo {
-    height: 20%;
-    margin: 7% auto;
-    display: block;
-    
-  }
+
   
   .button-menu {
     display: flex;
@@ -45,14 +7,19 @@
   }
 
   ion-slides {
-    height: 100%;
+    height: 90%;
+    // background-color: aqua;
+    --bullet-background: #000000;
+    // --bullet-background-active: #DB7890;
+    // --bullet-background-active: #EDEDED;
+    --bullet-background-active: #9C694C;
   }
 
   .slide_content {
     display: flex;
     flex-direction: column;
-    // justify-content: center;
-    height: 100%;
+    height: 80%;
+    width: 75%;
   }
 
   .div_header {
@@ -60,43 +27,47 @@
     flex-direction: row;
     justify-content: space-around;
     align-items: center;
-    margin-bottom: 8vh;
-    margin-top: 8vh;
-    background: #9D694C;
-    // height: 5vh;
+    // margin-bottom: 8vh;
+    // margin-top: 8vh;
+    background: #9C694C;
     border-radius: 5vh;
+    margin: auto 0;
   }
 
   .pronunciation {
-    color: #262626;
-    font-size: 4vh;
+    color: #3C3430;
+    font-size: 3vh;
     margin: 0;
   }
 
   .sound {
-    font-size: 7vh;
-    color: #d6d6d6;
+    font-size: 5.5vh;
+    color: #EDEDED;
     margin: 0;
     margin-top: -1vh;
   }
 
   .audio {
-    color: #262626;
-    font-size: 4vh;
+    color: #3C3430;
+    font-size: 3vh;
   }
 
  .big {
-   background: #9D694C;
-   border-radius: 12vh;
+  //  background: #9C694C;
+   margin: auto;
  }
 
   .big > img {
-    width: 80vw;
+    width: 65vw;
   }
 
   .word {
     font-size: 5vh;
-    color: #262626;
+    color: #EDEDED;
     margin: auto;
+  }
+
+  .word::first-letter {
+    color: #DB7890;
   }
 

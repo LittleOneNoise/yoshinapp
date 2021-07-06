@@ -1,35 +1,4 @@
-.header {
-    text-align: center;
-  }
-  
-  .top-toolbar {
-    --background: #9D694C;
-    --color: #262626;
-  }
-  
-  .top-title {
-    font-size: 4.5vw;
-    // font-size:2.8vh;
-    font-weight: 600;
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    text-align: center;
-  }
 
-  ion-content {
-    --background: #D1AC89;
-  }
-  
-  ion-tab-bar {
-    --background: #262626;
-  }
-  
-  ion-tab-button {
-    --color-selected: #C57185;
-  }
 
   .main_block {
       display: flex;
@@ -38,6 +7,12 @@
       width: 100%;
       // background: #262626;
       position: fixed;
+  }
+
+  .progress_bar {
+    --background:#3C3430;
+    --progress-background:#9C694C;
+    height: 2vh;
   }
 
   .direction {
@@ -51,35 +26,32 @@
 
   .progression {
       text-align: center;
-      font-weight: 600;
-      color: #262626;
+      // font-weight: 600;
+      color: #EDEDED;
       font-size: 5vw;
       min-height: 0;
   }
 
   .block_charac {
-    // width: 20vh;
-    // height: 20vh;
     margin-bottom: 5%;
-    border-radius: 8vw;
-    background: #9D694C;
-    // font-size: 20vh;
+    border-radius: 6vw;
+    background: #9C694C;
     text-transform: none;
-    box-shadow: 5px 5px 5px rgb(38, 38, 38, 0.2);
-    color: #D6D6D6;
+    box-shadow: 5px 5px 5px rgb(38 38 38 / 20%);
+    color: #EDEDED;
     margin-left: auto;
     margin-right: auto;
-    padding: 0 3%;
-    // min-height: 0;
+    width: 30vw;
+    height: 30vw;
   }
 
   .content_block_charac {
-      text-align: center;
-      // font-size: min(20vw,15vh);
-      font-size: 20vw;
-      
-      margin: auto;
-      min-height: 0;
+    text-align: center;
+    font-size: 24vw;
+    min-height: 0;
+    margin: 0;
+    padding: 0;
+    margin-top: -2vw;
   }
 
   .input_block {
@@ -99,7 +71,7 @@
 
 
   ion-input {
-      --background: #D6D6D6;
+      --background: #EDEDED;
       --color: #262626;
       height: 100%;
       border-radius: 0.5vh 0 0 0.5vh;
@@ -108,7 +80,7 @@
   }
 
   ion-button {
-      --background: #9D694C;
+      --background: #9C694C;
   }
 
   .check_container {
@@ -122,6 +94,8 @@
   .img_check {
     // width:auto;
     height: 60%;
+    fill: #773434;
+    color: #773434;
 }
 
 .mistake_block {
@@ -135,7 +109,7 @@
 }
 
 .mistake_content {
-    color: #D6D6D6;
+    color: #EDEDED;
     background: #773434;
     font-size: 5vw;
     min-width: 0;
@@ -150,5 +124,5 @@
     min-height: 0;
     font-size: max(3vw, 1.8vh);
     --border-radius: 2vw;
-    color: #D6D6D6;
+    color: #EDEDED;
 }
