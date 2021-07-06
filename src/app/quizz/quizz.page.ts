@@ -339,7 +339,7 @@ async emptyFieldToast() {
         this.final_score++;
         this.input_value = "";
         element_block_charac[0].style.background = "#638C3A";
-        await this.delay(400);
+        await this.delay(250);
         this.progression++;
         this.getCharacter();
         element_block_charac[0].style.background = "#9C694C";
