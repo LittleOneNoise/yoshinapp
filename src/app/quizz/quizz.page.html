@@ -23,26 +23,30 @@
 
   <ion-progress-bar class="progress_bar" value="0.60"></ion-progress-bar>
 
-  <p class="progression" *ngIf="normal_session">Progression : {{progression}}/{{questions_amount}}</p>
-  <p class="progression" *ngIf="retake_session">Retake Session {{mistakeIndexHtml}}/{{mistakeListSize}}</p>
+  <p class="progression" *ngIf="normal_session && !transition_to_retake">Progression : {{progression}}/{{questions_amount}}</p>
+  <p class="progression_retake" *ngIf="retake_session">Retake Session {{mistakeIndexHtml}}/{{mistakeListSize}}</p>
 
   <!-- <div class="direction">
     <p>What's the roumaji for this {{writingSystem}} ?</p>
   </div> -->
 
-  <div class="block_charac" (click)="flipTheFuck2()" id="block_charac">
+  <div class="block_charac" (click)="flipTheFuck2()" id="block_charac" *ngIf="!transition_to_retake">
     <p class="content_block_charac">{{current_charac}}</p>
   </div>
 
   <div class="input_block" *ngIf="inputShown">
-    <ion-input placeholder="Type your answer..." autofocus="true" (keyup.enter)="validateInput()" [(ngModel)]="input_value"></ion-input>
+    <ion-input placeholder="Type your answer..." autofocus="true" (keyup.enter)="validateInput()" [(ngModel)]="input_value" #input></ion-input>
     <!-- <input placeholder="Type your answer..." autofocus="true" (keyup.enter)="validateInput()" [(ngModel)]="input_value"> -->
     <ion-button class="check_container" (click)="validateInput()">
       <img src="../assets/icon/check.png" class="img_check"/>
     </ion-button>
   </div>
 
-  <div class="flip-container" id="flip-block" (click)="flipTheFuck()">
+  <div *ngIf="correct_answer" class="correct_answer_block">Correct answer</div>
+  
+  <div *ngIf="transition_to_retake" class="block_transition_to_retake_block" >Moving on to the retake session...</div>
+
+  <!-- <div class="flip-container" id="flip-block" (click)="flipTheFuck()">
 
     <div class="flipper">
 
@@ -51,19 +55,24 @@
         </div>
 
         <div class="back">
-            <!-- back -->
+           
         </div>
 
     </div>
 
-</div>
+</div> -->
 
 
 
 <div *ngIf="mistake" class="mistake_block">
   
-  <div class="mistake_content">{{input_value}} → {{current_name}}</div>
-    <ion-button (click)="goNext()" *ngIf="mistake" class="next">Next</ion-button>
+  <div class="mistake_content">Wrong answer : {{input_value}}</div>
+    
+  <div class="mistake_button" *ngIf="mistake">
+    <ion-button (click)="showAnswer()" class="show_answer" >{{show_answer_btn_content}}</ion-button>
+    <ion-button (click)="goNext()" class="next">Next</ion-button>
+  </div>
+  
 
 </div>
 

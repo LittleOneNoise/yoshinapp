@@ -2,8 +2,9 @@ import { StatsService } from './../service/stats.service';
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, NavigationExtras, Router } from '@angular/router';
 import { Kana } from '../service/Kana';
-import { ToastController } from '@ionic/angular';
+import { IonInput, ToastController } from '@ionic/angular';
 import { Input } from '@angular/core';
+import { ViewChild } from '@angular/core';
 
 @Component({
   selector: 'app-quizz',
@@ -12,9 +13,18 @@ import { Input } from '@angular/core';
 })
 export class QuizzPage implements OnInit {
 
+  showAnswer() {
+    const el = document.querySelector('.show_answer') as HTMLElement;
+    // el.style.setProperty('--background', '#4D8F42');
+    el.style.setProperty('--background', '#65a53e');
+    this.show_answer_btn_content = this.current_name;
+  }
+
   delay(ms: number) {
     return new Promise( resolve => setTimeout(resolve, ms) );
 }
+
+  @ViewChild('input')  inputElement: IonInput;
 
   @Input('isFlipped') flipCard: boolean;
 
@@ -91,6 +101,10 @@ export class QuizzPage implements OnInit {
   retake_session: boolean = false;
   readonly questions_amount = 5;
   mistakeListSize: number;
+  correct_answer: boolean = false;
+  show_answer_btn_content: string = "Show answer";
+  transition_to_retake: boolean = false;
+  // transition_to_retake: boolean = true;
 
    async ngOnInit() {
     if(this.quizzType == null || this.writingSystem == null){
@@ -144,12 +158,16 @@ export class QuizzPage implements OnInit {
     this.final_score = 0;
     this.input_value = [];
     this.inputShown = true;
+    // this.inputShown = false;
+    // this.correct_answer = true;
     this.mistake = false;
+    // this.mistake = true;
     this.mistakeList = [];
     this.mistakeIndex = -1;
     this.normal_session = true;
     this.retake_session = false;
     this.getCharacter();
+    this.inputElement.setFocus();
 }
 
 async ionViewWillEnter(){
@@ -227,32 +245,55 @@ async emptyFieldToast() {
 }
   }
 
-  goNext(){
-      
+  async goNext(){
+      let element_block_charac = document.getElementsByClassName('block_charac') as HTMLCollectionOf<HTMLElement>;
+      this.show_answer_btn_content = "Show answer";
       this.mistake = false;
       this.inputShown = true;
       this.input_value = "";
+      //When question is between 1rst and before the last one
       if(this.progression < this.questions_amount){
+        element_block_charac[0].style.background = "#9C694C";
         this.progression++;
         this.getCharacter();
+        await this.delay(100);
+        this.inputElement.setFocus();
       }
+      //When this is the last question
       else if(this.progression == this.questions_amount){
+        //When mistake list is NOT empty
         if(this.mistakeList.length != 0){
+
+          this.inputShown = false;
+          this.transition_to_retake = true;
+          console.log("let's go retake");
+          await this.delay(2000);
+          this.transition_to_retake = false;
+          await this.delay(10);
+          element_block_charac[0].style.background = "#DB7890";
+          this.inputShown = true;
+
           this.normal_session = false;
           this.retake_session = true;
           this.progression++;
           this.mistakeIndex++;
           this.getMistake(this.mistakeIndex);
           this.updateMistakeListSize();
+          await this.delay(100);
+          this.inputElement.setFocus();
         }
         else {
         this.goToResult();
         }
       }
+      //When this is the retake session
       else if(this.progression > this.questions_amount){
+          element_block_charac[0].style.background = "#DB7890";
           this.mistakeIndex++;
           this.getMistake(this.mistakeIndex);
           this.updateMistakeListSize();
+          await this.delay(100);
+          this.inputElement.setFocus();
       }
   }
 
@@ -333,19 +374,30 @@ async emptyFieldToast() {
     if(this.input_value != null && this.input_value != ""){
     console.log("tableau des mistakes");
     console.log(this.mistakeList);
+    //When the question is between 1rst and before last one
     if(this.progression < this.questions_amount){
+      //When answer is right
       if(this.checkAnswer(this.input_value.toLowerCase())){
         let element_block_charac = document.getElementsByClassName('block_charac') as HTMLCollectionOf<HTMLElement>;
         this.final_score++;
         this.input_value = "";
-        element_block_charac[0].style.background = "#638C3A";
-        await this.delay(250);
+        element_block_charac[0].style.background = "#65a53e";
+        this.inputShown = false;
+        this.correct_answer = true;
+        await this.delay(450);
         this.progression++;
         this.getCharacter();
         element_block_charac[0].style.background = "#9C694C";
+        this.correct_answer = false;
+        this.inputShown = true;
+        await this.delay(100);
+        this.inputElement.setFocus();
         console.log("réponse bonne et tu n'as pa encore atteind le bout");
       }
+      //When answer is wrong
       else {
+        let element_block_charac = document.getElementsByClassName('block_charac') as HTMLCollectionOf<HTMLElement>;
+        element_block_charac[0].style.background = "#a24040";
         this.getCurrentName();
         this.inputShown = false;
         this.mistake = true;
@@ -353,26 +405,52 @@ async emptyFieldToast() {
         console.log("c'est faux !! et tu n'as pas encore atteind le bout");
       }
     }
+    //When this is the last question of the quizz
     else if(this.progression == this.questions_amount){
+      //When answer is right
       if(this.checkAnswer(this.input_value.toLowerCase())){
+        let element_block_charac = document.getElementsByClassName('block_charac') as HTMLCollectionOf<HTMLElement>;
         this.final_score++;
-        this.progression++;
+        // this.progression++;
         this.input_value = "";
+        element_block_charac[0].style.background = "#65a53e";
+        this.inputShown = false;
+        this.correct_answer = true;
+        await this.delay(450);
+        element_block_charac[0].style.background = "#9C694C";
+        this.correct_answer = false;
+        this.inputShown = false;
+        
+        this.progression++;
         console.log("c'est bon et ça sent la fin");
+        //When mistake list is not empty
         if(this.mistakeList.length != 0){
+
+          this.transition_to_retake = true;
+        console.log("let's go retake");
+        await this.delay(2000);
+        this.transition_to_retake = false;
+        await this.delay(10);
+        element_block_charac[0].style.background = "#DB7890";
+        this.inputShown = true;
+          
           this.normal_session = false;
           this.retake_session = true;
           this.input_value = "";
           this.mistakeIndex++;
           this.getMistake(this.mistakeIndex);
           this.updateMistakeListSize();
+          await this.delay(100);
+          this.inputElement.setFocus();
           console.log("ton tableau d'erreur n'est pas vide!");
         }
+        //When mistake list is empty
         else {
           console.log("ton tableau d'erreur est vide, bg");
           this.goToResult();
         }
       }
+      //When answer is wrong
       else {
         this.getCurrentName();
         this.inputShown = false;
@@ -381,23 +459,40 @@ async emptyFieldToast() {
         console.log("c'est faux et ça sent la fin");
       }
     }
+    //When this is the retake session
     else if(this.progression > this.questions_amount){
+      //When answer is right
       if(this.checkAnswer(this.input_value.toLowerCase())){
+        let element_block_charac = document.getElementsByClassName('block_charac') as HTMLCollectionOf<HTMLElement>;
+        //Mistake list not empty
         if(this.mistakeIndex < this.mistakeList.length-1){
           this.input_value = "";
+          element_block_charac[0].style.background = "#65a53e";
+          this.inputShown = false;
+          this.correct_answer = true;
+          await this.delay(450);
           this.normal_session = false;
           this.retake_session = true;
           this.mistakeIndex++;
           this.getMistake(this.mistakeIndex);
+          element_block_charac[0].style.background = "#DB7890";
+          this.correct_answer = false;
+          this.inputShown = true;
           this.updateMistakeListSize();
+          await this.delay(100);
+          this.inputElement.setFocus();
           console.log("c'est bon et tu es dans la partie rattrappage");
         }
+        //Mistake list empty
         else {
           console.log("c'est bon est tu vas quitter la partie rattrappage");
           this.goToResult();
         }
       }
+      //When answer is wrong
       else {
+        let element_block_charac = document.getElementsByClassName('block_charac') as HTMLCollectionOf<HTMLElement>;
+        element_block_charac[0].style.background = "#a24040";
         this.getCurrentName();
         this.inputShown = false;
         this.mistake = true;
