@@ -20,8 +20,16 @@ const routes: Routes = [
     loadChildren: () => import('./learning-hiragana-mnemonic/learning-hiragana-mnemonic.module').then(m => m.LearningHiraganaMnemonicPageModule)
   },
   {
+    path: 'practice-menu',
+    loadChildren: () => import('./practice-home/practice-home.module').then(m => m.PracticeHomePageModule)
+  },
+  {
     path: 'quizz',
     loadChildren: () => import('./quizz/quizz.module').then(m => m.QuizzPageModule)
+  },
+  {
+    path: 'final-result',
+    loadChildren: () => import('./final-score/final-score.module').then(m => m.FinalScorePageModule)
   },
   {
     path: 'settings',

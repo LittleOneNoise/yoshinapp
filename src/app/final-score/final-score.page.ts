@@ -35,11 +35,11 @@ export class FinalScorePage implements OnInit {
         writing: this.writing,
       }
     };
-    this.router.navigate(['tabs/practice/quizz'], navigationExtras);
+    this.router.navigate(['quizz'], navigationExtras);
   }
 
   goHome(){
-  this.router.navigateByUrl("tabs/practice");
+  this.router.navigateByUrl("home");
   }
 
 }

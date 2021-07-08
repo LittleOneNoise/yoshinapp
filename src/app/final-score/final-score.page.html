@@ -1,8 +1,16 @@
-<ion-header class="header">
+<ion-header class="header" class="ion-no-border">
   <ion-toolbar class="top-toolbar">
+    <ion-buttons slot="start">
+      <ion-back-button></ion-back-button>
+    </ion-buttons>
     <ion-title class="top-title">
       Practice Result
     </ion-title>
+    <ion-buttons slot="end">
+      <ion-button>
+        <img src="../assets/icon/settings-icon.svg" class="icon_settings_topbar"/>
+      </ion-button>
+    </ion-buttons>
   </ion-toolbar>
 </ion-header>
 
@@ -19,8 +27,8 @@
     <div class="note">{{score}}/5</div>
 
     <div class="nav_button">
-      <ion-button (click)="goHome()">Home</ion-button>
-      <ion-button (click)="goToQuizz()">Try again</ion-button>
+      <ion-button (click)="goHome()" class="buttons">Home</ion-button>
+      <ion-button (click)="goToQuizz()" class="buttons">Try again</ion-button>
     </div>
 
 

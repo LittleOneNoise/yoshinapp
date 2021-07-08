@@ -365,7 +365,7 @@ async emptyFieldToast() {
          writingSystem: this.writingSystem,
       }
     };
-    this.router.navigate(['tabs/practice/final-result'], navigationExtras);
+    this.router.navigate(['final-result'], navigationExtras);
     
   }
 

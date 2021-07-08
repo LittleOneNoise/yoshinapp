@@ -123,14 +123,14 @@ super-tabs { ion-label {
 
 .sound_button_on {
   --background: #DB7890;
-  --border-radius: 1.5vh;
+  --border-radius: 2vh;
   height: 6.5vh;
   width: 11vh;
 }
 
 .delete_button {
   --background: #C85252;
-  --border-radius: 1.5vh;
+  --border-radius: 2vh;
   height: auto;
   width: fit-content;
   margin: auto;
@@ -183,7 +183,7 @@ super-tabs { ion-label {
 
 .github_button {
   --background: #9D694C;
-  --border-radius: 1.5vh;
+  --border-radius: 2vh;
   height: auto;
   width: fit-content;
   margin: 1vh auto;
