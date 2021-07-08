@@ -1,8 +1,9 @@
+import { ConfirmationPopupPage } from './../confirmation-popup/confirmation-popup.page';
 import { StatsService } from './../service/stats.service';
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, NavigationExtras, Router } from '@angular/router';
 import { Kana } from '../service/Kana';
-import { IonInput, ToastController } from '@ionic/angular';
+import { IonInput, Platform, ToastController, ModalController } from '@ionic/angular';
 import { Input } from '@angular/core';
 import { ViewChild } from '@angular/core';
 
@@ -12,6 +13,16 @@ import { ViewChild } from '@angular/core';
   styleUrls: ['./quizz.page.scss'],
 })
 export class QuizzPage implements OnInit {
+
+  async leaveQuizz(){
+    console.log("leave quizz request");
+    const modal = await this.modalController.create({
+      component: ConfirmationPopupPage,
+      cssClass: 'modalCss2'
+    });
+  
+    return await modal.present();
+  }
 
   showAnswer() {
     const el = document.querySelector('.show_answer') as HTMLElement;
@@ -67,7 +78,11 @@ export class QuizzPage implements OnInit {
       
   }
 
-  constructor(private route: ActivatedRoute, private router: Router, public statsService: StatsService, public toastController: ToastController) {
+  constructor(private route: ActivatedRoute, private router: Router, public statsService: StatsService, public toastController: ToastController, public platform: Platform, private modalController: ModalController) {
+
+    this.platform.backButton.subscribeWithPriority(10, () => {
+      console.log('Handler was called!');
+    });
    
     this.route.queryParams.subscribe(params => {
       if (this.router.getCurrentNavigation().extras.state) {
@@ -105,6 +120,7 @@ export class QuizzPage implements OnInit {
   show_answer_btn_content: string = "Show answer";
   transition_to_retake: boolean = false;
   // transition_to_retake: boolean = true;
+  p_bar_value: number;
 
    async ngOnInit() {
     if(this.quizzType == null || this.writingSystem == null){
@@ -167,6 +183,7 @@ export class QuizzPage implements OnInit {
     this.normal_session = true;
     this.retake_session = false;
     this.getCharacter();
+    this.p_bar_value = this.progression / this.questions_amount;
     this.inputElement.setFocus();
 }
 
@@ -256,6 +273,7 @@ async emptyFieldToast() {
         element_block_charac[0].style.background = "#9C694C";
         this.progression++;
         this.getCharacter();
+        this.p_bar_value = this.progression / this.questions_amount;
         await this.delay(100);
         this.inputElement.setFocus();
       }
@@ -333,9 +351,9 @@ async emptyFieldToast() {
     //Updating the wall of shame
     if(this.mistakeList != []){
       if(this.writingSystem == "hiragana"){
-        if(this.quizzType == "phonetic"){
+        if(this.quizzType == "character"){
           for(let e of this.mistakeList){
-            await this.statsService.setArrayMistake("phoneticHiraganaMistakes", e);
+            await this.statsService.setArrayMistake("characterHiraganaMistakes", e);
           }
         }
         if(this.quizzType == "word"){
@@ -345,9 +363,9 @@ async emptyFieldToast() {
         }
       }
       if(this.writingSystem == "katakana"){
-        if(this.quizzType == "phonetic"){
+        if(this.quizzType == "character"){
           for(let e of this.mistakeList){
-            await this.statsService.setArrayMistake("phoneticKatakanaMistakes", e);
+            await this.statsService.setArrayMistake("characterKatakanaMistakes", e);
           }
         }
         if(this.quizzType == "word"){
@@ -390,6 +408,7 @@ async emptyFieldToast() {
         element_block_charac[0].style.background = "#9C694C";
         this.correct_answer = false;
         this.inputShown = true;
+        this.p_bar_value = this.progression / this.questions_amount;
         await this.delay(100);
         this.inputElement.setFocus();
         console.log("réponse bonne et tu n'as pa encore atteind le bout");
@@ -486,6 +505,11 @@ async emptyFieldToast() {
         //Mistake list empty
         else {
           console.log("c'est bon est tu vas quitter la partie rattrappage");
+          element_block_charac[0].style.background = "#65a53e";
+          this.inputShown = false;
+          this.correct_answer = true;
+          await this.delay(450);
+          // element_block_charac[0].style.background = "#DB7890";
           this.goToResult();
         }
       }

@@ -1,6 +1,7 @@
 import { StatsService } from './../service/stats.service';
 import { Component, OnInit } from '@angular/core';
-import { AlertController } from '@ionic/angular';
+import { AlertController, ModalController } from '@ionic/angular';
+import { SettingsPage } from '../settings/settings.page';
 
 @Component({
   selector: 'app-statistics',
@@ -26,7 +27,16 @@ export class StatisticsPage implements OnInit {
   isWordKatakanaMistakesTable: boolean;
   shameIsOn: boolean;
 
-  constructor(public statsService: StatsService, public alertController: AlertController) {}
+  constructor(public statsService: StatsService, public alertController: AlertController, private modalController: ModalController) {}
+
+  async settingsPopup(){
+    const modal = await this.modalController.create({
+      component: SettingsPage,
+      cssClass: 'modalCss'
+    });
+  
+    return await modal.present();
+  }
 
   async clearStatsAlertConfirm() {
     const alert = await this.alertController.create({

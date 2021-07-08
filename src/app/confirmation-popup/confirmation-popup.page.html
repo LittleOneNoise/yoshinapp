@@ -1,0 +1,23 @@
+<ion-header class="ion-no-border">
+  <ion-toolbar class="settings_toolbar">
+    <ion-title>Warning</ion-title>
+      <ion-button (click)="closeModal()" class="close_window_button">
+        <img src="../../assets/icon/cross_icon.svg" class="close_icon"/>
+      </ion-button>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <div class="popupContent">
+    <!-- <div *ngIf="quit_activity">
+      Are you sure you want to leave? Your progress will be lost
+    </div> -->
+    <div class="sentence">Are you sure you want to leave?</div>
+    <div class="sentence"> Your progress will be lost</div>
+    <div class="choice_buttons">
+      <ion-button class="btn_confirmation" (click)="closeModal()">Cancel</ion-button>
+      <ion-button class="btn_confirmation" (click)="goHome()">Go Home</ion-button>
+    </div>
+  </div>
+
+</ion-content>

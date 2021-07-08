@@ -1,4 +1,6 @@
+import { ModalController } from '@ionic/angular';
 import { Component, OnInit } from '@angular/core';
+import { SettingsPage } from '../settings/settings.page';
 
 @Component({
   selector: 'app-learning-hiragana-mnemonic',
@@ -7,7 +9,16 @@ import { Component, OnInit } from '@angular/core';
 })
 export class LearningHiraganaMnemonicPage implements OnInit {
 
-  constructor() { }
+  constructor(private modalController: ModalController) { }
+
+  async settingsPopup(){
+    const modal = await this.modalController.create({
+      component: SettingsPage,
+      cssClass: 'modalCss'
+    });
+  
+    return await modal.present();
+  }
 
   audio: HTMLAudioElement;
 

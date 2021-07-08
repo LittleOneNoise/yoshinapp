@@ -82,7 +82,7 @@ super-tabs { ion-label {
 
 //-------------end HEADER SECTION-----------------//
 
-//-------------start MODAL SECTION-----------------//
+//-------------start MODAL SETTINGS SECTION-----------------//
 
 .settingsStyle {
   --background: #534943;
@@ -200,7 +200,47 @@ super-tabs { ion-label {
   color: #EDEDED;
 }
 
-//-------------end MODAL SECTION-----------------//
+//-------------end MODAL SETTINGS SECTION-----------------//
+
+//-------------start MODAL CONFIRMATION SECTION-----------//
+
+.modalCss2 .modal-wrapper { 
+  width: 70%;
+  height: 32%;
+  border-radius: 3vh;
+}
+
+.sentence {
+  color: #EDEDED;
+  font-size: 4vw;
+  margin: 2% auto;
+}
+
+.choice_buttons {
+  // margin: 3% auto;
+  margin:3% 1%;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-evenly;
+  margin-top: 10%;
+
+}
+
+.btn_confirmation {
+  text-transform: none;
+    font-size: 4vw;
+    --border-radius: 4vw;
+    color: #EDEDED;
+    --background: #9C694C;
+    // --padding-start: 6vw;
+    // --padding-end: 6vw;
+    --padding-top: 6vw;
+    --padding-bottom: 6vw;
+    width: 35vw;
+    margin: 0 5%;
+}
+
+//-------------end MODAL CONFIRMATION SECTION-----------------//
 
 //-------------start POPOVER SECTION-----------------//
 

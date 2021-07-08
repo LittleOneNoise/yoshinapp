@@ -1,14 +1,14 @@
 <ion-header class="header" class="ion-no-border">
   <ion-toolbar class="top-toolbar">
     <ion-buttons slot="start">
-      <ion-back-button></ion-back-button>
+      <ion-icon src="../../assets/icon/home_icon.svg" (click)="leaveQuizz()" class="home_icon"></ion-icon>
     </ion-buttons>
     <ion-title class="top-title">
       Practice {{writingSystem}}
     </ion-title>
     <ion-buttons slot="end">
       <ion-button>
-        <img src="../assets/icon/settings-icon.svg" class="icon_settings_topbar"/>
+        <img src="../../assets/icon/settings-icon.svg" class="icon_settings_topbar"/>
       </ion-button>
     </ion-buttons>
   </ion-toolbar>
@@ -21,7 +21,7 @@
 
 <div class="main_block">
 
-  <ion-progress-bar class="progress_bar" value="0.60"></ion-progress-bar>
+  <ion-progress-bar class="progress_bar" [value]="p_bar_value"></ion-progress-bar>
 
   <p class="progression" *ngIf="normal_session && !transition_to_retake">Progression : {{progression}}/{{questions_amount}}</p>
   <p class="progression_retake" *ngIf="retake_session">Retake Session {{mistakeIndexHtml}}/{{mistakeListSize}}</p>

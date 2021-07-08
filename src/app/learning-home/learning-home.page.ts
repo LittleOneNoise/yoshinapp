@@ -1,6 +1,7 @@
 import { Router } from '@angular/router';
 import { Component, OnInit} from '@angular/core';
-import { NavController } from '@ionic/angular';
+import { NavController, ModalController } from '@ionic/angular';
+import { SettingsPage } from '../settings/settings.page';
 
 
 
@@ -11,7 +12,16 @@ import { NavController } from '@ionic/angular';
 })
 export class LearningHomePage implements OnInit {
 
-  constructor(private router: Router, public navCtrl: NavController) { }
+  constructor(private router: Router, public navCtrl: NavController, private modalController: ModalController) { }
+
+  async settingsPopup(){
+    const modal = await this.modalController.create({
+      component: SettingsPage,
+      cssClass: 'modalCss'
+    });
+  
+    return await modal.present();
+  }
 
   goToLearningHiraganaTable(){
     this.router.navigateByUrl('learning-hiragana-table');

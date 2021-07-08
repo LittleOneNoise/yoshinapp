@@ -13,21 +13,7 @@ export class PracticeHomePage implements OnInit {
   constructor(private router: Router, public alertController: AlertController, public modalController: ModalController) {
 }
 
-async settingsPopup() {
-  const alert = await this.alertController.create({
-    cssClass: 'settingsStyle',
-    header: 'Settings',
-    message: '<div style="display:flex; flex-direction:row; height="100%"; width="100%";><div style="display:flex; flex-direction:column;"><p>Sound</p><img src=\'../assets/icon/sound_on_icon.svg\'/></div><div style="display:flex; flex-direction:column;"><p>Reset data</p><img src=\'../assets/icon/delete_icon.svg\'/></div>',
-    // buttons: ['OK']
-  });
-
-  await alert.present();
-
-  const { role } = await alert.onDidDismiss();
-  console.log('onDidDismiss resolved with role', role);
-}
-
-async settingsPopupv2(){
+async settingsPopup(){
   const modal = await this.modalController.create({
     component: SettingsPage,
     cssClass: 'modalCss'

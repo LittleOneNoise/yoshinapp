@@ -2,6 +2,8 @@ import { PracticeHomePage } from './../practice-home/practice-home.page';
 import { LearningHomePage } from './../learning-home/learning-home.page';
 import { StatisticsPage } from '../statistics/statistics.page';
 import { Component, OnInit} from '@angular/core';
+import { App } from '@capacitor/core';
+import { Platform, IonRouterOutlet } from '@ionic/angular';
 
 @Component({
   selector: 'app-home-tabs',
@@ -14,7 +16,13 @@ export class HomeTabsPage implements OnInit {
   learning = LearningHomePage;
   stats = StatisticsPage;
 
-  constructor(){} 
+  constructor( private platform: Platform, private routerOutlet: IonRouterOutlet) {
+    this.platform.backButton.subscribeWithPriority(-1, () => {
+      if (!this.routerOutlet.canGoBack()) {
+        App.exitApp();
+      }
+    });
+  }
 
  
   

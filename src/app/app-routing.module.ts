@@ -36,9 +36,18 @@ const routes: Routes = [
     loadChildren: () => import('./settings/settings.module').then(m => m.SettingsPageModule)
   },
   {
+    path: 'confirmation',
+    loadChildren: () => import('./confirmation-popup/confirmation-popup.module').then(m => m.ConfirmationPopupPageModule)
+  },
+  {
     path: 'info-kana',
     loadChildren: () => import('./info-kana/info-kana.module').then( m => m.InfoKanaPageModule)
+  },
+  {
+    path: 'confirmation-popup',
+    loadChildren: () => import('./confirmation-popup/confirmation-popup.module').then( m => m.ConfirmationPopupPageModule)
   }
+
 
 
 ];
