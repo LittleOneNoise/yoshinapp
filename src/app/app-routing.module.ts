@@ -20,6 +20,10 @@ const routes: Routes = [
     loadChildren: () => import('./learning-hiragana-mnemonic/learning-hiragana-mnemonic.module').then(m => m.LearningHiraganaMnemonicPageModule)
   },
   {
+    path: 'learning-katakana-table',
+    loadChildren: () => import('./learning-katakana-table/learning-katakana-table.module').then(m => m.LearningKatakanaTablePageModule)
+  },
+  {
     path: 'practice-menu',
     loadChildren: () => import('./practice-home/practice-home.module').then(m => m.PracticeHomePageModule)
   },
@@ -46,7 +50,29 @@ const routes: Routes = [
   {
     path: 'confirmation-popup',
     loadChildren: () => import('./confirmation-popup/confirmation-popup.module').then( m => m.ConfirmationPopupPageModule)
+  },
+  {
+    path: 'learning-katakana-table',
+    loadChildren: () => import('./learning-katakana-table/learning-katakana-table.module').then( m => m.LearningKatakanaTablePageModule)
+  },
+  {
+    path: 'learning-katakana-table1',
+    loadChildren: () => import('./learning-katakana-table1/learning-katakana-table1.module').then( m => m.LearningKatakanaTable1PageModule)
+  },
+  {
+    path: 'learning-katakana-table2',
+    loadChildren: () => import('./learning-katakana-table2/learning-katakana-table2.module').then( m => m.LearningKatakanaTable2PageModule)
+  },
+  {
+    path: 'learning-katakana-table3',
+    loadChildren: () => import('./learning-katakana-table3/learning-katakana-table3.module').then( m => m.LearningKatakanaTable3PageModule)
+  },  {
+    path: 'learning-katakana-table4',
+    loadChildren: () => import('./learning-katakana-table4/learning-katakana-table4.module').then( m => m.LearningKatakanaTable4PageModule)
   }
+
+
+
 
 
 

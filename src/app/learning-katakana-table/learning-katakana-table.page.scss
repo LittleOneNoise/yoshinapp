@@ -1,0 +1,29 @@
+super-tabs {  
+    --super-tabs-toolbar-background: #534943;
+    --st-indicator-color: #EDEDED;
+    --st-base-color-inactive: #929292;
+    --st-base-color-active: #EDEDED;
+    
+  }
+  
+  super-tab-button {
+    padding: 0;
+  }
+  
+  .button-menu {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+  
+  .icon-button {
+    margin: -5px 5px;
+    height: 50%;
+  }
+  
+  ion-label {
+    font-weight: 600;
+    // text-transform: none;
+    font-size: 4vw;
+  }
+  

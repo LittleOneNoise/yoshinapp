@@ -1,0 +1,147 @@
+
+  .button-menu {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+
+  
+  .icon-button {
+    margin: -5px 5px;
+    height: 50%;
+  }
+
+  // #ombra {
+  //   overflow:hidden;
+  //   position:relative;
+  //   .div_table {
+  //     height:100%;
+  //     overflow:auto;
+  //   }
+  //   .shadow {
+  //     bottom:0;      
+  //     left:0;
+  //     pointer-events:none;
+  //     position:absolute;
+  //     right:0;
+  //     top:0;
+  //     transition:all .2s ease-out;
+  //   }
+  //   &.off-top {
+  //     .shadow-top {
+  //       box-shadow:0 2em 2em -2em black inset;
+  //     }
+  //   }
+  //   &.off-bottom {    
+  //     .shadow-bottom {
+  //       box-shadow:0 -2em 2em -2em black inset;
+  //     }
+  //   }
+  // }
+
+  .info_container {
+    position: relative;
+  }
+
+  .info_img {
+    max-width: 7vw;
+    width: 7vw;
+    margin-left: 0;
+    z-index: 2;
+    position: absolute;
+    margin-top: -2%;
+  }
+
+  .info {
+    font-size: 15px;
+    color: #3C3430;
+    background: #DB7890;
+    border-radius: 9vw;
+    padding: 10px;
+    text-align: center;
+    margin-bottom: 5%;
+    position: relative;     
+    top: 0;
+    left: 1%;
+    z-index: 1;
+}
+  
+  .div_table {
+    margin: 5%;
+
+    
+  }
+
+  
+  .div_row {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+  }
+
+  .kana_card {
+    // background-color: #9C694C;
+    // color: #EDEDED;
+    // display: flex;
+    // justify-content: space-evenly;
+    // border-radius: 2vh 2vh 0 0;
+    margin: auto;
+    margin-bottom: 1.5vh;
+    // box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.25);
+    // width: 14vw;
+    // height: 12vw;
+    // font-size: 8.5vw;
+  
+  }
+  
+  .div_charac {
+    background-color: #9C694C;
+    color: #EDEDED;
+    // font-size: min(9vw, 60px);
+    display: flex;
+    justify-content: space-evenly;
+    border-radius: 2vh 2vh 0 0;
+    // padding: 0 10px;
+    margin: auto;
+    box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.25);
+    width: 14vw;
+    height: 12vw;
+    font-size: 8.5vw;
+  
+  }
+  
+  .div_subrow {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    margin-bottom: 10px;
+  }
+  
+  .div_label {
+    background-color: #3C3430;
+    color: #EDEDED;
+    // font-size: 12px;
+    // font-size: min(4vw, 30px);
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+    border-radius: 0 0 2vh 2vh;
+    box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.25);
+    // padding: 2px 10px;
+    margin: auto;
+    // width: 15%;
+    // max-width: 82px;
+    width: 14vw;
+    height: 5.5vw;
+    font-size: 4vw;
+  
+  }
+  
+  ion-slides {
+    width: 100%;
+    --bullet-background: #D6D6D6;
+    --bullet-background-active: #C57185;
+    --progress-bar-background: #262626;
+    padding-top: 30px;
+  }
+  

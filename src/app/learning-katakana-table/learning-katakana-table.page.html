@@ -1,0 +1,59 @@
+<ion-header class="header" class="ion-no-border">
+  <ion-toolbar class="top-toolbar">
+    <ion-buttons slot="start">
+      <ion-back-button></ion-back-button>
+    </ion-buttons>
+    <ion-title class="top-title">
+      Katakana Table
+    </ion-title>
+    <ion-buttons slot="end">
+      <ion-button (click)="settingsPopup()">
+        <img src="../assets/icon/settings-icon.svg" class="icon_settings_topbar"/>
+      </ion-button>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+
+<super-tabs [config]="config" activeTabIndex="0">
+  
+  <super-tabs-toolbar>
+    <super-tab-button>
+      <ion-label>Basic</ion-label>
+    </super-tab-button>
+    <super-tab-button>
+      <ion-label>Ten-Ten</ion-label>
+    </super-tab-button>
+    <super-tab-button>
+      <ion-label>Maru</ion-label>
+    </super-tab-button>
+    <super-tab-button>
+      <ion-label>Combo</ion-label>
+    </super-tab-button>
+  </super-tabs-toolbar>
+
+  <super-tabs-container auto-scroll-top="true">
+    <super-tab no-scroll="false">
+      <ion-content>
+        <ion-nav [root]="table1"></ion-nav>
+      </ion-content>
+    </super-tab>
+    <super-tab no-scroll="true">
+      <ion-content>
+        <ion-nav [root]="table2"></ion-nav>
+      </ion-content>
+    </super-tab>
+    <super-tab>
+      <ion-content>
+        <ion-nav [root]="table3"></ion-nav>
+      </ion-content>
+    </super-tab>
+    <super-tab>
+      <ion-content>
+        <ion-nav [root]="table4"></ion-nav>
+      </ion-content>
+    </super-tab>
+  </super-tabs-container>
+
+</super-tabs>
+
+

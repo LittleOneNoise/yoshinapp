@@ -8,7 +8,7 @@
         "mnemonicImage": "../../assets/mnemo_hira_a.png",
         "mnemonicWord": "Apple",
         "family": "hiragana",
-        "type": "phonetic"
+        "type": "character"
     },
     {
         "id": 2,
@@ -19,7 +19,7 @@
         "mnemonicImage": "../../assets/mnemo_hira_i.png",
         "mnemonicWord": "?",
         "family": "hiragana",
-        "type": "phonetic"
+        "type": "character"
     },
     {
         "id": 3,
@@ -30,7 +30,7 @@
         "mnemonicImage": "../../assets/mnemo_hira_u.png",
         "mnemonicWord": "?",
         "family": "hiragana",
-        "type": "phonetic"
+        "type": "character"
     },
     {
         "id": 4,
@@ -41,7 +41,7 @@
         "mnemonicImage": "../../assets/mnemo_hira_e.png",
         "mnemonicWord": "?",
         "family": "hiragana",
-        "type": "phonetic"
+        "type": "character"
     },
     {
         "id": 5,
@@ -52,7 +52,7 @@
         "mnemonicImage": "../../assets/mnemo_hira_o.png",
         "mnemonicWord": "?",
         "family": "hiragana",
-        "type": "phonetic"
+        "type": "character"
     },
     {
         "id": 6,
@@ -63,7 +63,7 @@
         "mnemonicImage": "../../assets/mnemo_hira_ka.png",
         "mnemonicWord": "Apple",
         "family": "hiragana",
-        "type": "phonetic"
+        "type": "character"
     },
     {
         "id": 7,
@@ -74,7 +74,7 @@
         "mnemonicImage": "../../assets/mnemo_hira_ki.png",
         "mnemonicWord": "?",
         "family": "hiragana",
-        "type": "phonetic"
+        "type": "character"
     },
     {
         "id": 8,
@@ -85,7 +85,7 @@
         "mnemonicImage": "../../assets/mnemo_hira_ku.png",
         "mnemonicWord": "?",
         "family": "hiragana",
-        "type": "phonetic"
+        "type": "character"
     },
     {
         "id": 9,
@@ -96,7 +96,7 @@
         "mnemonicImage": "../../assets/mnemo_hira_ke.png",
         "mnemonicWord": "?",
         "family": "hiragana",
-        "type": "phonetic"
+        "type": "character"
     },
     {
         "id": 10,
@@ -107,7 +107,7 @@
         "mnemonicImage": "../../assets/mnemo_hira_ko.png",
         "mnemonicWord": "?",
         "family": "hiragana",
-        "type": "phonetic"
+        "type": "character"
     },
     {
         "id": 11,
@@ -118,7 +118,7 @@
         "mnemonicImage": "../../assets/mnemo_hira_sa.png",
         "mnemonicWord": "Apple",
         "family": "hiragana",
-        "type": "phonetic"
+        "type": "character"
     },
     {
         "id": 12,
@@ -129,7 +129,7 @@
         "mnemonicImage": "../../assets/mnemo_hira_shi.png",
         "mnemonicWord": "?",
         "family": "hiragana",
-        "type": "phonetic"
+        "type": "character"
     },
     {
         "id": 13,
@@ -140,7 +140,7 @@
         "mnemonicImage": "../../assets/mnemo_hira_su.png",
         "mnemonicWord": "?",
         "family": "hiragana",
-        "type": "phonetic"
+        "type": "character"
     },
     {
         "id": 14,
@@ -151,7 +151,7 @@
         "mnemonicImage": "../../assets/mnemo_hira_se.png",
         "mnemonicWord": "?",
         "family": "hiragana",
-        "type": "phonetic"
+        "type": "character"
     },
     {
         "id": 15,
@@ -162,7 +162,7 @@
         "mnemonicImage": "../../assets/mnemo_hira_so.png",
         "mnemonicWord": "?",
         "family": "hiragana",
-        "type": "phonetic"
+        "type": "character"
     },
     {
         "id": 16,
@@ -173,7 +173,7 @@
         "mnemonicImage": "../../assets/mnemo_hira_ta.png",
         "mnemonicWord": "Apple",
         "family": "hiragana",
-        "type": "phonetic"
+        "type": "character"
     },
     {
         "id": 17,
@@ -184,7 +184,7 @@
         "mnemonicImage": "../../assets/mnemo_hira_chi.png",
         "mnemonicWord": "?",
         "family": "hiragana",
-        "type": "phonetic"
+        "type": "character"
     },
     {
         "id": 18,
@@ -195,7 +195,7 @@
         "mnemonicImage": "../../assets/mnemo_hira_tsu.png",
         "mnemonicWord": "?",
         "family": "hiragana",
-        "type": "phonetic"
+        "type": "character"
     },
     {
         "id": 19,
@@ -206,7 +206,7 @@
         "mnemonicImage": "../../assets/mnemo_hira_te.png",
         "mnemonicWord": "?",
         "family": "hiragana",
-        "type": "phonetic"
+        "type": "character"
     },
     {
         "id": 20,
@@ -217,7 +217,7 @@
         "mnemonicImage": "../../assets/mnemo_hira_to.png",
         "mnemonicWord": "?",
         "family": "hiragana",
-        "type": "phonetic"
+        "type": "character"
     },
     {
         "id": 21,
@@ -228,7 +228,7 @@
         "mnemonicImage": "../../assets/mnemo_hira_na.png",
         "mnemonicWord": "Apple",
         "family": "hiragana",
-        "type": "phonetic"
+        "type": "character"
     },
     {
         "id": 22,
@@ -239,7 +239,7 @@
         "mnemonicImage": "../../assets/mnemo_hira_ni.png",
         "mnemonicWord": "?",
         "family": "hiragana",
-        "type": "phonetic"
+        "type": "character"
     },
     {
         "id": 23,
@@ -250,7 +250,7 @@
         "mnemonicImage": "../../assets/mnemo_hira_nu.png",
         "mnemonicWord": "?",
         "family": "hiragana",
-        "type": "phonetic"
+        "type": "character"
     },
     {
         "id": 24,
@@ -261,7 +261,7 @@
         "mnemonicImage": "../../assets/mnemo_hira_ne.png",
         "mnemonicWord": "?",
         "family": "hiragana",
-        "type": "phonetic"
+        "type": "character"
     },
     {
         "id": 25,
@@ -272,7 +272,7 @@
         "mnemonicImage": "../../assets/mnemo_hira_no.png",
         "mnemonicWord": "?",
         "family": "hiragana",
-        "type": "phonetic"
+        "type": "character"
     },
     {
         "id": 26,
@@ -283,7 +283,7 @@
         "mnemonicImage": "../../assets/mnemo_hira_ma.png",
         "mnemonicWord": "Apple",
         "family": "hiragana",
-        "type": "phonetic"
+        "type": "character"
     },
     {
         "id": 27,
@@ -294,7 +294,7 @@
         "mnemonicImage": "../../assets/mnemo_hira_mi.png",
         "mnemonicWord": "?",
         "family": "hiragana",
-        "type": "phonetic"
+        "type": "character"
     },
     {
         "id": 28,
@@ -305,7 +305,7 @@
         "mnemonicImage": "../../assets/mnemo_hira_mu.png",
         "mnemonicWord": "?",
         "family": "hiragana",
-        "type": "phonetic"
+        "type": "character"
     },
     {
         "id": 29,
@@ -316,7 +316,7 @@
         "mnemonicImage": "../../assets/mnemo_hira_me.png",
         "mnemonicWord": "?",
         "family": "hiragana",
-        "type": "phonetic"
+        "type": "character"
     },
     {
         "id": 30,
@@ -327,7 +327,7 @@
         "mnemonicImage": "../../assets/mnemo_hira_mo.png",
         "mnemonicWord": "?",
         "family": "hiragana",
-        "type": "phonetic"
+        "type": "character"
     },
     {
         "id": 31,
@@ -338,7 +338,7 @@
         "mnemonicImage": "../../assets/mnemo_hira_ya.png",
         "mnemonicWord": "?",
         "family": "hiragana",
-        "type": "phonetic"
+        "type": "character"
     },
     {
         "id": 32,
@@ -349,7 +349,7 @@
         "mnemonicImage": "../../assets/mnemo_hira_yu.png",
         "mnemonicWord": "?",
         "family": "hiragana",
-        "type": "phonetic"
+        "type": "character"
     },
     {
         "id": 33,
@@ -360,7 +360,7 @@
         "mnemonicImage": "../../assets/mnemo_hira_yo.png",
         "mnemonicWord": "?",
         "family": "hiragana",
-        "type": "phonetic"
+        "type": "character"
     },
     {
         "id": 34,
@@ -371,7 +371,7 @@
         "mnemonicImage": "../../assets/mnemo_hira_r.png",
         "mnemonicWord": "Apple",
         "family": "hiragana",
-        "type": "phonetic"
+        "type": "character"
     },
     {
         "id": 35,
@@ -382,7 +382,7 @@
         "mnemonicImage": "../../assets/mnemo_hira_ri.png",
         "mnemonicWord": "?",
         "family": "hiragana",
-        "type": "phonetic"
+        "type": "character"
     },
     {
         "id": 36,
@@ -393,7 +393,7 @@
         "mnemonicImage": "../../assets/mnemo_hira_ru.png",
         "mnemonicWord": "?",
         "family": "hiragana",
-        "type": "phonetic"
+        "type": "character"
     },
     {
         "id": 37,
@@ -404,7 +404,7 @@
         "mnemonicImage": "../../assets/mnemo_hira_re.png",
         "mnemonicWord": "?",
         "family": "hiragana",
-        "type": "phonetic"
+        "type": "character"
     },
     {
         "id": 38,
@@ -415,7 +415,7 @@
         "mnemonicImage": "../../assets/mnemo_hira_ro.png",
         "mnemonicWord": "?",
         "family": "hiragana",
-        "type": "phonetic"
+        "type": "character"
     },
     {
         "id": 39,
@@ -426,7 +426,7 @@
         "mnemonicImage": "../../assets/mnemo_hira_wa.png",
         "mnemonicWord": "?",
         "family": "hiragana",
-        "type": "phonetic"
+        "type": "character"
     },
     {
         "id": 40,
@@ -437,7 +437,7 @@
         "mnemonicImage": "../../assets/mnemo_hira_n.png",
         "mnemonicWord": "?",
         "family": "hiragana",
-        "type": "phonetic"
+        "type": "character"
     },
     {
         "id": 41,
@@ -448,7 +448,7 @@
         "mnemonicImage": "../../assets/mnemo_hira_wo.png",
         "mnemonicWord": "?",
         "family": "hiragana",
-        "type": "phonetic"
+        "type": "character"
     },
     {
         "id": 1,
@@ -731,73 +731,559 @@
     },
     {
         "id": 1,
-        "name": "ramen",
-        "character": "ラーメン",
+        "name": "a",
+        "character": "ア",
+        "pronunciation": "[a]",
+        "audio": "../../assets/sounds/hiragana_a.mp3",
+        "mnemonicImage": "../../assets/mnemo_hira_a.png",
+        "mnemonicWord": "Apple",
         "family": "katakana",
-        "type": "word"
+        "type": "character"
     },
     {
         "id": 2,
-        "name": "ramen",
-        "character": "ラーメン",
+        "name": "i",
+        "character": "イ",
+        "pronunciation": "[i]",
+        "audio": "../../assets/sounds/hiragana_i.mp3",
+        "mnemonicImage": "../../assets/mnemo_hira_i.png",
+        "mnemonicWord": "?",
         "family": "katakana",
-        "type": "word"
+        "type": "character"
     },
     {
         "id": 3,
-        "name": "ramen",
-        "character": "ラーメン",
+        "name": "u",
+        "character": "ウ",
+        "pronunciation": "[ɯ]",
+        "audio": "../../assets/sounds/hiragana_u.mp3",
+        "mnemonicImage": "../../assets/mnemo_hira_u.png",
+        "mnemonicWord": "?",
         "family": "katakana",
-        "type": "word"
+        "type": "character"
     },
     {
         "id": 4,
-        "name": "ramen",
-        "character": "ラーメン",
+        "name": "e",
+        "character": "エ",
+        "pronunciation": "[e]",
+        "audio": "../../assets/sounds/hiragana_e.mp3",
+        "mnemonicImage": "../../assets/mnemo_hira_e.png",
+        "mnemonicWord": "?",
         "family": "katakana",
-        "type": "word"
+        "type": "character"
     },
     {
         "id": 5,
-        "name": "ramen",
-        "character": "ラーメン",
+        "name": "o",
+        "character": "オ",
+        "pronunciation": "[o]",
+        "audio": "../../assets/sounds/hiragana_o.mp3",
+        "mnemonicImage": "../../assets/mnemo_hira_o.png",
+        "mnemonicWord": "?",
         "family": "katakana",
-        "type": "word"
+        "type": "character"
+    },
+    {
+        "id": 6,
+        "name": "ka",
+        "character": "カ",
+        "pronunciation": "[ka]",
+        "audio": "../../assets/sounds/hiragana_ka.mp3",
+        "mnemonicImage": "../../assets/mnemo_hira_ka.png",
+        "mnemonicWord": "Apple",
+        "family": "katakana",
+        "type": "character"
+    },
+    {
+        "id": 7,
+        "name": "ki",
+        "character": "キ",
+        "pronunciation": "[kʲi]",
+        "audio": "../../assets/sounds/hiragana_ki.mp3",
+        "mnemonicImage": "../../assets/mnemo_hira_ki.png",
+        "mnemonicWord": "?",
+        "family": "katakana",
+        "type": "character"
+    },
+    {
+        "id": 8,
+        "name": "ku",
+        "character": "ク",
+        "pronunciation": "[kɯ]",
+        "audio": "../../assets/sounds/hiragana_ku.mp3",
+        "mnemonicImage": "../../assets/mnemo_hira_ku.png",
+        "mnemonicWord": "?",
+        "family": "katakana",
+        "type": "character"
+    },
+    {
+        "id": 9,
+        "name": "ke",
+        "character": "ケ",
+        "pronunciation": "[ke]",
+        "audio": "../../assets/sounds/hiragana_ke.mp3",
+        "mnemonicImage": "../../assets/mnemo_hira_ke.png",
+        "mnemonicWord": "?",
+        "family": "katakana",
+        "type": "character"
+    },
+    {
+        "id": 10,
+        "name": "ko",
+        "character": "コ",
+        "pronunciation": "[ko]",
+        "audio": "../../assets/sounds/hiragana_ko.mp3",
+        "mnemonicImage": "../../assets/mnemo_hira_ko.png",
+        "mnemonicWord": "?",
+        "family": "katakana",
+        "type": "character"
+    },
+    {
+        "id": 11,
+        "name": "sa",
+        "character": "サ",
+        "pronunciation": "[sa]",
+        "audio": "../../assets/sounds/hiragana_sa.mp3",
+        "mnemonicImage": "../../assets/mnemo_hira_sa.png",
+        "mnemonicWord": "Apple",
+        "family": "katakana",
+        "type": "character"
+    },
+    {
+        "id": 12,
+        "name": "shi",
+        "character": "シ",
+        "pronunciation": "[ɕi]",
+        "audio": "../../assets/sounds/hiragana_shi.mp3",
+        "mnemonicImage": "../../assets/mnemo_hira_shi.png",
+        "mnemonicWord": "?",
+        "family": "katakana",
+        "type": "character"
+    },
+    {
+        "id": 13,
+        "name": "su",
+        "character": "ス",
+        "pronunciation": "[sɯ]",
+        "audio": "../../assets/sounds/hiragana_su.mp3",
+        "mnemonicImage": "../../assets/mnemo_hira_su.png",
+        "mnemonicWord": "?",
+        "family": "katakana",
+        "type": "character"
+    },
+    {
+        "id": 14,
+        "name": "se",
+        "character": "セ",
+        "pronunciation": "[se]",
+        "audio": "../../assets/sounds/hiragana_se.mp3",
+        "mnemonicImage": "../../assets/mnemo_hira_se.png",
+        "mnemonicWord": "?",
+        "family": "katakana",
+        "type": "character"
+    },
+    {
+        "id": 15,
+        "name": "so",
+        "character": "ソ",
+        "pronunciation": "[so]",
+        "audio": "../../assets/sounds/hiragana_so.mp3",
+        "mnemonicImage": "../../assets/mnemo_hira_so.png",
+        "mnemonicWord": "?",
+        "family": "katakana",
+        "type": "character"
+    },
+    {
+        "id": 16,
+        "name": "ta",
+        "character": "タ",
+        "pronunciation": "[ta]",
+        "audio": "../../assets/sounds/hiragana_ta.mp3",
+        "mnemonicImage": "../../assets/mnemo_hira_ta.png",
+        "mnemonicWord": "Apple",
+        "family": "katakana",
+        "type": "character"
+    },
+    {
+        "id": 17,
+        "name": "chi",
+        "character": "チ",
+        "pronunciation": "[tɕi]",
+        "audio": "../../assets/sounds/hiragana_chi.mp3",
+        "mnemonicImage": "../../assets/mnemo_hira_chi.png",
+        "mnemonicWord": "?",
+        "family": "katakana",
+        "type": "character"
+    },
+    {
+        "id": 18,
+        "name": "tsu",
+        "character": "ツ",
+        "pronunciation": "[tsɯ]",
+        "audio": "../../assets/sounds/hiragana_tsu.mp3",
+        "mnemonicImage": "../../assets/mnemo_hira_tsu.png",
+        "mnemonicWord": "?",
+        "family": "katakana",
+        "type": "character"
+    },
+    {
+        "id": 19,
+        "name": "te",
+        "character": "テ",
+        "pronunciation": "[te]",
+        "audio": "../../assets/sounds/hiragana_te.mp3",
+        "mnemonicImage": "../../assets/mnemo_hira_te.png",
+        "mnemonicWord": "?",
+        "family": "katakana",
+        "type": "character"
+    },
+    {
+        "id": 20,
+        "name": "to",
+        "character": "ト",
+        "pronunciation": "[to]",
+        "audio": "../../assets/sounds/hiragana_to.mp3",
+        "mnemonicImage": "../../assets/mnemo_hira_to.png",
+        "mnemonicWord": "?",
+        "family": "katakana",
+        "type": "character"
+    },
+    {
+        "id": 21,
+        "name": "na",
+        "character": "ナ",
+        "pronunciation": "[na]",
+        "audio": "../../assets/sounds/hiragana_na.mp3",
+        "mnemonicImage": "../../assets/mnemo_hira_na.png",
+        "mnemonicWord": "Apple",
+        "family": "katakana",
+        "type": "character"
+    },
+    {
+        "id": 22,
+        "name": "ni",
+        "character": "ニ",
+        "pronunciation": "[nʲi]",
+        "audio": "../../assets/sounds/hiragana_ni.mp3",
+        "mnemonicImage": "../../assets/mnemo_hira_ni.png",
+        "mnemonicWord": "?",
+        "family": "katakana",
+        "type": "character"
+    },
+    {
+        "id": 23,
+        "name": "nu",
+        "character": "ヌ",
+        "pronunciation": "[nɯ]",
+        "audio": "../../assets/sounds/hiragana_nu.mp3",
+        "mnemonicImage": "../../assets/mnemo_hira_nu.png",
+        "mnemonicWord": "?",
+        "family": "katakana",
+        "type": "character"
+    },
+    {
+        "id": 24,
+        "name": "ne",
+        "character": "ネ",
+        "pronunciation": "[ne]",
+        "audio": "../../assets/sounds/hiragana_ne.mp3",
+        "mnemonicImage": "../../assets/mnemo_hira_ne.png",
+        "mnemonicWord": "?",
+        "family": "katakana",
+        "type": "character"
+    },
+    {
+        "id": 25,
+        "name": "no",
+        "character": "ノ",
+        "pronunciation": "[no]",
+        "audio": "../../assets/sounds/hiragana_no.mp3",
+        "mnemonicImage": "../../assets/mnemo_hira_no.png",
+        "mnemonicWord": "?",
+        "family": "katakana",
+        "type": "character"
+    },
+    {
+        "id": 26,
+        "name": "ma",
+        "character": "マ",
+        "pronunciation": "[ma]",
+        "audio": "../../assets/sounds/hiragana_ma.mp3",
+        "mnemonicImage": "../../assets/mnemo_hira_ma.png",
+        "mnemonicWord": "Apple",
+        "family": "katakana",
+        "type": "character"
+    },
+    {
+        "id": 27,
+        "name": "mi",
+        "character": "ミ",
+        "pronunciation": "[mi]",
+        "audio": "../../assets/sounds/hiragana_mi.mp3",
+        "mnemonicImage": "../../assets/mnemo_hira_mi.png",
+        "mnemonicWord": "?",
+        "family": "katakana",
+        "type": "character"
+    },
+    {
+        "id": 28,
+        "name": "mu",
+        "character": "ム",
+        "pronunciation": "[mɯ]",
+        "audio": "../../assets/sounds/hiragana_mu.mp3",
+        "mnemonicImage": "../../assets/mnemo_hira_mu.png",
+        "mnemonicWord": "?",
+        "family": "katakana",
+        "type": "character"
+    },
+    {
+        "id": 29,
+        "name": "me",
+        "character": "メ",
+        "pronunciation": "[me]",
+        "audio": "../../assets/sounds/hiragana_me.mp3",
+        "mnemonicImage": "../../assets/mnemo_hira_me.png",
+        "mnemonicWord": "?",
+        "family": "katakana",
+        "type": "character"
+    },
+    {
+        "id": 30,
+        "name": "mo",
+        "character": "モ",
+        "pronunciation": "[mo]",
+        "audio": "../../assets/sounds/hiragana_mo.mp3",
+        "mnemonicImage": "../../assets/mnemo_hira_mo.png",
+        "mnemonicWord": "?",
+        "family": "katakana",
+        "type": "character"
+    },
+    {
+        "id": 31,
+        "name": "ya",
+        "character": "ヤ",
+        "pronunciation": "[ja]",
+        "audio": "../../assets/sounds/hiragana_ya.mp3",
+        "mnemonicImage": "../../assets/mnemo_hira_ya.png",
+        "mnemonicWord": "?",
+        "family": "katakana",
+        "type": "character"
+    },
+    {
+        "id": 32,
+        "name": "yu",
+        "character": "ユ",
+        "pronunciation": "[jɯ]",
+        "audio": "../../assets/sounds/hiragana_yu.mp3",
+        "mnemonicImage": "../../assets/mnemo_hira_yu.png",
+        "mnemonicWord": "?",
+        "family": "katakana",
+        "type": "character"
+    },
+    {
+        "id": 33,
+        "name": "yo",
+        "character": "ヨ",
+        "pronunciation": "[jo]",
+        "audio": "../../assets/sounds/hiragana_yo.mp3",
+        "mnemonicImage": "../../assets/mnemo_hira_yo.png",
+        "mnemonicWord": "?",
+        "family": "katakana",
+        "type": "character"
+    },
+    {
+        "id": 34,
+        "name": "ra",
+        "character": "ラ",
+        "pronunciation": "[ɾa]",
+        "audio": "../../assets/sounds/hiragana_ra.mp3",
+        "mnemonicImage": "../../assets/mnemo_hira_r.png",
+        "mnemonicWord": "Apple",
+        "family": "katakana",
+        "type": "character"
+    },
+    {
+        "id": 35,
+        "name": "ri",
+        "character": "リ",
+        "pronunciation": "[ri]",
+        "audio": "../../assets/sounds/hiragana_ri.mp3",
+        "mnemonicImage": "../../assets/mnemo_hira_ri.png",
+        "mnemonicWord": "?",
+        "family": "katakana",
+        "type": "character"
+    },
+    {
+        "id": 36,
+        "name": "ru",
+        "character": "ル",
+        "pronunciation": "[ɾɯ]",
+        "audio": "../../assets/sounds/hiragana_ru.mp3",
+        "mnemonicImage": "../../assets/mnemo_hira_ru.png",
+        "mnemonicWord": "?",
+        "family": "katakana",
+        "type": "character"
+    },
+    {
+        "id": 37,
+        "name": "re",
+        "character": "レ",
+        "pronunciation": "[ɾe]",
+        "audio": "../../assets/sounds/hiragana_re.mp3",
+        "mnemonicImage": "../../assets/mnemo_hira_re.png",
+        "mnemonicWord": "?",
+        "family": "katakana",
+        "type": "character"
+    },
+    {
+        "id": 38,
+        "name": "ro",
+        "character": "ロ",
+        "pronunciation": "[ɾo]",
+        "audio": "../../assets/sounds/hiragana_ro.mp3",
+        "mnemonicImage": "../../assets/mnemo_hira_ro.png",
+        "mnemonicWord": "?",
+        "family": "katakana",
+        "type": "character"
+    },
+    {
+        "id": 39,
+        "name": "wa",
+        "character": "ワ",
+        "pronunciation": "[wa]",
+        "audio": "../../assets/sounds/hiragana_wa.mp3",
+        "mnemonicImage": "../../assets/mnemo_hira_wa.png",
+        "mnemonicWord": "?",
+        "family": "katakana",
+        "type": "character"
+    },
+    {
+        "id": 40,
+        "name": "n",
+        "character": "ン",
+        "pronunciation": "[N]",
+        "audio": "../../assets/sounds/hiragana_n.mp3",
+        "mnemonicImage": "../../assets/mnemo_hira_n.png",
+        "mnemonicWord": "?",
+        "family": "katakana",
+        "type": "character"
+    },
+    {
+        "id": 41,
+        "name": "wo",
+        "character": "ヲ",
+        "pronunciation": "[o]",
+        "audio": "../../assets/sounds/hiragana_wo.mp3",
+        "mnemonicImage": "../../assets/mnemo_hira_wo.png",
+        "mnemonicWord": "?",
+        "family": "katakana",
+        "type": "character"
     },
     {
         "id": 1,
-        "name": "ra",
-        "character": "ラ",
+        "name": "ra-men",
+        "character": "ラーメン",
         "family": "katakana",
-        "type": "phonetic"
+        "type": "word"
     },
     {
         "id": 2,
-        "name": "ra",
-        "character": "ラ",
+        "name": "jojo",
+        "character": "ジョジョ",
         "family": "katakana",
-        "type": "phonetic"
+        "type": "word"
     },
     {
         "id": 3,
-        "name": "ra",
-        "character": "ラ",
+        "name": "basu",
+        "character": "バス",
         "family": "katakana",
-        "type": "phonetic"
+        "type": "word"
     },
     {
         "id": 4,
-        "name": "ra",
-        "character": "ラ",
+        "name": "konbini",
+        "character": "コンビニ",
         "family": "katakana",
-        "type": "phonetic"
+        "type": "word"
     },
     {
         "id": 5,
-        "name": "ra",
-        "character": "ラ",
+        "name": "resutoran",
+        "character": "レストラン",
         "family": "katakana",
-        "type": "phonetic"
+        "type": "word"
+    },
+    {
+        "id": 6,
+        "name": "hoteru",
+        "character": "ホテル",
+        "family": "katakana",
+        "type": "word"
+    },
+    {
+        "id": 7,
+        "name": "amerika",
+        "character": "アメリカ",
+        "family": "katakana",
+        "type": "word"
+    },
+    {
+        "id": 8,
+        "name": "furansu",
+        "character": "フランス",
+        "family": "katakana",
+        "type": "word"
+    },
+    {
+        "id": 9,
+        "name": "hanba-ga-",
+        "character": "ハンバーガー",
+        "family": "katakana",
+        "type": "word"
+    },
+    {
+        "id": 10,
+        "name": "aisukuri-mu",
+        "character": "アイスクリーム",
+        "family": "katakana",
+        "type": "word"
+    },
+    {
+        "id": 11,
+        "name": "karaoke",
+        "character": "カラオケ",
+        "family": "katakana",
+        "type": "word"
+    },
+    {
+        "id": 12,
+        "name": "kamera",
+        "character": "カメラ",
+        "family": "katakana",
+        "type": "word"
+    },
+    {
+        "id": 13,
+        "name": "anime",
+        "character": "アニメ",
+        "family": "katakana",
+        "type": "word"
+    },
+    {
+        "id": 14,
+        "name": "aidoru",
+        "character": "アイドル",
+        "family": "katakana",
+        "type": "word"
+    },
+    {
+        "id": 15,
+        "name": "sofa",
+        "character": "ソファ",
+        "family": "katakana",
+        "type": "word"
     }
 
 ]

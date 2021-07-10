@@ -6,6 +6,7 @@ import { Kana } from '../service/Kana';
 import { IonInput, Platform, ToastController, ModalController } from '@ionic/angular';
 import { Input } from '@angular/core';
 import { ViewChild } from '@angular/core';
+import { SettingsPage } from '../settings/settings.page';
 
 @Component({
   selector: 'app-quizz',
@@ -96,6 +97,15 @@ export class QuizzPage implements OnInit {
 
   }
 
+  async settingsPopup(){
+    const modal = await this.modalController.create({
+      component: SettingsPage,
+      cssClass: 'modalCss'
+    });
+  
+    return await modal.present();
+  }
+
   listKanas: Kana[];
   quizzType: string;
   writingSystem: string;
@@ -130,7 +140,7 @@ export class QuizzPage implements OnInit {
       await fetch('./../assets/data/kana.json').then(res => res.json()).then(json => {
       this.results = json;
       });
-      this.results = this.results.filter(kana => (kana.type == "phonetic" && kana.family == "hiragana"));
+      this.results = this.results.filter(kana => (kana.type == "character" && kana.family == "hiragana"));
       this.shuffleList(this.results);
       console.log("j'ai chopé la liste d'hiragana");
   
@@ -151,7 +161,7 @@ export class QuizzPage implements OnInit {
       this.results = json;
       console.log(this.results);
       });
-      this.results = this.results.filter(kana => (kana.type == "phonetic" && kana.family == "katakana"));
+      this.results = this.results.filter(kana => (kana.type == "character" && kana.family == "katakana"));
       console.log(this.results);
       this.shuffleList(this.results);
       console.log(this.results);
@@ -176,6 +186,7 @@ export class QuizzPage implements OnInit {
     this.inputShown = true;
     // this.inputShown = false;
     // this.correct_answer = true;
+    this.correct_answer = false;
     this.mistake = false;
     // this.mistake = true;
     this.mistakeList = [];
@@ -184,10 +195,14 @@ export class QuizzPage implements OnInit {
     this.retake_session = false;
     this.getCharacter();
     this.p_bar_value = this.progression / this.questions_amount;
+    let element_block_charac = document.getElementsByClassName('block_charac') as HTMLCollectionOf<HTMLElement>;
+    element_block_charac[0].style.background = "#9C694C";
+    // this.delay(100);
     this.inputElement.setFocus();
 }
 
 async ionViewWillEnter(){
+  this.ngOnInit();
 }
 
 async emptyFieldToast() {
@@ -234,6 +249,7 @@ async emptyFieldToast() {
 
   getMistake(index: number) {
     this.current_charac = this.mistakeList[index];
+    this.updateFontSize();
   }
 
   getCurrentName() {
@@ -251,13 +267,24 @@ async emptyFieldToast() {
 
   updateFontSize(){
     let cssPointer = document.getElementsByClassName('content_block_charac') as HTMLCollectionOf<HTMLElement>;
+    let element_block_charac = document.getElementsByClassName('block_charac') as HTMLCollectionOf<HTMLElement>;
     let amountLetters = this.current_charac.length;
+    console.log('current number of letters : ' + amountLetters);
     if (cssPointer.length != 0) {
-      if(amountLetters<=2){
+      if(amountLetters==1){
         cssPointer[0].style.fontSize = "20vw";
+        element_block_charac[0].style.width = "30vw";
+        element_block_charac[0].style.height = "30vw";
+      }
+      else if(amountLetters==2){
+        cssPointer[0].style.fontSize = "20vw";
+        element_block_charac[0].style.width = "50vw";
+        element_block_charac[0].style.height = "30vw";
       }
       else{
       cssPointer[0].style.fontSize = 0.119*amountLetters**2-3.381*amountLetters+29.786 + "vw";
+      element_block_charac[0].style.width = 0.3976*amountLetters**3 - 8.2558*amountLetters**2 + 55.635*amountLetters - 31.916 + "vw";
+      element_block_charac[0].style.height = -14.6*Math.log(amountLetters) + 45.999 + "vw";
       }
 }
   }

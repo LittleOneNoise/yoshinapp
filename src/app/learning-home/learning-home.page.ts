@@ -31,6 +31,10 @@ export class LearningHomePage implements OnInit {
     this.router.navigateByUrl('learning-hiragana-mnemonic');
   }
 
+  goToLearningKatakanaTable(){
+    this.router.navigateByUrl('learning-katakana-table');
+  }
+
   goToLearningKatakanaMnemonic(){
     this.router.navigateByUrl('tabs/learning/learning-katakana-mnemonic');
   }
