@@ -5,6 +5,7 @@ import { Component, OnInit} from '@angular/core';
 import { App } from '@capacitor/core';
 import { Platform, IonRouterOutlet, ModalController } from '@ionic/angular';
 import { SettingsPage } from '../settings/settings.page';
+import { SuperTabsConfig } from '@ionic-super-tabs/core';
 
 @Component({
   selector: 'app-home-tabs',
@@ -55,6 +56,12 @@ export class HomeTabsPage implements OnInit {
   
     return await modal.present();
   }
+
+  superTabConfig: SuperTabsConfig = {
+    maxDragAngle: 100,
+    transitionDuration: 190,
+    
+  };
 
  
   

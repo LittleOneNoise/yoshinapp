@@ -37,12 +37,23 @@
       min-height: 0;
   }
 
+  .progression_retake_header {
+    background: #C3687E;
+    display: flex;
+    flex-direction: column;
+    padding: 0;
+    width: 55vw;
+    height: 10vw;
+    margin: 5vw auto;
+    border-radius: 6vw;
+  }
+
   .progression_retake {
     text-align: center;
-    // font-weight: 600;
-    color: #DB7890;
+    color: #EDEDED;
     font-size: 5vw;
     min-height: 0;
+    margin: auto;
 }
 
   .block_charac {

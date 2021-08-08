@@ -14,38 +14,51 @@
 <ion-content [fullscreen]="true">
 
   <div class="main_block">
-    <p class="title">Global Statistics</p>
+    <!-- <div class="title_div">
+    <p class="title">Overall</p>
+  </div> -->
     <div *ngIf="testsInitialized == false" class="figures_block">
-      <div class="figures_subblock">
-        <p class="text">You took</p>
-        <p class="figure">{{testsAmount}}</p>
-        <p class="text">tests in total</p>
-      </div>
+      <img src="" class="img_no_stats_v2">
+      <p class="text">Nothing here...</p>
+      <p class="text">You need to take at least 1 test to see your statistics</p>
     </div>
 
     <div *ngIf="testsInitialized" class="figures_block">
       <div class="figures_subblock">
-        <p class="text">You took</p>
-        <p class="figure">{{testsAmount}}</p>
-        <p class="text">tests in total</p>
+        <p class="text">Average score ({{testsAmount}} sessions)</p>
+        <p class="figure"><i>bar % here later</i>{{testsAverage}}/5</p>
       </div>
       <div class="figures_subblock">
-        <p class="text">Average score of</p>
-        <p class="figure">{{testsAverage}}/5</p>
-        <p class="text">for all the tests</p>
+        <p class="text">Best score</p>
+        <p class="figure"><i>bar score here later</i></p>
       </div>
     </div>
-      <p class="title">Wall of shame</p>
+    <div class="title_div">
+      <p class="title">Wall of Shame</p>
+    </div>
       <div class="charac_block_container" *ngIf="shameIsOn">
-        <div class="pepepoint_div_left">
+        <!-- <div class="pepepoint_div_left">
           <img src="../../assets/img/pepePoint.png">
-        </div>
-        <div class="charac_block">
-          <div class="block_row" *ngIf="phoneticHiraganaMistakesTable">
-            <div class="charac_subblock">
-              <p class="text">Hiragana phonetic</p>
-              <p class="charac">{{phoneticHiraganaMistakesTable}}</p>
-            </div>
+        </div> -->
+        <!-- <div class="charac_block"> -->
+
+          <div class="charac_column">
+            <div class="mistake_element"><p>を</p></div>
+            <div class="mistake_element"><p>ねこ</p></div>
+            <div class="mistake_element"><p>ラ</p></div>
+            <div class="mistake_element"><p>ジョジョ</p></div>
+          </div>
+          <div class="percent_column">
+            <div class="mistake_percent">kf,o,f,qf</div>
+            <div class="mistake_percent">zefzeffe</div>
+            <div class="mistake_percent">zefzefzef</div>
+            <div class="mistake_percent">zerfzefzef</div>
+          </div>
+
+
+
+          <!-- <div class="block_row" *ngIf="phoneticHiraganaMistakesTable">
+            <p class="charac">{{phoneticHiraganaMistakesTable}}</p>
             <div class="counter">
               <p class="figure">x{{phoneticHiraganaMistakesAmount}}</p>
             </div>
@@ -76,11 +89,11 @@
             <div class="counter">
               <p class="figure">x{{wordKatakanaMistakesAmount}}</p>
             </div>
-        </div>
-      </div>
-      <div class="pepepoint_div_right">
+        </div> -->
+      <!-- </div> -->
+      <!-- <div class="pepepoint_div_right">
         <img src="../../assets/img/pepePoint.png">
-      </div>
+      </div> -->
     </div>
 
     <div class="charac_block_container" *ngIf="!shameIsOn">

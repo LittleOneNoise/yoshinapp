@@ -24,7 +24,9 @@
   <ion-progress-bar class="progress_bar" [value]="p_bar_value"></ion-progress-bar>
 
   <p class="progression" *ngIf="normal_session && !transition_to_retake">Progression : {{progression}}/{{questions_amount}}</p>
-  <p class="progression_retake" *ngIf="retake_session">Retake Session {{mistakeIndexHtml}}/{{mistakeListSize}}</p>
+  <div class="progression_retake_header" *ngIf="retake_session">
+    <p class="progression_retake" >Retake Session {{mistakeIndexHtml}}/{{mistakeListSize}}</p>
+  </div>
 
   <!-- <div class="direction">
     <p>What's the roumaji for this {{writingSystem}} ?</p>

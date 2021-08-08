@@ -140,7 +140,7 @@ export class QuizzPage implements OnInit {
   mistakeIndexHtml: number;
   normal_session: boolean = true;
   retake_session: boolean = false;
-  readonly questions_amount = 5;
+  readonly questions_amount = 2;
   mistakeListSize: number;
   correct_answer: boolean = false;
   show_answer_btn_content: string = "Show answer";
@@ -327,12 +327,12 @@ async emptyFieldToast() {
 
           this.inputShown = false;
           this.shuffleList(this.mistakeList);
-          this.transition_to_retake = true;
+          // this.transition_to_retake = true;
           console.log("let's go retake");
-          await this.delay(2000);
-          this.transition_to_retake = false;
+          // await this.delay(2000);
+          // this.transition_to_retake = false;
           await this.delay(10);
-          element_block_charac[0].style.background = "#DB7890";
+          element_block_charac[0].style.background = "#C3687E";
           this.inputShown = true;
 
           this.normal_session = false;
@@ -350,7 +350,7 @@ async emptyFieldToast() {
       }
       //When this is the retake session
       else if(this.progression > this.questions_amount){
-          element_block_charac[0].style.background = "#DB7890";
+          element_block_charac[0].style.background = "#C3687E";
           this.mistakeIndex++;
           this.getMistake(this.mistakeIndex);
           this.updateMistakeListSize();
@@ -498,12 +498,12 @@ async emptyFieldToast() {
         //When mistake list is not empty
         if(this.mistakeList.length != 0){
           this.shuffleList(this.mistakeList);
-          this.transition_to_retake = true;
-        console.log("let's go retake");
-        await this.delay(2000);
-        this.transition_to_retake = false;
+          // this.transition_to_retake = true;
+        // console.log("let's go retake");
+        // await this.delay(2000);
+        // this.transition_to_retake = false;
         await this.delay(10);
-        element_block_charac[0].style.background = "#DB7890";
+        element_block_charac[0].style.background = "#C3687E";
         this.inputShown = true;
           
           this.normal_session = false;
@@ -551,7 +551,7 @@ async emptyFieldToast() {
           this.mistakeIndex++;
           this.getMistake(this.mistakeIndex);
           this.remove_correct_animation_to_class();
-          element_block_charac[0].style.background = "#DB7890";
+          element_block_charac[0].style.background = "#C3687E";
           this.correct_answer = false;
           this.inputShown = true;
           this.updateMistakeListSize();
@@ -567,7 +567,7 @@ async emptyFieldToast() {
           this.inputShown = false;
           this.correct_answer = true;
           await this.delay(700);
-          // element_block_charac[0].style.background = "#DB7890";
+          // element_block_charac[0].style.background = "#C3687E";
           this.goToResult();
           this.remove_correct_animation_to_class();
         }
