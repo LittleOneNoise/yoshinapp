@@ -18,8 +18,9 @@
   .slide_content {
     display: flex;
     flex-direction: column;
-    height: 80%;
+    height: 85%;
     width: 75%;
+    /* margin-top: -5vh; */
   }
 
   .div_header {
@@ -27,11 +28,10 @@
     flex-direction: row;
     justify-content: space-around;
     align-items: center;
-    // margin-bottom: 8vh;
-    // margin-top: 8vh;
     background: #9C694C;
-    border-radius: 5vh;
-    margin: auto 0;
+    border-radius: 3vh;
+    height: 6vh;
+
   }
 
   .pronunciation {
@@ -53,18 +53,20 @@
   }
 
  .big {
-  //  background: #9C694C;
-   margin: auto;
+  margin: auto;
+    /* margin-bottom: -2.5vh; */
  }
 
   .big > img {
-    width: 65vw;
+    // width: 65vw;
   }
 
   .word {
     font-size: 5vh;
     color: #EDEDED;
     margin: auto;
+    /* margin-bottom: 0.5vh; */
+    margin-top: -1vh;
   }
 
   .word::first-letter {

@@ -34,9 +34,12 @@ export class StatsService {
 
   async setArrayMistake(keyArray: string, keyElement: string){
     this.tempMistakeArray = await this.get(keyArray);
+    console.log("table of mistakes : ");
     console.log(this.tempMistakeArray);
+    //When the specific mistakes table doesn't exist
     if(this.tempMistakeArray == null){
-      if(keyArray == "phoneticHiraganaMistakes"){
+      if(keyArray == "characterHiraganaMistakes"){
+        console.log("characterhiraganamistales table didn't exist, creating it...");
         let phoneticHiraganaMistakes: MistakeBank[] = [{name: keyElement, failAmount: 1}];
         await this.set(keyArray, phoneticHiraganaMistakes);
       }
@@ -44,7 +47,7 @@ export class StatsService {
         let wordHiraganaMistakes: MistakeBank[] = [{name: keyElement, failAmount: 1}];
         await this.set(keyArray, wordHiraganaMistakes);
       }
-      else if(keyArray == "phoneticKatakanaMistakes"){
+      else if(keyArray == "characterKatakanaMistakes"){
         let phoneticKatakanaMistakes: MistakeBank[] = [{name: keyElement, failAmount: 1}];
         await this.set(keyArray, phoneticKatakanaMistakes);
       }
@@ -53,13 +56,18 @@ export class StatsService {
         await this.set(keyArray, wordKatakanaMistakes);
       }
     }
+    //When the specific mistakes table alr exist
     else{
       let indexElement = this.tempMistakeArray.findIndex(x => x.name === keyElement);
+      //When the element alr exists in the table, updating its mistake amount
       if(indexElement > -1){
+        console.log("The element alr exists in the table, updating the mistake amount...");
         this.tempMistakeArray[indexElement].failAmount++;
         this.set(keyArray, this.tempMistakeArray);
       }
+      //When the element doesn't exist in the table
       else {
+        console.log("The element doesn't exist in the table, adding it...");
         this.tempMistakeArray.push({name: keyElement, failAmount: 1})
         this.set(keyArray, this.tempMistakeArray);
       }

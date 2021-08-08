@@ -2,6 +2,7 @@ import { StatsService } from './service/stats.service';
 import { NativeAudio } from '@ionic-native/native-audio/ngx';
 import { Injectable, NgModule} from '@angular/core';
 import { BrowserModule} from '@angular/platform-browser';
+import { CommonModule } from '@angular/common';
 import { RouteReuseStrategy } from '@angular/router';
 
 import { IonicModule, IonicRouteStrategy } from '@ionic/angular';
@@ -20,6 +21,7 @@ import { Drivers } from '@ionic/storage';
   declarations: [AppComponent],
   entryComponents: [],
   imports: [BrowserModule,
+    CommonModule,
     IonicModule.forRoot(),
     AppRoutingModule,
     HttpClientModule,

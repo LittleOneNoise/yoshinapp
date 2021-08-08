@@ -84,41 +84,68 @@ super-tabs { ion-label {
 
 //-------------start MODAL SETTINGS SECTION-----------------//
 
+
 .settingsStyle {
   --background: #534943;
   --border-radius: 200px !important;
+  // --backdrop-opacity: 0.93 !important;
+}
+
+.sc-ion-modal-md-h {
+  --backdrop-opacity: 0.43 !important;
+}
+
+.sc-ion-modal-ios-h {
+  --backdrop-opacity: 0.43 !important;
 }
 
 .modalCss .modal-wrapper { 
   width: 70%;
   height: 55%;
   border-radius: 3vh;
+  border: 5px solid #3C3430;
 }
 
 .settings_toolbar {
-  --background: #534943;
+  // --background: #534943;
+  --background: #3C3430;
   --color: #EDEDED;
+  // height: 10vw;
+  ion-title {
+    height: 5vh;
+  }
+  --min-height:4%!important;
+}
+
+.header_settings {
+  // height: 20vw;
 }
 
 .close_window_button {
   --background: #9D694C;
   color: #EDEDED;
   position: absolute;
-  right: 3vw;
-  top: 1vh;
-  --border-radius: 3vw;
-  width: 8vw;
-  height: 8vw;
+  right: 2vw;
+  top: 0;
+  // --border-radius: 3vw;
+  --border-radius: 15px;
+  /* width: 9vw; */
+  // height: vw;
+  zoom: 0.7;
 }
 
 .close_icon {
-  width: 5vw;
-  max-width: fit-content;
+  width: 6vw;
+    max-width: fit-content;
+    padding: -2vw;
+    margin: 0 -1vw;
 }
 
 .popupContent {
   display: flex;
   flex-direction: column;
+  // box-shadow: 10px 0px 0px 10px black inset;
+  // border: 5px solid #3C3430;
 }
 
 .sound_button_on {
@@ -204,10 +231,21 @@ super-tabs { ion-label {
 
 //-------------start MODAL CONFIRMATION SECTION-----------//
 
+
 .modalCss2 .modal-wrapper { 
   width: 70%;
   height: 32%;
+  // height: auto;
+  // min-height: 32%;
   border-radius: 3vh;
+  border: 5px solid #3C3430;
+}
+
+.sentence_group {
+  display: flex;
+    flex-direction: column;
+    margin: auto;
+    margin-top: 5%;
 }
 
 .sentence {
@@ -228,14 +266,17 @@ super-tabs { ion-label {
 
 .btn_confirmation {
   text-transform: none;
-    font-size: 4vw;
-    --border-radius: 4vw;
+    font-size: 5vw;
+    // --border-radius: 4vw;
+    --border-radius: 15px;
     color: #EDEDED;
     --background: #9C694C;
     // --padding-start: 6vw;
     // --padding-end: 6vw;
     --padding-top: 6vw;
     --padding-bottom: 6vw;
+    --padding-start: 0;
+    --padding-end: 0;
     width: 35vw;
     margin: 0 5%;
 }

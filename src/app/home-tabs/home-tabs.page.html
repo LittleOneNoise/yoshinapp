@@ -1,20 +1,17 @@
-<!-- <ion-content>
-<ion-tabs>
-<ion-tab-bar slot="bottom">
-  <ion-tab-button tab="practice">
-    <ion-icon src="../assets/icon/littleone-icon-paintbrush-first.svg" class="icon-richard"></ion-icon>
-  </ion-tab-button>
-  <ion-tab-button tab="learning">
-    <ion-icon src="../assets/icon/icon-learning.svg"></ion-icon>
-  </ion-tab-button>
-  <ion-tab-button tab="statistics">
-    <ion-icon src="../assets/icon/icon-stats.svg"></ion-icon>
-  </ion-tab-button>
-</ion-tab-bar>
-</ion-tabs>
-</ion-content> -->
+<ion-header class="header" class="ion-no-border">
+  <ion-toolbar class="top-toolbar" mode="ios">
+    <ion-title class="top-title">
+      {{title}}
+    </ion-title>
+    <ion-buttons slot="end">
+      <ion-button (click)="settingsPopup()">
+        <img src="../assets/icon/settings-icon.svg" class="icon_settings_topbar"/>
+      </ion-button>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header>
 
-<super-tabs activeTabIndex="1">
+<super-tabs [config]="superTabConfig" activeTabIndex="1" (tabChange)="onTabSelect($event)">
   <super-tabs-toolbar slot="bottom">
     <super-tab-button>
       <ion-icon src="../../assets/icon/littleone-icon-paintbrush-first.svg"></ion-icon>

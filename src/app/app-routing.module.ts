@@ -66,9 +66,14 @@ const routes: Routes = [
   {
     path: 'learning-katakana-table3',
     loadChildren: () => import('./learning-katakana-table3/learning-katakana-table3.module').then( m => m.LearningKatakanaTable3PageModule)
-  },  {
+  },
+  {
     path: 'learning-katakana-table4',
     loadChildren: () => import('./learning-katakana-table4/learning-katakana-table4.module').then( m => m.LearningKatakanaTable4PageModule)
+  },
+  {
+    path: 'statistics',
+    loadChildren: () => import('./statistics/statistics.module').then( m => m.StatisticsPageModule)
   }
 
 

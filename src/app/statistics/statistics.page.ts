@@ -1,7 +1,9 @@
 import { StatsService } from './../service/stats.service';
-import { Component, OnInit } from '@angular/core';
 import { AlertController, ModalController } from '@ionic/angular';
 import { SettingsPage } from '../settings/settings.page';
+import { Component, OnInit } from '@angular/core';
+
+declare var window;
 
 @Component({
   selector: 'app-statistics',
@@ -27,7 +29,9 @@ export class StatisticsPage implements OnInit {
   isWordKatakanaMistakesTable: boolean;
   shameIsOn: boolean;
 
-  constructor(public statsService: StatsService, public alertController: AlertController, private modalController: ModalController) {}
+  constructor(public statsService: StatsService, public alertController: AlertController, private modalController: ModalController) {
+    window.stats = this;
+  }
 
   async settingsPopup(){
     const modal = await this.modalController.create({
@@ -70,15 +74,21 @@ export class StatisticsPage implements OnInit {
     this.statsService.clearAll();
   }
 
+  imstats(){
+    console.log("yo someone called me !");
+  }
+
   async ngOnInit() {
       // await this.statsService.set("testSetngOnInit", "blabla");
       // console.log("testSet initialized from the ngOnInit");
       // console.log(await this.statsService.get("testSetngOnInit"));
-      await this.statsService.init();
-  }
 
-  async ionViewWillEnter(){
-    this.isPhoneticHiraganaMistakesTable = false;
+
+
+      console.log("initializing stats..");
+      await this.statsService.init();
+    
+      this.isPhoneticHiraganaMistakesTable = false;
     this.phoneticHiraganaMistakesTable = null;
     this.isWordHiraganaMistakesTable = false;
     this.wordHiraganaMistakesTable = null;
@@ -91,7 +101,10 @@ export class StatisticsPage implements OnInit {
     console.log("testSet initialized from the ionViewWillEnter");
     console.log(await this.statsService.get("testSetionViewWillEnter"));
 
+    console.log(await this.statsService.keyExistence("testsAmount"));
+
     if(await this.statsService.keyExistence("testsAmount")){
+      console.log(await this.statsService.get("testsAmount"));
       this.testsAmount = await this.statsService.get("testsAmount");
       this.testsInitialized = true;
     }
@@ -109,10 +122,10 @@ export class StatisticsPage implements OnInit {
       this.testsAverage = "-";
     }
 
-    if(await this.statsService.keyExistence("phoneticHiraganaMistakes")){
+    if(await this.statsService.keyExistence("characterHiraganaMistakes")){
       this.isPhoneticHiraganaMistakesTable = true;
       this.shameIsOn = true;
-      let tempTable = await this.statsService.getArrayMistakeValue("phoneticHiraganaMistakes");
+      let tempTable = await this.statsService.getArrayMistakeValue("characterHiraganaMistakes");
       this.phoneticHiraganaMistakesTable = tempTable[0];
       this.phoneticHiraganaMistakesAmount = tempTable[1];
   }
@@ -128,10 +141,10 @@ export class StatisticsPage implements OnInit {
       console.log(tempTable[1]);
   }
 
-    if(await this.statsService.keyExistence("phoneticKatakanaMistakes")){
+    if(await this.statsService.keyExistence("characterKatakanaMistakes")){
       this.isPhoneticKatakanaMistakesTable = true;
       this.shameIsOn = true;
-      let tempTable = await this.statsService.getArrayMistakeValue("phoneticKatakanaMistakes");
+      let tempTable = await this.statsService.getArrayMistakeValue("characterKatakanaMistakes");
       this.phoneticKatakanaMistakesTable = tempTable[0];
       this.phoneticKatakanaMistakesAmount = tempTable[1];
   }
@@ -143,9 +156,14 @@ export class StatisticsPage implements OnInit {
       this.wordKatakanaMistakesTable = tempTable[0];
       this.wordKatakanaMistakesAmount = tempTable[1];
   }
-
+    
   
+  
+    }
 
-}
+  async ionViewWillEnter(){
+
+    
+  }
 
 }

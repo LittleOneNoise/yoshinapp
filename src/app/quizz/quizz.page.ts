@@ -15,6 +15,22 @@ import { SettingsPage } from '../settings/settings.page';
 })
 export class QuizzPage implements OnInit {
 
+  trigger_correct_animation(){
+    document.getElementById('block_charac').className = 'block_charac_correct bounce';
+  }
+
+  untrigger_correct_animation(){
+    document.getElementById('block_charac').className = 'block_charac';
+  }
+
+  add_correct_animation_to_class(){
+    document.getElementById("block_charac").classList.add("bounce");
+  }
+
+  remove_correct_animation_to_class(){
+    document.getElementById("block_charac").classList.remove("bounce");
+  }
+
   async leaveQuizz(){
     console.log("leave quizz request");
     const modal = await this.modalController.create({
@@ -310,6 +326,7 @@ async emptyFieldToast() {
         if(this.mistakeList.length != 0){
 
           this.inputShown = false;
+          this.shuffleList(this.mistakeList);
           this.transition_to_retake = true;
           console.log("let's go retake");
           await this.delay(2000);
@@ -377,9 +394,12 @@ async emptyFieldToast() {
 
     //Updating the wall of shame
     if(this.mistakeList != []){
+      console.log("updating the wall of shame...");
       if(this.writingSystem == "hiragana"){
         if(this.quizzType == "character"){
+          console.log("hiragana character test detected...");
           for(let e of this.mistakeList){
+            console.log("mistake word : ", e);
             await this.statsService.setArrayMistake("characterHiraganaMistakes", e);
           }
         }
@@ -423,16 +443,20 @@ async emptyFieldToast() {
     if(this.progression < this.questions_amount){
       //When answer is right
       if(this.checkAnswer(this.input_value.toLowerCase())){
-        let element_block_charac = document.getElementsByClassName('block_charac') as HTMLCollectionOf<HTMLElement>;
+        // let element_block_charac = document.getElementsByClassName('block_charac') as HTMLCollectionOf<HTMLElement>;
         this.final_score++;
         this.input_value = "";
-        element_block_charac[0].style.background = "#65a53e";
+        // element_block_charac[0].style.background = "#65a53e";
+        // this.trigger_correct_animation();
+        this.add_correct_animation_to_class();
         this.inputShown = false;
         this.correct_answer = true;
-        await this.delay(450);
+        await this.delay(700);
         this.progression++;
         this.getCharacter();
-        element_block_charac[0].style.background = "#9C694C";
+        // element_block_charac[0].style.background = "#9C694C";
+        // this.untrigger_correct_animation();
+        this.remove_correct_animation_to_class();
         this.correct_answer = false;
         this.inputShown = true;
         this.p_bar_value = this.progression / this.questions_amount;
@@ -459,11 +483,13 @@ async emptyFieldToast() {
         this.final_score++;
         // this.progression++;
         this.input_value = "";
-        element_block_charac[0].style.background = "#65a53e";
+        // element_block_charac[0].style.background = "#65a53e";
+        this.add_correct_animation_to_class();
         this.inputShown = false;
         this.correct_answer = true;
-        await this.delay(450);
-        element_block_charac[0].style.background = "#9C694C";
+        await this.delay(700);
+        // element_block_charac[0].style.background = "#9C694C";
+        this.remove_correct_animation_to_class();
         this.correct_answer = false;
         this.inputShown = false;
         
@@ -471,7 +497,7 @@ async emptyFieldToast() {
         console.log("c'est bon et ça sent la fin");
         //When mistake list is not empty
         if(this.mistakeList.length != 0){
-
+          this.shuffleList(this.mistakeList);
           this.transition_to_retake = true;
         console.log("let's go retake");
         await this.delay(2000);
@@ -498,6 +524,8 @@ async emptyFieldToast() {
       }
       //When answer is wrong
       else {
+        let element_block_charac = document.getElementsByClassName('block_charac') as HTMLCollectionOf<HTMLElement>;
+        element_block_charac[0].style.background = "#a24040";
         this.getCurrentName();
         this.inputShown = false;
         this.mistake = true;
@@ -513,14 +541,16 @@ async emptyFieldToast() {
         //Mistake list not empty
         if(this.mistakeIndex < this.mistakeList.length-1){
           this.input_value = "";
-          element_block_charac[0].style.background = "#65a53e";
+          // element_block_charac[0].style.background = "#65a53e";
+          this.add_correct_animation_to_class();
           this.inputShown = false;
           this.correct_answer = true;
-          await this.delay(450);
+          await this.delay(700);
           this.normal_session = false;
           this.retake_session = true;
           this.mistakeIndex++;
           this.getMistake(this.mistakeIndex);
+          this.remove_correct_animation_to_class();
           element_block_charac[0].style.background = "#DB7890";
           this.correct_answer = false;
           this.inputShown = true;
@@ -532,12 +562,14 @@ async emptyFieldToast() {
         //Mistake list empty
         else {
           console.log("c'est bon est tu vas quitter la partie rattrappage");
-          element_block_charac[0].style.background = "#65a53e";
+          // element_block_charac[0].style.background = "#65a53e";
+          this.add_correct_animation_to_class();
           this.inputShown = false;
           this.correct_answer = true;
-          await this.delay(450);
+          await this.delay(700);
           // element_block_charac[0].style.background = "#DB7890";
           this.goToResult();
+          this.remove_correct_animation_to_class();
         }
       }
       //When answer is wrong

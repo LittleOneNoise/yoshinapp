@@ -1,9 +1,10 @@
 import { PracticeHomePage } from './../practice-home/practice-home.page';
 import { LearningHomePage } from './../learning-home/learning-home.page';
-import { StatisticsPage } from '../statistics/statistics.page';
+import { StatisticsPage } from './../statistics/statistics.page';
 import { Component, OnInit} from '@angular/core';
 import { App } from '@capacitor/core';
-import { Platform, IonRouterOutlet } from '@ionic/angular';
+import { Platform, IonRouterOutlet, ModalController } from '@ionic/angular';
+import { SettingsPage } from '../settings/settings.page';
 
 @Component({
   selector: 'app-home-tabs',
@@ -12,16 +13,47 @@ import { Platform, IonRouterOutlet } from '@ionic/angular';
 })
 export class HomeTabsPage implements OnInit {
 
+  title: string = "Learning";
+
   practice = PracticeHomePage;
   learning = LearningHomePage;
   stats = StatisticsPage;
 
-  constructor( private platform: Platform, private routerOutlet: IonRouterOutlet) {
+  constructor( private platform: Platform, private routerOutlet: IonRouterOutlet, private modalController: ModalController) {
     this.platform.backButton.subscribeWithPriority(-1, () => {
       if (!this.routerOutlet.canGoBack()) {
         App.exitApp();
       }
     });
+  }
+
+  onTabSelect(ev: any) {
+    // console.log(ev);
+    // console.log(ev.detail.index);
+    if (ev.detail.changed == true){
+      this.title = ev.id;
+      switch(ev.detail.index){
+        case 0:
+          this.title = 'Practice';
+          break;
+        case 1:
+          this.title = 'Learning';
+          break;
+        case 2:
+          this.title = 'Statistics';
+          break;
+      }
+
+    }
+  }
+
+  async settingsPopup(){
+    const modal = await this.modalController.create({
+      component: SettingsPage,
+      cssClass: 'modalCss'
+    });
+  
+    return await modal.present();
   }
 
  

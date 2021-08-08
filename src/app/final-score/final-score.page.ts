@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, NavigationExtras, Router } from '@angular/router';
+declare var window;
 
 @Component({
   selector: 'app-final-score',
@@ -26,6 +27,7 @@ export class FinalScorePage implements OnInit {
 
   ngOnInit() {
     console.log(this.score,this.writing, this.quizzType);
+    window.stats.ngOnInit();
   }
 
   goToQuizz(){

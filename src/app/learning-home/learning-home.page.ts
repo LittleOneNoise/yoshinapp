@@ -4,7 +4,6 @@ import { NavController, ModalController } from '@ionic/angular';
 import { SettingsPage } from '../settings/settings.page';
 
 
-
 @Component({
   selector: 'app-learning-home',
   templateUrl: './learning-home.page.html',
