@@ -2,6 +2,7 @@ import { MistakeBank } from './MistakeBank';
 import { Injectable } from '@angular/core';
 import { Storage } from '@ionic/storage-angular';
 import * as CordovaSQLiteDriver from 'localforage-cordovasqlitedriver';
+import { TestDiaryBank } from './TestDiaryBank';
 
 @Injectable({
   providedIn: 'root'
@@ -11,6 +12,7 @@ export class StatsService {
   // private _storage: Storage | null = null;
   private _storage: Storage;
   tempMistakeArray: MistakeBank[] = [];
+  tempTestDiaryArray: TestDiaryBank[] = [];
 
   constructor(public storage: Storage) { 
     this.init();
@@ -40,16 +42,16 @@ export class StatsService {
     if(this.tempMistakeArray == null){
       if(keyArray == "characterHiraganaMistakes"){
         console.log("characterhiraganamistales table didn't exist, creating it...");
-        let phoneticHiraganaMistakes: MistakeBank[] = [{name: keyElement, failAmount: 1}];
-        await this.set(keyArray, phoneticHiraganaMistakes);
+        let characterHiraganaMistakes: MistakeBank[] = [{name: keyElement, failAmount: 1}];
+        await this.set(keyArray, characterHiraganaMistakes);
       }
       else if(keyArray == "wordHiraganaMistakes"){
         let wordHiraganaMistakes: MistakeBank[] = [{name: keyElement, failAmount: 1}];
         await this.set(keyArray, wordHiraganaMistakes);
       }
       else if(keyArray == "characterKatakanaMistakes"){
-        let phoneticKatakanaMistakes: MistakeBank[] = [{name: keyElement, failAmount: 1}];
-        await this.set(keyArray, phoneticKatakanaMistakes);
+        let characterKatakanaMistakes: MistakeBank[] = [{name: keyElement, failAmount: 1}];
+        await this.set(keyArray, characterKatakanaMistakes);
       }
       else if(keyArray == "wordKatakanaMistakes"){
         let wordKatakanaMistakes: MistakeBank[] = [{name: keyElement, failAmount: 1}];
@@ -86,6 +88,48 @@ export class StatsService {
         }
       }
       return [valueMistake, maxMistakes];
+    }
+  }
+
+  async setArrayTestDiary(keyArray: string, keyElement: string[]){
+    this.tempTestDiaryArray = await this.get(keyArray);
+    console.log("table of diary test: ");
+    console.log(this.tempTestDiaryArray);
+    //When the specific diary table doesn't exist
+    if(this.tempTestDiaryArray == null){
+      if(keyArray == "characterHiraganaTestDiary"){
+        console.log("characterHiraganaTestDiary table didn't exist, creating it...");
+        let characterHiraganaTestDiary: TestDiaryBank[] = [{name: keyElement, data {failAmount: 1, successAmount: 1}}];
+        await this.set(keyArray, characterHiraganaMistakes);
+      }
+      else if(keyArray == "wordHiraganaMistakes"){
+        let wordHiraganaMistakes: MistakeBank[] = [{name: keyElement, failAmount: 1}];
+        await this.set(keyArray, wordHiraganaMistakes);
+      }
+      else if(keyArray == "characterKatakanaMistakes"){
+        let characterKatakanaMistakes: MistakeBank[] = [{name: keyElement, failAmount: 1}];
+        await this.set(keyArray, characterKatakanaMistakes);
+      }
+      else if(keyArray == "wordKatakanaMistakes"){
+        let wordKatakanaMistakes: MistakeBank[] = [{name: keyElement, failAmount: 1}];
+        await this.set(keyArray, wordKatakanaMistakes);
+      }
+    }
+    //When the specific mistakes table alr exist
+    else{
+      let indexElement = this.tempMistakeArray.findIndex(x => x.name === keyElement);
+      //When the element alr exists in the table, updating its mistake amount
+      if(indexElement > -1){
+        console.log("The element alr exists in the table, updating the mistake amount...");
+        this.tempMistakeArray[indexElement].failAmount++;
+        this.set(keyArray, this.tempMistakeArray);
+      }
+      //When the element doesn't exist in the table
+      else {
+        console.log("The element doesn't exist in the table, adding it...");
+        this.tempMistakeArray.push({name: keyElement, failAmount: 1})
+        this.set(keyArray, this.tempMistakeArray);
+      }
     }
   }
 

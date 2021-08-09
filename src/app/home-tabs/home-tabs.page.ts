@@ -6,6 +6,7 @@ import { App } from '@capacitor/core';
 import { Platform, IonRouterOutlet, ModalController } from '@ionic/angular';
 import { SettingsPage } from '../settings/settings.page';
 import { SuperTabsConfig } from '@ionic-super-tabs/core';
+declare var window;
 
 @Component({
   selector: 'app-home-tabs',
@@ -42,6 +43,7 @@ export class HomeTabsPage implements OnInit {
           break;
         case 2:
           this.title = 'Statistics';
+          window.stats.ngOnInit();
           break;
       }
 

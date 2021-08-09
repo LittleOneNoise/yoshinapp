@@ -147,6 +147,7 @@ export class QuizzPage implements OnInit {
   transition_to_retake: boolean = false;
   // transition_to_retake: boolean = true;
   p_bar_value: number;
+  summary_table: string[][] = [];
 
    async ngOnInit() {
     if(this.quizzType == null || this.writingSystem == null){
@@ -380,7 +381,7 @@ async emptyFieldToast() {
     if(!await this.statsService.keyExistence("testsAverage")){
       console.log("no key 'testsAverage' in db");
       this.statsService.set("testsAverage", this.final_score);
-      console.log("key 'testsAverage' created and set to "+this.final_score);
+      console.log("key 'testsAverage' created and set to "+ this.final_score);
     }
     else {
       console.log("key 'testsAverage' alr exists");
@@ -390,6 +391,25 @@ async emptyFieldToast() {
       let newAverage = ((currentTestsAmount-1)*currentTestsAverage+this.final_score)/currentTestsAmount;
       this.statsService.set("testsAverage", newAverage);
       console.log("db updated");
+    }
+
+    //Updating the best score in the database
+    if(!await this.statsService.keyExistence("bestScore")){
+      console.log("no key 'bestScore' in db");
+      this.statsService.set("bestScore", this.final_score);
+      console.log("key 'bestScore' created and set to "+ this.final_score);
+    }
+    else {
+      console.log("key 'bestScore' alr exists");
+      let currentBestScore = await this.statsService.get("bestScore");
+      console.log("bestScore was" + currentBestScore);
+      if(currentBestScore < this.final_score){
+        console.log("current best score is lower than the score you just did, updating it...");
+        this.statsService.set("bestScore", this.final_score);
+      }
+      else {
+        console.log("current best score is better than what you just did");
+      }
     }
 
     //Updating the wall of shame
@@ -422,6 +442,36 @@ async emptyFieldToast() {
         }
       }
     }
+
+    //Updating the test diary
+    console.log("updating the test diary...");
+    if(this.writingSystem == "hiragana"){
+      if(this.quizzType == "character"){
+        console.log("hiragana character test detected...");
+        for(let e of this.summary_table){
+          console.log("element : " + e[0] + " state : ", e[1]);
+          await this.statsService.setArrayTestDiary("characterHiraganaTestDiary", e);
+        }
+      }
+      // if(this.quizzType == "word"){
+      //   for(let e of this.mistakeList){
+      //     await this.statsService.setArrayMistake("wordHiraganaMistakes", e);
+      //   }
+      // }
+    }
+    // if(this.writingSystem == "katakana"){
+    //   if(this.quizzType == "character"){
+    //     for(let e of this.mistakeList){
+    //       await this.statsService.setArrayMistake("characterKatakanaMistakes", e);
+    //     }
+    //   }
+    //   if(this.quizzType == "word"){
+    //     for(let e of this.mistakeList){
+    //       await this.statsService.setArrayMistake("wordKatakanaMistakes", e);
+    //     }
+    //   }
+    // }
+  
     
     let navigationExtras: NavigationExtras = {
       state: {
@@ -434,6 +484,8 @@ async emptyFieldToast() {
     
   }
 
+
+
   //When pressing the validate button or the enter key
   async validateInput(){
     if(this.input_value != null && this.input_value != ""){
@@ -444,6 +496,10 @@ async emptyFieldToast() {
       //When answer is right
       if(this.checkAnswer(this.input_value.toLowerCase())){
         // let element_block_charac = document.getElementsByClassName('block_charac') as HTMLCollectionOf<HTMLElement>;
+        this.summary_table.push([this.current_charac, "correct"]);
+        console.log("added " + this.current_charac + "to the summary table as correct");
+        console.log("summary table :");
+        console.log(this.summary_table);
         this.final_score++;
         this.input_value = "";
         // element_block_charac[0].style.background = "#65a53e";
@@ -466,6 +522,10 @@ async emptyFieldToast() {
       }
       //When answer is wrong
       else {
+        this.summary_table.push([this.current_charac, "wrong"]);
+        console.log("added " + this.current_charac + "to the summary table as wrong");
+        console.log("summary table :");
+        console.log(this.summary_table);
         let element_block_charac = document.getElementsByClassName('block_charac') as HTMLCollectionOf<HTMLElement>;
         element_block_charac[0].style.background = "#a24040";
         this.getCurrentName();
@@ -479,6 +539,10 @@ async emptyFieldToast() {
     else if(this.progression == this.questions_amount){
       //When answer is right
       if(this.checkAnswer(this.input_value.toLowerCase())){
+        this.summary_table.push([this.current_charac, "correct"]);
+        console.log("added " + this.current_charac + "to the summary table as correct");
+        console.log("summary table :");
+        console.log(this.summary_table);
         let element_block_charac = document.getElementsByClassName('block_charac') as HTMLCollectionOf<HTMLElement>;
         this.final_score++;
         // this.progression++;
@@ -524,6 +588,10 @@ async emptyFieldToast() {
       }
       //When answer is wrong
       else {
+        this.summary_table.push([this.current_charac, "wrong"]);
+        console.log("added " + this.current_charac + "to the summary table as wrong");
+        console.log("summary table :");
+        console.log(this.summary_table);
         let element_block_charac = document.getElementsByClassName('block_charac') as HTMLCollectionOf<HTMLElement>;
         element_block_charac[0].style.background = "#a24040";
         this.getCurrentName();

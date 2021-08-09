@@ -26,14 +26,29 @@
     <div *ngIf="testsInitialized" class="figures_block">
       <div class="figures_subblock">
         <p class="text">Average score ({{testsAmount}} sessions)</p>
-        <p class="figure"><i>bar % here later</i>{{testsAverage}}/5</p>
+        <!-- <p class="figure"><i>bar % here later</i>{{testsAverage}}/5</p> -->
+        <div class="chart_div">
+          <div class="chart_figure">{{testsAverage}} / 5</div>
+          <div class="chart_bg">
+            <div class="chart_bar_average_score"></div>
+          </div>
+        </div>
       </div>
+      
       <div class="figures_subblock">
         <p class="text">Best score</p>
-        <p class="figure"><i>bar score here later</i></p>
+        <!-- <p class="figure"><i>bar % here later</i>{{testsAverage}}/5</p> -->
+        <div class="chart_div">
+          <div class="chart_figure">{{bestScore}} / 5</div>
+          <div class="chart_bg">
+            <div class="chart_bar_best_score"></div>
+          </div>
+        </div>
       </div>
+
     </div>
-    <div class="title_div">
+
+    <div class="title_div" *ngIf="shameIsOn">
       <p class="title">Wall of Shame</p>
     </div>
       <div class="charac_block_container" *ngIf="shameIsOn">
@@ -43,75 +58,50 @@
         <!-- <div class="charac_block"> -->
 
           <div class="charac_column">
-            <div class="mistake_element"><p>を</p></div>
-            <div class="mistake_element"><p>ねこ</p></div>
-            <div class="mistake_element"><p>ラ</p></div>
-            <div class="mistake_element"><p>ジョジョ</p></div>
+            <div class="mistake_element" *ngIf="isCharacterHiraganaMistakesTable"><p>{{characterHiraganaMistakesTable}}</p></div>
+            <div class="mistake_element" *ngIf="isWordHiraganaMistakesTable"><p>{{wordHiraganaMistakesTable}}</p></div>
+            <div class="mistake_element" *ngIf="isCharacterKatakanaMistakesTable"><p>{{characterKatakanaMistakesTable}}</p></div>
+            <div class="mistake_element" *ngIf="isWordKatakanaMistakesTable"><p>{{wordKatakanaMistakesTable}}</p></div>
           </div>
           <div class="percent_column">
-            <div class="mistake_percent">kf,o,f,qf</div>
-            <div class="mistake_percent">zefzeffe</div>
-            <div class="mistake_percent">zefzefzef</div>
-            <div class="mistake_percent">zerfzefzef</div>
-          </div>
-
-
-
-          <!-- <div class="block_row" *ngIf="phoneticHiraganaMistakesTable">
-            <p class="charac">{{phoneticHiraganaMistakesTable}}</p>
-            <div class="counter">
-              <p class="figure">x{{phoneticHiraganaMistakesAmount}}</p>
+            <div class="mistake_percent" *ngIf="isCharacterHiraganaMistakesTable">
+              <div class="chart_div">
+                <div class="chart_figure_v2">{{characterHiraganaMistakesPercent}}%</div>
+                <div class="chart_bg">
+                  <div class="chart_bar_mistake_hiragana_charac"></div>
+                </div>
+              </div>
+            </div>
+            <div class="mistake_percent" *ngIf="isWordHiraganaMistakesTable">
+              <div class="chart_div">
+                <div class="chart_figure_v2">{{wordHiraganaMistakesPercent}}%</div>
+                <div class="chart_bg">
+                  <div class="chart_bar_mistake_hiragana_word"></div>
+                </div>
+              </div>
+            </div>
+            <div class="mistake_percent" *ngIf="isCharacterKatakanaMistakesTable">
+              <div class="chart_div">
+                <div class="chart_figure_v2">{{characterKatakanaMistakesPercent}}%</div>
+                <div class="chart_bg">
+                  <div class="chart_bar_mistake_katakana_charac"></div>
+                </div>
+              </div>
+            </div>
+            <div class="mistake_percent" *ngIf="isWordKatakanaMistakesTable">
+              <div class="chart_div">
+                <div class="chart_figure_v2">{{wordKatakanaMistakesPercent}}%</div>
+                <div class="chart_bg">
+                  <div class="chart_bar_mistake_katakana_word"></div>
+                </div>
+              </div>
             </div>
           </div>
-          <div class="block_row" *ngIf="wordHiraganaMistakesTable">
-            <div class="charac_subblock">
-              <p class="text">Hiragana word</p>
-              <p class="charac">{{wordHiraganaMistakesTable}}</p>
-            </div>
-            <div class="counter">
-              <p class="figure">x{{wordHiraganaMistakesAmount}}</p>
-            </div>
-          </div>
-          <div class="block_row" *ngIf="phoneticKatakanaMistakesTable">
-            <div class="charac_subblock">
-              <p class="text">Hiragana phonetic</p>
-              <p class="charac">{{phoneticKatakanaMistakesTable}}</p>
-            </div>
-            <div class="counter">
-              <p class="figure">x{{phoneticKatakanaMistakesAmount}}</p>
-            </div>
-          </div>
-          <div class="block_row" *ngIf="wordKatakanaMistakesTable">
-            <div class="charac_subblock">
-              <p class="text">Hiragana word</p>
-              <p class="charac">{{wordKatakanaMistakesTable}}</p>
-            </div>
-            <div class="counter">
-              <p class="figure">x{{wordKatakanaMistakesAmount}}</p>
-            </div>
-        </div> -->
-      <!-- </div> -->
-      <!-- <div class="pepepoint_div_right">
-        <img src="../../assets/img/pepePoint.png">
-      </div> -->
-    </div>
-
-    <div class="charac_block_container" *ngIf="!shameIsOn">
-      <div class="charac_block">
-        <div class="block_row">
-          <div class="charac_subblock">
-            <p class="charac">No shame yet...</p>
-          </div>
-          
-        </div>
-      </div>
     </div>
 
     <ion-button (click)="clearStatsAlertConfirm()">Clear All</ion-button>
 
   </div>
-
-  Coming soon...
 
   
   

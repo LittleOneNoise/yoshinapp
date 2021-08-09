@@ -31,6 +31,7 @@
     "@ionic/storage-angular": "^3.0.6",
     "@types/hammerjs": "^2.0.39",
     "capacitor-resources": "^2.0.5",
+    "chart.js": "^3.5.0",
     "com.telerik.plugins.nativepagetransitions": "^0.7.0",
     "cordova-browser": "6.0.0",
     "cordova-plugin-nativeaudio": "^3.0.9",

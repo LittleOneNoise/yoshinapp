@@ -27,7 +27,7 @@ export class FinalScorePage implements OnInit {
 
   ngOnInit() {
     console.log(this.score,this.writing, this.quizzType);
-    window.stats.ngOnInit();
+    // window.stats.ngOnInit();
   }
 
   goToQuizz(){
