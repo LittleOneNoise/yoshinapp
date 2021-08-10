@@ -197,6 +197,7 @@ export class QuizzPage implements OnInit {
   
     }
   
+    this.summary_table = [];
     this.progression = 1;
     this.final_score = 0;
     this.input_value = [];
@@ -361,7 +362,6 @@ async emptyFieldToast() {
   }
 
   async goToResult(){
-    console.log("value key before entering the if else : " + await this.statsService.get("testsAmount"));
 
     //Updating the amount of tests in the database
     if(!await this.statsService.keyExistence("testsAmount")){
@@ -413,39 +413,43 @@ async emptyFieldToast() {
     }
 
     //Updating the wall of shame
-    if(this.mistakeList != []){
-      console.log("updating the wall of shame...");
-      if(this.writingSystem == "hiragana"){
-        if(this.quizzType == "character"){
-          console.log("hiragana character test detected...");
-          for(let e of this.mistakeList){
-            console.log("mistake word : ", e);
-            await this.statsService.setArrayMistake("characterHiraganaMistakes", e);
-          }
-        }
-        if(this.quizzType == "word"){
-          for(let e of this.mistakeList){
-            await this.statsService.setArrayMistake("wordHiraganaMistakes", e);
-          }
-        }
-      }
-      if(this.writingSystem == "katakana"){
-        if(this.quizzType == "character"){
-          for(let e of this.mistakeList){
-            await this.statsService.setArrayMistake("characterKatakanaMistakes", e);
-          }
-        }
-        if(this.quizzType == "word"){
-          for(let e of this.mistakeList){
-            await this.statsService.setArrayMistake("wordKatakanaMistakes", e);
-          }
-        }
-      }
-    }
+
+    // if(this.mistakeList != []){
+    //   console.log("updating the wall of shame...");
+    //   if(this.writingSystem == "hiragana"){
+    //     if(this.quizzType == "character"){
+    //       console.log("hiragana character test detected...");
+    //       for(let e of this.mistakeList){
+    //         console.log("mistake word : ", e);
+    //         await this.statsService.setArrayMistake("characterHiraganaMistakes", e);
+    //       }
+    //     }
+    //     if(this.quizzType == "word"){
+    //       for(let e of this.mistakeList){
+    //         await this.statsService.setArrayMistake("wordHiraganaMistakes", e);
+    //       }
+    //     }
+    //   }
+    //   if(this.writingSystem == "katakana"){
+    //     if(this.quizzType == "character"){
+    //       for(let e of this.mistakeList){
+    //         await this.statsService.setArrayMistake("characterKatakanaMistakes", e);
+    //       }
+    //     }
+    //     if(this.quizzType == "word"){
+    //       for(let e of this.mistakeList){
+    //         await this.statsService.setArrayMistake("wordKatakanaMistakes", e);
+    //       }
+    //     }
+    //   }
+    // }
 
     //Updating the test diary
     console.log("updating the test diary...");
+    console.log("summary table : ");
+    console.log(this.summary_table);
     if(this.writingSystem == "hiragana"){
+      //When you did hiragana character session
       if(this.quizzType == "character"){
         console.log("hiragana character test detected...");
         for(let e of this.summary_table){
@@ -453,24 +457,33 @@ async emptyFieldToast() {
           await this.statsService.setArrayTestDiary("characterHiraganaTestDiary", e);
         }
       }
-      // if(this.quizzType == "word"){
-      //   for(let e of this.mistakeList){
-      //     await this.statsService.setArrayMistake("wordHiraganaMistakes", e);
-      //   }
-      // }
+      //When you did hiragana word session
+      else if(this.quizzType == "word"){
+        console.log("hiragana word test detected...");
+        for(let e of this.summary_table){
+          console.log("element : " + e[0] + " state : ", e[1]);
+          await this.statsService.setArrayTestDiary("wordHiraganaTestDiary", e);
+        }
+      }
     }
-    // if(this.writingSystem == "katakana"){
-    //   if(this.quizzType == "character"){
-    //     for(let e of this.mistakeList){
-    //       await this.statsService.setArrayMistake("characterKatakanaMistakes", e);
-    //     }
-    //   }
-    //   if(this.quizzType == "word"){
-    //     for(let e of this.mistakeList){
-    //       await this.statsService.setArrayMistake("wordKatakanaMistakes", e);
-    //     }
-    //   }
-    // }
+    if(this.writingSystem == "katakana"){
+      //When you did katakana character session
+      if(this.quizzType == "character"){
+        console.log("katakana character test detected...");
+        for(let e of this.summary_table){
+          console.log("element : " + e[0] + " state : ", e[1]);
+          await this.statsService.setArrayTestDiary("characterKatakanaTestDiary", e);
+        }
+      }
+      //When you did katakana word session
+      else if(this.quizzType == "word"){
+        console.log("katakana word test detected...");
+        for(let e of this.summary_table){
+          console.log("element : " + e[0] + " state : ", e[1]);
+          await this.statsService.setArrayTestDiary("wordKatakanaTestDiary", e);
+        }
+      }
+    }
   
     
     let navigationExtras: NavigationExtras = {

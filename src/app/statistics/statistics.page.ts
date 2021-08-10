@@ -21,18 +21,14 @@ export class StatisticsPage implements OnInit {
   wordHiraganaMistakesTable: string;
   characterKatakanaMistakesTable: string;
   wordKatakanaMistakesTable: string;
-  characterHiraganaMistakesAmount: number;
-  characterHiraganaMistakesPercent: number;
-  wordHiraganaMistakesAmount: number;
-  wordHiraganaMistakesPercent: number;
-  characterKatakanaMistakesAmount: number;
-  characterKatakanaMistakesPercent: number;
-  wordKatakanaMistakesAmount: number;
-  wordKatakanaMistakesPercent: number;
-  isCharacterHiraganaMistakesTable: boolean;
-  isWordHiraganaMistakesTable: boolean;
-  isCharacterKatakanaMistakesTable: boolean;
-  isWordKatakanaMistakesTable: boolean;
+  characterHiraganaRatioAmount: number;
+  wordHiraganaRatioAmount: number;
+  characterKatakanaRatioAmount: number;
+  wordKatakanaRatioAmount: number;
+  isCharacterHiraganaTestDiaryTable: boolean;
+  isWordHiraganaTestDiaryTable: boolean;
+  isCharacterKatakanaTestDiaryTable: boolean;
+  isWordKatakanaTestDiaryTable: boolean;
   shameIsOn: boolean;
 
   constructor(public statsService: StatsService, public alertController: AlertController, private modalController: ModalController) {
@@ -90,23 +86,17 @@ export class StatisticsPage implements OnInit {
   }
 
   async ngOnInit() {
-      console.log("initializing stats..");
-      await this.statsService.init();
+    console.log("initializing stats..");
+    await this.statsService.init();
     
-      this.isCharacterHiraganaMistakesTable = false;
+      this.isCharacterHiraganaTestDiaryTable = false;
     this.characterHiraganaMistakesTable = null;
-    this.isWordHiraganaMistakesTable = false;
+    this.isWordHiraganaTestDiaryTable = false;
     this.wordHiraganaMistakesTable = null;
-    this.isCharacterKatakanaMistakesTable = false;
+    this.isCharacterKatakanaTestDiaryTable = false;
     this.characterKatakanaMistakesTable = null;
-    this.isWordKatakanaMistakesTable = false;
+    this.isWordKatakanaTestDiaryTable = false;
     this.wordKatakanaMistakesTable = null;
-
-    await this.statsService.set("testSetionViewWillEnter", "blabla");
-    console.log("testSet initialized from the ionViewWillEnter");
-    console.log(await this.statsService.get("testSetionViewWillEnter"));
-
-    console.log(await this.statsService.keyExistence("testsAmount"));
 
     
 
@@ -146,72 +136,28 @@ export class StatisticsPage implements OnInit {
 
 
 
-    if(await this.statsService.keyExistence("characterHiraganaMistakes")){
-      this.isCharacterHiraganaMistakesTable = true;
+    if(await this.statsService.failPresence("characterHiraganaTestDiary")){
+      this.isCharacterHiraganaTestDiaryTable = true;
       this.shameIsOn = true;
-      let tempTable = await this.statsService.getArrayMistakeValue("characterHiraganaMistakes");
+      let tempTable = await this.statsService.getArrayTestDiaryValue("characterHiraganaTestDiary");
       this.characterHiraganaMistakesTable = tempTable[0];
-      this.characterHiraganaMistakesAmount = tempTable[1];
+      this.characterHiraganaRatioAmount = parseInt((tempTable[1]*100).toFixed(1));
 
       //Calculating the width of the hiragana character mistake bar
-      let widthBarCharacterHiraganaMistake = this.characterHiraganaMistakesAmount/this.question_amount;
-      this.characterHiraganaMistakesPercent = widthBarCharacterHiraganaMistake*100;
+      // let widthBarCharacterHiraganaMistake = this.characterHiraganaRatioAmount;
+      // this.characterHiraganaMistakesPercent = widthBarCharacterHiraganaMistake*100;
       let chart_bar_mistake_hiragana_charac = document.getElementsByClassName('chart_bar_mistake_hiragana_charac') as HTMLCollectionOf<HTMLElement>;
       console.log(chart_bar_mistake_hiragana_charac);
-      console.log("setting hira charac mistake bar width to : " + this.characterHiraganaMistakesPercent + "%");
-      chart_bar_mistake_hiragana_charac[0].style.width = this.characterHiraganaMistakesPercent + "%";
+      console.log("setting hira charac ratio bar width to : " + this.characterHiraganaRatioAmount + "%");
+      chart_bar_mistake_hiragana_charac[0].style.width = this.characterHiraganaRatioAmount + "%";
   }
 
-    if(await this.statsService.keyExistence("wordHiraganaMistakes")){
-      this.isWordHiraganaMistakesTable = true;
-      this.shameIsOn = true;
-      let tempTable = await this.statsService.getArrayMistakeValue("wordHiraganaMistakes");
-      console.log(tempTable);
-      this.wordHiraganaMistakesTable = tempTable[0];
-      console.log(tempTable[0]);
-      this.wordHiraganaMistakesAmount = tempTable[1];
-      console.log(tempTable[1]);
+    
 
       //Calculating the width of the hiragana word mistake bar
-      let widthBarWordHiraganaMistake = this.wordHiraganaMistakesAmount/this.question_amount;
-      this.wordHiraganaMistakesPercent = widthBarWordHiraganaMistake*100;
-      let chart_bar_mistake_hiragana_word = document.getElementsByClassName('chart_bar_mistake_hiragana_word') as HTMLCollectionOf<HTMLElement>;
-      console.log(chart_bar_mistake_hiragana_word);
-      console.log("setting hira charac mistake bar width to : " + this.characterHiraganaMistakesPercent + "%");
-      chart_bar_mistake_hiragana_word[0].style.width = this.wordHiraganaMistakesPercent + "%";
-  }
-
-    if(await this.statsService.keyExistence("characterKatakanaMistakes")){
-      this.isCharacterKatakanaMistakesTable = true;
-      this.shameIsOn = true;
-      let tempTable = await this.statsService.getArrayMistakeValue("characterKatakanaMistakes");
-      this.characterKatakanaMistakesTable = tempTable[0];
-      this.characterKatakanaMistakesAmount = tempTable[1];
-
-      //Calculating the width of the katakana character mistake bar
-      let widthBarCharacterKatakanaMistake = this.characterKatakanaMistakesAmount/this.question_amount;
-      this.characterKatakanaMistakesPercent = widthBarCharacterKatakanaMistake*100;
-      let chart_bar_mistake_katakana_charac = document.getElementsByClassName('chart_bar_mistake_katakana_charac') as HTMLCollectionOf<HTMLElement>;
-      console.log(chart_bar_mistake_katakana_charac);
-      console.log("setting Kata charac mistake bar width to : " + this.characterKatakanaMistakesPercent + "%");
-      chart_bar_mistake_katakana_charac[0].style.width = this.characterKatakanaMistakesPercent + "%";
-  }
-
-    if(await this.statsService.keyExistence("wordKatakanaMistakes")){
-      this.isWordKatakanaMistakesTable = true;
-      this.shameIsOn = true;
-      let tempTable = await this.statsService.getArrayMistakeValue("wordKatakanaMistakes");
-      this.wordKatakanaMistakesTable = tempTable[0];
-      this.wordKatakanaMistakesAmount = tempTable[1];
-
-      //Calculating the width of the katakana word mistake bar
-      let widthBarWordKatakanaMistake = this.wordKatakanaMistakesAmount/this.question_amount;
-      this.wordKatakanaMistakesPercent = widthBarWordKatakanaMistake*100;
-      let chart_bar_mistake_katakana_word = document.getElementsByClassName('chart_bar_mistake_katakana_word') as HTMLCollectionOf<HTMLElement>;
-      console.log(chart_bar_mistake_katakana_word);
-      console.log("setting Kata word mistake bar width to : " + this.wordKatakanaMistakesPercent + "%");
-      chart_bar_mistake_katakana_word[0].style.width = this.wordKatakanaMistakesPercent + "%";
-  }
+      
+  
+    
     
   
   
