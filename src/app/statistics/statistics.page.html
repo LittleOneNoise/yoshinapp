@@ -58,41 +58,41 @@
         <!-- <div class="charac_block"> -->
 
           <div class="charac_column">
-            <div class="mistake_element" *ngIf="isCharacterHiraganaMistakesTable"><p>{{characterHiraganaMistakesTable}}</p></div>
-            <div class="mistake_element" *ngIf="isWordHiraganaMistakesTable"><p>{{wordHiraganaMistakesTable}}</p></div>
-            <div class="mistake_element" *ngIf="isCharacterKatakanaMistakesTable"><p>{{characterKatakanaMistakesTable}}</p></div>
-            <div class="mistake_element" *ngIf="isWordKatakanaMistakesTable"><p>{{wordKatakanaMistakesTable}}</p></div>
+            <div class="ratio_element" *ngIf="isCharacterHiraganaTestDiaryTable"><p>{{characterHiraganaElementTable}}</p></div>
+            <div class="ratio_element" *ngIf="isWordHiraganaTestDiaryTable"><p>{{wordHiraganaElementTable}}</p></div>
+            <div class="ratio_element" *ngIf="isCharacterKatakanaTestDiaryTable"><p>{{characterKatakanaElementTable}}</p></div>
+            <div class="ratio_element" *ngIf="isWordKatakanaTestDiaryTable"><p>{{wordKatakanaElementTable}}</p></div>
           </div>
           <div class="percent_column">
-            <div class="mistake_percent" *ngIf="isCharacterHiraganaMistakesTable">
+            <div class="element_percent" *ngIf="isCharacterHiraganaTestDiaryTable">
               <div class="chart_div">
                 <div class="chart_figure_v2">{{characterHiraganaRatioAmount}}%</div>
                 <div class="chart_bg">
-                  <div class="chart_bar_mistake_hiragana_charac"></div>
+                  <div class="chart_bar_ratio_hiragana_charac"></div>
                 </div>
               </div>
             </div>
-            <div class="mistake_percent" *ngIf="isWordHiraganaMistakesTable">
+            <div class="element_percent" *ngIf="isWordHiraganaTestDiaryTable">
               <div class="chart_div">
-                <div class="chart_figure_v2">{{wordHiraganaMistakesPercent}}%</div>
+                <div class="chart_figure_v2">{{wordHiraganaRatioAmount}}%</div>
                 <div class="chart_bg">
-                  <div class="chart_bar_mistake_hiragana_word"></div>
+                  <div class="chart_bar_ratio_hiragana_word"></div>
                 </div>
               </div>
             </div>
-            <div class="mistake_percent" *ngIf="isCharacterKatakanaMistakesTable">
+            <div class="element_percent" *ngIf="isCharacterKatakanaTestDiaryTable">
               <div class="chart_div">
-                <div class="chart_figure_v2">{{characterKatakanaMistakesPercent}}%</div>
+                <div class="chart_figure_v2">{{characterKatakanaRatioAmount}}%</div>
                 <div class="chart_bg">
-                  <div class="chart_bar_mistake_katakana_charac"></div>
+                  <div class="chart_bar_ratio_katakana_charac"></div>
                 </div>
               </div>
             </div>
-            <div class="mistake_percent" *ngIf="isWordKatakanaMistakesTable">
+            <div class="element_percent" *ngIf="isWordKatakanaTestDiaryTable">
               <div class="chart_div">
-                <div class="chart_figure_v2">{{wordKatakanaMistakesPercent}}%</div>
+                <div class="chart_figure_v2">{{wordKatakanaRatioAmount}}%</div>
                 <div class="chart_bg">
-                  <div class="chart_bar_mistake_katakana_word"></div>
+                  <div class="chart_bar_ratio_katakana_word"></div>
                 </div>
               </div>
             </div>

@@ -17,10 +17,10 @@ export class StatisticsPage implements OnInit {
   testsAverage: any ="-";
   bestScore: number = 0;
   testsInitialized: boolean = false;
-  characterHiraganaMistakesTable: string;
-  wordHiraganaMistakesTable: string;
-  characterKatakanaMistakesTable: string;
-  wordKatakanaMistakesTable: string;
+  characterHiraganaElementTable: string;
+  wordHiraganaElementTable: string;
+  characterKatakanaElementTable: string;
+  wordKatakanaElementTable: string;
   characterHiraganaRatioAmount: number;
   wordHiraganaRatioAmount: number;
   characterKatakanaRatioAmount: number;
@@ -90,13 +90,13 @@ export class StatisticsPage implements OnInit {
     await this.statsService.init();
     
       this.isCharacterHiraganaTestDiaryTable = false;
-    this.characterHiraganaMistakesTable = null;
+    this.characterHiraganaElementTable = null;
     this.isWordHiraganaTestDiaryTable = false;
-    this.wordHiraganaMistakesTable = null;
+    this.wordHiraganaElementTable = null;
     this.isCharacterKatakanaTestDiaryTable = false;
-    this.characterKatakanaMistakesTable = null;
+    this.characterKatakanaElementTable = null;
     this.isWordKatakanaTestDiaryTable = false;
-    this.wordKatakanaMistakesTable = null;
+    this.wordKatakanaElementTable = null;
 
     
 
@@ -140,21 +140,57 @@ export class StatisticsPage implements OnInit {
       this.isCharacterHiraganaTestDiaryTable = true;
       this.shameIsOn = true;
       let tempTable = await this.statsService.getArrayTestDiaryValue("characterHiraganaTestDiary");
-      this.characterHiraganaMistakesTable = tempTable[0];
+      this.characterHiraganaElementTable = tempTable[0];
       this.characterHiraganaRatioAmount = parseInt((tempTable[1]*100).toFixed(1));
 
-      //Calculating the width of the hiragana character mistake bar
-      // let widthBarCharacterHiraganaMistake = this.characterHiraganaRatioAmount;
-      // this.characterHiraganaMistakesPercent = widthBarCharacterHiraganaMistake*100;
-      let chart_bar_mistake_hiragana_charac = document.getElementsByClassName('chart_bar_mistake_hiragana_charac') as HTMLCollectionOf<HTMLElement>;
-      console.log(chart_bar_mistake_hiragana_charac);
+      //Calculating the width of the hiragana character ratio bar
+      let chart_bar_ratio_hiragana_charac = document.getElementsByClassName('chart_bar_ratio_hiragana_charac') as HTMLCollectionOf<HTMLElement>;
+      console.log(chart_bar_ratio_hiragana_charac);
       console.log("setting hira charac ratio bar width to : " + this.characterHiraganaRatioAmount + "%");
-      chart_bar_mistake_hiragana_charac[0].style.width = this.characterHiraganaRatioAmount + "%";
+      chart_bar_ratio_hiragana_charac[0].style.width = this.characterHiraganaRatioAmount + "%";
   }
 
-    
+  if(await this.statsService.failPresence("wordHiraganaTestDiary")){
+    this.isWordHiraganaTestDiaryTable = true;
+    this.shameIsOn = true;
+    let tempTable = await this.statsService.getArrayTestDiaryValue("wordHiraganaTestDiary");
+    this.wordHiraganaElementTable = tempTable[0];
+    this.wordHiraganaRatioAmount = parseInt((tempTable[1]*100).toFixed(1));
 
-      //Calculating the width of the hiragana word mistake bar
+    //Calculating the width of the hiragana character ratio bar
+    let chart_bar_ratio_hiragana_word = document.getElementsByClassName('chart_bar_ratio_hiragana_word') as HTMLCollectionOf<HTMLElement>;
+    console.log(chart_bar_ratio_hiragana_word);
+    console.log("setting hira word ratio bar width to : " + this.wordHiraganaRatioAmount + "%");
+    chart_bar_ratio_hiragana_word[0].style.width = this.wordHiraganaRatioAmount + "%";
+}
+
+if(await this.statsService.failPresence("characterKatakanaTestDiary")){
+  this.isCharacterKatakanaTestDiaryTable = true;
+  this.shameIsOn = true;
+  let tempTable = await this.statsService.getArrayTestDiaryValue("characterKatakanaTestDiary");
+  this.characterKatakanaElementTable = tempTable[0];
+  this.characterKatakanaRatioAmount = parseInt((tempTable[1]*100).toFixed(1));
+
+  //Calculating the width of the katakana character ratio bar
+  let chart_bar_ratio_katakana_charac = document.getElementsByClassName('chart_bar_ratio_katakana_charac') as HTMLCollectionOf<HTMLElement>;
+  console.log(chart_bar_ratio_katakana_charac);
+  console.log("setting hira charac ratio bar width to : " + this.characterKatakanaRatioAmount + "%");
+  chart_bar_ratio_katakana_charac[0].style.width = this.characterKatakanaRatioAmount + "%";
+}
+
+if(await this.statsService.failPresence("wordKatakanaTestDiary")){
+  this.isWordKatakanaTestDiaryTable = true;
+  this.shameIsOn = true;
+  let tempTable = await this.statsService.getArrayTestDiaryValue("wordKatakanaTestDiary");
+  this.wordKatakanaElementTable = tempTable[0];
+  this.wordKatakanaRatioAmount = parseInt((tempTable[1]*100).toFixed(1));
+
+  //Calculating the width of the katakana character ratio bar
+  let chart_bar_ratio_katakana_word = document.getElementsByClassName('chart_bar_ratio_katakana_word') as HTMLCollectionOf<HTMLElement>;
+  console.log(chart_bar_ratio_katakana_word);
+  console.log("setting katakana word ratio bar width to : " + this.wordKatakanaRatioAmount + "%");
+  chart_bar_ratio_katakana_word[0].style.width = this.wordKatakanaRatioAmount + "%";
+}
       
   
     

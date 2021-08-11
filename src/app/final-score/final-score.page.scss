@@ -6,6 +6,8 @@
       align-content: space-around;
       height: 70%;
     //   margin-top: 25%;
+    width: 85%;
+    margin: auto;
   }
 
   .emote_score {
@@ -99,4 +101,70 @@
 
 .next {
     margin: auto;
+}
+
+.summary_container {
+  display: flex;
+  flex-direction: column;
+  background: #3C3430;
+  border-radius: 4vh;
+  width: 100%;
+  margin-top: 4vh;
+  padding-bottom: 2vh;
+}
+
+.fail_section {
+  display: flex;
+  flex-direction: row;
+  margin: 1vh 4vw;
+  margin-bottom: -1vh;
+  margin-right: 0;
+    flex-wrap: wrap;
+}
+
+.fail_element_div {
+  
+    margin: 1vh 0;
+    display: flex;
+    /* justify-content: flex-end; */
+    /* width: -webkit-max-content; */
+    /* width: max-content; */
+    padding-right: 2vw;
+}
+
+.fail_element {
+  color: #EDEDED;
+  background: #773434;
+  border-radius: 1.5vh;
+    font-size: 5vw;
+    padding: 0.7vh 1.5vh;
+    margin: 0 0.4vw;
+    box-shadow: 2px 2px 5px rgb(0 0 0 / 25%)
+}
+
+.success_section {
+  display: flex;
+  flex-direction: row;
+  margin: 1vh 4vw;
+  margin-bottom: -1vh;
+  margin-right: 0;
+    flex-wrap: wrap;
+  
+}
+
+.success_element_div {
+  
+  margin: 1vh 0;
+    display: flex;
+    padding-right: 2vw;
+}
+
+.success_element {
+  color: #EDEDED;
+  background: #65a53e;
+  border-radius: 1.5vh;
+    font-size: 5vw;
+    padding: 0.7vh 1.5vh;
+    margin: 0 0.4vw;
+    box-shadow: 2px 2px 5px rgb(0 0 0 / 25%)
 }

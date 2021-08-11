@@ -80,7 +80,7 @@
     border-radius: 2vh;
   }
 
-  .chart_bar_mistake_hiragana_charac {
+  .chart_bar_ratio_hiragana_charac {
     background: #C57185;
     display: flex;
     height: 100%;
@@ -88,7 +88,7 @@
     border-radius: 2vh;
   }
 
-  .chart_bar_mistake_hiragana_word {
+  .chart_bar_ratio_hiragana_word {
     background: #C57185;
     display: flex;
     height: 100%;
@@ -96,7 +96,7 @@
     border-radius: 2vh;
   }
 
-  .chart_bar_mistake_katakana_charac {
+  .chart_bar_ratio_katakana_charac {
     background: #C57185;
     display: flex;
     height: 100%;
@@ -104,7 +104,7 @@
     border-radius: 2vh;
   }
 
-  .chart_bar_mistake_katakana_word {
+  .chart_bar_ratio_katakana_word {
     background: #C57185;
     display: flex;
     height: 100%;
@@ -213,7 +213,7 @@
     /* margin-right: 2vw;*/
   }
 
-  .mistake_element {
+  .ratio_element {
     /*background: #7c55e7; */
     margin: 1vh 0;
     display: flex;
@@ -227,7 +227,7 @@
     font-size: 8vw;
     padding: 0 1vh;
     margin: 0;
-    box-shadow: 1px 1px 1px black;
+    box-shadow: 2px 2px 5px rgb(0 0 0 / 25%);
     color: #EDEDED;
     }
 
@@ -240,7 +240,7 @@
         width: -webkit-fill-available;
   }
 
-  .mistake_percent {
+  .element_percent {
     font-size: 5vw;
     display: flex;
     margin: auto 0;

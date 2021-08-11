@@ -134,13 +134,10 @@ export class StatsService {
     this.tempTestDiaryArray = await this.get(keyArray);
     //When the specific diary table doesn't exist
     if(this.tempTestDiaryArray == null){
-      if(keyArray == "characterHiraganaTestDiary"){
-        console.log("characterHiraganaTestDiary table didn't exist, creating it...");
-        console.log("determining if the element was correctly guessed or not..");
         //When the element was correct
         if(await this.determineState(keyElement)){
           console.log(keyElement + " was correct");
-          let characterHiraganaTestDiary : TestDiaryBank[] = [
+          let tempTestDiary : TestDiaryBank[] = [
             {
               name: keyElement[0],
               state: {
@@ -149,16 +146,11 @@ export class StatsService {
               }
             }
           ];
-          console.log("characterHiraganaTestDiary : ");
-          console.log(characterHiraganaTestDiary);
-          await this.set(keyArray, characterHiraganaTestDiary);
-          console.log("hiragana diary updated !");
+          await this.set(keyArray, tempTestDiary);
         }
         //When the element was wrong
         else {
-          console.log(keyElement + " was wrong");
-          console.log("characterHiraganaTestDiary : ");
-          let characterHiraganaTestDiary : TestDiaryBank[] = [
+          let tempTestDiary : TestDiaryBank[] = [
             {
               name: keyElement[0],
               state: {
@@ -167,31 +159,20 @@ export class StatsService {
               }
             }
           ];
-          console.log(characterHiraganaTestDiary);
-          await this.set(keyArray, characterHiraganaTestDiary);
-          console.log("hiragana diary updated !");
+          await this.set(keyArray, tempTestDiary);
         }}
-      else if(keyArray == "wordHiraganaMistakes"){
-      }
-      else if(keyArray == "characterKatakanaMistakes"){
-      }
-      else if(keyArray == "wordKatakanaMistakes"){
-      }
-    } 
+     
     //When the specific section table alr exist
     else if (this.tempTestDiaryArray != null) {
       let indexElement = await this.tempTestDiaryArray.findIndex(x => x.name === keyElement[0]);
       //When the element alr exists in the table, updating its state
       if(indexElement > -1){
-        console.log("The element alr exists in the table, updating the state");
         //When element was correct
         if(await this.determineState(keyElement)){
-          console.log(keyElement[0] + " alr existed and is correct");
           this.tempTestDiaryArray[indexElement].state.successAmount++;
         }
         //When element was wrong
         else {
-          console.log(keyElement[0] + " alr existed and is wrong");
           this.tempTestDiaryArray[indexElement].state.failAmount++;
         }
         this.set(keyArray, this.tempTestDiaryArray);
@@ -200,7 +181,6 @@ export class StatsService {
       else {
         //If element was correct
         if(await this.determineState(keyElement)){
-          console.log(keyElement[0] + " didn't exist and is correct");
           this.tempTestDiaryArray.push(
             {
               name: keyElement[0],
@@ -212,7 +192,6 @@ export class StatsService {
           );}
           //If element was wrong
           else {
-            console.log(keyElement[0] + " didn't exist and is wrong");
             this.tempTestDiaryArray.push(
               {
                 name: keyElement[0],

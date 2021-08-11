@@ -18,9 +18,9 @@
   
   <div class="main_block">
 
-    <div class="emote_score">
+    <!-- <div class="emote_score">
         <img src="../../assets/img/emote_ok.png">
-    </div>
+    </div> -->
   
     <div class="direction">Your score is</div>
 
@@ -30,6 +30,71 @@
       <ion-button (click)="goHome()" class="buttons">Go Home</ion-button>
       <ion-button (click)="goToQuizz()" class="buttons">Try Again</ion-button>
     </div>
+
+    <div class="summary_container">
+      <div class="fail_section" *ngIf="isFail">
+        <div class="fail_element_div" *ngFor="let fail of fail_tab">
+          <p class="fail_element">{{fail}}</p>
+        </div>
+      </div>
+      <div class="success_section" *ngIf="isSuccess">
+        <div class="success_element_div" *ngFor="let success of success_tab">
+          <p class="success_element">{{success}}</p>
+        </div>
+      </div>
+    </div>
+
+    <!-- <div class="summary_container">
+      <div class="fail_section">
+        <div class="fail_element_div">
+          <p class="fail_element">ま</p>
+        </div>
+        <div class="fail_element_div">
+          <p class="fail_element">ま</p>
+        </div>
+        <div class="fail_element_div">
+          <p class="fail_element">ま</p>
+        </div>
+        <div class="fail_element_div">
+          <p class="fail_element">ま</p>
+        </div>
+        <div class="fail_element_div">
+          <p class="fail_element">ま</p>
+        </div>
+      </div>
+      <div class="success_section">
+        <div class="success_element_div">
+          <p class="success_element">の</p>
+        </div>
+        <div class="success_element_div">
+          <p class="success_element">の</p>
+        </div>
+        <div class="success_element_div">
+          <p class="success_element">の</p>
+        </div>
+        <div class="success_element_div">
+          <p class="success_element">の</p>
+        </div>
+        <div class="success_element_div">
+          <p class="success_element">の</p>
+        </div>
+      </div>
+      <div class="success_section">
+        <div class="success_element_div">
+          <p class="success_element">の</p>
+        </div>
+        <div class="success_element_div">
+          <p class="success_element">の</p>
+        </div>
+        <div class="success_element_div">
+          <p class="success_element">の</p>
+        </div>
+        <div class="success_element_div">
+          <p class="success_element">の</p>
+        </div>
+        
+      </div>
+    </div> -->
 
 
   </div>

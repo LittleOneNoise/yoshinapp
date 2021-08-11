@@ -140,7 +140,7 @@ export class QuizzPage implements OnInit {
   mistakeIndexHtml: number;
   normal_session: boolean = true;
   retake_session: boolean = false;
-  readonly questions_amount = 2;
+  readonly questions_amount = 10;
   mistakeListSize: number;
   correct_answer: boolean = false;
   show_answer_btn_content: string = "Show answer";
@@ -490,7 +490,8 @@ async emptyFieldToast() {
       state: {
         score: this.final_score,
         type: this.quizzType,
-         writingSystem: this.writingSystem,
+        writingSystem: this.writingSystem,
+        sum_up_tab: this.summary_table,
       }
     };
     this.router.navigate(['final-result'], navigationExtras);
