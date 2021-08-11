@@ -20,6 +20,7 @@ export class HomeTabsPage implements OnInit {
   practice = PracticeHomePage;
   learning = LearningHomePage;
   stats = StatisticsPage;
+  nav_fx_sound: HTMLAudioElement = new Audio();
 
   constructor( private platform: Platform, private routerOutlet: IonRouterOutlet, private modalController: ModalController) {
     this.platform.backButton.subscribeWithPriority(-1, () => {
@@ -56,6 +57,7 @@ export class HomeTabsPage implements OnInit {
       cssClass: 'modalCss'
     });
   
+    this.nav_fx_sound.play();
     return await modal.present();
   }
 
@@ -69,6 +71,8 @@ export class HomeTabsPage implements OnInit {
   
 
   ngOnInit() {
+    this.nav_fx_sound.src = "../../assets/sounds/button_click_perc_sound_soft.wav";
+    this.nav_fx_sound.load();
   }
 
 }

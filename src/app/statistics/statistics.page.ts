@@ -148,20 +148,27 @@ export class StatisticsPage implements OnInit {
       console.log(chart_bar_ratio_hiragana_charac);
       console.log("setting hira charac ratio bar width to : " + this.characterHiraganaRatioAmount + "%");
       chart_bar_ratio_hiragana_charac[0].style.width = this.characterHiraganaRatioAmount + "%";
+
+      //Calculating the size of the hiragana word
+    this.updateFontSize(this.wordHiraganaElementTable, 'p1');
   }
 
   if(await this.statsService.failPresence("wordHiraganaTestDiary")){
     this.isWordHiraganaTestDiaryTable = true;
     this.shameIsOn = true;
     let tempTable = await this.statsService.getArrayTestDiaryValue("wordHiraganaTestDiary");
-    this.wordHiraganaElementTable = tempTable[0];
+    this.wordHiraganaElementTable = await tempTable[0];
     this.wordHiraganaRatioAmount = parseInt((tempTable[1]*100).toFixed(1));
 
-    //Calculating the width of the hiragana character ratio bar
+    //Calculating the width of the hiragana word ratio bar
     let chart_bar_ratio_hiragana_word = document.getElementsByClassName('chart_bar_ratio_hiragana_word') as HTMLCollectionOf<HTMLElement>;
     console.log(chart_bar_ratio_hiragana_word);
     console.log("setting hira word ratio bar width to : " + this.wordHiraganaRatioAmount + "%");
     chart_bar_ratio_hiragana_word[0].style.width = this.wordHiraganaRatioAmount + "%";
+
+    //Calculating the size of the hiragana word
+    this.updateFontSize(this.wordHiraganaElementTable, 'p2');
+    
 }
 
 if(await this.statsService.failPresence("characterKatakanaTestDiary")){
@@ -176,6 +183,9 @@ if(await this.statsService.failPresence("characterKatakanaTestDiary")){
   console.log(chart_bar_ratio_katakana_charac);
   console.log("setting hira charac ratio bar width to : " + this.characterKatakanaRatioAmount + "%");
   chart_bar_ratio_katakana_charac[0].style.width = this.characterKatakanaRatioAmount + "%";
+
+  //Calculating the size of the hiragana word
+  this.updateFontSize(this.wordHiraganaElementTable, 'p3');
 }
 
 if(await this.statsService.failPresence("wordKatakanaTestDiary")){
@@ -190,6 +200,9 @@ if(await this.statsService.failPresence("wordKatakanaTestDiary")){
   console.log(chart_bar_ratio_katakana_word);
   console.log("setting katakana word ratio bar width to : " + this.wordKatakanaRatioAmount + "%");
   chart_bar_ratio_katakana_word[0].style.width = this.wordKatakanaRatioAmount + "%";
+
+  //Calculating the size of the hiragana word
+  this.updateFontSize(this.wordHiraganaElementTable, 'p4');
 }
       
   
@@ -197,6 +210,18 @@ if(await this.statsService.failPresence("wordKatakanaTestDiary")){
     
   
   
+    }
+
+    async updateFontSize(input_element: string, id_name: string){
+      let element_block = document.getElementById(id_name);
+      console.log("element_block : ");
+      console.log(element_block);
+      let amountLetters = input_element.length;
+      console.log('number of letters : ' + amountLetters);
+        if(amountLetters > 3){
+          element_block.style.fontSize = (0.1643*amountLetters**2 - 2.814*amountLetters + 16.566) + "vw";
+          console.log('font size set to : ' + (0.1643*amountLetters**2 - 2.814*amountLetters + 16.566) + " vw");
+        }
     }
 
 }

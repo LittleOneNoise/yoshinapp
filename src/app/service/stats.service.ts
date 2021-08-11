@@ -53,8 +53,8 @@ export class StatsService {
       console.log("tabDiary : ");
       console.log(tabDiary);
       for(let e of tabDiary){
-        if(e.state.failAmount > 0){
-          console.log(e.name + " has more than 0 fails (" + e.state.failAmount +")");
+        if(e.state.failAmount > 0 && e.state.failAmount > e.state.successAmount){
+          console.log(e.name + " has more than 0 fails (" + e.state.failAmount +") and it is greater than the success amount (" + e.state.successAmount + ")");
           return true;
         }
       }
@@ -71,6 +71,20 @@ export class StatsService {
       cpt++;
     }
     return -1;
+  }
+
+  async checkSoundState(){
+    if(await this.keyExistence("sound")){
+      if(await this.get("sound") == true){
+        return true;
+      }
+      else {
+        return false;
+      }
+    }
+    else {
+      return true;
+    }
   }
 
   async setArrayMistake(keyArray: string, keyElement: string){

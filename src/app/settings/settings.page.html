@@ -10,15 +10,18 @@
 <ion-content>
   <div class="popupContent">
     <div class="popupContentTop">
-      <div style="display:flex; flex-direction:column;">
+      <div class="div_button_settings">
         <p class="settings_sublabel">Sound</p>
-        <ion-button class="sound_button_on">
-          <img src='../assets/icon/sound_on_icon.svg' class="img_sound_on" />
+        <ion-button class="sound_button_on" *ngIf="soundEnabled" (click)="toggleSound(false)">
+          <img src='../../assets/icon/sound_on_icon.svg' class="img_sound_on" />
+        </ion-button>
+        <ion-button class="sound_button_on" *ngIf="!soundEnabled" (click)="toggleSound(true)">
+          <img src='../../assets/icon/sound_off_icon.svg' class="img_sound_off" />
         </ion-button>
       </div>
-      <div style="display:flex; flex-direction:column;">
+      <div class="div_button_settings">
         <p class="settings_sublabel">Reset data</p>
-        <ion-button class="delete_button">
+        <ion-button class="delete_button" (click)="clearStatsAlertConfirm()">
           <img src='../assets/icon/delete_icon.svg' class="img_delete" />
         </ion-button>
       </div>

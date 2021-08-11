@@ -33,6 +33,7 @@ export class QuizzPage implements OnInit {
 
   async leaveQuizz(){
     console.log("leave quizz request");
+    this.nav_sfx.play();
     const modal = await this.modalController.create({
       component: ConfirmationPopupPage,
       cssClass: 'modalCss2'
@@ -54,46 +55,6 @@ export class QuizzPage implements OnInit {
 
   @ViewChild('input')  inputElement: IonInput;
 
-  @Input('isFlipped') flipCard: boolean;
-
-  flipTheFuck(){
-    document.getElementById('flip-block').classList.toggle('flip');
-  }
-
-  flipTheFuck2(){
-    console.log('clicked on flipthefuck2');
-    document.getElementById('block_charac').classList.toggle('flip');
-    console.log("Rotate value matrix: ");
-    var matrix_angle = getComputedStyle(document.querySelector('.flipper')).transform;
-    console.log(matrix_angle);
-    //-------
-    var values = matrix_angle.split('(')[1];
-    console.log(values);
-    var values2 = values.split(')')[0];
-    console.log(values2);
-    var values3 = values.split(',');
-    console.log(values3);
-    console.log(values3[0]);
-    console.log(values3[1]);
-
-        var a = values3[0];
-        var b = values3[1];
-        var c = values3[2];
-        var d = values3[3];
-
-        var e = a as any;
-        var f = b as any;
-        var scale = Math.sqrt(e*e + f*f);
-        // var sin = f/scale;
-        var angle = Math.round(Math.atan2(f, e) * (180/Math.PI));
-        console.log("Rotate value degree: ")
-        console.log(angle);
-
-        //----------
-
-    document.querySelector('.flipper').setAttribute('transform', 'rotateY('+angle+180+')');
-      
-  }
 
   constructor(private route: ActivatedRoute, private router: Router, public statsService: StatsService, public toastController: ToastController, public platform: Platform, private modalController: ModalController) {
 
@@ -114,6 +75,7 @@ export class QuizzPage implements OnInit {
   }
 
   async settingsPopup(){
+    this.nav_sfx.play();
     const modal = await this.modalController.create({
       component: SettingsPage,
       cssClass: 'modalCss'
@@ -148,8 +110,15 @@ export class QuizzPage implements OnInit {
   // transition_to_retake: boolean = true;
   p_bar_value: number;
   summary_table: string[][] = [];
+  start_sfx: HTMLAudioElement = new Audio();
+  nav_sfx: HTMLAudioElement = new Audio();
 
    async ngOnInit() {
+     this.start_sfx.src = "../../assets/sounds/test_start.wav";
+     this.start_sfx.load();
+     this.nav_sfx.src = "../../assets/sounds/button_click_perc_sound_soft.wav";
+    this.nav_sfx.load();
+    //  this.start_sfx.play();
     if(this.quizzType == null || this.writingSystem == null){
       // alert('Error, couldn\'t get quizz data');
     }
@@ -217,6 +186,7 @@ export class QuizzPage implements OnInit {
     element_block_charac[0].style.background = "#9C694C";
     // this.delay(100);
     this.inputElement.setFocus();
+    this.start_sfx.play();
 }
 
 async ionViewWillEnter(){

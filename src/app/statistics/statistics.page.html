@@ -58,10 +58,10 @@
         <!-- <div class="charac_block"> -->
 
           <div class="charac_column">
-            <div class="ratio_element" *ngIf="isCharacterHiraganaTestDiaryTable"><p>{{characterHiraganaElementTable}}</p></div>
-            <div class="ratio_element" *ngIf="isWordHiraganaTestDiaryTable"><p>{{wordHiraganaElementTable}}</p></div>
-            <div class="ratio_element" *ngIf="isCharacterKatakanaTestDiaryTable"><p>{{characterKatakanaElementTable}}</p></div>
-            <div class="ratio_element" *ngIf="isWordKatakanaTestDiaryTable"><p>{{wordKatakanaElementTable}}</p></div>
+            <div class="ratio_element" *ngIf="isCharacterHiraganaTestDiaryTable"><p class="ratio_element_p" id="p1">{{characterHiraganaElementTable}}</p></div>
+            <div class="ratio_element" *ngIf="isWordHiraganaTestDiaryTable"><p class="ratio_element_p" id="p2">{{wordHiraganaElementTable}}</p></div>
+            <div class="ratio_element" *ngIf="isCharacterKatakanaTestDiaryTable"><p class="ratio_element_p" id="p3">{{characterKatakanaElementTable}}</p></div>
+            <div class="ratio_element" *ngIf="isWordKatakanaTestDiaryTable"><p class="ratio_element_p" id="p4">{{wordKatakanaElementTable}}</p></div>
           </div>
           <div class="percent_column">
             <div class="element_percent" *ngIf="isCharacterHiraganaTestDiaryTable">
@@ -99,7 +99,7 @@
           </div>
     </div>
 
-    <ion-button (click)="clearStatsAlertConfirm()">Clear All</ion-button>
+    <!-- <ion-button (click)="clearStatsAlertConfirm()">Clear All</ion-button> -->
 
   </div>
 

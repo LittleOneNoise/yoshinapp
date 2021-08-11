@@ -42,25 +42,28 @@
     left: 0;
     right: 0;
     margin-top: 0.5vh;
+    z-index: 3;
   }
 
   .chart_figure_v2 {
     color: #EDEDED;
-    position: fixed;
+    position: absolute;
     display: flex;
     flex-direction: row;
     font-size: 3vh;
-    /* left: 0; */
-    /* right: 0; */
-    /* margin-top: 0.5vh; */
-    margin: 0.5vh 18%;
+    width: 100%;
+    justify-content: center;
+    margin-top: 0.4vh;
+    z-index: 3;
   }
 
   .chart_bg {
     background: #3C3430;
     width: 100%;
     display: flex;
+    position: relative;
     border-radius: 2vh;
+    z-index: 2;
   }
 
   .chart_bar_average_score {
@@ -114,12 +117,11 @@
 
   .chart_div {
     display: flex;
+    flex-direction: row;
     height: 4vh;
-    /* width: 75vw; */
-    /* max-width: 100%; */
-    /* min-width: 100%; */
     width: 100%;
     padding: 0;
+    position: relative;
   }
 
   canvas {
@@ -220,17 +222,18 @@
     justify-content: flex-end;
     width: max-content;
     padding-right: 2vw;
+    height: 6.5vh;
+  }
 
-    p {
-      background: #C57185;
-    border-radius: 2vh;
-    font-size: 8vw;
-    padding: 0 1vh;
-    margin: 0;
-    box-shadow: 2px 2px 5px rgb(0 0 0 / 25%);
-    color: #EDEDED;
-    }
-
+  .ratio_element_p {
+    background: #C57185;
+  border-radius: 2vh;
+  font-size: 8vw;
+  padding: 0 1vh;
+  // margin: 0;
+  box-shadow: 2px 2px 5px rgb(0 0 0 / 25%);
+  color: #EDEDED;
+  margin: auto;
   }
 
   .percent_column {
