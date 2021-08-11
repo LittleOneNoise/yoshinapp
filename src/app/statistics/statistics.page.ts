@@ -29,7 +29,7 @@ export class StatisticsPage implements OnInit {
   isWordHiraganaTestDiaryTable: boolean;
   isCharacterKatakanaTestDiaryTable: boolean;
   isWordKatakanaTestDiaryTable: boolean;
-  shameIsOn: boolean;
+  shameIsOn: boolean = false;
 
   constructor(public statsService: StatsService, public alertController: AlertController, private modalController: ModalController) {
     window.stats = this;
