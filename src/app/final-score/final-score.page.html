@@ -33,7 +33,7 @@
 
     <div class="summary_container">
       <div class="fail_section" *ngIf="isFail">
-        <div class="fail_element_div" *ngFor="let fail of fail_tab">
+        <div class="fail_element_div" *ngFor="let fail of fail_tab" (click)="presentPopoverParam($event, fail)">
           <p class="fail_element">{{fail}}</p>
         </div>
       </div>

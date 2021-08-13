@@ -17,10 +17,9 @@
     <!-- <div class="title_div">
     <p class="title">Overall</p>
   </div> -->
-    <div *ngIf="testsInitialized == false" class="figures_block">
-      <img src="" class="img_no_stats_v2">
-      <p class="text">Nothing here...</p>
-      <p class="text">You need to take at least 1 test to see your statistics</p>
+    <div *ngIf="testsInitialized == false" class="no_stats_div">
+      <p class="text_no_stats">Nothing here...</p>
+      <p class="text_no_stats">You need to take at least 1 test to see your statistics</p>
     </div>
 
     <div *ngIf="testsInitialized" class="figures_block">

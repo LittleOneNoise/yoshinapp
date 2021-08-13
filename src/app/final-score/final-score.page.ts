@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, NavigationExtras, Router } from '@angular/router';
+import { PopoverController } from '@ionic/angular';
+import { InfoKanaPage } from '../info-kana/info-kana.page';
 declare var window;
 
 @Component({
@@ -9,7 +11,7 @@ declare var window;
 })
 export class FinalScorePage implements OnInit {
 
-  constructor(private route: ActivatedRoute, private router: Router) {
+  constructor(private route: ActivatedRoute, private router: Router, private popoverController: PopoverController) {
    
     console.log("executing the constructor");
     console.log(this.score,this.writing, this.quizzType);
@@ -24,8 +26,8 @@ export class FinalScorePage implements OnInit {
   summary_table: string[] = [];
   isFail: boolean = false;
   isSuccess: boolean = false;
-  // tab_ex: string[][] = [["ご","correct"], ["だ","wrong"],["ご","correct"], ["だ","wrong"],["ご","correct"], ["だ","wrong"],["ご","correct"], ["だ","wrong"],["ご","correct"], ["だ","wrong"],["ご","correct"], ["だ","wrong"]];
-  tab_ex: string[][] = [];
+  tab_ex: string[][] = [["ご","correct"], ["あ","wrong"],["ご","correct"], ["だ","wrong"],["ご","correct"], ["だ","wrong"],["ご","correct"], ["だ","wrong"],["ご","correct"], ["だ","wrong"],["ご","correct"], ["だ","wrong"]];
+  // tab_ex: string[][] = [];
   fail_tab: string[] = [];
   success_tab: string[] = [];
 
@@ -33,19 +35,27 @@ export class FinalScorePage implements OnInit {
   async ngOnInit() {
 
     
-    this.route.queryParams.subscribe(params => {
-      if (this.router.getCurrentNavigation().extras.state) {
-        this.fail_tab = [];
-        this.success_tab = [];
-        this.score = this.router.getCurrentNavigation().extras.state.score;
-        this.quizzType = this.router.getCurrentNavigation().extras.state.type;
-        this.writing = this.router.getCurrentNavigation().extras.state.writingSystem;
-        this.summary_table = this.router.getCurrentNavigation().extras.state.sum_up_tab;
-        console.log("sum up tab from constructor : ");
-        console.log(this.router.getCurrentNavigation().extras.state.sum_up_tab);
-        this.sortSummaryTab(this.router.getCurrentNavigation().extras.state.sum_up_tab);
-      }
-    });
+    // this.route.queryParams.subscribe(params => {
+    //   if (this.router.getCurrentNavigation().extras.state) {
+    //     this.fail_tab = [];
+    //     this.success_tab = [];
+    //     this.score = this.router.getCurrentNavigation().extras.state.score;
+    //     this.quizzType = this.router.getCurrentNavigation().extras.state.type;
+    //     this.writing = this.router.getCurrentNavigation().extras.state.writingSystem;
+    //     this.summary_table = this.router.getCurrentNavigation().extras.state.sum_up_tab;
+    //     console.log("sum up tab from constructor : ");
+    //     console.log(this.router.getCurrentNavigation().extras.state.sum_up_tab);
+    //     this.sortSummaryTab(this.router.getCurrentNavigation().extras.state.sum_up_tab);
+    //   }
+    // });
+
+    this.fail_tab = [];
+    this.success_tab = [];
+    this.score = 69;
+    this.quizzType = "character";
+    this.writing = "hiragana";
+    this.sortSummaryTab(this.tab_ex);
+
 
   }
 
@@ -78,6 +88,22 @@ export class FinalScorePage implements OnInit {
 
   goHome(){
   this.router.navigateByUrl("home");
+  }
+
+  async presentPopoverParam(ev: any, character: string) {
+    const popover = await this.popoverController.create({
+      component: InfoKanaPage,
+      componentProps: {
+        "charac": character,
+      },
+      cssClass: 'popoverCss',
+      event: ev,
+      translucent: true
+    });
+    await popover.present();
+  
+    const { role } = await popover.onDidDismiss();
+    console.log('onDidDismiss resolved with role', role);
   }
 
 }

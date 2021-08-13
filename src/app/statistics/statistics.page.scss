@@ -115,17 +115,23 @@
     border-radius: 2vh;
   }
 
-  .chart_div {
+  .no_stats_div {
+    background: #C57185;
     display: flex;
-    flex-direction: row;
-    height: 4vh;
-    width: 100%;
-    padding: 0;
-    position: relative;
+    flex-direction: column;
+    align-content: center;
+    margin: auto;
+    width: 80%;
+    border-radius: 4vh;
+    padding: 2vw;
   }
 
-  canvas {
-    width: 100%;
+  .text_no_stats {
+    font-size: 2.5vh;
+    margin: 1vh auto;
+    color: #EDEDED;
+    line-height: 20px;
+    text-align: center;
   }
 
   .figures_block {

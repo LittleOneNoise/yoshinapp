@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { NavParams } from '@ionic/angular';
+import { Kana } from '../service/Kana';
 
 @Component({
   selector: 'app-info-kana',
@@ -8,15 +9,28 @@ import { NavParams } from '@ionic/angular';
 })
 export class InfoKanaPage implements OnInit {
 
-  modalTitle: string;
-  modelId: number;
+  character: string;
+  content: Kana[] = [];
+  finalContent: Kana;
 
   constructor(private navParams: NavParams) { }
 
-  ngOnInit() {
+  async ngOnInit() {
     console.table(this.navParams);
-    this.modelId = this.navParams.data.paramID;
-    this.modalTitle = this.navParams.data.paramTitle;
+    this.character = await this.navParams.data.charac;
+    await this.getPopOverContent(this.character);
+    console.log(this.content);
+
+  }
+
+  
+
+  async getPopOverContent(element: string){
+    await fetch('./../assets/data/kana.json').then(res => res.json()).then(json => {
+      this.content = json;
+      });
+      this.content = this.content.filter(kana => (kana.character == element));
+      this.finalContent = this.content[0];
   }
 
 }

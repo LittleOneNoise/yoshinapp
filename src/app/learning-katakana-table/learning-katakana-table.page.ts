@@ -18,10 +18,14 @@ export class LearningKatakanaTablePage implements OnInit {
   table2 = LearningKatakanaTable2Page;
   table3 = LearningKatakanaTable3Page;
   table4 = LearningKatakanaTable4Page
+  nav_fx_sound: HTMLAudioElement = new Audio();
+  soundEnabled: boolean = true;
 
   constructor(private modalController: ModalController) { }
 
   async settingsPopup(){
+    this.nav_fx_sound.play();
+    console.log("gotach");
     const modal = await this.modalController.create({
       component: SettingsPage,
       cssClass: 'modalCss'
@@ -32,6 +36,8 @@ export class LearningKatakanaTablePage implements OnInit {
 
 
   ngOnInit() {
+    this.nav_fx_sound.src = "../../assets/sounds/button_click_perc_sound_soft.wav";
+    this.nav_fx_sound.load();
   }
   
   config: SuperTabsConfig = {

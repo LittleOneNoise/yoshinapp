@@ -13,7 +13,11 @@ export class LearningHomePage implements OnInit {
 
   constructor(private router: Router, public navCtrl: NavController, private modalController: ModalController) { }
 
+  nav_fx_sound: HTMLAudioElement = new Audio();
+  soundEnabled: boolean = true;
+
   async settingsPopup(){
+    this.nav_fx_sound.play();
     const modal = await this.modalController.create({
       component: SettingsPage,
       cssClass: 'modalCss'
@@ -23,22 +27,28 @@ export class LearningHomePage implements OnInit {
   }
 
   goToLearningHiraganaTable(){
+    this.nav_fx_sound.play();
     this.router.navigateByUrl('learning-hiragana-table');
   }
 
   goToLearningHiraganaMnemonic(){
+    this.nav_fx_sound.play();
     this.router.navigateByUrl('learning-hiragana-mnemonic');
   }
 
   goToLearningKatakanaTable(){
+    this.nav_fx_sound.play();
     this.router.navigateByUrl('learning-katakana-table');
   }
 
   goToLearningKatakanaMnemonic(){
+    this.nav_fx_sound.play();
     this.router.navigateByUrl('tabs/learning/learning-katakana-mnemonic');
   }
 
   ngOnInit() {
+    this.nav_fx_sound.src = "../../assets/sounds/button_click_perc_sound_soft.wav";
+    this.nav_fx_sound.load();
   }
 
 }

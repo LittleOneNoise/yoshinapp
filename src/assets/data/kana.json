@@ -7,6 +7,10 @@
         "audio": "../../assets/sounds/hiragana_a.mp3",
         "mnemonicImage": "../../assets/mnemo_hira_a.png",
         "mnemonicWord": "Apple",
+        "example1": "- ありがとう → arigatou (thank you)",
+        "example2": "- あめ → ame (rain)",
+        "example3": "- おかあさん → okaasan (mom)",
+        "equivalent": "ア",
         "family": "hiragana",
         "type": "character"
     },
@@ -18,6 +22,10 @@
         "audio": "../../assets/sounds/hiragana_i.mp3",
         "mnemonicImage": "../../assets/mnemo_hira_i.png",
         "mnemonicWord": "?",
+        "example1": "- いし → ishi (stone)",
+        "example2": "- やすい → yasui (cheap)",
+        "example3": "- げいしゃ → geisha (geisha)",
+        "equivalent": "イ",
         "family": "hiragana",
         "type": "character"
     },

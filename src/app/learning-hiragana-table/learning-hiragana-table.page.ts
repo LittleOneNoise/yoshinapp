@@ -17,11 +17,14 @@ export class LearningHiraganaTablePage implements OnInit {
   table1 = LearningHiraganaTable1Page;
   table2 = LearningHiraganaTable2Page;
   table3 = LearningHiraganaTable3Page;
-  table4 = LearningHiraganaTable4Page
+  table4 = LearningHiraganaTable4Page;
+  nav_fx_sound: HTMLAudioElement = new Audio();
+  soundEnabled: boolean = true;
 
   constructor(private modalController: ModalController) { }
 
   async settingsPopup(){
+    this.nav_fx_sound.play();
     const modal = await this.modalController.create({
       component: SettingsPage,
       cssClass: 'modalCss'
@@ -32,6 +35,8 @@ export class LearningHiraganaTablePage implements OnInit {
 
 
   ngOnInit() {
+    this.nav_fx_sound.src = "../../assets/sounds/button_click_perc_sound_soft.wav";
+    this.nav_fx_sound.load(); 
   }
   
   config: SuperTabsConfig = {

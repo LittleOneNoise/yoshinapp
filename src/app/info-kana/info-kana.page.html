@@ -1,23 +1,15 @@
 <ion-content>
   <div class="popoverContent">
     <!-- <p class="popoverText">Pronunciation : [a]</p> -->
-    <p class="popoverText">Pronunciation : [{{modelId}}]</p>
+    <p class="popoverText">Pronunciation : {{finalContent.pronunciation}}</p>
     <hr class="seperatorv2">
     <p class="popoverText">Appears in :</p>
     <div class="kana_example">
-      <p class="popoverExampleTextNotPink">-</p>
-      <div class="artificial_space"></div>
-      <!-- <p class="popoverExampleTextPink">あ</p> -->
-      <p class="popoverExampleTextPink">{{modalTitle}}</p>
-      <p class="popoverExampleTextNotPink">りがとう</p>
-      <div class="artificial_space"></div>
-      <p class="popoverExampleTextNotPink">→</p>
-      <div class="artificial_space"></div>
-      <p class="popoverExampleTextPink">a</p>
-      <p class="popoverExampleTextNotPink">rigatou (Thank you)</p>
+      <p class="popoverExampleTextNotPink">{{finalContent.example1}}</p>
     </div>
     <div class="kana_example">
-      <p class="popoverExampleTextNotPink">-</p>
+      <p class="popoverExampleTextNotPink">{{finalContent.example2}}</p>
+      <!-- <p class="popoverExampleTextNotPink">-</p>
       <div class="artificial_space"></div>
       <p class="popoverExampleTextPink">あ</p>
       <p class="popoverExampleTextNotPink">め</p>
@@ -25,10 +17,11 @@
       <p class="popoverExampleTextNotPink">→</p>
       <div class="artificial_space"></div>
       <p class="popoverExampleTextPink">a</p>
-      <p class="popoverExampleTextNotPink">me (Rain)</p>
+      <p class="popoverExampleTextNotPink">me (Rain)</p> -->
     </div>
     <div class="kana_example">
-      <p class="popoverExampleTextNotPink">- おか</p>
+      <p class="popoverExampleTextNotPink">{{finalContent.example3}}</p>
+      <!-- <p class="popoverExampleTextNotPink">- おか</p>
       <p class="popoverExampleTextPink">あ</p>
       <p class="popoverExampleTextNotPink">さん</p>
       <div class="artificial_space"></div>
@@ -36,10 +29,10 @@
       <div class="artificial_space"></div>
       <p class="popoverExampleTextNotPink">oka</p>
       <p class="popoverExampleTextPink">a</p>
-      <p class="popoverExampleTextNotPink">san (Mother)</p>
+      <p class="popoverExampleTextNotPink">san (Mother)</p> -->
     </div>
     <hr class="seperatorv2">
-    <p class="popoverText">Katakana equivalent : ア</p>
+    <p class="popoverText">Katakana equivalent : {{finalContent.equivalent}}</p>
   </div>
 
 </ion-content>
