@@ -37,6 +37,10 @@
         "audio": "../../assets/sounds/hiragana_u.mp3",
         "mnemonicImage": "../../assets/mnemo_hira_u.png",
         "mnemonicWord": "?",
+        "example1": "- うみ → umi (sea)",
+        "example2": "- そうか → souka (i see)",
+        "example3": "- こうばん → kouban (police box)",
+        "equivalent": "ウ",
         "family": "hiragana",
         "type": "character"
     },
@@ -48,6 +52,10 @@
         "audio": "../../assets/sounds/hiragana_e.mp3",
         "mnemonicImage": "../../assets/mnemo_hira_e.png",
         "mnemonicWord": "?",
+        "example1": "- えき → eki (train station)",
+        "example2": "- いいえ → iie (no)",
+        "example3": "- たとえば → tatoeba (for example)",
+        "equivalent": "エ",
         "family": "hiragana",
         "type": "character"
     },
@@ -59,6 +67,10 @@
         "audio": "../../assets/sounds/hiragana_o.mp3",
         "mnemonicImage": "../../assets/mnemo_hira_o.png",
         "mnemonicWord": "?",
+        "example1": "- おや → oya (parents)",
+        "example2": "- おかね → okane (money)",
+        "example3": "- おいしい → oishii (delicious)",
+        "equivalent": "オ",
         "family": "hiragana",
         "type": "character"
     },

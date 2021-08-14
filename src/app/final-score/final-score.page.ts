@@ -26,7 +26,7 @@ export class FinalScorePage implements OnInit {
   summary_table: string[] = [];
   isFail: boolean = false;
   isSuccess: boolean = false;
-  tab_ex: string[][] = [["ご","correct"], ["あ","wrong"],["ご","correct"], ["だ","wrong"],["ご","correct"], ["だ","wrong"],["ご","correct"], ["だ","wrong"],["ご","correct"], ["だ","wrong"],["ご","correct"], ["だ","wrong"]];
+  tab_ex: string[][] = [["ご","correct"], ["あ","wrong"],["ご","correct"], ["い","wrong"], ["う","wrong"], ["ご","correct"], ["え","wrong"],["お","correct"], ["だ","wrong"],["ご","correct"], ["だ","wrong"],["ご","correct"], ["だ","wrong"], ["お","wrong"], ["か","wrong"], ["け","wrong"], ["き","wrong"], ["く","wrong"], ["こ","wrong"], ["た","wrong"], ["て","wrong"], ["ち","wrong"], ["つ","wrong"], ["と","wrong"], ["な","wrong"]];
   // tab_ex: string[][] = [];
   fail_tab: string[] = [];
   success_tab: string[] = [];

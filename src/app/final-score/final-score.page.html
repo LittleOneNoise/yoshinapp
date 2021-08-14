@@ -38,7 +38,7 @@
         </div>
       </div>
       <div class="success_section" *ngIf="isSuccess">
-        <div class="success_element_div" *ngFor="let success of success_tab">
+        <div class="success_element_div" *ngFor="let success of success_tab" (click)="presentPopoverParam($event, success)">
           <p class="success_element">{{success}}</p>
         </div>
       </div>
