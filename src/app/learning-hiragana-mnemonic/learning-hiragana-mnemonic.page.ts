@@ -12,6 +12,7 @@ export class LearningHiraganaMnemonicPage implements OnInit {
   constructor(private modalController: ModalController) { }
 
   async settingsPopup(){
+    this.nav_fx_sound.play();
     const modal = await this.modalController.create({
       component: SettingsPage,
       cssClass: 'modalCss'
@@ -20,18 +21,17 @@ export class LearningHiraganaMnemonicPage implements OnInit {
     return await modal.present();
   }
 
-  audio: HTMLAudioElement;
+  nav_fx_sound: HTMLAudioElement = new Audio();
 
   ngOnInit() {
-    this.audio = new Audio();
-    this.audio.src = "../../assets/sounds/pop_nav.mp3";
-    this.audio.load();
+    this.nav_fx_sound.src = "../../assets/sounds/button_click_perc_sound_soft.wav";
+    this.nav_fx_sound.load();
   }
 
   testaudio(){
     console.log("click");
     
-    this.audio.play();
+    this.nav_fx_sound.play();
   }
 
 }

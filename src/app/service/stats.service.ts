@@ -53,7 +53,9 @@ export class StatsService {
       console.log("tabDiary : ");
       console.log(tabDiary);
       for(let e of tabDiary){
-        if(e.state.failAmount > 0 && e.state.failAmount > e.state.successAmount){
+        console.log("e :");
+        console.log(e);
+        if(e.state.failAmount > 0){
           console.log(e.name + " has more than 0 fails (" + e.state.failAmount +") and it is greater than the success amount (" + e.state.successAmount + ")");
           return true;
         }
@@ -229,20 +231,26 @@ export class StatsService {
       let successRatio = 1.1;
       let failWithNoSuccess = 0;
       let elementValue;
-      for(let e of this.tempTestDiaryArray){
-        //If element has only fails with the most fails
-        if(e.state.successAmount == 0 && e.state.failAmount > failWithNoSuccess ){
-          successRatio = e.state.successAmount/e.state.failAmount;
-          elementValue = e.name;
-          failWithNoSuccess = e.state.failAmount;
-        }
-        //If element has success but the worst ratio
-        else if(((e.state.successAmount/e.state.failAmount) < successRatio) && e.state.failAmount != 0 && failWithNoSuccess == 0){
+      // for(let e of this.tempTestDiaryArray){
+      //   //If element has only fails with the most fails
+      //   if(e.state.successAmount == 0 && e.state.failAmount > failWithNoSuccess ){
+      //     successRatio = e.state.successAmount/e.state.failAmount;
+      //     elementValue = e.name;
+      //     failWithNoSuccess = e.state.failAmount;
+      //   }
+      //   //If element has success but the worst ratio
+      //   else if(((e.state.successAmount/e.state.failAmount) < successRatio) && e.state.failAmount != 0 && failWithNoSuccess == 0){
 
-          successRatio = e.state.successAmount/e.state.failAmount;
-          elementValue = e.name;
+      //     successRatio = e.state.successAmount/e.state.failAmount;
+      //     elementValue = e.name;
+      //   }
+      // }
+        for(let e of this.tempTestDiaryArray){
+          if((e.state.successAmount/(e.state.successAmount+e.state.failAmount)) < successRatio){
+            successRatio = (e.state.successAmount/(e.state.successAmount+e.state.failAmount));
+            elementValue = e.name;
+          }
         }
-      }
       console.log([elementValue, successRatio]);
       return [elementValue, successRatio];
     }

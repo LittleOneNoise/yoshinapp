@@ -74,7 +74,11 @@ const routes: Routes = [
   {
     path: 'statistics',
     loadChildren: () => import('./statistics/statistics.module').then( m => m.StatisticsPageModule)
+  },  {
+    path: 'learning-mnemonic',
+    loadChildren: () => import('./learning-mnemonic/learning-mnemonic.module').then( m => m.LearningMnemonicPageModule)
   }
+
 
 
 

@@ -1,4 +1,4 @@
-import { Router } from '@angular/router';
+import { NavigationExtras, Router } from '@angular/router';
 import { Component, OnInit} from '@angular/core';
 import { NavController, ModalController } from '@ionic/angular';
 import { SettingsPage } from '../settings/settings.page';
@@ -31,19 +31,19 @@ export class LearningHomePage implements OnInit {
     this.router.navigateByUrl('learning-hiragana-table');
   }
 
-  goToLearningHiraganaMnemonic(){
+  goToLearningMnemonic(writingSystem: string){
+    let navigationExtras: NavigationExtras = {
+      state: {
+        writing: writingSystem,
+      }
+    };
     this.nav_fx_sound.play();
-    this.router.navigateByUrl('learning-hiragana-mnemonic');
+    this.router.navigate(['learning-mnemonic'], navigationExtras);
   }
 
   goToLearningKatakanaTable(){
     this.nav_fx_sound.play();
     this.router.navigateByUrl('learning-katakana-table');
-  }
-
-  goToLearningKatakanaMnemonic(){
-    this.nav_fx_sound.play();
-    this.router.navigateByUrl('tabs/learning/learning-katakana-mnemonic');
   }
 
   ngOnInit() {

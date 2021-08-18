@@ -1,5 +1,6 @@
 <ion-content>
-  <div class="popoverContent">
+  <!-- When it's a character -->
+  <div class="popoverContent" *ngIf="isCharacter">
     <!-- <p class="popoverText">Pronunciation : [a]</p> -->
     <p class="popoverText">Roumaji : {{finalContent.name}}</p>
     <p class="popoverText">Pronunciation : {{finalContent.pronunciation}}</p>
@@ -34,6 +35,12 @@
     </div>
     <hr class="seperatorv2">
     <p class="popoverText">Katakana equivalent : {{finalContent.equivalent}}</p>
+  </div>
+
+  <!-- When it's a word -->
+  <div class="popoverContent" *ngIf="!isCharacter">
+    <!-- <p class="popoverText">Pronunciation : [a]</p> -->
+    <p class="popoverText">Roumaji : {{finalContent.name}}</p>
   </div>
 
 </ion-content>

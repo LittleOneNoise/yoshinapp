@@ -26,8 +26,8 @@ export class FinalScorePage implements OnInit {
   summary_table: string[] = [];
   isFail: boolean = false;
   isSuccess: boolean = false;
-  tab_ex: string[][] = [["ご","correct"], ["あ","wrong"],["ご","correct"], ["い","wrong"], ["う","wrong"], ["ご","correct"], ["え","wrong"],["お","correct"], ["だ","wrong"],["ご","correct"], ["だ","wrong"],["ご","correct"], ["だ","wrong"], ["お","wrong"], ["か","wrong"], ["け","wrong"], ["き","wrong"], ["く","wrong"], ["こ","wrong"], ["た","wrong"], ["て","wrong"], ["ち","wrong"], ["つ","wrong"], ["と","wrong"], ["な","wrong"]];
-  // tab_ex: string[][] = [];
+  // tab_ex: string[][] = [["ご","correct"], ["あ","wrong"],["ご","correct"], ["い","wrong"], ["う","wrong"], ["ご","correct"], ["え","wrong"],["お","correct"], ["だ","wrong"],["ご","correct"], ["だ","wrong"],["ご","correct"], ["だ","wrong"], ["お","wrong"], ["か","wrong"], ["け","wrong"], ["き","wrong"], ["く","wrong"], ["こ","wrong"], ["た","wrong"], ["て","wrong"], ["ち","wrong"], ["つ","wrong"], ["と","wrong"], ["な","wrong"]];
+  tab_ex: string[][] = [];
   fail_tab: string[] = [];
   success_tab: string[] = [];
 
@@ -35,26 +35,26 @@ export class FinalScorePage implements OnInit {
   async ngOnInit() {
 
     
-    // this.route.queryParams.subscribe(params => {
-    //   if (this.router.getCurrentNavigation().extras.state) {
-    //     this.fail_tab = [];
-    //     this.success_tab = [];
-    //     this.score = this.router.getCurrentNavigation().extras.state.score;
-    //     this.quizzType = this.router.getCurrentNavigation().extras.state.type;
-    //     this.writing = this.router.getCurrentNavigation().extras.state.writingSystem;
-    //     this.summary_table = this.router.getCurrentNavigation().extras.state.sum_up_tab;
-    //     console.log("sum up tab from constructor : ");
-    //     console.log(this.router.getCurrentNavigation().extras.state.sum_up_tab);
-    //     this.sortSummaryTab(this.router.getCurrentNavigation().extras.state.sum_up_tab);
-    //   }
-    // });
+    this.route.queryParams.subscribe(params => {
+      if (this.router.getCurrentNavigation().extras.state) {
+        this.fail_tab = [];
+        this.success_tab = [];
+        this.score = this.router.getCurrentNavigation().extras.state.score;
+        this.quizzType = this.router.getCurrentNavigation().extras.state.type;
+        this.writing = this.router.getCurrentNavigation().extras.state.writingSystem;
+        this.summary_table = this.router.getCurrentNavigation().extras.state.sum_up_tab;
+        console.log("sum up tab from constructor : ");
+        console.log(this.router.getCurrentNavigation().extras.state.sum_up_tab);
+        this.sortSummaryTab(this.router.getCurrentNavigation().extras.state.sum_up_tab);
+      }
+    });
 
-    this.fail_tab = [];
-    this.success_tab = [];
-    this.score = 69;
-    this.quizzType = "character";
-    this.writing = "hiragana";
-    this.sortSummaryTab(this.tab_ex);
+    // this.fail_tab = [];
+    // this.success_tab = [];
+    // this.score = 69;
+    // this.quizzType = "character";
+    // this.writing = "hiragana";
+    // this.sortSummaryTab(this.tab_ex);
 
 
   }

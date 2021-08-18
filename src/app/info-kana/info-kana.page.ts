@@ -12,6 +12,7 @@ export class InfoKanaPage implements OnInit {
   character: string;
   content: Kana[] = [];
   finalContent: Kana;
+  isCharacter: boolean = false;
 
   constructor(private navParams: NavParams) { }
 
@@ -31,6 +32,12 @@ export class InfoKanaPage implements OnInit {
       });
       this.content = this.content.filter(kana => (kana.character == element));
       this.finalContent = this.content[0];
+      if(this.finalContent.type == "character"){
+        this.isCharacter = true;
+      }
+      else {
+        this.isCharacter = false;
+      }
   }
 
 }

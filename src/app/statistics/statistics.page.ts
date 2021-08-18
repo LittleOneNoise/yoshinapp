@@ -1,7 +1,8 @@
 import { StatsService } from './../service/stats.service';
-import { AlertController, ModalController } from '@ionic/angular';
+import { AlertController, ModalController, PopoverController } from '@ionic/angular';
 import { SettingsPage } from '../settings/settings.page';
 import { Component, ElementRef, OnInit, ViewChild } from '@angular/core';
+import { InfoKanaPage } from '../info-kana/info-kana.page';
 
 declare var window;
 
@@ -12,7 +13,7 @@ declare var window;
 })
 export class StatisticsPage implements OnInit {
 
-  readonly question_amount = 5;
+  readonly question_amount = 10;
   testsAmount: any = 0;
   testsAverage: any ="-";
   bestScore: number = 0;
@@ -31,7 +32,7 @@ export class StatisticsPage implements OnInit {
   isWordKatakanaTestDiaryTable: boolean;
   shameIsOn: boolean = false;
 
-  constructor(public statsService: StatsService, public alertController: AlertController, private modalController: ModalController) {
+  constructor(public statsService: StatsService, public alertController: AlertController, private modalController: ModalController, private popoverController: PopoverController) {
     window.stats = this;
   }
 
@@ -85,6 +86,22 @@ export class StatisticsPage implements OnInit {
     console.log("yo someone called me !");
   }
 
+  async presentPopoverParam(ev: any, character: string) {
+    const popover = await this.popoverController.create({
+      component: InfoKanaPage,
+      componentProps: {
+        "charac": character,
+      },
+      cssClass: 'popoverCss',
+      event: ev,
+      translucent: true
+    });
+    await popover.present();
+  
+    const { role } = await popover.onDidDismiss();
+    console.log('onDidDismiss resolved with role', role);
+  }
+
   async ngOnInit() {
     console.log("initializing stats..");
     await this.statsService.init();
@@ -115,6 +132,7 @@ export class StatisticsPage implements OnInit {
       console.log(chart_bar_average_score);
       console.log("setting average score bar width to : " + widthBarAverageScore*100 + "%");
       chart_bar_average_score[0].style.width = widthBarAverageScore*100 + "%";
+      console.log("j'ai set la largeur de la barre de average score");
 
       //Calculating the width of the best score bar
       let widthBarBestScore = this.bestScore/this.question_amount;

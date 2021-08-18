@@ -47,6 +47,7 @@ ion-content {
   bottom: 0;
   text-align: center;
   color: #EDEDED;
+  padding: 0;
 }
 
 .icon_settings_topbar {
@@ -114,7 +115,7 @@ super-tabs { ion-label {
   ion-title {
     height: 5vh;
   }
-  --min-height:4%!important;
+  --height:4%!important;
 }
 
 .header_settings {

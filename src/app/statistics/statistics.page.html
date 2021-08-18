@@ -27,7 +27,7 @@
         <p class="text">Average score ({{testsAmount}} sessions)</p>
         <!-- <p class="figure"><i>bar % here later</i>{{testsAverage}}/5</p> -->
         <div class="chart_div">
-          <div class="chart_figure">{{testsAverage}} / 5</div>
+          <div class="chart_figure">{{testsAverage}} / {{question_amount}}</div>
           <div class="chart_bg">
             <div class="chart_bar_average_score"></div>
           </div>
@@ -38,7 +38,7 @@
         <p class="text">Best score</p>
         <!-- <p class="figure"><i>bar % here later</i>{{testsAverage}}/5</p> -->
         <div class="chart_div">
-          <div class="chart_figure">{{bestScore}} / 5</div>
+          <div class="chart_figure">{{bestScore}} / {{question_amount}}</div>
           <div class="chart_bg">
             <div class="chart_bar_best_score"></div>
           </div>
@@ -57,10 +57,10 @@
         <!-- <div class="charac_block"> -->
 
           <div class="charac_column">
-            <div class="ratio_element" *ngIf="isCharacterHiraganaTestDiaryTable"><p class="ratio_element_p" id="p1">{{characterHiraganaElementTable}}</p></div>
-            <div class="ratio_element" *ngIf="isWordHiraganaTestDiaryTable"><p class="ratio_element_p" id="p2">{{wordHiraganaElementTable}}</p></div>
-            <div class="ratio_element" *ngIf="isCharacterKatakanaTestDiaryTable"><p class="ratio_element_p" id="p3">{{characterKatakanaElementTable}}</p></div>
-            <div class="ratio_element" *ngIf="isWordKatakanaTestDiaryTable"><p class="ratio_element_p" id="p4">{{wordKatakanaElementTable}}</p></div>
+            <div class="ratio_element" *ngIf="isCharacterHiraganaTestDiaryTable"><p class="ratio_element_p" id="p1" (click)="presentPopoverParam($event, characterHiraganaElementTable)">{{characterHiraganaElementTable}}</p></div>
+            <div class="ratio_element" *ngIf="isWordHiraganaTestDiaryTable"><p class="ratio_element_p" id="p2" (click)="presentPopoverParam($event, wordHiraganaElementTable)">{{wordHiraganaElementTable}}</p></div>
+            <div class="ratio_element" *ngIf="isCharacterKatakanaTestDiaryTable"><p class="ratio_element_p" id="p3" (click)="presentPopoverParam($event, characterKatakanaElementTable)">{{characterKatakanaElementTable}}</p></div>
+            <div class="ratio_element" *ngIf="isWordKatakanaTestDiaryTable"><p class="ratio_element_p" id="p4" (click)="presentPopoverParam($event, wordKatakanaElementTable)">{{wordKatakanaElementTable}}</p></div>
           </div>
           <div class="percent_column">
             <div class="element_percent" *ngIf="isCharacterHiraganaTestDiaryTable">
