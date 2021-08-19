@@ -114,6 +114,7 @@ export class StatisticsPage implements OnInit {
     this.characterKatakanaElementTable = null;
     this.isWordKatakanaTestDiaryTable = false;
     this.wordKatakanaElementTable = null;
+    this.shameIsOn = false;
 
     
 
