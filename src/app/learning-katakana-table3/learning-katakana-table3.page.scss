@@ -70,8 +70,9 @@
 
   .info {
     font-size: 15px;
-    color: #3C3430;
-    background: #C3687E;
+    color: #EDEDED;
+    // background: #C3687E;
+    background: #c3687e;
     border-radius: 7vw;
     padding: 10px;
     text-align: center;
@@ -80,6 +81,23 @@
     top: 0;
     left: 1%;
     z-index: 1;
+}
+
+.info_text {
+  width: 95%;
+    margin: auto;
+    line-height: 20px;
+}
+
+.main_word {
+  // color: #EDEDED;
+  // background: #3C3430;
+  // display: inline;
+  // padding: 0 1vw;
+  // border-radius: 1vw;
+
+  color: #EDEDED;
+  display: inline;
 }
 
   .title_series_first {
@@ -116,7 +134,8 @@
     margin: auto;
     box-shadow: 2px 2px 5px rgb(0 0 0 / 25%);
     width: 27vw;
-    height: 12vw;
+    // height: 12vw;
+    padding: 1vw 0;
     font-size: 6vw;
   
   }

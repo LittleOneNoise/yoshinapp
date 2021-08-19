@@ -15,7 +15,8 @@
 </ion-header>
 
 <ion-content [fullscreen]="true">
-  <ion-slides pager="true">
+  <div class="normal_view" [hidden]="!normal_view">
+  <ion-slides pager="true" #slidesMnemo>
     <ion-slide *ngFor="let e of results">
       <div class="slide_content">
       <div class="div_header">
@@ -29,6 +30,22 @@
     </div>
     </ion-slide>
   </ion-slides>
+  <ion-button class="btn_map" (click)="goToMap()">
+    <img src="../../assets/icon/map.svg">
+  </ion-button>
+</div>
+
+<div class="map_view" [hidden]="normal_view">
+  <div class="block_map">
+    <!-- <div class="block_mnemo" *ngFor="let e of results">
+      <img src={{e.mnemonicImage}}>
+    </div> -->
+    <div class="block_mnemo" (click)="goToSlide(e.id)" *ngFor="let e of results">
+      <div class="div_charac"><img src={{e.mnemonicImage}}></div>
+      <div class="div_label">{{e.character}}</div>
+    </div>
+  </div>
+</div>
  
 
 </ion-content>

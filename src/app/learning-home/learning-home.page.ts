@@ -2,6 +2,7 @@ import { NavigationExtras, Router } from '@angular/router';
 import { Component, OnInit} from '@angular/core';
 import { NavController, ModalController } from '@ionic/angular';
 import { SettingsPage } from '../settings/settings.page';
+import { StatsService } from '../service/stats.service';
 
 
 @Component({
@@ -11,13 +12,15 @@ import { SettingsPage } from '../settings/settings.page';
 })
 export class LearningHomePage implements OnInit {
 
-  constructor(private router: Router, public navCtrl: NavController, private modalController: ModalController) { }
+  constructor(private router: Router, public navCtrl: NavController, private modalController: ModalController, private statsService: StatsService) { }
 
   nav_fx_sound: HTMLAudioElement = new Audio();
   soundEnabled: boolean = true;
 
   async settingsPopup(){
-    this.nav_fx_sound.play();
+    if(await this.statsService.checkSoundState()){
+      this.nav_fx_sound.play();
+    }
     const modal = await this.modalController.create({
       component: SettingsPage,
       cssClass: 'modalCss'
@@ -26,23 +29,29 @@ export class LearningHomePage implements OnInit {
     return await modal.present();
   }
 
-  goToLearningHiraganaTable(){
-    this.nav_fx_sound.play();
+  async goToLearningHiraganaTable(){
+    if(await this.statsService.checkSoundState()){
+      this.nav_fx_sound.play();
+    }
     this.router.navigateByUrl('learning-hiragana-table');
   }
 
-  goToLearningMnemonic(writingSystem: string){
+  async goToLearningMnemonic(writingSystem: string){
     let navigationExtras: NavigationExtras = {
       state: {
         writing: writingSystem,
       }
     };
-    this.nav_fx_sound.play();
+    if(await this.statsService.checkSoundState()){
+      this.nav_fx_sound.play();
+    }
     this.router.navigate(['learning-mnemonic'], navigationExtras);
   }
 
-  goToLearningKatakanaTable(){
-    this.nav_fx_sound.play();
+  async goToLearningKatakanaTable(){
+    if(await this.statsService.checkSoundState()){
+      this.nav_fx_sound.play();
+    }
     this.router.navigateByUrl('learning-katakana-table');
   }
 

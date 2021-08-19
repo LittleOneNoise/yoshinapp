@@ -23,7 +23,9 @@ export class SettingsPage implements OnInit {
 
   async closeModal(){
     const onClosedData: string =  "Wrapped Up!";
-    this.nav_fx_sound.play();
+    if(await this.statsService.checkSoundState()){
+      this.nav_fx_sound.play();
+    }
     await this.modalController.dismiss(onClosedData);
   }
 
@@ -39,7 +41,9 @@ export class SettingsPage implements OnInit {
   }
 
   async clearStatsAlertConfirm() {
-    this.nav_fx_sound.play();
+    if(await this.statsService.checkSoundState()){
+      this.nav_fx_sound.play();
+    }
     const alert = await this.alertController.create({
       cssClass: 'my-custom-class',
       header: 'Warning',

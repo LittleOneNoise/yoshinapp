@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { ModalController } from '@ionic/angular';
+import { StatsService } from '../service/stats.service';
 
 @Component({
   selector: 'app-confirmation-popup',
@@ -9,7 +10,7 @@ import { ModalController } from '@ionic/angular';
 })
 export class ConfirmationPopupPage implements OnInit {
 
-  constructor(private modalController: ModalController, private router: Router) { }
+  constructor(private modalController: ModalController, private router: Router, private statsService: StatsService) { }
 
   nav_sfx: HTMLAudioElement = new Audio();
 
@@ -19,13 +20,17 @@ export class ConfirmationPopupPage implements OnInit {
   }
 
   async closeModal(){
-    this.nav_sfx.play();
+    if(await this.statsService.checkSoundState()){
+      this.nav_sfx.play();
+    }
     const onClosedData: string =  "Wrapped Up!";
     await this.modalController.dismiss(onClosedData);
   }
 
-  goHome(){
-    this.nav_sfx.play();
+  async goHome(){
+    if(await this.statsService.checkSoundState()){
+      this.nav_sfx.play();
+    }
     this.router.navigateByUrl('home');
     this.closeModal();
   }

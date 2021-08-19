@@ -33,7 +33,9 @@ export class QuizzPage implements OnInit {
 
   async leaveQuizz(){
     console.log("leave quizz request");
-    this.nav_sfx.play();
+    if(await this.statsService.checkSoundState()){
+      this.nav_fx_sound.play();
+    }
     const modal = await this.modalController.create({
       component: ConfirmationPopupPage,
       cssClass: 'modalCss2'
@@ -75,7 +77,9 @@ export class QuizzPage implements OnInit {
   }
 
   async settingsPopup(){
-    this.nav_sfx.play();
+    if(await this.statsService.checkSoundState()){
+      this.nav_fx_sound.play();
+    }
     const modal = await this.modalController.create({
       component: SettingsPage,
       cssClass: 'modalCss'
@@ -111,13 +115,13 @@ export class QuizzPage implements OnInit {
   p_bar_value: number;
   summary_table: string[][] = [];
   start_sfx: HTMLAudioElement = new Audio();
-  nav_sfx: HTMLAudioElement = new Audio();
+  nav_fx_sound: HTMLAudioElement = new Audio();
 
    async ngOnInit() {
      this.start_sfx.src = "../../assets/sounds/test_start.wav";
      this.start_sfx.load();
-     this.nav_sfx.src = "../../assets/sounds/button_click_perc_sound_soft.wav";
-    this.nav_sfx.load();
+     this.nav_fx_sound.src = "../../assets/sounds/button_click_perc_sound_soft.wav";
+    this.nav_fx_sound.load();
     //  this.start_sfx.play();
     if(this.quizzType == null || this.writingSystem == null){
       // alert('Error, couldn\'t get quizz data');
@@ -186,7 +190,9 @@ export class QuizzPage implements OnInit {
     element_block_charac[0].style.background = "#9C694C";
     // this.delay(100);
     this.inputElement.setFocus();
+    if(await this.statsService.checkSoundState()){
     this.start_sfx.play();
+    }
 }
 
 async ionViewWillEnter(){

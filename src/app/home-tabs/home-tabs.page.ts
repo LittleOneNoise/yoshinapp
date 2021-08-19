@@ -6,6 +6,7 @@ import { App } from '@capacitor/core';
 import { Platform, IonRouterOutlet, ModalController } from '@ionic/angular';
 import { SettingsPage } from '../settings/settings.page';
 import { SuperTabsConfig } from '@ionic-super-tabs/core';
+import { StatsService } from '../service/stats.service';
 declare var window;
 
 @Component({
@@ -22,7 +23,7 @@ export class HomeTabsPage implements OnInit {
   stats = StatisticsPage;
   nav_fx_sound: HTMLAudioElement = new Audio();
 
-  constructor( private platform: Platform, private routerOutlet: IonRouterOutlet, private modalController: ModalController) {
+  constructor( private platform: Platform, private routerOutlet: IonRouterOutlet, private modalController: ModalController, private statsService: StatsService) {
     this.platform.backButton.subscribeWithPriority(-1, () => {
       if (!this.routerOutlet.canGoBack()) {
         App.exitApp();
@@ -57,7 +58,9 @@ export class HomeTabsPage implements OnInit {
       cssClass: 'modalCss'
     });
   
-    this.nav_fx_sound.play();
+    if(await this.statsService.checkSoundState()){
+      this.nav_fx_sound.play();
+    }
     return await modal.present();
   }
 

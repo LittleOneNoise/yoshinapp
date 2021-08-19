@@ -54,8 +54,11 @@
 
   .info {
     font-size: 15px;
-    color: #3C3430;
-    background: #C3687E;
+    // color: #3C3430;
+    color: #EDEDED;
+    // text-shadow: 0.1vw 0.1vw 0.8vw #262626;
+    // background: #C3687E;
+    background: #c3687e;
     border-radius: 9vw;
     padding: 10px;
     text-align: center;
@@ -104,8 +107,8 @@
     // padding: 0 10px;
     margin: auto;
     box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.25);
-    width: 14vw;
-    height: 12vw;
+    // width: 14vw;
+    // height: 12vw;
     font-size: 8.5vw;
   
   }

@@ -4,20 +4,23 @@
 
       <div class="info_container">
 
-
         <ion-icon src="../../assets/icon/arrow_slider.svg" (click)="goToPrev()" class="btn_slider1"></ion-icon>
         <ion-slides #slidesInfo slidesPerView="1" [options]="slideOpts">
           <ion-slide>
             <div class="info_img"><img src="../../assets/icon/info_iconv2.svg" /></div>
             <!-- <div class="info">A <div class="text_highlight">ten-ten</div> (which literally means "dot-dot") is a sign composed of <div class="text_highlight">2 tiny strokes</div> added on kana syllabaries to indicate that the consonant of a syllable should be <div class="text_highlight">pronounced differently</div></div> -->
-            <div class="info">A <b>ten-ten</b> (which literally means "dot-dot") is a sign composed of <b>2 tiny
-                strokes</b> added on kana syllabaries to indicate that the consonant of a syllable should be
-              <b>pronounced differently</b>
+            <div class="info">
+              <div class="info_text">A <div class="main_word">ten-ten</div> (which literally means "dot-dot") is a sign composed of <div class="main_word">2 tiny
+                strokes</div> added on kana syllabaries to indicate that the consonant of a syllable should be
+                <div class="main_word">pronounced differently</div>
+            </div>
             </div>
           </ion-slide>
           <ion-slide>
             <div class="info_img"><img src="../../assets/icon/info_iconv2.svg" /></div>
-            <div class="info">To easily remember how the pronunciation changes, say the basic sound but add a <b>vibration of the larynx</b>. For example, S becomes Z when you create a vibration in your throat
+            <div class="info">
+              <div class="info_text">To easily remember how the pronunciation changes, say the basic sound but add a <div class="main_word">vibration of the larynx</div>. For example, S becomes Z when you create a vibration in your throat
+            </div>
             </div>
           </ion-slide>
         </ion-slides>
