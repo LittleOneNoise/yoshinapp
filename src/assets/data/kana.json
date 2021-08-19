@@ -20,8 +20,8 @@
         "character": "い",
         "pronunciation": "[i]",
         "audio": "../../assets/sounds/kana_i.mp3",
-        "mnemonicImage": "../../assets/img/mnemo_hira_a.png",
-        "mnemonicWord": "?",
+        "mnemonicImage": "../../assets/img/mnemo_hira_i.png",
+        "mnemonicWord": "Eel",
         "example1": "- いし → ishi (stone)",
         "example2": "- やすい → yasui (cheap)",
         "example3": "- げいしゃ → geisha (geisha)",
@@ -35,8 +35,8 @@
         "character": "う",
         "pronunciation": "[ɯ]",
         "audio": "../../assets/sounds/kana_u.mp3",
-        "mnemonicImage": "../../assets/img/mnemo_hira_a.png",
-        "mnemonicWord": "?",
+        "mnemonicImage": "../../assets/img/mnemo_hira_u.png",
+        "mnemonicWord": "Uhhh",
         "example1": "- うみ → umi (sea)",
         "example2": "- そうか → souka (i see)",
         "example3": "- こうばん → kouban (police box)",
@@ -50,8 +50,8 @@
         "character": "え",
         "pronunciation": "[e]",
         "audio": "../../assets/sounds/kana_e.mp3",
-        "mnemonicImage": "../../assets/img/mnemo_hira_a.png",
-        "mnemonicWord": "?",
+        "mnemonicImage": "../../assets/img/mnemo_hira_e.png",
+        "mnemonicWord": "Exercise",
         "example1": "- えき → eki (train station)",
         "example2": "- いいえ → iie (no)",
         "example3": "- たとえば → tatoeba (for example)",
@@ -65,8 +65,8 @@
         "character": "お",
         "pronunciation": "[o]",
         "audio": "../../assets/sounds/kana_o.mp3",
-        "mnemonicImage": "../../assets/img/mnemo_hira_a.png",
-        "mnemonicWord": "?",
+        "mnemonicImage": "../../assets/img/mnemo_hira_o.png",
+        "mnemonicWord": "Oasis",
         "example1": "- おや → oya (parent)",
         "example2": "- おかね → okane (money)",
         "example3": "- おいしい → oishii (delicious)",
@@ -693,6 +693,7 @@
         "id": 1,
         "name": "neko",
         "character": "ねこ",
+        "translation": "cat",
         "family": "hiragana",
         "type": "word"
     },
@@ -700,6 +701,7 @@
         "id": 2,
         "name": "kawaii",
         "character": "かわいい",
+        "translation": "cute",
         "family": "hiragana",
         "type": "word"
     },
@@ -707,6 +709,7 @@
         "id": 3,
         "name": "hajimemashite",
         "character": "はじめまして",
+        "translation": "nice to meet you",
         "family": "hiragana",
         "type": "word"
     },
@@ -714,6 +717,7 @@
         "id": 4,
         "name": "totoro",
         "character": "ととろ",
+        "translation": "totoro",
         "family": "hiragana",
         "type": "word"
     },
@@ -721,6 +725,7 @@
         "id": 5,
         "name": "mononoke",
         "character": "もののけ",
+        "translation": "mononoke",
         "family": "hiragana",
         "type": "word"
     },
@@ -728,6 +733,7 @@
         "id": 6,
         "name": "watashi",
         "character": "わたし",
+        "translation": "i",
         "family": "hiragana",
         "type": "word"
     },
@@ -735,6 +741,7 @@
         "id": 7,
         "name": "hai",
         "character": "はい",
+        "translation": "yes",
         "family": "hiragana",
         "type": "word"
     },
@@ -742,6 +749,7 @@
         "id": 8,
         "name": "gomennasai",
         "character": "ごめんなさい",
+        "translation": "excuse me",
         "family": "hiragana",
         "type": "word"
     },
@@ -749,6 +757,7 @@
         "id": 9,
         "name": "sushi",
         "character": "すし",
+        "translation": "sushi",
         "family": "hiragana",
         "type": "word"
     },
@@ -756,6 +765,7 @@
         "id": 10,
         "name": "chan",
         "character": "ちゃん",
+        "translation": "(suffix for familiar person)",
         "family": "hiragana",
         "type": "word"
     },
@@ -763,6 +773,7 @@
         "id": 11,
         "name": "nyan",
         "character": "にゃん",
+        "translation": "(cat noise)",
         "family": "hiragana",
         "type": "word"
     },
@@ -770,6 +781,7 @@
         "id": 12,
         "name": "onsen",
         "character": "おんせん",
+        "translation": "hot spring",
         "family": "hiragana",
         "type": "word"
     },
@@ -777,6 +789,7 @@
         "id": 13,
         "name": "manga",
         "character": "まんが",
+        "translation": "manga",
         "family": "hiragana",
         "type": "word"
     },
@@ -784,6 +797,7 @@
         "id": 14,
         "name": "sensei",
         "character": "せんせい",
+        "translation": "teacher",
         "family": "hiragana",
         "type": "word"
     },
@@ -791,6 +805,7 @@
         "id": 15,
         "name": "baka",
         "character": "ばか",
+        "translation": "idiot",
         "family": "hiragana",
         "type": "word"
     },
@@ -798,6 +813,7 @@
         "id": 16,
         "name": "ninja",
         "character": "にんじゃ",
+        "translation": "ninja",
         "family": "hiragana",
         "type": "word"
     },
@@ -805,6 +821,7 @@
         "id": 17,
         "name": "kimono",
         "character": "きもの",
+        "translation": "kimono",
         "family": "hiragana",
         "type": "word"
     },
@@ -812,6 +829,7 @@
         "id": 18,
         "name": "bentou",
         "character": "べんとう",
+        "translation": "bento",
         "family": "hiragana",
         "type": "word"
     },
@@ -819,6 +837,7 @@
         "id": 19,
         "name": "tofu",
         "character": "とふ",
+        "translation": "tofu",
         "family": "hiragana",
         "type": "word"
     },
@@ -826,6 +845,7 @@
         "id": 20,
         "name": "sake",
         "character": "さけ",
+        "translation": "alcohol",
         "family": "hiragana",
         "type": "word"
     },
@@ -833,6 +853,7 @@
         "id": 21,
         "name": "tsunami",
         "character": "つなみ",
+        "translation": "tsunami",
         "family": "hiragana",
         "type": "word"
     },
@@ -840,6 +861,7 @@
         "id": 22,
         "name": "sakura",
         "character": "さくら",
+        "translation": "cherry tree",
         "family": "hiragana",
         "type": "word"
     },
@@ -847,6 +869,7 @@
         "id": 23,
         "name": "naruto",
         "character": "なると",
+        "translation": "naruto",
         "family": "hiragana",
         "type": "word"
     },
@@ -854,12 +877,14 @@
         "id": 24,
         "name": "gakusei",
         "character": "がくせい",
+        "translation": "student",
         "family": "hiragana",
         "type": "word"
     },{
         "id": 25,
         "name": "nihon",
         "character": "にほん",
+        "translation": "Japan",
         "family": "hiragana",
         "type": "word"
     },
@@ -867,6 +892,7 @@
         "id": 26,
         "name": "yama",
         "character": "やま",
+        "translation": "mountain",
         "family": "hiragana",
         "type": "word"
     },
@@ -874,6 +900,7 @@
         "id": 27,
         "name": "fuji",
         "character": "ふじ",
+        "translation": "Fuji",
         "family": "hiragana",
         "type": "word"
     },
@@ -881,6 +908,7 @@
         "id": 28,
         "name": "ame",
         "character": "あめ",
+        "translation": "rain",
         "family": "hiragana",
         "type": "word"
     },
@@ -888,6 +916,7 @@
         "id": 29,
         "name": "gohan",
         "character": "ごはん",
+        "translation": "meal",
         "family": "hiragana",
         "type": "word"
     },
@@ -895,6 +924,7 @@
         "id": 30,
         "name": "okane",
         "character": "おかね",
+        "translation": "money",
         "family": "hiragana",
         "type": "word"
     },
@@ -902,6 +932,7 @@
         "id": 31,
         "name": "ohayou",
         "character": "おはよう",
+        "translation": "good morning",
         "family": "hiragana",
         "type": "word"
     },
@@ -909,6 +940,7 @@
         "id": 32,
         "name": "tomodachi",
         "character": "ともだち",
+        "translation": "friend",
         "family": "hiragana",
         "type": "word"
     },
@@ -916,6 +948,7 @@
         "id": 33,
         "name": "onna",
         "character": "おんな",
+        "translation": "woman",
         "family": "hiragana",
         "type": "word"
     },
@@ -923,6 +956,7 @@
         "id": 34,
         "name": "okaasan",
         "character": "おかあさん",
+        "translation": "mom",
         "family": "hiragana",
         "type": "word"
     },
@@ -930,6 +964,7 @@
         "id": 35,
         "name": "kami",
         "character": "かみ",
+        "translation": "paper",
         "family": "hiragana",
         "type": "word"
     },
@@ -937,6 +972,7 @@
         "id": 36,
         "name": "hito",
         "character": "ひと",
+        "translation": "person",
         "family": "hiragana",
         "type": "word"
     },
@@ -944,6 +980,7 @@
         "id": 37,
         "name": "tanjoubi",
         "character": "たんじょうび",
+        "translation": "birthday",
         "family": "hiragana",
         "type": "word"
     },
@@ -951,6 +988,7 @@
         "id": 38,
         "name": "ongaku",
         "character": "おんがく",
+        "translation": "music",
         "family": "hiragana",
         "type": "word"
     },
@@ -958,6 +996,7 @@
         "id": 39,
         "name": "hon",
         "character": "ほん",
+        "translation": "book",
         "family": "hiragana",
         "type": "word"
     },
@@ -965,6 +1004,7 @@
         "id": 40,
         "name": "namae",
         "character": "なまえ",
+        "translation": "name",
         "family": "hiragana",
         "type": "word"
     },
