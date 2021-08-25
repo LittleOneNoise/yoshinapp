@@ -37,4 +37,5 @@ export class LearningHiraganaTable2Page implements OnInit {
     loop: true
   }
 
+
 }

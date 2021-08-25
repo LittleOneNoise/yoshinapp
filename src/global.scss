@@ -84,7 +84,7 @@ super-tabs-toolbar, super-tab-button {
   height: 8vh;
   display: flex;
   flex-direction: column;
-  justify-content: center;
+  justify-content: flex-start;
   margin: 0 !important;
 }
 
@@ -382,6 +382,13 @@ super-tabs { ion-label {
 
 .swiper-container-horizontal>.swiper-pagination-bullets .swiper-pagination-bullet {
   margin: 0 0.5vw;
+}
+
+.label_icon_italic {
+  color: #EDEDED;
+    font-style: italic;
+    font-size: 4vw;
+    margin: 0 auto;
 }
 
   

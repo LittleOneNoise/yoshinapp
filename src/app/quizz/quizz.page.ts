@@ -61,7 +61,8 @@ export class QuizzPage implements OnInit {
   constructor(private route: ActivatedRoute, private router: Router, public statsService: StatsService, public toastController: ToastController, public platform: Platform, private modalController: ModalController) {
 
     this.platform.backButton.subscribeWithPriority(10, () => {
-      console.log('Handler was called!');
+      console.log('Setting back button to leave quizz!');
+      this.leaveQuizz();
     });
    
     this.route.queryParams.subscribe(params => {
@@ -75,6 +76,12 @@ export class QuizzPage implements OnInit {
 
 
   }
+
+  ionWillLeave(){
+    this.platform.backButton.unsubscribe();
+    console.log("unsubscribing");
+  }
+
 
   async settingsPopup(){
     if(await this.statsService.checkSoundState()){

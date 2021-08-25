@@ -11,7 +11,7 @@
     width: 75vw;
     height: 13.5vh;
     margin: 1.5vh auto 0 5vw;
-    --border-radius: 7vw;
+    --border-radius: 9vw;
   }
 
   .button_menu_brown {
@@ -19,7 +19,7 @@
     width: 75vw;
     height: 13.5vh;
     margin: 1.5vh 5vw 0 auto;
-    --border-radius: 7vw;
+    --border-radius: 9vw;
   }
 
   .button_menu_content {
@@ -27,6 +27,7 @@
     flex-direction: row;
     width: 100%;
     height: 100%;
+    align-items: center;
   }
 
   .button_menu_label_content {
@@ -54,17 +55,20 @@
 
   .button_menu_icon_content {
     display: flex;
-    flex-direction: row;
-    margin: auto 5vw auto auto;
+    flex-direction: column;
+    margin: 0 auto;
+    justify-content: space-evenly;
+    height: 90%;
   }
 
   .button_img {
     width: 6.5vh;
+    margin: 0 auto;
   }
 
   .button_img_rotated {
-    width: 12vh;
-    transform: rotate(337deg);
+    width: 6.5vh;
+    // transform: rotate(337deg);
   }
   
   .logo {
