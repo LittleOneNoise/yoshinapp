@@ -15,6 +15,8 @@ export class LearningMnemonicPage implements OnInit {
   results: any;
   normal_view: boolean;
   @ViewChild('slidesMnemo') slides: IonSlides;
+  slides_amount: number;
+  current_slide: number = 1;
 
   constructor(private modalController: ModalController, private route: ActivatedRoute, private router: Router, private statsService: StatsService) { 
 
@@ -53,6 +55,8 @@ export class LearningMnemonicPage implements OnInit {
       this.results = this.results.filter(kana => (kana.type == "character" && kana.family == this.writingSystem.toLowerCase()));
       console.log("all data retrieved, writing system : " + this.writingSystem);
       console.log(this.results);
+
+      this.slides_amount = await this.results.length;
   }
 
   playPronunciation(link: string){
@@ -78,6 +82,11 @@ export class LearningMnemonicPage implements OnInit {
     this.normal_view = true;
     await this.delay(100);
     this.slides.slideTo(id-1, 200);
+  }
+
+  async onSlideChange(){
+    // console.log(await this.slides.getActiveIndex());
+    this.current_slide = await this.slides.getActiveIndex() + 1;
   }
 
 }

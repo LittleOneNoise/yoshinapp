@@ -16,7 +16,7 @@
 
 <ion-content [fullscreen]="true">
   <div class="normal_view" [hidden]="!normal_view">
-  <ion-slides pager="true" #slidesMnemo>
+  <ion-slides pager="true" #slidesMnemo (ionSlideDidChange)="onSlideChange()">
     <ion-slide *ngFor="let e of results">
       <div class="slide_content">
       <div class="div_header">
@@ -30,6 +30,9 @@
     </div>
     </ion-slide>
   </ion-slides>
+  <div class="pagination_index">
+    <p>{{current_slide}} / {{slides_amount}}</p>
+  </div>
   <ion-button class="btn_map" (click)="goToMap()">
     <img src="../../assets/icon/map.svg">
   </ion-button>

@@ -367,6 +367,23 @@ super-tabs { ion-label {
   --color: #EDEDED;
 }
 
+.swiper-pagination {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-content: center;
+}
+
+.swiper-pagination-bullet {
+  width: 1vw;
+  height: 1vw;
+  // margin: 0 0.5vw;
+}
+
+.swiper-container-horizontal>.swiper-pagination-bullets .swiper-pagination-bullet {
+  margin: 0 0.5vw;
+}
+
   
 
   
