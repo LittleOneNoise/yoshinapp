@@ -7,6 +7,8 @@ import { IonInput, Platform, ToastController, ModalController } from '@ionic/ang
 import { Input } from '@angular/core';
 import { ViewChild } from '@angular/core';
 import { SettingsPage } from '../settings/settings.page';
+import { Subscription } from 'rxjs';
+declare var window
 
 @Component({
   selector: 'app-quizz',
@@ -36,10 +38,27 @@ export class QuizzPage implements OnInit {
     if(await this.statsService.checkSoundState()){
       this.nav_fx_sound.play();
     }
+
+    this.subscriptionBack = this.platform.backButton.subscribeWithPriority(9999, () => {
+      console.log('Setting back button to close confirmation popup!');
+      this.modalController.dismiss();
+      console.log("SUBSCRIPTION TO CLOSE POPUP WITH BACK : ");
+    console.log(this.subscriptionBack);
+    });
+
     const modal = await this.modalController.create({
       component: ConfirmationPopupPage,
       cssClass: 'modalCss2'
     });
+
+    modal.onDidDismiss().then(value => {
+      this.subscriptionBack = this.platform.backButton.subscribeWithPriority(9999, () => {
+        console.log('Setting back button to leave quizz!');
+        this.leaveQuizz();
+        console.log("SUBSCRIPTION TO QUIT QUIZZ WITH BACK : ");
+      console.log(this.subscriptionBack);
+      });
+    })
   
     return await modal.present();
   }
@@ -60,11 +79,13 @@ export class QuizzPage implements OnInit {
 
   constructor(private route: ActivatedRoute, private router: Router, public statsService: StatsService, public toastController: ToastController, public platform: Platform, private modalController: ModalController) {
 
-    this.platform.backButton.subscribeWithPriority(10, () => {
-      console.log('Setting back button to leave quizz!');
-      this.leaveQuizz();
-    });
+    // this.platform.backButton.subscribeWithPriority(10, () => {
+    //   console.log('Setting back button to leave quizz!');
+    //   this.leaveQuizz();
+    // });
    
+    window.quizz = this;
+
     this.route.queryParams.subscribe(params => {
       if (this.router.getCurrentNavigation().extras.state) {
         this.quizzType = this.router.getCurrentNavigation().extras.state.type;
@@ -77,20 +98,46 @@ export class QuizzPage implements OnInit {
 
   }
 
-  ionWillLeave(){
-    this.platform.backButton.unsubscribe();
+  async ionViewWillEnter(){
+    this.ngOnInit();
+    this.subscriptionBack = this.platform.backButton.subscribeWithPriority(9999, () => {
+      console.log('Setting back button to leave quizz!');
+      this.leaveQuizz();
+      console.log("SUBSCRIPTION TO QUIT QUIZZ WITH BACK : ");
+    console.log(this.subscriptionBack);
+    });
+  }
+
+  ionViewWillLeave(){
+    this.subscriptionBack.unsubscribe();
     console.log("unsubscribing");
+    console.log("UNSUBSCRIPTION TO QUIT QUIZZ WITH BACK : ");
+    console.log(this.subscriptionBack);
   }
 
 
   async settingsPopup(){
     if(await this.statsService.checkSoundState()){
       this.nav_fx_sound.play();
+
+      this.subscriptionBack.unsubscribe();
+    console.log("unsubscribing");
+    console.log("UNSUBSCRIPTION TO QUIT QUIZZ WITH BACK : ");
+    console.log(this.subscriptionBack);
+
     }
     const modal = await this.modalController.create({
       component: SettingsPage,
       cssClass: 'modalCss'
     });
+    modal.onDidDismiss().then(value => {
+      this.subscriptionBack = this.platform.backButton.subscribeWithPriority(9999, () => {
+        console.log('Setting back button to leave quizz!');
+        this.leaveQuizz();
+        console.log("SUBSCRIPTION TO QUIT QUIZZ WITH BACK : ");
+      console.log(this.subscriptionBack);
+      });
+    })
   
     return await modal.present();
   }
@@ -123,6 +170,7 @@ export class QuizzPage implements OnInit {
   summary_table: string[][] = [];
   start_sfx: HTMLAudioElement = new Audio();
   nav_fx_sound: HTMLAudioElement = new Audio();
+  private subscriptionBack: Subscription;
 
    async ngOnInit() {
      this.start_sfx.src = "../../assets/sounds/test_start.wav";
@@ -130,6 +178,9 @@ export class QuizzPage implements OnInit {
      this.nav_fx_sound.src = "../../assets/sounds/button_click_perc_sound_soft.wav";
     this.nav_fx_sound.load();
     //  this.start_sfx.play();
+
+    
+
     if(this.quizzType == null || this.writingSystem == null){
       // alert('Error, couldn\'t get quizz data');
     }
@@ -202,9 +253,7 @@ export class QuizzPage implements OnInit {
     }
 }
 
-async ionViewWillEnter(){
-  this.ngOnInit();
-}
+
 
 async emptyFieldToast() {
   const toast = await this.toastController.create({

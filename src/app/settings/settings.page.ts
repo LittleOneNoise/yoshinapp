@@ -1,4 +1,4 @@
-import { AlertController, ModalController } from '@ionic/angular';
+import { AlertController, ModalController, Platform } from '@ionic/angular';
 import { Component, OnInit } from '@angular/core';
 import { StatsService } from '../service/stats.service';
 declare var window;
@@ -10,7 +10,7 @@ declare var window;
 })
 export class SettingsPage implements OnInit {
 
-  constructor(private modalController: ModalController, private alertController: AlertController, public statsService: StatsService) { }
+  constructor(private modalController: ModalController, private alertController: AlertController, public statsService: StatsService, private platform: Platform) { }
 
   nav_fx_sound: HTMLAudioElement = new Audio();
   soundEnabled: boolean = true;
@@ -26,6 +26,13 @@ export class SettingsPage implements OnInit {
     if(await this.statsService.checkSoundState()){
       this.nav_fx_sound.play();
     }
+    // console.log("agagaga")
+    // window.quizz.subscriptionBack = this.platform.backButton.subscribeWithPriority(9999, () => {
+    //   console.log('Setting back button to leave quizz!');
+    //   window.home.leaveQuizz();
+    //   console.log("SUBSCRIPTION TO QUIT QUIZZ WITH BACK : ");
+    // });
+
     await this.modalController.dismiss(onClosedData);
   }
 
@@ -37,7 +44,6 @@ export class SettingsPage implements OnInit {
         this.nav_fx_sound.play();
         this.statsService.set("sound", mode);
         this.soundEnabled = mode;
-        window
   }
 
   async clearStatsAlertConfirm() {

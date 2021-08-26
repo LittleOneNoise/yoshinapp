@@ -8,6 +8,7 @@ import { Platform, IonRouterOutlet, ModalController } from '@ionic/angular';
 import { SettingsPage } from '../settings/settings.page';
 import { SuperTabsConfig } from '@ionic-super-tabs/core';
 import { StatsService } from '../service/stats.service';
+import { Subscription } from 'rxjs';
 declare var window;
 
 @Component({
@@ -23,13 +24,11 @@ export class HomeTabsPage implements OnInit {
   learning = LearningHomePage;
   stats = StatisticsPage;
   nav_fx_sound: HTMLAudioElement = new Audio();
+  subscriptionBack: Subscription;
 
   constructor( private platform: Platform, private routerOutlet: IonRouterOutlet, private modalController: ModalController, private statsService: StatsService) {
-    this.platform.backButton.subscribeWithPriority(-1, () => {
-      if (!this.routerOutlet.canGoBack()) {
-        App.exitApp();
-      }
-    });
+    window.home = this;
+    
   }
 
   onTabSelect(ev: any) {
