@@ -31,15 +31,16 @@ async presentPopover(ev: any) {
   console.log('onDidDismiss resolved with role', role);
 }
 
-async presentPopoverParam(ev: any, character: string) {
+async presentPopoverParam(character: string) {
   const popover = await this.popoverController.create({
     component: InfoKanaPage,
     componentProps: {
       "charac": character,
     },
     cssClass: 'popoverCss',
-    event: ev,
-    translucent: true
+    // event: ev,
+    translucent: true,
+    showBackdrop: true
   });
   await popover.present();
 

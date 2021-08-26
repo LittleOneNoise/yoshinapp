@@ -27,15 +27,14 @@ export class LearningKatakanaTable1Page implements OnInit {
     console.log('onDidDismiss resolved with role', role);
   }
   
-  async presentPopoverParam(ev: any, id: number, title: string) {
+  async presentPopoverParam(character: string) {
     const popover = await this.popoverController.create({
       component: InfoKanaPage,
       componentProps: {
-        "paramID": id,
-        "paramTitle": title
+        "charac": character
       },
       cssClass: 'popoverCss',
-      event: ev,
+      // event: ev,
       translucent: true
     });
     await popover.present();

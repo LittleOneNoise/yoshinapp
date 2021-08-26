@@ -13,6 +13,8 @@ export class InfoKanaPage implements OnInit {
   content: Kana[] = [];
   finalContent: Kana;
   isCharacter: boolean = false;
+  isKatakana: boolean = false;
+  pronunciation: HTMLAudioElement = new Audio();
 
   constructor(private navParams: NavParams) { }
 
@@ -22,6 +24,14 @@ export class InfoKanaPage implements OnInit {
     await this.getPopOverContent(this.character);
     console.log(this.content);
 
+  }
+
+  playPronunciation(link: string){
+    console.log("click");
+
+    this.pronunciation.src = link;
+    this.pronunciation.load();
+    this.pronunciation.play();
   }
 
   
@@ -34,6 +44,9 @@ export class InfoKanaPage implements OnInit {
       this.finalContent = this.content[0];
       if(this.finalContent.type == "character"){
         this.isCharacter = true;
+        if(this.finalContent.family == "katakana"){
+          this.isKatakana = true;
+        }
       }
       else {
         this.isCharacter = false;

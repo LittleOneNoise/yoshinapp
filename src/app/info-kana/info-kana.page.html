@@ -1,15 +1,20 @@
 <ion-content>
   <!-- When it's a character -->
   <div class="popoverContent" *ngIf="isCharacter">
-    <!-- <p class="popoverText">Pronunciation : [a]</p> -->
+    <div class="top_part_popover">
+      <div class="top_left_part_popover">
+        <p class="popoverText">Kana : {{finalContent.character}}</p>
     <p class="popoverText">Roumaji : {{finalContent.name}}</p>
     <p class="popoverText">Pronunciation : {{finalContent.pronunciation}}</p>
+  </div>
+    <ion-icon src="../../assets/icon/sound_on_icon.svg" class="audio_popover" (click)="playPronunciation(finalContent.audio)">Play</ion-icon>
+    </div>
     <hr class="seperatorv2">
     <p class="popoverText">Appears in :</p>
     <div class="kana_example">
       <p class="popoverExampleTextNotPink">{{finalContent.example1}}</p>
     </div>
-    <div class="kana_example">
+    <div class="kana_example" *ngIf="!isKatakana">
       <p class="popoverExampleTextNotPink">{{finalContent.example2}}</p>
       <!-- <p class="popoverExampleTextNotPink">-</p>
       <div class="artificial_space"></div>
@@ -21,7 +26,7 @@
       <p class="popoverExampleTextPink">a</p>
       <p class="popoverExampleTextNotPink">me (Rain)</p> -->
     </div>
-    <div class="kana_example">
+    <div class="kana_example" *ngIf="!isKatakana">
       <p class="popoverExampleTextNotPink">{{finalContent.example3}}</p>
       <!-- <p class="popoverExampleTextNotPink">- おか</p>
       <p class="popoverExampleTextPink">あ</p>
@@ -39,8 +44,7 @@
 
   <!-- When it's a word -->
   <div class="popoverContent" *ngIf="!isCharacter">
-    <!-- <p class="popoverText">Pronunciation : [a]</p> -->
-    <p class="popoverText">Roumaji : {{finalContent.name}}</p>
+      <p class="popoverText">Roumaji : {{finalContent.name}}</p>
     <hr class="seperatorv2">
     <p class="popoverText">Translation : {{finalContent.translation}}</p>
   </div>

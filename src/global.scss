@@ -84,7 +84,7 @@ super-tabs-toolbar, super-tab-button {
   height: 8vh;
   display: flex;
   flex-direction: column;
-  justify-content: flex-start;
+  justify-content: center;
   margin: 0 !important;
 }
 
@@ -92,6 +92,16 @@ super-tabs { ion-label {
   text-transform: none;
   padding: 0;
 }}
+
+.main_nav_tabs {
+  super-tabs-toolbar, super-tab-button {
+    height: 8vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    margin: 0 !important;
+  }
+}
 
 //-------------end HEADER SECTION-----------------//
 
@@ -248,6 +258,11 @@ super-tabs { ion-label {
   color: #EDEDED;
 }
 
+.bottom_settings_button {
+  display: flex;
+  flex-direction: row;
+}
+
 //-------------end MODAL SETTINGS SECTION-----------------//
 
 //-------------start MODAL CONFIRMATION SECTION-----------//
@@ -332,6 +347,22 @@ super-tabs { ion-label {
   font-size: 5vw;
 }
 
+.top_part_popover {
+  display: flex;
+  flex-direction: row;
+}
+
+.top_left_part_popover {
+  display: flex;
+  flex-direction: column;
+}
+
+.audio_popover {
+  display: flex;
+    margin: auto;
+    font-size: 6vw;
+}
+
 .artificial_space {
   width: 1.5vw;
 }
@@ -351,9 +382,21 @@ super-tabs { ion-label {
     .popover-content {
   
   width: 90%;
-  // height: 55%;
   border-radius: 4vh;
+
+  top: 50% !important;
+  left: 50% !important;
+  transform: translate(-50%, -50%) !important;
+
+  border: 5px solid #3C3430;
+
+  // --backdrop-opacity: 0.93 !important;
+
     }}
+
+    ion-backdrop {
+      opacity: 0.5 !important;
+  }
 }
 
 //-------------end POPOVER SECTION-----------------//
