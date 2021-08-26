@@ -78,4 +78,15 @@ export class HomeTabsPage implements OnInit {
     this.nav_fx_sound.load();
   }
 
+  ionViewWillEnter(){
+    // this.subscriptionBack = this.platform.backButton.subscribeWithPriority(9999, () => {
+    //   //do nothing
+    //   console.log("SUBSCRIPTION TO DO NOTHING WITH BACK ");
+    // });
+
+    
+    // this.subscriptionBack.unsubscribe();
+    // console.log("UNSUBSCRIPTION TO DO NOTHING WITH BACK ");
+  }
+
 }

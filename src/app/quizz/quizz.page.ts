@@ -98,7 +98,7 @@ export class QuizzPage implements OnInit {
 
   }
 
-  async ionViewWillEnter(){
+  ionViewWillEnter(){
     this.ngOnInit();
     this.subscriptionBack = this.platform.backButton.subscribeWithPriority(9999, () => {
       console.log('Setting back button to leave quizz!');
@@ -108,7 +108,7 @@ export class QuizzPage implements OnInit {
     });
   }
 
-  ionViewWillLeave(){
+  ionViewDidLeave(){
     this.subscriptionBack.unsubscribe();
     console.log("unsubscribing");
     console.log("UNSUBSCRIPTION TO QUIT QUIZZ WITH BACK : ");
