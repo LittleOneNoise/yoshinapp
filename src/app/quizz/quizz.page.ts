@@ -39,12 +39,12 @@ export class QuizzPage implements OnInit {
       this.nav_fx_sound.play();
     }
 
-    this.subscriptionBack = this.platform.backButton.subscribeWithPriority(9999, () => {
-      console.log('Setting back button to close confirmation popup!');
-      this.modalController.dismiss();
-      console.log("SUBSCRIPTION TO CLOSE POPUP WITH BACK : ");
-    console.log(this.subscriptionBack);
-    });
+    // this.subscriptionBack = this.platform.backButton.subscribeWithPriority(9999, () => {
+    //   console.log('Setting back button to close confirmation popup!');
+    //   this.modalController.dismiss();
+    //   console.log("SUBSCRIPTION TO CLOSE POPUP WITH BACK : ");
+    // console.log(this.subscriptionBack);
+    // });
 
     const modal = await this.modalController.create({
       component: ConfirmationPopupPage,
@@ -52,12 +52,12 @@ export class QuizzPage implements OnInit {
     });
 
     modal.onDidDismiss().then(value => {
-      this.subscriptionBack = this.platform.backButton.subscribeWithPriority(9999, () => {
-        console.log('Setting back button to leave quizz!');
-        this.leaveQuizz();
-        console.log("SUBSCRIPTION TO QUIT QUIZZ WITH BACK : ");
-      console.log(this.subscriptionBack);
-      });
+      // this.subscriptionBack = this.platform.backButton.subscribeWithPriority(9999, () => {
+      //   console.log('Setting back button to leave quizz!');
+      //   this.leaveQuizz();
+      //   console.log("SUBSCRIPTION TO QUIT QUIZZ WITH BACK : ");
+      // console.log(this.subscriptionBack);
+      // });
     })
   
     return await modal.present();
@@ -79,10 +79,11 @@ export class QuizzPage implements OnInit {
 
   constructor(private route: ActivatedRoute, private router: Router, public statsService: StatsService, public toastController: ToastController, public platform: Platform, private modalController: ModalController) {
 
-    // this.platform.backButton.subscribeWithPriority(10, () => {
-    //   console.log('Setting back button to leave quizz!');
-    //   this.leaveQuizz();
-    // });
+    this.subscriptionBack = this.platform.backButton.subscribeWithPriority(10, () => {
+      console.log("subscribing to disable back button");
+      // console.log('Setting back button to leave quizz!');
+      // this.leaveQuizz();
+    });
    
     window.quizz = this;
 
@@ -100,19 +101,19 @@ export class QuizzPage implements OnInit {
 
   ionViewWillEnter(){
     this.ngOnInit();
-    this.subscriptionBack = this.platform.backButton.subscribeWithPriority(9999, () => {
-      console.log('Setting back button to leave quizz!');
-      this.leaveQuizz();
-      console.log("SUBSCRIPTION TO QUIT QUIZZ WITH BACK : ");
-    console.log(this.subscriptionBack);
-    });
+    // this.subscriptionBack = this.platform.backButton.subscribeWithPriority(9999, () => {
+    //   console.log('Setting back button to leave quizz!');
+    //   this.leaveQuizz();
+    //   console.log("SUBSCRIPTION TO QUIT QUIZZ WITH BACK : ");
+    // console.log(this.subscriptionBack);
+    // });
   }
 
   ionViewDidLeave(){
     this.subscriptionBack.unsubscribe();
     console.log("unsubscribing");
-    console.log("UNSUBSCRIPTION TO QUIT QUIZZ WITH BACK : ");
-    console.log(this.subscriptionBack);
+    // console.log("UNSUBSCRIPTION TO QUIT QUIZZ WITH BACK : ");
+    // console.log(this.subscriptionBack);
   }
 
 
@@ -120,10 +121,10 @@ export class QuizzPage implements OnInit {
     if(await this.statsService.checkSoundState()){
       this.nav_fx_sound.play();
 
-      this.subscriptionBack.unsubscribe();
-    console.log("unsubscribing");
-    console.log("UNSUBSCRIPTION TO QUIT QUIZZ WITH BACK : ");
-    console.log(this.subscriptionBack);
+    //   this.subscriptionBack.unsubscribe();
+    // console.log("unsubscribing");
+    // console.log("UNSUBSCRIPTION TO QUIT QUIZZ WITH BACK : ");
+    // console.log(this.subscriptionBack);
 
     }
     const modal = await this.modalController.create({
@@ -131,12 +132,12 @@ export class QuizzPage implements OnInit {
       cssClass: 'modalCss'
     });
     modal.onDidDismiss().then(value => {
-      this.subscriptionBack = this.platform.backButton.subscribeWithPriority(9999, () => {
-        console.log('Setting back button to leave quizz!');
-        this.leaveQuizz();
-        console.log("SUBSCRIPTION TO QUIT QUIZZ WITH BACK : ");
-      console.log(this.subscriptionBack);
-      });
+      // this.subscriptionBack = this.platform.backButton.subscribeWithPriority(9999, () => {
+      //   console.log('Setting back button to leave quizz!');
+      //   this.leaveQuizz();
+      //   console.log("SUBSCRIPTION TO QUIT QUIZZ WITH BACK : ");
+      // console.log(this.subscriptionBack);
+      // });
     })
   
     return await modal.present();
@@ -177,7 +178,7 @@ export class QuizzPage implements OnInit {
      this.start_sfx.load();
      this.nav_fx_sound.src = "../../assets/sounds/button_click_perc_sound_soft.wav";
     this.nav_fx_sound.load();
-    //  this.start_sfx.play();
+     this.start_sfx.play();
 
     
 
