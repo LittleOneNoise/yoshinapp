@@ -16,19 +16,22 @@ Built with Ionic using Angular Framework
 
 ## Features
 <b>Learning</b>
-* Cover the 3 different writing systems
+* Cover the 2 different writing systems
 * Boost the learning efficiency using mnemonic
 
 <b>Practising</b>
-* Choose what writing system(s) you're ready to take the test on
-* Choose how many characters you want to be tested on
-* Choose the way you want to be tested : give the japanese character or give the roumaji equivalent
+* Input based practice to train your brain in an efficient way
+* Retake system for the wrong answers
+* Result board highlighting your weak points
 
 <b>Statistics</b>
 * Keep an eye on your progression
 
 ## Contribute
-I would be glad to have any contributor on this project, although this might be a bit too early
+The app is still in an early stage, it is usable but there is a lot more that can be done, hence any contribution would be more than appreciated.
+There is no specific role seeked althought those profiles would be very helpful right now :
+* Angular developer -> The app needs further improvements (UI and functionality wise)
+* Artist -> One cool feature would be to add a kind of anime styled mascott in the app
 
 ###
 
