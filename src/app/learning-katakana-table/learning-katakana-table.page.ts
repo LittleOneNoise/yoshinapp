@@ -36,7 +36,7 @@ export class LearningKatakanaTablePage implements OnInit {
 
 
   ngOnInit() {
-    this.nav_fx_sound.src = "../../assets/sounds/button_click_perc_sound_soft.wav";
+    this.nav_fx_sound.src = "../../assets/sounds/SD_Click.mp3";
     this.nav_fx_sound.load();
   }
   

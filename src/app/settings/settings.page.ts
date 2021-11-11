@@ -16,7 +16,7 @@ export class SettingsPage implements OnInit {
   soundEnabled: boolean = true;
 
   async ngOnInit() {
-    this.nav_fx_sound.src = "../../assets/sounds/button_click_perc_sound_soft.wav";
+    this.nav_fx_sound.src = "../../assets/sounds/SD_Click.mp3";
     this.nav_fx_sound.load();
     this.soundEnabled = await this.statsService.checkSoundState();
   }

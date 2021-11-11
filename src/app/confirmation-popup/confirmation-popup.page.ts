@@ -15,7 +15,7 @@ export class ConfirmationPopupPage implements OnInit {
   nav_sfx: HTMLAudioElement = new Audio();
 
   ngOnInit() {
-    this.nav_sfx.src = "../../assets/sounds/button_click_perc_sound_soft.wav";
+    this.nav_sfx.src = "../../assets/sounds/SD_Click.mp3";
     this.nav_sfx.load();
   }
 

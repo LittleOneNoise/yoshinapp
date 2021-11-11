@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, NavigationExtras, Router } from '@angular/router';
 import { PopoverController } from '@ionic/angular';
 import { InfoKanaPage } from '../info-kana/info-kana.page';
+import { StatsService } from './../service/stats.service';
 declare var window;
 
 @Component({
@@ -11,7 +12,7 @@ declare var window;
 })
 export class FinalScorePage implements OnInit {
 
-  constructor(private route: ActivatedRoute, private router: Router, private popoverController: PopoverController) {
+  constructor(private route: ActivatedRoute, private router: Router, private popoverController: PopoverController, public statsService: StatsService) {
    
     console.log("executing the constructor");
     console.log(this.score,this.writing, this.quizzType);
@@ -30,6 +31,9 @@ export class FinalScorePage implements OnInit {
   tab_ex: string[][] = [];
   fail_tab: string[] = [];
   success_tab: string[] = [];
+  nav_fx_sound: HTMLAudioElement = new Audio();
+  good_score_fx_sound: HTMLAudioElement = new Audio();
+  bad_score_fx_sound: HTMLAudioElement = new Audio();
 
 
   async ngOnInit() {
@@ -46,8 +50,25 @@ export class FinalScorePage implements OnInit {
         console.log("sum up tab from constructor : ");
         console.log(this.router.getCurrentNavigation().extras.state.sum_up_tab);
         this.sortSummaryTab(this.router.getCurrentNavigation().extras.state.sum_up_tab);
+        this.nav_fx_sound.src = "../../assets/sounds/SD_Click.mp3";
+        this.nav_fx_sound.load();
+        // if(await this.statsService.checkSoundState()){
+        
       }
     });
+
+    if(await this.statsService.checkSoundState()){
+      this.good_score_fx_sound.src = "../../assets/sounds/SD_Success_test.mp3";
+      this.good_score_fx_sound.load();
+      this.bad_score_fx_sound.src = "../../assets/sounds/SD_Fail_test.mp3";
+      this.bad_score_fx_sound.load();
+      if(this.score<5){
+        this.bad_score_fx_sound.play();
+      }
+      else if(this.score>=5){
+        this.good_score_fx_sound.play();
+      }
+    }
 
     // this.fail_tab = [];
     // this.success_tab = [];
@@ -76,7 +97,7 @@ export class FinalScorePage implements OnInit {
     console.log(this.success_tab);
   }
 
-  goToQuizz(){
+  async goToQuizz(){
     let navigationExtras: NavigationExtras = {
       state: {
         type: this.quizzType,
@@ -84,10 +105,16 @@ export class FinalScorePage implements OnInit {
       }
     };
     this.router.navigate(['quizz'], navigationExtras);
+    if(await this.statsService.checkSoundState()){
+      this.nav_fx_sound.play();
+    }
   }
 
-  goHome(){
+  async goHome(){
   this.router.navigateByUrl("home");
+  if(await this.statsService.checkSoundState()){
+    this.nav_fx_sound.play();
+  }
   }
 
   async presentPopoverParam(ev: any, character: string) {

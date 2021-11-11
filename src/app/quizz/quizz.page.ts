@@ -161,7 +161,7 @@ export class QuizzPage implements OnInit {
   mistakeIndexHtml: number;
   normal_session: boolean = true;
   retake_session: boolean = false;
-  readonly questions_amount = 10;
+  readonly questions_amount = 1;
   mistakeListSize: number;
   correct_answer: boolean = false;
   show_answer_btn_content: string = "Show answer";
@@ -171,14 +171,23 @@ export class QuizzPage implements OnInit {
   summary_table: string[][] = [];
   start_sfx: HTMLAudioElement = new Audio();
   nav_fx_sound: HTMLAudioElement = new Audio();
+  good_answer_fx_sound: HTMLAudioElement = new Audio();
+  wrong_answer_fx_sound: HTMLAudioElement = new Audio();
   private subscriptionBack: Subscription;
 
-   async ngOnInit() {
-     this.start_sfx.src = "../../assets/sounds/test_start.wav";
-     this.start_sfx.load();
-     this.nav_fx_sound.src = "../../assets/sounds/button_click_perc_sound_soft.wav";
+  async ngOnInit() {
+    if(await this.statsService.checkSoundState()){
+      this.start_sfx.src = "../../assets/sounds/test_start.wav";
+      this.start_sfx.load();
+      this.start_sfx.play();
+    }
+    this.nav_fx_sound.src = "../../assets/sounds/SD_Click.mp3";
     this.nav_fx_sound.load();
-     this.start_sfx.play();
+    this.good_answer_fx_sound.src = "../../assets/sounds/SD_Success.mp3";
+    this.good_answer_fx_sound.load();
+    this.wrong_answer_fx_sound.src = "../../assets/sounds/SD_Fail.mp3";
+    this.wrong_answer_fx_sound.load();
+     
 
     
 
@@ -542,6 +551,9 @@ async emptyFieldToast() {
     if(this.progression < this.questions_amount){
       //When answer is right
       if(this.checkAnswer(this.input_value.toLowerCase())){
+        if(await this.statsService.checkSoundState()){
+          this.good_answer_fx_sound.play();
+        }
         // let element_block_charac = document.getElementsByClassName('block_charac') as HTMLCollectionOf<HTMLElement>;
         this.summary_table.push([this.current_charac, "correct"]);
         console.log("added " + this.current_charac + "to the summary table as correct");
@@ -569,6 +581,9 @@ async emptyFieldToast() {
       }
       //When answer is wrong
       else {
+        if(await this.statsService.checkSoundState()){
+          this.wrong_answer_fx_sound.play();
+        }
         this.summary_table.push([this.current_charac, "wrong"]);
         console.log("added " + this.current_charac + "to the summary table as wrong");
         console.log("summary table :");
@@ -585,6 +600,9 @@ async emptyFieldToast() {
     //When this is the last question of the quizz
     else if(this.progression == this.questions_amount){
       //When answer is right
+      if(await this.statsService.checkSoundState()){
+        this.good_answer_fx_sound.play();
+      }
       if(this.checkAnswer(this.input_value.toLowerCase())){
         this.summary_table.push([this.current_charac, "correct"]);
         console.log("added " + this.current_charac + "to the summary table as correct");
@@ -635,6 +653,9 @@ async emptyFieldToast() {
       }
       //When answer is wrong
       else {
+        if(await this.statsService.checkSoundState()){
+          this.wrong_answer_fx_sound.play();
+        }
         this.summary_table.push([this.current_charac, "wrong"]);
         console.log("added " + this.current_charac + "to the summary table as wrong");
         console.log("summary table :");
@@ -651,6 +672,9 @@ async emptyFieldToast() {
     //When this is the retake session
     else if(this.progression > this.questions_amount){
       //When answer is right
+      if(await this.statsService.checkSoundState()){
+        this.good_answer_fx_sound.play();
+      }
       if(this.checkAnswer(this.input_value.toLowerCase())){
         let element_block_charac = document.getElementsByClassName('block_charac') as HTMLCollectionOf<HTMLElement>;
         //Mistake list not empty
@@ -689,6 +713,9 @@ async emptyFieldToast() {
       }
       //When answer is wrong
       else {
+        if(await this.statsService.checkSoundState()){
+          this.wrong_answer_fx_sound.play();
+        }
         let element_block_charac = document.getElementsByClassName('block_charac') as HTMLCollectionOf<HTMLElement>;
         element_block_charac[0].style.background = "#a24040";
         this.getCurrentName();

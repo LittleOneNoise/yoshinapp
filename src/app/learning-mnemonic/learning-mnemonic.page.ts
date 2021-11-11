@@ -45,7 +45,7 @@ export class LearningMnemonicPage implements OnInit {
   pronunciation: HTMLAudioElement = new Audio();
 
   async ngOnInit() {
-    this.nav_fx_sound.src = "../../assets/sounds/button_click_perc_sound_soft.wav";
+    this.nav_fx_sound.src = "../../assets/sounds/SD_Click.mp3";
     this.nav_fx_sound.load();
     this.normal_view = true;
 
