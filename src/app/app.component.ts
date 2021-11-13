@@ -2,7 +2,7 @@ import { Component } from '@angular/core';
 import { Plugins } from '@capacitor/core';
 const { SplashScreen } = Plugins;
 import { Platform } from '@ionic/angular';
-// import { ScreenOrientation } from '@ionic-native/screen-orientation/ngx';
+import { ScreenOrientation } from '@ionic-native/screen-orientation/ngx';
 
 @Component({
   selector: 'app-root',
@@ -11,20 +11,21 @@ import { Platform } from '@ionic/angular';
 })
 export class AppComponent {
   
-  constructor(private platform: Platform) {
+  constructor(private platform: Platform, private screenOrientation: ScreenOrientation) {
     this.initializeApp();
     
     // set to portrait
-    // this.screenOrientation.lock(this.screenOrientation.ORIENTATIONS.PORTRAIT);
+    this.screenOrientation.lock(this.screenOrientation.ORIENTATIONS.PORTRAIT);
   }
 
   initializeApp() {
     this.platform.ready().then(() => {
-       console.log("app initialized !!")
-        SplashScreen.hide({
-          fadeOutDuration: 1000
-        });
+      setTimeout(() => {
+        SplashScreen.hide();
+      }, 5000);
     });
-}
+    console.log("app initialized !!");
+  }
 
+    
 }

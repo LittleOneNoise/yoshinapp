@@ -16,6 +16,9 @@ import { SuperTabsModule } from '@ionic-super-tabs/angular';
 import { IonicStorageModule } from '@ionic/storage-angular';
 import * as CordovaSQLiteDriver from 'localforage-cordovasqlitedriver';
 import { Drivers } from '@ionic/storage';
+import { InAppBrowser } from '@ionic-native/in-app-browser/ngx';
+// import { BrowserTab } from '@ionic-native/browser-tab/ngx';
+import { ScreenOrientation } from '@ionic-native/screen-orientation/ngx';
 
 @NgModule({
   declarations: [AppComponent],
@@ -34,6 +37,9 @@ import { Drivers } from '@ionic/storage';
     { provide: RouteReuseStrategy, useClass: IonicRouteStrategy },
     {provide: NativeAudio, useClass: NativeAudio},
     StatsService,
+    {provide: InAppBrowser, useClass: InAppBrowser },
+    // {provide: BrowserTab, useClass: BrowserTab },
+    ScreenOrientation
   ],
   bootstrap: [AppComponent],
 })

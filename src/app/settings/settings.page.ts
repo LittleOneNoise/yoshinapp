@@ -1,6 +1,9 @@
 import { AlertController, ModalController, Platform } from '@ionic/angular';
 import { Component, OnInit } from '@angular/core';
 import { StatsService } from '../service/stats.service';
+// import { BrowserTab } from '@ionic-native/browser-tab/ngx';
+import { InAppBrowser } from '@ionic-native/in-app-browser/ngx';
+import { waitForAsync } from '@angular/core/testing';
 declare var window;
 
 @Component({
@@ -10,7 +13,7 @@ declare var window;
 })
 export class SettingsPage implements OnInit {
 
-  constructor(private modalController: ModalController, private alertController: AlertController, public statsService: StatsService, private platform: Platform) { }
+  constructor(private modalController: ModalController, private alertController: AlertController, public statsService: StatsService, private platform: Platform, private iab: InAppBrowser) { }
 
   nav_fx_sound: HTMLAudioElement = new Audio();
   soundEnabled: boolean = true;
@@ -29,7 +32,7 @@ export class SettingsPage implements OnInit {
     // console.log("agagaga")
     // window.quizz.subscriptionBack = this.platform.backButton.subscribeWithPriority(9999, () => {
     //   console.log('Setting back button to leave quizz!');
-    //   window.home.leaveQuizz();
+    //   window.home.leaveQuizz():
     //   console.log("SUBSCRIPTION TO QUIT QUIZZ WITH BACK : ");
     // });
 
@@ -76,5 +79,22 @@ export class SettingsPage implements OnInit {
 
     await alert.present();
   }
+
+  goToGithub(){
+    // this.browserTab.isAvailable()
+    // .then(isAvailable => {
+    //   if (isAvailable) {
+    //     this.browserTab.openUrl('https://github.com/LittleOneNoise/yoshinapp');
+    //   } else {
+    //     this.iab.create('https://github.com/LittleOneNoise/yoshinapp','_system');
+    //   }
+    // });
+    this.iab.create('https://github.com/LittleOneNoise/yoshinapp','_system');
+  }
+
+  goToDonation(){
+    this.iab.create('https://www.paypal.com/donate?hosted_button_id=57K63FKPK3WXC','_system');
+  }
+  
 
 }
