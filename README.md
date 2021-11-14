@@ -10,6 +10,7 @@ The name is a combination of two terms: Yoshino and App. Yoshino is the name of 
 
 ## Screenshots
 ![alt text](https://github.com/LittleOneNoise/yoshinapp/blob/882ac6155f4b8fe84ec3a909df22ffb5537fed02/sneak_peek_1.PNG)
+<img src="https://github.com/LittleOneNoise/yoshinapp/blob/882ac6155f4b8fe84ec3a909df22ffb5537fed02/sneak_peek_1.PNG" width="48">
 ![alt text](https://github.com/LittleOneNoise/yoshinapp/blob/882ac6155f4b8fe84ec3a909df22ffb5537fed02/sneak_peek_2.PNG)
 ![alt text](https://github.com/LittleOneNoise/yoshinapp/blob/882ac6155f4b8fe84ec3a909df22ffb5537fed02/sneak_peek_3.PNG)
 ![alt text](https://github.com/LittleOneNoise/yoshinapp/blob/882ac6155f4b8fe84ec3a909df22ffb5537fed02/sneak_peek_4.PNG)
