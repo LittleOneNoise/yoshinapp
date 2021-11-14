@@ -161,7 +161,7 @@ export class QuizzPage implements OnInit {
   mistakeIndexHtml: number;
   normal_session: boolean = true;
   retake_session: boolean = false;
-  readonly questions_amount = 1;
+  readonly questions_amount = 10;
   mistakeListSize: number;
   correct_answer: boolean = false;
   show_answer_btn_content: string = "Show answer";
