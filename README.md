@@ -9,12 +9,13 @@ I don't pretend to bring a revolution, my goal is to provide a completely FREE s
 The name is a combination of two terms: Yoshino and App. Yoshino is the name of a variety of Japanese cherry tree which is widely known and spread nowadays. As you can see, the application uses colors that remind of cherry trees with their famous flowers.
 
 ## Screenshots
-![alt text](https://github.com/LittleOneNoise/yoshinapp/blob/882ac6155f4b8fe84ec3a909df22ffb5537fed02/sneak_peek_1.PNG)
-<img src="https://github.com/LittleOneNoise/yoshinapp/blob/882ac6155f4b8fe84ec3a909df22ffb5537fed02/sneak_peek_1.PNG" width="48">
-![alt text](https://github.com/LittleOneNoise/yoshinapp/blob/882ac6155f4b8fe84ec3a909df22ffb5537fed02/sneak_peek_2.PNG)
-![alt text](https://github.com/LittleOneNoise/yoshinapp/blob/882ac6155f4b8fe84ec3a909df22ffb5537fed02/sneak_peek_3.PNG)
-![alt text](https://github.com/LittleOneNoise/yoshinapp/blob/882ac6155f4b8fe84ec3a909df22ffb5537fed02/sneak_peek_4.PNG)
-![alt text](https://github.com/LittleOneNoise/yoshinapp/blob/882ac6155f4b8fe84ec3a909df22ffb5537fed02/sneak_peek_5.PNG)
+<p align="center">
+<img src="https://github.com/LittleOneNoise/yoshinapp/blob/882ac6155f4b8fe84ec3a909df22ffb5537fed02/sneak_peek_1.PNG" width="150">
+<img src="https://github.com/LittleOneNoise/yoshinapp/blob/882ac6155f4b8fe84ec3a909df22ffb5537fed02/sneak_peek_2.PNG" width="150">
+<img src="https://github.com/LittleOneNoise/yoshinapp/blob/882ac6155f4b8fe84ec3a909df22ffb5537fed02/sneak_peek_3.PNG" width="150">
+<img src="https://github.com/LittleOneNoise/yoshinapp/blob/882ac6155f4b8fe84ec3a909df22ffb5537fed02/sneak_peek_4.PNG" width="150">
+<img src="https://github.com/LittleOneNoise/yoshinapp/blob/882ac6155f4b8fe84ec3a909df22ffb5537fed02/sneak_peek_5.PNG" width="150">
+ </p>
 
 ## Tech/framework used
 Built with Ionic using Angular Framework
