@@ -173,6 +173,7 @@ export class QuizzPage implements OnInit {
   nav_fx_sound: HTMLAudioElement = new Audio();
   good_answer_fx_sound: HTMLAudioElement = new Audio();
   wrong_answer_fx_sound: HTMLAudioElement = new Audio();
+  empty_field_fx_sound: HTMLAudioElement = new Audio();
   private subscriptionBack: Subscription;
 
   async ngOnInit() {
@@ -187,6 +188,8 @@ export class QuizzPage implements OnInit {
     this.good_answer_fx_sound.load();
     this.wrong_answer_fx_sound.src = "../../assets/sounds/SD_Fail.mp3";
     this.wrong_answer_fx_sound.load();
+    this.empty_field_fx_sound.src = "../../assets/sounds/SD_Empty_field.mp3";
+    this.empty_field_fx_sound.load();
      
 
     
@@ -266,6 +269,9 @@ export class QuizzPage implements OnInit {
 
 
 async emptyFieldToast() {
+  if(await this.statsService.checkSoundState()){
+    this.empty_field_fx_sound.play();
+  }
   const toast = await this.toastController.create({
     message: 'Empty field',
     duration: 1000,
