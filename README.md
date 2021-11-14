@@ -9,7 +9,7 @@ I don't pretend to bring a revolution, my goal is to provide a completely FREE s
 The name is a combination of two terms: Yoshino and App. Yoshino is the name of a variety of Japanese cherry tree which is widely known and spread nowadays. As you can see, the application uses colors that remind of cherry trees with their famous flowers.
 
 ## Screenshots
-Coming soon...
+![alt text](https://github.com/[username]/[reponame]/blob/[branch]/image.jpg?raw=true)
 
 ## Tech/framework used
 Built with Ionic using Angular Framework
