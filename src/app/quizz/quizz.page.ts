@@ -174,6 +174,9 @@ export class QuizzPage implements OnInit {
   good_answer_fx_sound: HTMLAudioElement = new Audio();
   wrong_answer_fx_sound: HTMLAudioElement = new Audio();
   empty_field_fx_sound: HTMLAudioElement = new Audio();
+  good_score_fx_sound: HTMLAudioElement = new Audio();
+  bad_score_fx_sound: HTMLAudioElement = new Audio();
+
   private subscriptionBack: Subscription;
 
   async ngOnInit() {
@@ -190,6 +193,10 @@ export class QuizzPage implements OnInit {
     this.wrong_answer_fx_sound.load();
     this.empty_field_fx_sound.src = "../../assets/sounds/SD_Empty_field.mp3";
     this.empty_field_fx_sound.load();
+    this.good_score_fx_sound.src = "../../assets/sounds/SD_Success_test.mp3";
+    this.good_score_fx_sound.load();
+    this.bad_score_fx_sound.src = "../../assets/sounds/SD_Fail_test.mp3";
+    this.bad_score_fx_sound.load();
      
 
     
@@ -543,6 +550,14 @@ async emptyFieldToast() {
       }
     };
     this.router.navigate(['final-result'], navigationExtras);
+    if(await this.statsService.checkSoundState()){
+      if(this.final_score >=(this.questions_amount/2)){
+        this.good_score_fx_sound.play();
+      }
+      else if (this.final_score<(this.questions_amount/2)){
+        this.bad_score_fx_sound.play();
+      }
+    }
     
   }
 

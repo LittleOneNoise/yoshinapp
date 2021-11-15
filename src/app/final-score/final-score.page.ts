@@ -32,8 +32,8 @@ export class FinalScorePage implements OnInit {
   fail_tab: string[] = [];
   success_tab: string[] = [];
   nav_fx_sound: HTMLAudioElement = new Audio();
-  good_score_fx_sound: HTMLAudioElement = new Audio();
-  bad_score_fx_sound: HTMLAudioElement = new Audio();
+  // good_score_fx_sound: HTMLAudioElement = new Audio();
+  // bad_score_fx_sound: HTMLAudioElement = new Audio();
 
 
   async ngOnInit() {
@@ -57,18 +57,18 @@ export class FinalScorePage implements OnInit {
       }
     });
 
-    if(await this.statsService.checkSoundState()){
-      this.good_score_fx_sound.src = "../../assets/sounds/SD_Success_test.mp3";
-      this.good_score_fx_sound.load();
-      this.bad_score_fx_sound.src = "../../assets/sounds/SD_Fail_test.mp3";
-      this.bad_score_fx_sound.load();
-      if(this.score<5){
-        this.bad_score_fx_sound.play();
-      }
-      else if(this.score>=5){
-        this.good_score_fx_sound.play();
-      }
-    }
+    // if(await this.statsService.checkSoundState()){
+    //   this.good_score_fx_sound.src = "../../assets/sounds/SD_Success_test.mp3";
+    //   this.good_score_fx_sound.load();
+    //   this.bad_score_fx_sound.src = "../../assets/sounds/SD_Fail_test.mp3";
+    //   this.bad_score_fx_sound.load();
+    //   if(this.score<5){
+    //     this.bad_score_fx_sound.play();
+    //   }
+    //   else if(this.score>=5){
+    //     this.good_score_fx_sound.play();
+    //   }
+    // }
 
     // this.fail_tab = [];
     // this.success_tab = [];
