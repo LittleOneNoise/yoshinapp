@@ -25,10 +25,10 @@ Built with Ionic using Angular Framework
 * Covers 2 different writing systems
 * Boost the learning efficiency using mnemonic
 
-<b>Practising</b>
+<b>Practicing</b>
 * Input based practice to train your brain in an efficient way
 * Retake system for the wrong answers
-* Result board highlighting your weak points
+* Results board highlighting your weak points
 
 <b>Statistics</b>
 * Key figures to optimize your learning
