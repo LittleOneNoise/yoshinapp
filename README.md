@@ -10,11 +10,11 @@ The name is a combination of two terms: Yoshino and App. Yoshino is the name of 
 
 ## Screenshots
 <p align="center">
-<img src="https://github.com/LittleOneNoise/yoshinapp/blob/882ac6155f4b8fe84ec3a909df22ffb5537fed02/sneak_peek_1.PNG" width="150">
-<img src="https://github.com/LittleOneNoise/yoshinapp/blob/882ac6155f4b8fe84ec3a909df22ffb5537fed02/sneak_peek_2.PNG" width="150">
-<img src="https://github.com/LittleOneNoise/yoshinapp/blob/882ac6155f4b8fe84ec3a909df22ffb5537fed02/sneak_peek_3.PNG" width="150">
-<img src="https://github.com/LittleOneNoise/yoshinapp/blob/882ac6155f4b8fe84ec3a909df22ffb5537fed02/sneak_peek_4.PNG" width="150">
-<img src="https://github.com/LittleOneNoise/yoshinapp/blob/882ac6155f4b8fe84ec3a909df22ffb5537fed02/sneak_peek_5.PNG" width="150">
+<img src="https://github.com/LittleOneNoise/yoshinapp/blob/0bed4dfd4fa11bcd2e8bb89b20519d8bc7f49538/assets_factory/Readme_images/sneak_peek_1.PNG" width="150">
+<img src="https://github.com/LittleOneNoise/yoshinapp/blob/0bed4dfd4fa11bcd2e8bb89b20519d8bc7f49538/assets_factory/Readme_images/sneak_peek_2.PNG" width="150">
+<img src="https://github.com/LittleOneNoise/yoshinapp/blob/0bed4dfd4fa11bcd2e8bb89b20519d8bc7f49538/assets_factory/Readme_images/sneak_peek_3.PNG" width="150">
+<img src="https://github.com/LittleOneNoise/yoshinapp/blob/0bed4dfd4fa11bcd2e8bb89b20519d8bc7f49538/assets_factory/Readme_images/sneak_peek_4.PNG" width="150">
+<img src="https://github.com/LittleOneNoise/yoshinapp/blob/0bed4dfd4fa11bcd2e8bb89b20519d8bc7f49538/assets_factory/Readme_images/sneak_peek_5.PNG" width="150">
  </p>
 
 ## Tech/framework used
@@ -40,6 +40,8 @@ There is no specific role seeked although those profiles would be very helpful r
 * Artist -> A cool feature would be to add a kind of anime styled mascott across the app
 
 Contact : yoshinapp@gmail.com
+
+You can also support by making a donation: https://www.paypal.com/donate?hosted_button_id=57K63FKPK3WXC
 
 ###
 
