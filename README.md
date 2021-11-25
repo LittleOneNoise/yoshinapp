@@ -39,8 +39,11 @@ There is no specific role seeked although those profiles would be very helpful r
 * Angular developer -> The app needs further improvements (UI and functionality wise)
 * Artist -> A cool feature would be to add a kind of anime styled mascott across the app
 
+## Socials/Contact
 Contact : yoshinapp@gmail.com
+Discord server : https://discord.gg/eHn59tnD
 
+## Donate
 You can also support by making a donation: https://www.paypal.com/donate?hosted_button_id=57K63FKPK3WXC
 
 ###
