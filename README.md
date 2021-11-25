@@ -40,7 +40,7 @@ There is no specific role seeked although those profiles would be very helpful r
 * Artist -> A cool feature would be to add a kind of anime styled mascott across the app
 
 ## Socials/Contact
-Contact : yoshinapp@gmail.com
+Contact : yoshinapp@gmail.com<br/>
 Discord server : https://discord.gg/eHn59tnD
 
 ## Donate
