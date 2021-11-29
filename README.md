@@ -48,4 +48,4 @@ You can also support by making a donation: https://www.paypal.com/donate?hosted_
 
 ###
 
-Yoshinapp © Little One (2021)
+Yoshinapp © 2021
