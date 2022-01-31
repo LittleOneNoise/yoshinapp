@@ -41,7 +41,7 @@ There is no specific role seeked although those profiles would be very helpful r
 
 ## Socials/Contact
 Contact : yoshinapp@gmail.com<br/>
-Discord server : https://discord.gg/eHn59tnD
+Discord server : https://discord.gg/BnE2eyyGFY
 
 ## Donate
 You can also support by making a donation: https://www.paypal.com/donate?hosted_button_id=57K63FKPK3WXC
