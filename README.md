@@ -1,5 +1,5 @@
 ## Yoshinapp
-Yoshinapp is a cross-platform mobile application that aims to provide a way to learn the Japanese language. It has been developed to offer a clean and pleasant interface to boost learning efficiency.
+Yoshinapp is a cross-platform mobile application (currently only available for Android) that aims to provide a way to learn the Japanese language. It has been developed to offer a clean and pleasant interface to boost learning efficiency.
 
 ## Why develop an app that already exists in millions of forms ?
 This project is for me the opportunity to develop my skills in mobile programming while working on a subject that means a lot to me: the Japanese language.
@@ -19,6 +19,9 @@ The name is a combination of two terms: Yoshino and App. Yoshino is the name of 
 
 ## Tech/framework used
 Built with Ionic using Angular Framework
+
+##Download link
+https://play.google.com/store/apps/details?id=com.yoshinapp.app
 
 ## Features
 <b>Learning</b>
@@ -48,4 +51,4 @@ You can also support by making a donation: https://www.paypal.com/donate?hosted_
 
 ###
 
-Yoshinapp © 2021
+Yoshinapp © 2022
