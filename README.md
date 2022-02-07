@@ -20,7 +20,7 @@ The name is a combination of two terms: Yoshino and App. Yoshino is the name of 
 ## Tech/framework used
 Built with Ionic using Angular Framework
 
-##Download link
+## Download link
 https://play.google.com/store/apps/details?id=com.yoshinapp.app
 
 ## Features
