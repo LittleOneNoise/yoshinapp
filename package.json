@@ -10,7 +10,8 @@
     "test": "ng test",
     "lint": "ng lint",
     "e2e": "ng e2e",
-    "ionrun": "ionic build && npx cap sync android && npx cap open android"
+    "ion-prepare" : "npx cap add android",
+    "ion-release": "ionic build && npx cap sync android && npx cap open android"
   },
   "private": true,
   "dependencies": {

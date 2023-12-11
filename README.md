@@ -42,6 +42,20 @@ There is no specific role seeked although those profiles would be very helpful r
 * Angular developer -> The app needs further improvements (UI and functionality wise)
 * Artist -> A cool feature would be to add a kind of anime styled mascott across the app
 
+## How to build for android
+### Build
+1) Run `npm run ion-prepare`
+2) Run `npm run ion-release`
+
+### Icon
+1) Open Android Studio
+2) Go to app > res > mipmap --> new > image asset
+3) In foreground layer section, load icon image
+
+### Splashscreen
+1) Go to app > res > drawable > splash
+2) Replace the splash.png file in each of these drawable folders
+
 ## Socials/Contact
 Contact : yoshinapp@gmail.com<br/>
 Discord server : https://discord.gg/BnE2eyyGFY
@@ -51,4 +65,4 @@ You can also support by making a donation: https://www.paypal.com/donate?hosted_
 
 ###
 
-Yoshinapp © 2022
+Yoshinapp © 2024
